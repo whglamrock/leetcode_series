@@ -8,10 +8,7 @@
 
 class Solution(object):
     def maxArea(self, height):
-        """
-        :type height: List[int]
-        :rtype: int
-        """
+
         i = 0
         j = len(height)-1
         area = min(height[i],height[j])*(j-i)
@@ -25,6 +22,7 @@ class Solution(object):
                     area = min(height[i],height[j])*(j-i)
 
         return area
+
 
 
 a = [1,2,3,12,1,2,14,8]
