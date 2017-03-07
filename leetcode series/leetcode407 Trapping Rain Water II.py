@@ -65,8 +65,8 @@ public class Solution {
             this.col = col;
             this.height = height;
         }
-
     }
+
     public int trapRainWater(int[][] heightMap) {
 
         if (heightMap == null || heightMap.length == 0 || heightMap[0].length == 0) {
@@ -116,7 +116,6 @@ public class Solution {
         }
 
         return res;
-
     }
 }
 '''
