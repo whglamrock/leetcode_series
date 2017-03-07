@@ -1,4 +1,9 @@
 
+# basic idea is: the amount of trapped water is decided by the shortest wall around it
+#   so put the heights in a min priorityqueue and the newly popped height will be taller than
+#   all previously popped ones. Then the height difference cna be directly added the amount of trapped
+#   water.
+
 from heapq import *
 class Solution(object):
     def trapRainWater(self, heightMap):
@@ -31,6 +36,7 @@ class Solution(object):
                 if 0 <= row < m and 0 <= col < n and (not visited[row][col]):
                     visited[row][col] = True
                     res += max(0, cell[0] - heightMap[row][col])
+                    # re-add the "filled" cell, change the height at (row, col)
                     heappush(pq, [max(cell[0], heightMap[row][col]), (row, col)])
 
         return res

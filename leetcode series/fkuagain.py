@@ -2,6 +2,11 @@
 a = 'asf'
 print a[4:]
 
+from heapq import *
+a = [1, 2, 3, 4, 5]
+heapify(a)
+while a:
+    print heappop(a)
 
 
 

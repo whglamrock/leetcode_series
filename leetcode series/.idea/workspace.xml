@@ -197,7 +197,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode313_Super_Ugly_Number.coverage" NAME="leetcode313 Super Ugly Number Coverage Results" MODIFIED="1475611120163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode208_Implement_Trie__Prefix_Tree_.coverage" NAME="leetcode208 Implement Trie (Prefix Tree) Coverage Results" MODIFIED="1476388479866" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode10_Regular_Expression_Matching.coverage" NAME="leetcode10 Regular Expression Matching Coverage Results" MODIFIED="1480612265491" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Leetcode series$fkuagain.coverage" NAME="fkuagain Coverage Results" MODIFIED="1488755813194" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Leetcode series$fkuagain.coverage" NAME="fkuagain Coverage Results" MODIFIED="1488910098144" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode92_Reverse_Linked_List_II.coverage" NAME="leetcode92 Reverse Linked List II Coverage Results" MODIFIED="1472699609413" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$dsgfes.coverage" NAME="dsgfes Coverage Results" MODIFIED="1458075991086" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode60_Permutation_Sequence.coverage" NAME="leetcode60 Permutation Sequence Coverage Results" MODIFIED="1473623653768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -279,27 +279,17 @@
         <entry file="file://$PROJECT_DIR$/fkuagain.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode407 Trapping Rain Water II.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="leetcode407 Trapping Rain Water II.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leetcode517 Super Washing Machines.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode517 Super Washing Machines.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.06427221">
-              <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+            <state vertical-scroll-proportion="0.1388889">
+              <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -362,12 +352,12 @@
         <option value="$PROJECT_DIR$/leetcode352 Data Stream as Disjoint Intervals.py" />
         <option value="$PROJECT_DIR$/leetcode145 Binary Tree Postorder Traversal.py" />
         <option value="$PROJECT_DIR$/leetcode272 Closest Binary Search Tree Value II.py" />
-        <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode488 Zuma Game.py" />
         <option value="$PROJECT_DIR$/leetcode11 Container with Most Water.py" />
         <option value="$PROJECT_DIR$/leetcode12 Integer to Roman.py" />
-        <option value="$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py" />
         <option value="$PROJECT_DIR$/leetcode517 Super Washing Machines.py" />
+        <option value="$PROJECT_DIR$/fkuagain.py" />
+        <option value="$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py" />
       </list>
     </option>
   </component>
@@ -457,7 +447,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode517 Super Washing Machines">
+  <component name="RunManager" selected="Python.fkuagain">
     <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -845,10 +835,10 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode517 Super Washing Machines" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode407 Trapping Rain Water II" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode488 Zuma Game" />
-        <item index="3" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="0" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode517 Super Washing Machines" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode407 Trapping Rain Water II" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode488 Zuma Game" />
         <item index="4" class="java.lang.String" itemvalue="Python.leetcode471 Encode String with Shortest Length" />
       </list>
     </recent_temporary>
@@ -885,7 +875,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49000868" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16616766" sideWeight="0.47142857" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31137726" sideWeight="0.47142857" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24934839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1308,23 +1298,23 @@
     <entry file="file://$PROJECT_DIR$/fkuagain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode517 Super Washing Machines.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.06427221">
+        <state vertical-scroll-proportion="0.4861111">
           <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1388889">
+          <caret line="4" column="10" selection-start-line="4" selection-start-column="10" selection-end-line="4" selection-end-column="10" />
           <folding />
         </state>
       </provider>
