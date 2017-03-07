@@ -56,31 +56,34 @@ import java.lang.Math;
 
 public class Solution {
 
-    public class Cell {
+    public class Cell implements Comparable<Cell> {
+
         int row;
         int col;
         int height;
+
         public Cell (int row, int col, int height) {
             this.row = row;
             this.col = col;
             this.height = height;
         }
+
+        public int compareTo(Cell o) {
+            return this.height - o.height;
+        }
     }
 
     public int trapRainWater(int[][] heightMap) {
 
-        if (heightMap == null || heightMap.length == 0 || heightMap[0].length == 0) {
+        if (heightMap == null || heightMap.length <= 2 || heightMap[0].length <= 2) {
             return 0;
         }
 
-        PriorityQueue<Cell> pq = new PriorityQueue<Cell> (1, new Comparator<Cell>() {
-            public int compare(Cell a, Cell b) {
-                return a.height - b.height;
-            }
-        });
-
+        // the compareTo method has already been pre-defined
+        PriorityQueue<Cell> pq = new PriorityQueue<Cell> (1);
         int m = heightMap.length;
         int n = heightMap[0].length;
+
         boolean[][] visited = new boolean[m][n];
         for (boolean[] visitedrow: visited) {
             Arrays.fill(visitedrow, false);
