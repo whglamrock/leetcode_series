@@ -10,9 +10,9 @@ class Solution(object):
             return 0
 
         n = len(machines)
-        sumarray = [0]
+        sumarray = [0 for i in xrange(n + 1)]
         for i in xrange(n):
-            sumarray.append(machines[i] + sumarray[-1])
+            sumarray[i + 1] = sumarray[i] + machines[i]
 
         if sumarray[-1] % n != 0:
             return -1
@@ -33,3 +33,9 @@ class Solution(object):
                 res = max(res, max(abs(l), abs(r)))
 
         return res
+
+
+
+machines = [1, 0, 5]
+Sol = Solution()
+print Sol.findMinMoves(machines)
