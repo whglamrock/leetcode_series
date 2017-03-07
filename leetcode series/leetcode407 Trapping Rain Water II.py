@@ -20,7 +20,6 @@ class Solution(object):
             heappush(pq, [heightMap[i][0], (i, 0)])
             heappush(pq, [heightMap[i][-1], (i, n - 1)])
 
-
         for j in xrange(1, n - 1):
             visited[0][j], visited[-1][j] = True, True
             heappush(pq, [heightMap[0][j], (0, j)])
@@ -40,3 +39,84 @@ class Solution(object):
                     heappush(pq, [max(cell[0], heightMap[row][col]), (row, col)])
 
         return res
+
+
+
+Sol = Solution()
+heightMap = [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]]
+print Sol.trapRainWater(heightMap)
+
+
+
+'''
+# java version
+
+import java.util.*;
+import java.lang.Math;
+
+public class Solution {
+
+    public class Cell {
+        int row;
+        int col;
+        int height;
+        public Cell (int row, int col, int height) {
+            this.row = row;
+            this.col = col;
+            this.height = height;
+        }
+
+    }
+    public int trapRainWater(int[][] heightMap) {
+
+        if (heightMap == null || heightMap.length == 0 || heightMap[0].length == 0) {
+            return 0;
+        }
+
+        PriorityQueue<Cell> pq = new PriorityQueue<Cell> (1, new Comparator<Cell>() {
+            public int compare(Cell a, Cell b) {
+                return a.height - b.height;
+            }
+        });
+
+        int m = heightMap.length;
+        int n = heightMap[0].length;
+        boolean[][] visited = new boolean[m][n];
+        for (boolean[] visitedrow: visited) {
+            Arrays.fill(visitedrow, false);
+        }
+
+        for (int i = 0; i < m; i++) {
+            visited[i][0] = true;
+            visited[i][n - 1] = true;
+            pq.offer(new Cell(i, 0, heightMap[i][0]));
+            pq.offer(new Cell(i, n - 1, heightMap[i][n - 1]));
+        }
+
+        for (int j = 0; j < n; j++) {
+            visited[0][j] = true;
+            visited[m - 1][j] = true;
+            pq.offer(new Cell(0, j, heightMap[0][j]));
+            pq.offer(new Cell(m - 1, j, heightMap[m - 1][j]));
+        }
+
+        int[][] dirs = new int[][] {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+        int res = 0;
+        while (!pq.isEmpty()) {
+            Cell cell = pq.poll();
+            for (int[] dir: dirs) {
+                int row = cell.row + dir[0];
+                int col = cell.col + dir[1];
+                if (row >= 0 && row < m && col >= 0 && col < n && !visited[row][col]) {
+                    visited[row][col] = true;
+                    res += Math.max(0, cell.height - heightMap[row][col]);
+                    pq.offer(new Cell(row, col, Math.max(cell.height, heightMap[row][col])));
+                }
+            }
+        }
+
+        return res;
+
+    }
+}
+'''
