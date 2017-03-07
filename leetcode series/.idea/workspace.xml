@@ -234,6 +234,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode22_Generate_Parentheses.coverage" NAME="leetcode22 Generate Parentheses Coverage Results" MODIFIED="1478996222620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$just4test__1_.coverage" NAME="just4test (1) Coverage Results" MODIFIED="1459882013193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode34_Search_for_a_Range.coverage" NAME="leetcode34 Search for a Range Coverage Results" MODIFIED="1470188764635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Leetcode series$leetcode407_Trapping_Rain_Water_II.coverage" NAME="leetcode407 Trapping Rain Water II Coverage Results" MODIFIED="1488872126015" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode229_Majority_Element_II.coverage" NAME="leetcode229 Majority Element II Coverage Results" MODIFIED="1478931616617" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode118_Pascal_s_Triangle.coverage" NAME="leetcode118 Pascal's Triangle Coverage Results" MODIFIED="1458071738178" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode203_Remove_Linked_List_Elements.coverage" NAME="leetcode203 Remove Linked List Elements Coverage Results" MODIFIED="1463254425558" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -286,7 +287,7 @@
       <file leaf-file-name="leetcode407 Trapping Rain Water II.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.82986766">
+            <state vertical-scroll-proportion="0.99243855">
               <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
               <folding />
             </state>
@@ -305,7 +306,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode200 Number of Islands.py" />
         <option value="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
         <option value="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode282 Expression Add Operators.py" />
@@ -356,6 +356,7 @@
         <option value="$PROJECT_DIR$/leetcode11 Container with Most Water.py" />
         <option value="$PROJECT_DIR$/leetcode12 Integer to Roman.py" />
         <option value="$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py" />
+        <option value="$PROJECT_DIR$/leetcode517 Super Washing Machines.py" />
       </list>
     </option>
   </component>
@@ -395,21 +396,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Project Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT USER_OBJECT="untitled1">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="Scratches">
         <subPane />
       </pane>
@@ -433,6 +419,21 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Project Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT USER_OBJECT="untitled1">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -445,7 +446,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode488 Zuma Game">
+  <component name="RunManager" selected="Python.leetcode407 Trapping Rain Water II">
     <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -460,24 +461,6 @@
       <module name="leetcode series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fkuagain.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="leetcode469 Convex Polygon" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode469 Convex Polygon.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -532,6 +515,24 @@
       <module name="leetcode series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode488 Zuma Game.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode407 Trapping Rain Water II" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -826,18 +827,18 @@
       <item index="3" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="4" class="java.lang.String" itemvalue="Python.just4test" />
       <item index="5" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode469 Convex Polygon" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode464 Can I Win" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode471 Encode String with Shortest Length" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode488 Zuma Game" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode464 Can I Win" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode471 Encode String with Shortest Length" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode488 Zuma Game" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode407 Trapping Rain Water II" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode488 Zuma Game" />
-        <item index="1" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode471 Encode String with Shortest Length" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode464 Can I Win" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode469 Convex Polygon" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode407 Trapping Rain Water II" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode488 Zuma Game" />
+        <item index="2" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode471 Encode String with Shortest Length" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode464 Can I Win" />
       </list>
     </recent_temporary>
   </component>
@@ -909,14 +910,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8150685">
-          <caret line="53" column="0" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode282 Expression Add Operators.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6687898">
@@ -1295,7 +1288,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode488 Zuma Game.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2192817">
+        <state vertical-scroll-proportion="1.0078125">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
         </state>
@@ -1309,9 +1302,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode517 Super Washing Machines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08506616">
+          <caret line="3" column="92" selection-start-line="3" selection-start-column="92" selection-end-line="3" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.82986766">
+        <state vertical-scroll-proportion="0.99243855">
           <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
           <folding />
         </state>
