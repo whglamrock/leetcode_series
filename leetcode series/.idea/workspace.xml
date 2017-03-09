@@ -285,11 +285,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode407 Trapping Rain Water II.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leetcode407 Trapping Rain Water II.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.5">
+            <state vertical-scroll-proportion="0.0">
               <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode317 Shortest Distance from All Buildings.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode317 Shortest Distance from All Buildings.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.6836735">
+              <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -307,7 +317,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
         <option value="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode282 Expression Add Operators.py" />
         <option value="$PROJECT_DIR$/leetcode254 Factor Combinations.py" />
@@ -358,6 +367,7 @@
         <option value="$PROJECT_DIR$/leetcode517 Super Washing Machines.py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py" />
+        <option value="$PROJECT_DIR$/leetcode317 Shortest Distance from All Buildings.py" />
       </list>
     </option>
   </component>
@@ -367,8 +377,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="70" />
-    <option name="y" value="30" />
+    <option name="x" value="86" />
+    <option name="y" value="48" />
     <option name="width" value="1132" />
     <option name="height" value="737" />
   </component>
@@ -866,7 +876,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="70" y="30" width="1132" height="737" extended-state="0" />
+    <frame x="86" y="48" width="1132" height="737" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31448764" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -911,14 +921,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode282 Expression Add Operators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6687898">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode10 Regular Expression Matching.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.44680852">
@@ -1313,8 +1315,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5">
+        <state vertical-scroll-proportion="0.0">
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode317 Shortest Distance from All Buildings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6836735">
+          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
           <folding />
         </state>
       </provider>
