@@ -1,8 +1,5 @@
 
-str = "https://leetcode.com/problems/deselign-tinyurl"
-print str.lstrip('https://leetcode.com/problems/')
-print len('https://leetcode.com/problems/')
-print len('http://tinyurl.com/')
+
 
 
 

@@ -1,6 +1,6 @@
-''' 
-Detailed idea and algorithm is referenced from leetcode15: 3Sum.
-'''
+
+# Detailed idea and algorithm is referenced from leetcode15: 3Sum.
+
 class Solution(object):
     def threeSumClosest(self, nums, target):
 
@@ -24,6 +24,7 @@ class Solution(object):
                 else:
                     return newsum
         return ans
+
 
 
 nums = [-1,2,1,-4]

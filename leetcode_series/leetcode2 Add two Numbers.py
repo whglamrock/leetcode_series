@@ -1,16 +1,16 @@
+
 # Definition for singly-linked list.
-class ListNode(object):   #In leetcode, we have to make the Listnode class comment.
+
+class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
 
+
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
+
         temp1 = l1
         temp2 = l2
         str1 = ''
@@ -37,6 +37,8 @@ class Solution(object):
             temp = temp.next
 
         return m.next
+
+
 
 a = ListNode(2)
 b = ListNode(4)

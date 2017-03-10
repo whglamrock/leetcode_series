@@ -1,5 +1,5 @@
 
-# remember the treatments towards mine how to to the further BFS.
+# Remember the treatments towards mine how to to the further BFS.
 # Too many conditions and terms we need to care, so remember the work flow
 
 from collections import deque

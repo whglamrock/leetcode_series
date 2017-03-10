@@ -1,11 +1,16 @@
+
 # Definition for a binary tree node.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
 
+
 # pay attention to iterative solution
+
 class Solution(object):
     def inorderTraversal(self, root):
         
@@ -22,8 +27,10 @@ class Solution(object):
         return self.ans
 
 
+
 '''
 # iterative solution
+
 class Solution(object):
     def inorderTraversal(self, root):
 
