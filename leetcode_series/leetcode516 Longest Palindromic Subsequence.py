@@ -1,4 +1,6 @@
 
+# REMEMBER THIS SOLUTION FOR REAL INTERVIEW
+
 # A non-dp fast solution
 # still O(n^2) time complexity because of the string slicing operator but much faster
 #   with memoization and dealing with string(instead of dp list)
@@ -28,7 +30,7 @@ class Solution(object):
 
 
 Sol = Solution()
-s = 'abasfb'
+s = 'abasfba'
 print Sol.longestPalindromeSubseq(s)
 
 
