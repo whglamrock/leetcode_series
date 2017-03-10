@@ -1,3 +1,4 @@
+
 from collections import defaultdict
 
 class GridIllumination:
@@ -61,6 +62,7 @@ class GridIllumination:
                             reversedia[i + j] += 1
 
         return ans
+
 
 
 Sol = GridIllumination()
