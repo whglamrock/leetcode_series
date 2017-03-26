@@ -1,3 +1,4 @@
+
 class TicTacToe(object):
     def __init__(self, n):
 
@@ -23,6 +24,8 @@ class TicTacToe(object):
             else:
                 return 0
 
+
+
 Sol = TicTacToe(3)
 print Sol.move(0,0,1)
 print Sol.move(0,2,2)
@@ -31,7 +34,6 @@ print Sol.move(1,1,2)
 print Sol.move(2,0,1)
 print Sol.move(1,0,2)
 print Sol.move(2,1,1)
-
 
 # for 'move' function:
 """
@@ -48,6 +50,8 @@ Player {player} makes a move at ({row}, {col}).
 :type player: int
 :rtype: int
 """
+
+
 
 # Your TicTacToe object will be instantiated and called as such:
 # obj = TicTacToe(n)

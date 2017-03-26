@@ -1,3 +1,4 @@
+
 # seems there is no O(1) space solution without changing the preorder.
 # O(1) solution from here: https://discuss.leetcode.com/topic/21217/java-o-n-and-o-1-extra-space/2
 # O(logn) space solution is keeping a stack, while not changing the preorder.

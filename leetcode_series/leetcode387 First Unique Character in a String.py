@@ -1,10 +1,9 @@
+
 # if the requirement is "using constant space", then it's become medium or hard question.
+
 class Solution(object):
     def firstUniqChar(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+
         dick = {}
         for letter in s:
             if letter not in dick:

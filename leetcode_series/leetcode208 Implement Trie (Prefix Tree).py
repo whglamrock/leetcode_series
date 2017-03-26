@@ -1,3 +1,4 @@
+
 # Trie data structure demo: https://www.youtube.com/watch?v=AXjmTQ8LEoI
 
 from collections import defaultdict

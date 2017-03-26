@@ -1,5 +1,7 @@
+
 # my original, which happens to the most elegant, solution.
 # O(n) time, O(1) space.
+
 class Solution(object):
     def lexicalOrder(self, n):
 
@@ -14,6 +16,8 @@ class Solution(object):
             ans.append(new)
 
         return ans
+
+
 
 Sol = Solution()
 print Sol.lexicalOrder(500)

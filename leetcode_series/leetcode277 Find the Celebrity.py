@@ -1,3 +1,4 @@
+
 # The knows API is already defined for you.
 # @param a, person a
 # @param b, person b
@@ -5,6 +6,7 @@
 # def knows(a, b):
 
 # O(n) calls of knows API
+
 class Solution(object):
     def findCelebrity(self, n):
 

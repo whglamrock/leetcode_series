@@ -1,4 +1,6 @@
+
 import collections
+
 class Solution(object):
     def sequenceReconstruction(self, org, seqs):
 
@@ -40,6 +42,8 @@ class Solution(object):
         # the edges could still not be empty in the end, so we need to check it
         # instead of directly returning True
         return not edges
+
+
 
 org = [1, 2, 3]
 seq = [[1,2], [1,3]]

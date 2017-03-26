@@ -1,3 +1,4 @@
+
 class Solution(object):
     def kthSmallest(self, matrix, k):
 
@@ -26,6 +27,7 @@ class Solution(object):
         # definitely impossible for mid == kth smallest, so we use 'l = mid+1'.
 
         return l    # return r is same
+
 
 
 Sol = Solution()

@@ -1,4 +1,6 @@
+
 # only lowercase letters are assumed in each string
+
 class Solution(object):
     def groupStrings(self, strings):
 
@@ -29,7 +31,9 @@ print Sol.groupStrings(strings)
 
 
 
-''' # Original Solution (not efficient)
+'''
+# Original Solution (not efficient)
+
 class Solution(object):
     def groupStrings(self, strings):
 

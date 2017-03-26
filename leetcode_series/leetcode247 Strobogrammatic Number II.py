@@ -1,4 +1,6 @@
+
 # there is no way to do with better time complexity than the following and the space complexity is unchangable
+
 class Solution(object):
     def findStrobogrammatic(self, n):
 
@@ -26,6 +28,8 @@ class Solution(object):
                 res.append(item)
 
         return res
+
+
 
 Sol = Solution()
 print Sol.findStrobogrammatic(5)

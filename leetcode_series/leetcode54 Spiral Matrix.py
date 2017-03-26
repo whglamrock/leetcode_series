@@ -1,5 +1,7 @@
+
 # very elegant solution by modifying the matrix. Since we pop elements from matrix,
 # there won't be index out range issue.
+
 class Solution(object):
     def spiralOrder(self, matrix):
 
@@ -16,9 +18,12 @@ class Solution(object):
                     ret.append(row.pop(0))
         return ret
 
+
+
 Sol = Solution()
 matrix = [[1,2,3],[4,5,6],[7,8,9]]
 print Sol.spiralOrder(matrix)
+
 
 
 '''

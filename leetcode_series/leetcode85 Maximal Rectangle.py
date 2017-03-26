@@ -1,5 +1,7 @@
+
 # idea: dp.
 # explanation from: https://discuss.leetcode.com/topic/6650/share-my-dp-solution
+
 class Solution(object):
     def maximalRectangle(self, matrix):
 

@@ -1,13 +1,11 @@
+
 # inefficient solution o(n^2) time complexity. In this question there is no way to do
 # with better time complexity. Better backtracking solution can be found
 # on: https://leetcode.com/discuss/61607/ac-python-backtracking-iterative-solution-60-ms
+
 class Solution(object):
     def combine(self, n, k):
-        """
-        :type n: int
-        :type k: int
-        :rtype: List[List[int]]
-        """
+
         ans = []
         for i in xrange(k):
             new = []

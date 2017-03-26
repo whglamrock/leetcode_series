@@ -1,3 +1,4 @@
+
 # the hint is to devide num into triplets so we can deal with them one by one
 # P.S., there is no need to add 'self.' before the LESSTHAN20, etc.
 

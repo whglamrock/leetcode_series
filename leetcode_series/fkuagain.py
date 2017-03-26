@@ -25,6 +25,7 @@ class Solution(object):
         return []
 
 
+
 nums = [3, 5, 4, 5, 2, 3, 1, 7]
 target = 10
 Sol = Solution()

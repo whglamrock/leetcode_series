@@ -1,3 +1,4 @@
+
 # the idea of using trie is to 'save' the space.
 # Trie in worst case takes O(26^m) space complexity where the m is the length of longest word.
 # Using a hashset to keep the words takes O(k*n) space where the k is the average length of word
@@ -21,7 +22,6 @@ class Trie(object):
         for letter in word:
             cur  = cur.children[letter]
         cur.isword = True
-
 
 # Directly used the Trie implementation from lc208. However, the 'searchword' function
 # has beeN removed because it's useless in this question.

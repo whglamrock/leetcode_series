@@ -1,3 +1,4 @@
+
 class Solution(object):
     def numWays(self, n, k):
 
@@ -13,6 +14,7 @@ class Solution(object):
             same, dif = dif, (same+dif)*(k-1)
 
         return same+dif
+
 
 
 Sol = Solution()

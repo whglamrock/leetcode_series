@@ -1,3 +1,4 @@
+
 from collections import deque
 class Solution(object):
     def longestConsecutive(self, nums):
@@ -32,6 +33,8 @@ class Solution(object):
             length = max(curlen, length)
 
         return length
+
+
 
 nums = [100,1,3,4,2,6,5,8]
 a = Solution()

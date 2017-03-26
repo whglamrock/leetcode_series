@@ -1,3 +1,4 @@
+
 class Solution(object):
     def palindromePairs(self, words):
 
@@ -18,6 +19,7 @@ class Solution(object):
         for item in ans:
             res.append(list(item))
         return res
+
 
 
 Sol = Solution()

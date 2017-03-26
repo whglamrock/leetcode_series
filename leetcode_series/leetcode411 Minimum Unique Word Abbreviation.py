@@ -1,3 +1,4 @@
+
 # My ugly AC solution by directly borrowing the code from lc408 and lc320.
 # Optimization could be done in:
 # a) dynamically generate the abbrevtion of a given length using DFS and backtracking;
@@ -51,7 +52,6 @@ class Solution(object):
                 self.lendic[length] = set()
             self.lendic[length].add(abbr)
 
-
     def generateAbbr(self, word):
 
         if not word:
@@ -80,7 +80,6 @@ class Solution(object):
             ans = next
 
         return ans
-
 
     def validWordAbbreviation(self, word, abbr):
 

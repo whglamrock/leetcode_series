@@ -1,5 +1,8 @@
+
 # brilliant idea from Stefan: https://discuss.leetcode.com/topic/50450/slow-1-liner-to-fast-solutions
+
 import heapq
+
 class Solution(object):
     def kSmallestPairs(self, nums1, nums2, k):
 

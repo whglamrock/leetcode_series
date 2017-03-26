@@ -1,4 +1,6 @@
+
 # Pay attention to the way of backtracking
+
 class Solution(object):
     def generateAbbreviations(self, word):
 
@@ -28,6 +30,7 @@ class Solution(object):
             ans = next
 
         return ans
+
 
 
 Sol = Solution()

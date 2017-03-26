@@ -23,9 +23,11 @@ class Solution:
         return ans
 
 
+
 Sol = Solution()
 S = [1,2,2,2,3,3,4]
 print Sol.subsetsWithDup(S)
+
 
 
 '''

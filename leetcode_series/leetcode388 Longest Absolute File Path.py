@@ -1,5 +1,7 @@
+
 # idea from Stefan: https://discuss.leetcode.com/topic/55097/simple-python-solution
 # rememeber the use of lstrip (left strip the chars from a string)!
+
 class Solution(object):
     def lengthLongestPath(self, input):
 

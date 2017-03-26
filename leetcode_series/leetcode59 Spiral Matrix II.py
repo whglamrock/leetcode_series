@@ -1,3 +1,4 @@
+
 class Solution(object):
     def generateMatrix(self, n):
 
@@ -45,6 +46,8 @@ class Solution(object):
             counter += 1
 
         return grid
+
+
 
 Sol = Solution()
 print Sol.generateMatrix(5)

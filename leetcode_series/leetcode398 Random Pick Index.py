@@ -1,21 +1,17 @@
+
 # understand the definition of reservoir sampling
 # know how to use random in python
+
 import random
+
 class Solution(object):
 
     def __init__(self, nums):
-        """
 
-        :type nums: List[int]
-        :type numsSize: int
-        """
         self.nums = nums
 
     def pick(self, target):
-        """
-        :type target: int
-        :rtype: int
-        """
+
         result = -1
         count = 0
         for i in xrange(len(self.nums)):

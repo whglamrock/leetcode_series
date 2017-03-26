@@ -1,4 +1,6 @@
+
 # recursive solution
+
 class Solution(object):
     def subsets(self, nums):
 
@@ -18,10 +20,12 @@ class Solution(object):
         return ans
 
 
+
 nums = [1,2,3,4]
 Sol = Solution()
 ans = Sol.subsets(nums)
 print ans
+
 
 
 '''

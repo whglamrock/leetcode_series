@@ -1,6 +1,8 @@
+
 # try to solve this problem in one-dimensional number axis!
 # for every hard question, we need to unmask the knowledge behind it and transfer it
 # into normal, common math/algorithm question.
+
 class Solution(object):
     def minTotalDistance(self, grid):
 

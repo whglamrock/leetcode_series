@@ -1,5 +1,7 @@
+
 # O(nlogn) solution.
 # My idea explanation: https://discuss.leetcode.com/topic/62048/easy-to-understand-python-solution
+
 class Solution(object):
     def isReflected(self, points):
 
@@ -34,6 +36,7 @@ class Solution(object):
                 j -= 1
 
         return True
+
 
 
 Sol = Solution()

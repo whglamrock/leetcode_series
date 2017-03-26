@@ -1,5 +1,7 @@
+
 # this question is ranked medium because the length of gene is 8,
 # and memory and time limit is not very restrict.
+
 class Solution(object):
     def minMutation(self, start, end, bank):
 

@@ -1,5 +1,7 @@
+
 # A very easy "hard" question.
 # idea: sliding window; O(N) time, O(1) space
+
 class Solution(object):
     def lengthOfLongestSubstringTwoDistinct(self, s):
 

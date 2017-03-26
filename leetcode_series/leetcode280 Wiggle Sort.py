@@ -1,3 +1,4 @@
+
 class Solution(object):
     def wiggleSort(self, nums):
 
@@ -16,6 +17,8 @@ class Solution(object):
             i += 1
 
         #return nums     # the leetcode asks for returning nothing.
+
+
 
 Sol = Solution()
 nums = [2,9,8,7,2,1,5,6,4]

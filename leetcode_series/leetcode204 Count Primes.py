@@ -1,5 +1,7 @@
+
 # see Sieve of Eratosthenes: https://www.youtube.com/watch?v=eKp56OLhoQs
 # time complexity O(n/2 + n/3 + n/5 + n/7 + n/11 + ...) = O(nlog(logn)).
+
 class Solution(object):
     def countPrimes(self, n):
 
@@ -22,6 +24,7 @@ class Solution(object):
                     primes[j] = False
 
         return sum(primes)
+
 
 
 Sol = Solution()

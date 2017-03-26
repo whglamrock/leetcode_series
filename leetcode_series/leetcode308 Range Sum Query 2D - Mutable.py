@@ -23,7 +23,6 @@ class NumMatrix(object):
                     self.bit[k][j] += medium[i][j]
                     k += k & (-k)
 
-
     def update(self, row, col, val):
 
         diff = val - self.matrix[row][col]
@@ -35,7 +34,6 @@ class NumMatrix(object):
                 self.bit[i][k] += diff
                 k += k & (-k)
             i += i & (-i)
-
 
     def sumRegion(self, row1, col1, row2, col2):
 
@@ -57,19 +55,18 @@ class NumMatrix(object):
 
 
 
-# Your NumMatrix object will be instantiated and called as such:
-# numMatrix = NumMatrix(matrix)
-# numMatrix.sumRegion(0, 1, 2, 3)
-# numMatrix.update(1, 1, 10)
-# numMatrix.sumRegion(1, 2, 3, 4)
-
-
 matrix = [[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]]
 Sol = NumMatrix(matrix)
 Sol.update(1,0,1)
 print Sol.sumRegion(2,1,4,3)
 Sol.update(3,2,2)
 print Sol.sumRegion(2,1,4,3)
+
+# Your NumMatrix object will be instantiated and called as such:
+# numMatrix = NumMatrix(matrix)
+# numMatrix.sumRegion(0, 1, 2, 3)
+# numMatrix.update(1, 1, 10)
+# numMatrix.sumRegion(1, 2, 3, 4)
 
 
 

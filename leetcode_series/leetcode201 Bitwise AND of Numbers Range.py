@@ -1,3 +1,4 @@
+
 # bitwise manipulation, idea came from: https://discuss.leetcode.com/topic/12133/bit-operation-solution-java/2
 # the last digit of (odd number & even number) == 0. So compare all digits of m,n from right to left.
 # If m!=n exits for new m and n, there is at least an odd number and an even number between [m,n]

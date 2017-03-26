@@ -1,5 +1,7 @@
+
 # idea from ugly number: https://discuss.leetcode.com/topic/23893/my-expressive-python-solution
 # O(mn) solution
+
 from copy import copy
 class Solution(object):
     def nthSuperUglyNumber(self, n, primes):
@@ -22,6 +24,7 @@ class Solution(object):
 
         #print ugly
         return ugly[-1]
+
 
 
 Sol = Solution()

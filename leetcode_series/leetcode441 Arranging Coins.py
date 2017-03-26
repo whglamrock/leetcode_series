@@ -1,8 +1,11 @@
+
 # n * (n + 1) / 2 <= ans < (n + 1) * (n + 2) / 2
 # return n
 
 # O(1) solution. It's a math problem
+
 from math import sqrt
+
 class Solution(object):
     def arrangeCoins(self, n):
 

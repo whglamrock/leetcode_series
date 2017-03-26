@@ -1,5 +1,7 @@
+
 # the key is to visualize three conditions when crosses/meets happen.
 # idea from: https://discuss.leetcode.com/topic/38014/java-oms-with-explanation/2
+
 class Solution(object):
     def isSelfCrossing(self, x):
 
@@ -18,6 +20,8 @@ class Solution(object):
                     return True
 
         return False
+
+
 
 Sol = Solution()
 x = [4,4,10,4,6]

@@ -37,7 +37,6 @@ class SummaryRanges(object):
 
 
 
-
 '''
 # naive BST solution will get TLE because of extreme case like [1, 2, 3, ... 1999, 2000]
 
@@ -61,7 +60,6 @@ class SummaryRanges(object):
 
         self.root = None
 
-
     def addNum(self, val):
 
         if not self.root:
@@ -83,7 +81,6 @@ class SummaryRanges(object):
         else:
             prev.right = newnode
         #print val
-
 
     # do the inorder traversal
     def getIntervals(self):

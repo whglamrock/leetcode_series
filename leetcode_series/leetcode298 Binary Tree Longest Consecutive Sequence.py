@@ -1,9 +1,13 @@
+
 # Definition for a binary tree node.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
+
 
 class Solution(object):
     def longestConsecutive(self, root):
@@ -29,6 +33,8 @@ class Solution(object):
 
         helper(root, 1)
         return self.longest
+
+
 
 a = TreeNode(1)
 b = TreeNode(2)

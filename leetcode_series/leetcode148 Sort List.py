@@ -1,10 +1,15 @@
+
 # normally use merge sort. Get familiar with 'merge sort'!
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
 
+
 # iterative solution with O(1) space.
+
 class Solution(object):
     def split(self, head, n):
 
@@ -64,6 +69,7 @@ class Solution(object):
         return dummy.next
 
 
+
 a = ListNode(5)
 b = ListNode(4)
 c = ListNode(2)
@@ -78,6 +84,7 @@ ans = Sol.sortList(a)
 while ans:
     print ans.val
     ans = ans.next
+
 
 
 '''

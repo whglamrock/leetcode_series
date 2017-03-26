@@ -1,3 +1,4 @@
+
 # let's assume
 # the length of input array is n,
 # average length of Strings in nums is k,
@@ -8,6 +9,7 @@
 # Running Space is obvious: O(n), depending on the python sort
 
 # key idea: for x, y in nums, compare string x+y and string y+x.
+
 class Solution:
     def largestNumber(self, nums):
 
@@ -21,6 +23,8 @@ class Solution:
         return ''.join(nums)
 
 # P.S.: remember how to write the cmp sort function! Also the key = lambda sort...
+
+
 
 Sol = Solution()
 nums = [3, 30, 34, 5, 9]

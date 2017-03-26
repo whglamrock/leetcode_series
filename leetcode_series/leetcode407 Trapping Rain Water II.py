@@ -5,6 +5,7 @@
 #   water.
 
 from heapq import *
+
 class Solution(object):
     def trapRainWater(self, heightMap):
 

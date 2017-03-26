@@ -1,9 +1,7 @@
+
 class Solution(object):
     def climbStairs(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
+
         total = 0
         for i in range(n/2+1):
             increase = 1
@@ -13,6 +11,7 @@ class Solution(object):
             total += increase
 
         return total
+
 
 
 a = Solution()

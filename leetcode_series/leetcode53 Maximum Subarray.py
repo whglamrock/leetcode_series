@@ -1,3 +1,4 @@
+
 class Solution:
     def maxSubArray(self, A):
         if not A:

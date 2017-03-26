@@ -1,8 +1,10 @@
+
 # choose the median as the final destination.
 # For reason see https://discuss.leetcode.com/topic/69236/o-n-solution-with-detailed-explanation
 # Use quickselect can reach O(N)
 
 import random
+
 class Solution(object):
     def minMoves2(self, nums):
 

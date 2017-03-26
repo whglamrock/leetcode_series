@@ -1,6 +1,9 @@
+
 # not very efficient but 0(N) time solution. The max number of elements in heap is 26,
 # so the heap operations will all take constant time.
+
 from heapq import *
+
 class Solution(object):
     def rearrangeString(self, string, k):
 

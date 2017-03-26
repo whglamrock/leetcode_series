@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 
 '''
@@ -31,6 +32,7 @@ class Solution(object):
         # if a is negative, get its last 32 bits first,
         #   then use '~' to reverse to its negative value
         return a if a <= MAX else ~(a ^ mask)
+
 
 
 Sol = Solution()

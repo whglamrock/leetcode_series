@@ -1,11 +1,15 @@
+
 class Solution(object):
     def containsDuplicate(self, nums):
 
         return len(nums) != len(set(nums))
 
+
+
 a = [1,2,3,4,5]
 Sol = Solution()
 print Sol.containsDuplicate(a)
+
 
 
 '''

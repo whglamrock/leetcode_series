@@ -1,5 +1,7 @@
+
 # the key is to understand the function of NestedInteger object.
 # definition can be found from: https://leetcode.com/problems/nested-list-weight-sum/
+
 class Solution(object):
     def depthSum(self, nestedList):
 

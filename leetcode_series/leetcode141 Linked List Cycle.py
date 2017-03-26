@@ -1,10 +1,15 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
 
+
 # use two pointer, in every round of while loop, the distance between fast & slow +1.
+
 class Solution(object):
     def hasCycle(self, head):
 
@@ -16,6 +21,7 @@ class Solution(object):
                 return True
 
         return False
+
 
 
 a = ListNode(1)

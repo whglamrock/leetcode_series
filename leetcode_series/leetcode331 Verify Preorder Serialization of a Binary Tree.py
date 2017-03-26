@@ -1,3 +1,4 @@
+
 # the key finding is that for valid serialization, every number is followed by two "#"s or
 # one number and a "#" or two numbers.
 

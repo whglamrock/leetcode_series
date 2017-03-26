@@ -1,3 +1,4 @@
+
 # generate the array in O(n). They is no easy math trick to do better than O(n)
 
 class Solution(object):

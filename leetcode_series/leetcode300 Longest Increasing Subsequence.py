@@ -1,3 +1,4 @@
+
 # O(nlogn) solution (if running time of O(nlog) is required, it's a hard question).
 
 # idea came from: https://discuss.leetcode.com/topic/28738/java-python-binary-search-o-nlogn-time-with-explanation

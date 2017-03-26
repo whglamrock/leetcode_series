@@ -1,3 +1,4 @@
+
 # key is use hash table to search
 
 class Solution(object):

@@ -1,3 +1,4 @@
+
 class Solution(object):
     def wallsAndGates(self, a):
         for i in range(len(a)):

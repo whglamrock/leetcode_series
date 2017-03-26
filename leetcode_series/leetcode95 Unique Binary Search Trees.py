@@ -1,11 +1,15 @@
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
 
+
 # the 'divide and conquer' idea came from:
 # https://discuss.leetcode.com/topic/8398/dp-solution-in-6-lines-with-explanation-f-i-n-g-i-1-g-n-i
+
 class Solution(object):
     def generateSubtrees(self, s, e):
 
@@ -32,6 +36,7 @@ class Solution(object):
             return []
 
         return self.generateSubtrees(1, n)
+
 
 
 Sol = Solution()

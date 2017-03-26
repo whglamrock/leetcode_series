@@ -1,10 +1,15 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
 
+
 # no extra space solution. idea came from: https://discuss.leetcode.com/topic/43858/python-o-n-no-extra-space-with-mathematical-explanation
+
 class Solution(object):
     def detectCycle(self, head):
 

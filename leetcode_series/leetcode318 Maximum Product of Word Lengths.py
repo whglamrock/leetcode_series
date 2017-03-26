@@ -1,3 +1,4 @@
+
 class Solution(object):
     def maxProduct(self, words):
 
@@ -19,6 +20,7 @@ class Solution(object):
                     curr_max = max(curr_max, curr_len*len(word))
 
         return curr_max
+
 
 
 Sol = Solution()

@@ -1,6 +1,8 @@
+
 # sqrt solution, not necessarily O(1), but O(logn), where n == area
 
 import math
+
 class Solution(object):
     def constructRectangle(self, area):
 

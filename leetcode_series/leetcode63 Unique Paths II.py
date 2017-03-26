@@ -1,4 +1,6 @@
+
 # O(1) space solution, with modifying the obstacleGrid.
+
 class Solution(object):
     def uniquePathsWithObstacles(self, obstacleGrid):
 
@@ -35,9 +37,11 @@ class Solution(object):
         return obstacleGrid[-1][-1]
 
 
+
 Sol = Solution()
 grid = [[0,0,0,1,0],[0,0,1,0,1],[0,0,0,0,0],[0,0,1,0,0]]
 print Sol.uniquePathsWithObstacles(grid)
+
 
 
 '''

@@ -1,6 +1,7 @@
 # Sliding window solution. O(n) time, n is the length of s.
 
 from collections import defaultdict
+
 class Solution(object):
     def findAnagrams(self, s, p):
 

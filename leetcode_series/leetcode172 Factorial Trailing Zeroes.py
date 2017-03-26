@@ -1,4 +1,6 @@
-'''class Solution(object):
+
+'''
+class Solution(object):
     def trailingZeroes(self, n):
         return 0 if n < 5 else n/5 + self.trailingZeroes(n/5)
 '''
@@ -17,6 +19,7 @@ class Solution(object):
             ans += n/x
             x *= 5
         return ans
+
 
 
 Sol = Solution()

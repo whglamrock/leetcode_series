@@ -3,6 +3,7 @@
 # Too many conditions and terms we need to care, so remember the work flow
 
 from collections import deque
+
 class Solution(object):
     def updateBoard(self, board, click):
 

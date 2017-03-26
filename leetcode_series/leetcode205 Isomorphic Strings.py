@@ -1,3 +1,4 @@
+
 class Solution(object):
     def isIsomorphic(self, s, t):
 
@@ -21,6 +22,8 @@ class Solution(object):
             i += 1
 
         return sorted(lst.values())==sorted(lst2.values())
+
+
 
 Sol = Solution()
 a = 'abbc'

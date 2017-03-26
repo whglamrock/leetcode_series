@@ -1,5 +1,7 @@
+
 # DP idea from: https://discuss.leetcode.com/topic/51358/java-dp-solution/2
 # understand the DP optimal substructure and thinking. This one is a classic DP problem.
+
 class Solution(object):
     def getMoneyAmount(self, n):
 

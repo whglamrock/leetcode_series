@@ -1,4 +1,6 @@
+
 # write down the biggest integer break from 2 to 15, you will be able to find out
+
 class Solution(object):
     def integerBreak(self, n):
 

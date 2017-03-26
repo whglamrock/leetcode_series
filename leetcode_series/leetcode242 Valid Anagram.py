@@ -1,3 +1,4 @@
+
 class Solution(object):
     def isAnagram(self, s, t):
 
@@ -18,7 +19,8 @@ class Solution(object):
             else:
                 fuck[item].append(0)
 
-        return fuck == dick # when compare by hash table, it's always faster than for loop.
+        # when compare by hash table, it's always faster than for loop.
+        return fuck == dick
 
 #        for item in s:
 #            if item not in t:
@@ -28,6 +30,8 @@ class Solution(object):
 #                    return False
 #
 #        return True
+
+
 
 a = 'ab'
 b = 'ba'

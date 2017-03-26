@@ -1,3 +1,4 @@
+
 class Solution(object):
     def groupAnagrams(self, strs):
 
@@ -21,6 +22,7 @@ class Solution(object):
             ans.append(newans)
 
         return ans
+
 
 
 Sol = Solution()

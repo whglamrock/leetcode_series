@@ -1,4 +1,6 @@
+
 # idea: binary search
+
 class Solution(object):
     def isPerfectSquare(self, num):
 

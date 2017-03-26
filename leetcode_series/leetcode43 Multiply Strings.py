@@ -1,4 +1,6 @@
+
 # idea came from: https://discuss.leetcode.com/topic/30508/easiest-java-solution-with-graph-explanation
+
 class Solution(object):
     def multiply(self, num1, num2):
 

@@ -1,4 +1,6 @@
+
 # O(n) running time solution.
+
 class Solution(object):
     def isSubsequence(self, s, t):
 

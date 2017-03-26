@@ -1,11 +1,16 @@
+
 # Definition for a binary tree node.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
 
+
 # pay attention to the question requirement. The sum of "leaves" not all left nodes.
+
 class Solution(object):
     def sumOfLeftLeaves(self, root):
 

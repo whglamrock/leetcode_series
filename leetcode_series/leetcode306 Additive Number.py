@@ -1,5 +1,7 @@
+
 # check the first two numbers, if they satisfy then check the rest
 # P.S.: the second number doesn't necessarily have to be bigger than the first one.
+
 class Solution(object):
     def isAdditiveNumber(self, num):
 
@@ -29,6 +31,7 @@ class Solution(object):
             i += 1
 
         return False
+
 
 
 Sol = Solution()

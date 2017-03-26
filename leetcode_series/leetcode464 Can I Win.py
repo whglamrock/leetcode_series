@@ -41,7 +41,6 @@ print Sol.canIWin(11, 43)
 
 
 '''
-
 # python application without global variable but using same idea with:
 #   https://discuss.leetcode.com/topic/68896/java-solution-using-hashmap-with-detailed-explanation/2
 # somehow got TLE because this fucking stupid leetcode

@@ -1,8 +1,12 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
+
 
 class Solution(object):
     def oddEvenList(self, head):
@@ -27,6 +31,8 @@ class Solution(object):
         # consecutive even numbers.
 
         return head
+
+
 
 a = ListNode(1)
 b = ListNode(2)

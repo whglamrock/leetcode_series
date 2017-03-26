@@ -1,14 +1,12 @@
+
 class Solution(object):  #iterative solution
     def isSymmetric(self, root):
-        """
-        :type p: TreeNode
-        :type q: TreeNode
-        :rtype: bool
-        """
+
         stack_for_tree1 = []
         stack_for_tree2 = []
         stack_for_tree1.append(root)
         stack_for_tree2.append(root)
+
         while stack_for_tree1 and stack_for_tree2:
             p1 = stack_for_tree1.pop()
             p2 = stack_for_tree2.pop()

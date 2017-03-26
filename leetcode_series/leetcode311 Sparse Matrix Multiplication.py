@@ -1,3 +1,4 @@
+
 # Using enumerate in this question is more convenient
 
 class Solution(object):
@@ -33,7 +34,6 @@ B = [
   [ 0, 0, 0 ],
   [ 0, 0, 1 ]
 ]
-
 
 Sol = Solution()
 print Sol.multiply(A,B)

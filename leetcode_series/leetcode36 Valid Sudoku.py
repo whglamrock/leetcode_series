@@ -1,3 +1,4 @@
+
 class Solution(object):
     def isValidSudoku(self, board):
 
@@ -128,7 +129,8 @@ class Solution(object):
                             counter8 += 1
                         elif board[k][l] == '9':
                             counter9 += 1
-                    if counter1>1 or counter2>1 or counter3>1 or counter4>1 or counter5>1 or counter6>1 or counter7>1 or counter8>1 or counter9>1:
+                    if counter1 > 1 or counter2 > 1 or counter3 > 1 or counter4 > 1 or counter5 > 1 or counter6 > 1 \
+                            or counter7 > 1 or counter8 > 1 or counter9 > 1:
                         return False
 
         return True

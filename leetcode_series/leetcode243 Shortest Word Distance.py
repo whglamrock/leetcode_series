@@ -1,5 +1,7 @@
+
 class Solution(object):
     def shortestDistance(self, words, word1, word2):
+
         size = len(words)
         index1, index2 = size, size
         ans = size
@@ -13,6 +15,8 @@ class Solution(object):
                 ans = min(ans, abs(index1-index2))
 
         return ans
+
+
 
 Sol = Solution()
 print Sol.shortestDistance(["practice", "makes", "perfect", "coding", "makes"],"makes","coding")

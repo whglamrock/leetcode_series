@@ -1,3 +1,4 @@
+
 # Greedy Solution: from left to right, try to shoot as many balloons as possible with one arrow
 
 class Solution(object):

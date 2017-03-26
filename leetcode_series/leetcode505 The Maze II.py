@@ -5,6 +5,7 @@
 #   worst case (when the distance )
 
 from heapq import *
+
 class Solution(object):
     def shortestDistance(self, maze, start, destination):
 

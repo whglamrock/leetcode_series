@@ -1,16 +1,15 @@
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
 
+
 class Solution(object):
     def hasPathSum(self, root, sum):
-        """
-        :type root: TreeNode
-        :type sum: int
-        :rtype: bool
-        """
+
         if root == None:
             return False
 
@@ -29,6 +28,8 @@ class Solution(object):
                     return (summup(root1.left, last, num) or summup(root1.right, last, num))
 
         return summup(root,0,sum) == True
+
+
 
 a = TreeNode(1)
 b = TreeNode(2)

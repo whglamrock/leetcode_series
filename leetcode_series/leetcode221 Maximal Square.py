@@ -1,4 +1,6 @@
+
 # O(N^2) time, O(1) space solution.
+
 class Solution(object):
     def maximalSquare(self, matrix):
 
@@ -30,6 +32,8 @@ class Solution(object):
                 ans = max(ans, edge)
 
         return ans * ans
+
+
 
 Sol = Solution()
 matrix = [['1','0','1','0','0'],['1','0','1','1','1'],['1','1','1','1','1'],['1','0','0','1','0']]

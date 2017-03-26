@@ -1,10 +1,14 @@
+
 # idea from: https://discuss.leetcode.com/topic/17971/my-python-solution-in-o-lgn-lgn-time/2
 # divide and conquer. O((logN)^2) solution, n is the number of treeNodes.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
+
 
 class Solution(object):
     def getdepth(self, node):

@@ -1,3 +1,4 @@
+
 # Stupid question
 
 class Solution(object):

@@ -1,4 +1,6 @@
+
 # iterative O(n^2) solution
+
 class Solution(object):
     def solve(self, board):
 
@@ -35,6 +37,7 @@ class Solution(object):
                     board[i][j] = 'X'
                 elif board[i][j] == 'D':
                     board[i][j] = 'O'
+
 
 
 Sol = Solution()

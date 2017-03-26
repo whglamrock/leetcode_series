@@ -1,11 +1,16 @@
+
 # Definition for an interval.
+
 class Interval(object):
     def __init__(self, s=0, e=0):
+
         self.start = s
         self.end = e
 
+
 # the key is to transfer the orginal question into: find the longest non-overlapping
 # list of intervals
+
 class Solution(object):
     def eraseOverlapIntervals(self, intervals):
 

@@ -1,5 +1,7 @@
+
 # we need to consider a lot of tricky edge cases, so when faced with such questions in interview, ask the interviewer
 # to give you as many test cases as possible
+
 class Solution(object):
     def fractionToDecimal(self, numerator, denominator):
 
@@ -43,6 +45,8 @@ class Solution(object):
         if flag < 0:
             ans = '-' + ans
         return ans
+
+
 
 Sol = Solution()
 numerator = -5

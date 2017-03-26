@@ -1,8 +1,12 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
+
 
 class Solution(object):
     def removeElements(self, head, val):
@@ -23,6 +27,8 @@ class Solution(object):
                 prev = prev.next
 
         return res.next
+
+
 
 a = ListNode(1)
 b = ListNode(2)

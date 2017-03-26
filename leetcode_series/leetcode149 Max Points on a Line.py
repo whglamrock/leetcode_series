@@ -1,11 +1,16 @@
+
 # Definition for a point.
+
 class Point(object):
     def __init__(self, a=0, b=0):
+
         self.x = a
         self.y = b
 
+
 # For same points, we only need to particularly keep a variable 'same', instead of troublesomely
 # inserting a slope key 'ANY' in dic.
+
 class Solution(object):
     def maxPoints(self, points):
 

@@ -1,3 +1,4 @@
+
 class Solution(object):
     def nthUglyNumber(self, n):
         
@@ -16,6 +17,7 @@ class Solution(object):
             ugly.append(umin)
             n -= 1
         return ugly[-1]
+
 
 
 Sol = Solution()

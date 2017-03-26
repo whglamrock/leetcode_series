@@ -1,3 +1,4 @@
+
 class Solution(object):
     def shortestWordDistance(self, words, word1, word2):
 
@@ -29,6 +30,8 @@ class Solution(object):
             return findshortest2(dick[word1], dick[word2])
         else:
             return findshortest1(dick[word1])
+
+
 
 words = ["practice", "makes", "perfect", "coding", "makes"]
 word1 = 'makes'

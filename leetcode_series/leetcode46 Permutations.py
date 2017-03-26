@@ -1,4 +1,6 @@
-#Iterative Solution:
+
+# Iterative Solution:
+
 class Solution(object):
     def permute(self, nums):
         perms = [[]]
@@ -11,11 +13,14 @@ class Solution(object):
             # perm = [[2,1],[1,2]], the first three list elements in perm are [3,2,1],[2,3,1],[2,1,3],
             # which come from inserting "3" to different spots in [2,1]; the 2nd of last three elements
             # in perm are [3,1,2],[1,3,2],[1,2,3], based on [1,2] from last-level perm)
+
         return perms
 
 
-#recursive solution:
+
 '''
+# recursive solution:
+
 class Solution(object):
     def permute(self, nums):
         res = []

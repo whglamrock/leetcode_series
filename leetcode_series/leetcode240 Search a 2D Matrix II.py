@@ -1,4 +1,6 @@
+
 # when encountering a matrix like this, always start from the bottom left or upper right element
+
 class Solution(object):
     def searchMatrix(self, matrix, target):
 

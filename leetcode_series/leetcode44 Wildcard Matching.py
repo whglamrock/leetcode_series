@@ -1,3 +1,4 @@
+
 # see discussion for another interesting solution:
 # https://discuss.leetcode.com/topic/3040/linear-runtime-and-constant-space-solution
 # Essentially it's backtracking, not O(n).
@@ -54,6 +55,7 @@ class Solution():
             #print dp
 
         return dp[-1]
+
 
 
 s = "abcd"

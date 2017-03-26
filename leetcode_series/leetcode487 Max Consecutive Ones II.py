@@ -1,3 +1,4 @@
+
 # zeroright = the count of consecutive 1s on the left of this zero(or virtual zero) + 1.
 #   where in the virtual zero case, there is no zero in the nums
 

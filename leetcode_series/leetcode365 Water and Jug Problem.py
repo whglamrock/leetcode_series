@@ -1,4 +1,6 @@
+
 # Hard level problem. Idea from: https://discuss.leetcode.com/topic/49751/clear-explanation-of-why-using-gcd/2
+
 class Solution(object):
     def canMeasureWater(self, x, y, z):
 

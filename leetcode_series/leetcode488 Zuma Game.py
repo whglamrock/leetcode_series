@@ -2,6 +2,7 @@
 # brute force DFS with no memo since it's not covenient to use memo
 
 from collections import Counter
+
 class Solution(object):
     def findMinStep(self, board, hand):
 

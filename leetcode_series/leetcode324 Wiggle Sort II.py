@@ -1,3 +1,4 @@
+
 import random
 class Solution(object):
 
@@ -77,6 +78,7 @@ class Solution(object):
            # further action before i increases.
 
         #return nums    # the stupid leetcode asks to return nothing.
+
 
 
 Sol = Solution()

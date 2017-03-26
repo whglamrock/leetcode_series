@@ -1,6 +1,8 @@
+
 # an elegant stack solution
 # we have to use list to preserve the char and join them afterwards because string
 # is immutable in python.
+
 class Solution(object):
     def decodeString(self, s):
 
@@ -22,6 +24,7 @@ class Solution(object):
             #print stack
 
         return ''.join(stack[0][0])
+
 
 
 s = '3[a2[c]]ef'

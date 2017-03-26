@@ -1,19 +1,27 @@
+
 '''
 The definition of binary search tree: https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9
 The algorithm idea came from: https://leetcode.com/discuss/44959/3-lines-with-o-1-space-1-liners-alternatives
 As for the trick of tuple: try: c = (2,3)[4>3] and c = (2,3)[2>3]
 '''
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
-    
+
+
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
+
         while (root.val - p.val) * (root.val - q.val) > 0:
             root = (root.left, root.right)[p.val > root.val]
+
         return root
+
+
 
 a = TreeNode(6)
 b = TreeNode(2)
@@ -39,7 +47,9 @@ spot = Sol.lowestCommonAncestor(a, h, i)
 print spot.val
 
 
-''' my solution:
+
+'''
+# my solution:
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
         while (root.val - p.val) * (root.val - q.val) > 0:
@@ -51,7 +61,10 @@ class Solution(object):
         return root
 '''
 
-''' primitive solution:
+
+
+'''
+# my primitive solution:
 class Solution(object):
     def find(self, head, node):
         if (not head):

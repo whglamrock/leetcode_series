@@ -1,3 +1,4 @@
+
 class Solution(object):
     def wordsTyping(self, sentence, rows, cols):
 
@@ -36,6 +37,8 @@ class Solution(object):
                 res += 1
 
         return res
+
+
 
 Sol = Solution()
 sentence = ['I', 'have', 'an', 'apple']

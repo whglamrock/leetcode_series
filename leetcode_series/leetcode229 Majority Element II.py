@@ -1,5 +1,7 @@
+
 # Majority Voting Algorithm idea from: https://gregable.com/2013/10/majority-vote-algorithm-find-majority.html
 # O(n) time, O(1) space solution
+
 class Solution(object):
     def majorityElement(self, nums):
 
@@ -36,6 +38,7 @@ class Solution(object):
             ans.append(candidate2)
 
         return ans
+
 
 
 Sol = Solution()

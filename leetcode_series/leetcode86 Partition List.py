@@ -1,10 +1,15 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
 
+
 # build two new linked lists l1,l2 and connect them together.
+
 class Solution(object):
     def partition(self, head, x):
 
@@ -23,6 +28,7 @@ class Solution(object):
         l2.next = None
         l1.next = h2.next
         return h1.next
+
 
 
 '''

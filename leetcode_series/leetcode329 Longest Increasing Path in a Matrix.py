@@ -1,5 +1,7 @@
+
 # a very special dp practice.
 # pay attention to how the recursion is formed.
+
 class Solution(object):
     def longestIncreasingPath(self, matrix):
 

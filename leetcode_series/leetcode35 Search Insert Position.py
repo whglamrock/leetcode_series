@@ -1,6 +1,8 @@
+
 '''
 binary search. This question is really stupid and meaningless.
 '''
+
 class Solution(object):
     def searchInsert(self, nums, key):
         if key > nums[len(nums) - 1]:

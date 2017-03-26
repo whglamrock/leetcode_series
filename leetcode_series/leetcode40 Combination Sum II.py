@@ -1,4 +1,6 @@
+
 # backtracking, idea came from lc 39, which I did it myself.
+
 class Solution(object):
     def combinationSum2(self, candidates, target):
 
@@ -24,6 +26,8 @@ class Solution(object):
                 i += 1
 
         return combis
+
+
 
 Sol = Solution()
 candidates = [1,1,2,2,2,2,5,6,7]

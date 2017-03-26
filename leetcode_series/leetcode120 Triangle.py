@@ -1,6 +1,8 @@
+
 '''
 modify the triangle, from top to bottom:
 '''
+
 class Solution(object):
     def minimumTotal(self, triangle):
         if not triangle:
@@ -17,6 +19,8 @@ class Solution(object):
 
         return min(triangle[-1])
 
+
+
 triangle = [
      [2],
     [3,4],
@@ -27,8 +31,11 @@ Sol = Solution()
 print Sol.minimumTotal(triangle)
 
 
+
+'''
 # if the interviewer don't allow to modify the triangle, o(n) space solution is:
 # use the above triangle as an example and write down the 'res' in each for loop.
+
 class Solution(object):
     def minimumTotal(self, triangle):
 
@@ -41,3 +48,4 @@ class Solution(object):
                 # thus, in the last loop, only 1 element -- res[0] is modified.
 
         return res[0]
+'''

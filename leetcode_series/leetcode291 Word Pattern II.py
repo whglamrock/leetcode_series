@@ -1,3 +1,4 @@
+
 # the key is to use a dic to store visited patterns
 # further optimization could be done using a backward dic to avoid 'string[:i] not in dic.values()'
 

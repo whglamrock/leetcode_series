@@ -1,3 +1,4 @@
+
 # pay attention to the data structure: binary index tree
 # idea from: https://discuss.leetcode.com/topic/33747/148ms-python-solution-binary-indexed-tree/2
 
@@ -13,7 +14,6 @@ class NumArray(object):
                 self.bit[k] += num
                 k += k & (-k)
 
-
     def update(self, i, val):
 
         diff = val - self.nums[i]
@@ -22,7 +22,6 @@ class NumArray(object):
         while k < len(self.nums) + 1:
             self.bit[k] += diff
             k += k & (-k)
-
 
     # sum[i,...j], inclusive.
     def sumRange(self, i, j):

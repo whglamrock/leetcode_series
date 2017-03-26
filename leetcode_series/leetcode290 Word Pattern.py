@@ -1,4 +1,6 @@
+
 # same(or simialr) time/space complexity, but more beautiful code
+
 class Solution(object):
     def wordPattern(self, pattern, str):
 
@@ -7,11 +9,16 @@ class Solution(object):
         lsx = len(set(x))
         return len(x)==len(pattern) and lsx==lsp and lsp== len(set(zip(pattern, x)))
 
+
+
 Sol = Solution()
 print Sol.wordPattern('abba', 'dog dig dig dog')
 
 
-''' my original code (stupid version):
+
+'''
+# my original code (stupid version):
+
 class Solution(object):
     def wordPattern(self, pattern, str):
 

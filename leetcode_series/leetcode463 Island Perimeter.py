@@ -1,3 +1,4 @@
+
 # See my explanation from: https://discuss.leetcode.com/topic/76791/python-o-mn-time-o-1-space-easy-to-understand-solution
 
 class Solution(object):

@@ -1,4 +1,6 @@
+
 # I don't know what's the point of this question?
+
 class Solution(object):
     def fizzBuzz(self, n):
 

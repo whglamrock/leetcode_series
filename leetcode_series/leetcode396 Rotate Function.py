@@ -1,4 +1,6 @@
+
 # easy question.
+
 class Solution(object):
     def maxRotateFunction(self, A):
 

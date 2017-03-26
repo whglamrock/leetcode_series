@@ -1,10 +1,14 @@
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
 
+
 # leetcode time limit is tight for python...
 # idea: build a new sorted list and return the newhead
+
 class Solution(object):
     def insertionSortList(self, head):
 

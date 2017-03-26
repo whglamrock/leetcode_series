@@ -1,9 +1,13 @@
+
 # Definition for a binary tree node.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
+
 
 # idea from: https://discuss.leetcode.com/topic/36966/short-python-solution
 class Solution(object):

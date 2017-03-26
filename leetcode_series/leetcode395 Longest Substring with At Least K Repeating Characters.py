@@ -1,5 +1,7 @@
+
 # a great divide and conquer question by baidu...
 # O(N^2) solution
+
 class Solution(object):
     def longestSubstring(self, s, k):
 

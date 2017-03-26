@@ -1,6 +1,8 @@
+
 '''
 binary search
 '''
+
 class Solution(object):
     def findMin(self, nums):
 

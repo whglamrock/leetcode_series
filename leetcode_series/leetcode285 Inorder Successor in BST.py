@@ -1,12 +1,17 @@
+
 # Definition for a binary tree node.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
 
+
 # conception about inorder successor:
 # https://discuss.leetcode.com/topic/29428/for-those-who-is-not-so-clear-about-inorder-successors
+
 class Solution(object):
     def inorderSuccessor(self, root, p):
 
@@ -24,6 +29,7 @@ class Solution(object):
         else:   # even when p.val == root.val. because we need to find successor,
             # which can't be p itself.
             return self.inorderSuccessor(root.right, p)
+
 
 
 # consider the following test cases to execute the while loop

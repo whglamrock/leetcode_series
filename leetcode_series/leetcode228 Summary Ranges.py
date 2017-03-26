@@ -1,4 +1,6 @@
+
 # O(N) time solution.
+
 class Solution(object):
     def summaryRanges(self, nums):
 
@@ -27,6 +29,8 @@ class Solution(object):
             ans.append(str(start))
 
         return ans
+
+
 
 Sol = Solution()
 nums = [0, 1, 2, 4, 5, 7, 9, 11, 13]

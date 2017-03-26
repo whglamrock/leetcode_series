@@ -1,3 +1,4 @@
+
 class Solution(object):
     def getHint(self, secret, guess):
 
@@ -26,6 +27,8 @@ class Solution(object):
             cows += min(len(dick1[item]),len(dick2[item]))
 
         return str(bulls) + 'A' + str(cows) + 'B'
+
+
 
 Sol = Solution()
 secret = '1807'

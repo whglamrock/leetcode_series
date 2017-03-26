@@ -1,10 +1,9 @@
+
 # super easy
+
 class WordDistance(object):
     def __init__(self, words):
-        """
-        initialize your data structure here.
-        :type words: List[str]
-        """
+
         self.dick = {}
         self.res = 0
         for i in xrange(len(words)):
@@ -15,12 +14,7 @@ class WordDistance(object):
 
 
     def shortest(self, word1, word2):
-        """
-        Adds a word into the data structure.
-        :type word1: str
-        :type word2: str
-        :rtype: int
-        """
+
         dist = 2147483647
         for i in self.dick[word1]:
             for j in self.dick[word2]:

@@ -1,3 +1,4 @@
+
 class Node(object):
 
     def __init__(self, key, value):
@@ -68,6 +69,7 @@ Sol.set(3, 13)
 Sol.set(4, 124)
 print Sol.get(3)
 Sol.set(5, 314)
+
 
 
 '''

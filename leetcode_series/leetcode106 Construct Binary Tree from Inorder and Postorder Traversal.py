@@ -1,12 +1,17 @@
+
 # Definition for a binary tree node.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
 
+
 # breakthrough point from postorder. Find the position of parent node in inorder list,
 # then we can divide and conquer and write recursion.
+
 class Solution(object):
     def buildTree(self, inorder, postorder):
 

@@ -1,13 +1,12 @@
+
 '''
 Binary search to reduce the time complexity to o(log(n)), the idea about deciding
 the next search area comes from leetcode274: H-Index.
 '''
+
 class Solution(object):
     def hIndex(self, citations):
-        """
-        :type citations: List[int]
-        :rtype: int
-        """
+
         start, end = 0, len(citations)-1
         n = len(citations)
         hIndex = 0

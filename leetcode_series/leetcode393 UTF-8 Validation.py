@@ -1,5 +1,7 @@
+
 # the problem description appeared to be super vague.
 # need to ask more questions in real interview.
+
 class Solution(object):
     def validUtf8(self, data):
 

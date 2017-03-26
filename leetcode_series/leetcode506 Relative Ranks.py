@@ -2,6 +2,7 @@
 # there is no way to do better than O(nlogn) time complexity
 
 from copy import deepcopy
+
 class Solution(object):
     def findRelativeRanks(self, nums):
 

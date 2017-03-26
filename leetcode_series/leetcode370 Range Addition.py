@@ -1,7 +1,9 @@
+
 '''
 Google OA question.
 Core idea within the last for loop
 '''
+
 class Solution(object):
     def getModifiedArray(self, length, updates):
 
@@ -18,6 +20,7 @@ class Solution(object):
             sum += res[i]   # the core idea: at last, every element is the sum of all previous
             res[i] = sum    # elements in the status after the first loop.
         return res
+
 
 
 length = 5

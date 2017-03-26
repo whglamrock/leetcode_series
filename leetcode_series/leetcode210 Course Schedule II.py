@@ -1,5 +1,7 @@
+
 # topological sort solution
 # idea from lc207
+
 import collections
 class Solution(object):
     def findOrder(self, numCourses, prerequisites):
@@ -35,6 +37,7 @@ class Solution(object):
             return []
         else:
             return order
+
 
 
 Sol = Solution()

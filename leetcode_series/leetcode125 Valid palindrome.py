@@ -1,9 +1,7 @@
+
 class Solution(object):
     def isPalindrome(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
+
         i = 0
         j = 0
         while i+j < len(s):
@@ -40,6 +38,8 @@ class Solution(object):
             j+=1
 
         return True
+
+
 
 a = Solution()
 b = 'WGlGl'

@@ -1,4 +1,6 @@
+
 # typical unionfind solution, strictly O(N) time/space
+
 class Solution(object):
     def countComponents(self, n, edges):
 
@@ -46,6 +48,7 @@ class Solution(object):
 
         #print uniondic
         return len(uniondic) + n - len(dic)
+
 
 
 Sol = Solution()

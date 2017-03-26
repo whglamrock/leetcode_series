@@ -1,4 +1,6 @@
+
 # Remember the different between pre = costs[0][:] and pre = costs[0]. The use of '[:]' is essential
+
 class Solution(object):
     def minCost(self, costs):
         size = len(costs)
@@ -15,6 +17,8 @@ class Solution(object):
             pre[:] = now[:]
 
         return pre
+
+
 
 costs = [[1,2,3],[3,1,6],[32,6,11],[1,71,23],[4,6,3]]
 Sol = Solution()

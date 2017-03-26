@@ -1,6 +1,8 @@
+
 # the key is to find how to calculate the accum. Drawing a picture helps.
 # Another important idea: once we accumulate the water trapped, we treat it as
 # concrete bars (trap the water and "fill" it with concrete).
+
 class Solution(object):
     def trap(self, height):
 

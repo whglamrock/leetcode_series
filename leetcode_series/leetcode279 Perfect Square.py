@@ -1,4 +1,6 @@
+
 # BFS solution
+
 class Solution(object):
     def numSquares(self, n):
 

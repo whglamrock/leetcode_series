@@ -1,9 +1,7 @@
+
 class Solution(object):
     def mySqrt(self, x):
-        """
-        :type x: int
-        :rtype: int
-        """
+
         left, right = 0, x
         while left <= right:
             mid = int((left+right)/2)
@@ -13,6 +11,8 @@ class Solution(object):
                 right = mid
             else:
                 left = mid + 1
+
+
 
 a = 1
 Sol = Solution()

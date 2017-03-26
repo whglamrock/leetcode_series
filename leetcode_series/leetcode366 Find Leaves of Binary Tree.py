@@ -1,5 +1,7 @@
+
 # this algorithm doesn't actually remove the leaves but makes their value '#' after
 # 'stripping them off' so next time the 'stripped' leaves will be ignored.
+
 class Solution(object):
     def findLeaves(self, root):
         def markLeaves(p, l):

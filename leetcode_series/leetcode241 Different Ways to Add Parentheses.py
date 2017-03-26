@@ -1,4 +1,6 @@
+
 # divide and conquer solution.
+
 class Solution(object):
     def diffWaysToCompute(self, input):
 
@@ -23,6 +25,7 @@ class Solution(object):
             return l - r
         else:
             return l * r
+
 
 
 Sol = Solution()

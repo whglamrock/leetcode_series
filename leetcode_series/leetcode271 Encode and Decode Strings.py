@@ -1,5 +1,7 @@
+
 # interesting question
 # idea from Stefen: https://discuss.leetcode.com/topic/24176/1-7-lines-python-length-prefixes
+
 class Codec:
 
     def encode(self, strs):

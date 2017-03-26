@@ -1,9 +1,11 @@
+
 # pay attention to the detail of binary search: the boundary (len(image) not len(image) - 1),
 # the while condition(in this case, 'i < j' is more convenient).
 # the great use of "any" built-in function.
 # Most importantly, remember in this case searching if the '1' exists in a column takes
 # O(N) time, because for case like '000100101' we don't know which way to go with binary
 # search, we can't only scan the element one by one
+
 class Solution(object):
     def minArea(self, image, x, y):
 

@@ -1,3 +1,4 @@
+
 class Solution(object):
     def threeSumSmaller(self, nums, target):
 
@@ -21,6 +22,8 @@ class Solution(object):
                     # need to reduce the end.
 
         return ans
+
+
 
 Sol = Solution()
 nums = [-2, 0, 1, 3]

@@ -20,6 +20,7 @@ class Solution(object):
         return True
 
 
+
 Sol = Solution()
 interval1 = Interval(10,30)
 interval2 = Interval(15,55)

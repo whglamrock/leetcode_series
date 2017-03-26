@@ -1,3 +1,4 @@
+
 # Below is the interface for Iterator, which is already defined for you.
 #
 # class Iterator(object):
@@ -20,12 +21,10 @@
 #         """
 
 # Creating a list to store the value in iterator would be time/space consuming.
+
 class PeekingIterator(object):
     def __init__(self, iterator):
-        """
-        Initialize your data structure here.
-        :type iterator: Iterator
-        """
+
         self.iterator = iterator
         self.peeknum = None
         if self.iterator.hasNext():
@@ -34,17 +33,12 @@ class PeekingIterator(object):
 
 
     def peek(self):
-        """
-        Returns the next element in the iteration without advancing the iterator.
-        :rtype: int
-        """
+
         return self.peeknum
 
 
     def next(self):
-        """
-        :rtype: int
-        """
+
         self.nextnum = self.peeknum
         if self.iterator.hasNext():
             self.peeknum = self.iterator.next()
@@ -52,10 +46,9 @@ class PeekingIterator(object):
 
 
     def hasNext(self):
-        """
-        :rtype: bool
-        """
+
         return self.nextnum != self.peeknum
+
 
 
 # Your PeekingIterator object will be instantiated and called as such:

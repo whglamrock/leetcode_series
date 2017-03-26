@@ -2,40 +2,384 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/leetcode24 Swap Nodes in Pairs.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/leetcode23 Swap Nodes in Pairs.py" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Egg Drop Problem.py" afterPath="$PROJECT_DIR$/Egg Drop Problem.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/leetcode467. Unique Substrings in Wraparound String.py" afterPath="$PROJECT_DIR$/leetcode467 Unique Substrings in Wraparound String.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fkuagain.py" afterPath="$PROJECT_DIR$/fkuagain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode1 Two Sum.py" afterPath="$PROJECT_DIR$/leetcode1 Two Sum.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode10 Regular Expression Matching.py" afterPath="$PROJECT_DIR$/leetcode10 Regular Expression Matching.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode11 Container with Most Water.py" afterPath="$PROJECT_DIR$/leetcode11 Container with Most Water.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode12 Integer to Roman.py" afterPath="$PROJECT_DIR$/leetcode12 Integer to Roman.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode13 Roman to Integer.py" afterPath="$PROJECT_DIR$/leetcode13 Roman to Integer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode15 3Sum.py" afterPath="$PROJECT_DIR$/leetcode15 3Sum.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode16 3Sum Closest.py" afterPath="$PROJECT_DIR$/leetcode16 3Sum Closest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode18 4Sum.py" afterPath="$PROJECT_DIR$/leetcode18 4Sum.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode19 Remove Nth Node From End of List.py" afterPath="$PROJECT_DIR$/leetcode19 Remove Nth Node From End of List.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode2 Add two Numbers.py" afterPath="$PROJECT_DIR$/leetcode2 Add two Numbers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode20 Valid Parentheses.py" afterPath="$PROJECT_DIR$/leetcode20 Valid Parentheses.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode21 Merge Two Sorted Lists.py" afterPath="$PROJECT_DIR$/leetcode21 Merge Two Sorted Lists.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode22 Generate Parentheses.py" afterPath="$PROJECT_DIR$/leetcode22 Generate Parentheses.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py" afterPath="$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode25 Reverse Nodes in k-Group.py" afterPath="$PROJECT_DIR$/leetcode25 Reverse Nodes in k-Group.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode26 Remove Duplicates from Sorted Array.py" afterPath="$PROJECT_DIR$/leetcode26 Remove Duplicates from Sorted Array.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode27 Remove Element.py" afterPath="$PROJECT_DIR$/leetcode27 Remove Element.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode28 Implement strStr().py" afterPath="$PROJECT_DIR$/leetcode28 Implement strStr().py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode29 Devide Two Integers.py" afterPath="$PROJECT_DIR$/leetcode29 Devide Two Integers.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode30 Substring with Concatenation of All Words.py" afterPath="$PROJECT_DIR$/leetcode30 Substring with Concatenation of All Words.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode31 Next Permutation.py" afterPath="$PROJECT_DIR$/leetcode31 Next Permutation.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode33 Search in Rotated Sorted Array.py" afterPath="$PROJECT_DIR$/leetcode33 Search in Rotated Sorted Array.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode34 Search for a Range.py" afterPath="$PROJECT_DIR$/leetcode34 Search for a Range.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode4 Median of Two Sorted Arrays.py" afterPath="$PROJECT_DIR$/leetcode4 Median of Two Sorted Arrays.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode5 Longest Palindromic Substring.py" afterPath="$PROJECT_DIR$/leetcode5 Longest Palindromic Substring.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode543 Diameter of Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode543 Diameter of Binary Tree.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode7 Reverse Integer.py" afterPath="$PROJECT_DIR$/leetcode7 Reverse Integer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode9 Palindrome Number.py" afterPath="$PROJECT_DIR$/leetcode9 Palindrome Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode100 Same tree.py" afterPath="$PROJECT_DIR$/leetcode100 Same tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode101 Symmetric Tree.py" afterPath="$PROJECT_DIR$/leetcode101 Symmetric Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode102 Binary Tree Level Order Traversal.py" afterPath="$PROJECT_DIR$/leetcode102 Binary Tree Level Order Traversal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode103 Binary Tree Zigzag Level Order Traversal.py" afterPath="$PROJECT_DIR$/leetcode103 Binary Tree Zigzag Level Order Traversal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode104 Maximum Depth of Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode104 Maximum Depth of Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode105 Construct Binary Tree from Preorder and Inorder Traversal.py" afterPath="$PROJECT_DIR$/leetcode105 Construct Binary Tree from Preorder and Inorder Traversal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode106 Construct Binary Tree from Inorder and Postorder Traversal.py" afterPath="$PROJECT_DIR$/leetcode106 Construct Binary Tree from Inorder and Postorder Traversal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode107 Binary Tree Level Order Traversal II.py" afterPath="$PROJECT_DIR$/leetcode107 Binary Tree Level Order Traversal II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode108 Convert Sorted Array to Binary Search Tree.py" afterPath="$PROJECT_DIR$/leetcode108 Convert Sorted Array to Binary Search Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode109 Convert Sorted List to Binary Search Tree.py" afterPath="$PROJECT_DIR$/leetcode109 Convert Sorted List to Binary Search Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode110 Balanced Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode110 Balanced Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode111 Minimum Depth of Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode111 Minimum Depth of Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode112 Path Sum.py" afterPath="$PROJECT_DIR$/leetcode112 Path Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode113 Path Sum II.py" afterPath="$PROJECT_DIR$/leetcode113 Path Sum II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode114 Flatten Binary Tree to Linked List.py" afterPath="$PROJECT_DIR$/leetcode114 Flatten Binary Tree to Linked List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode116 Populating Next Right Pointers in Each Node.py" afterPath="$PROJECT_DIR$/leetcode116 Populating Next Right Pointers in Each Node.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py" afterPath="$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode118 Pascal's Triangle.py" afterPath="$PROJECT_DIR$/leetcode118 Pascal's Triangle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode119 Pascal's Triangle II.py" afterPath="$PROJECT_DIR$/leetcode119 Pascal's Triangle II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode120 Triangle.py" afterPath="$PROJECT_DIR$/leetcode120 Triangle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py" afterPath="$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode122 Best Time to Buy and Sell Stock II.py" afterPath="$PROJECT_DIR$/leetcode122 Best Time to Buy and Sell Stock II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode125 Valid palindrome.py" afterPath="$PROJECT_DIR$/leetcode125 Valid palindrome.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode127 Word ladder.py" afterPath="$PROJECT_DIR$/leetcode127 Word ladder.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode128 Longest Consecutive Sequence.py" afterPath="$PROJECT_DIR$/leetcode128 Longest Consecutive Sequence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode129 Sum Root to Leaf Numbers.py" afterPath="$PROJECT_DIR$/leetcode129 Sum Root to Leaf Numbers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode130 Surrounded Regions.py" afterPath="$PROJECT_DIR$/leetcode130 Surrounded Regions.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode131 Palindrome Partitioning.py" afterPath="$PROJECT_DIR$/leetcode131 Palindrome Partitioning.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode132 Palindrome Partitioning II.py" afterPath="$PROJECT_DIR$/leetcode132 Palindrome Partitioning II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode133 Clone Graph.py" afterPath="$PROJECT_DIR$/leetcode133 Clone Graph.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode134 Gas Station.py" afterPath="$PROJECT_DIR$/leetcode134 Gas Station.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode135 Candy.py" afterPath="$PROJECT_DIR$/leetcode135 Candy.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode136 Single Number.py" afterPath="$PROJECT_DIR$/leetcode136 Single Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode139 Word Break.py" afterPath="$PROJECT_DIR$/leetcode139 Word Break.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode140 Word Break II.py" afterPath="$PROJECT_DIR$/leetcode140 Word Break II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode141 Linked List Cycle.py" afterPath="$PROJECT_DIR$/leetcode141 Linked List Cycle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode142 Linked List Cycle II.py" afterPath="$PROJECT_DIR$/leetcode142 Linked List Cycle II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode143 Reorder List.py" afterPath="$PROJECT_DIR$/leetcode143 Reorder List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode144 Binary Tree Preorder Traversal.py" afterPath="$PROJECT_DIR$/leetcode144 Binary Tree Preorder Traversal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode146 LRU Cache.py" afterPath="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode147 Insertion Sort List.py" afterPath="$PROJECT_DIR$/leetcode147 Insertion Sort List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode148 Sort List.py" afterPath="$PROJECT_DIR$/leetcode148 Sort List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode149 Max Points on a Line.py" afterPath="$PROJECT_DIR$/leetcode149 Max Points on a Line.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode150 Evaluate Reverse Polish Notation.py" afterPath="$PROJECT_DIR$/leetcode150 Evaluate Reverse Polish Notation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode152 Maximum Product Subarray.py" afterPath="$PROJECT_DIR$/leetcode152 Maximum Product Subarray.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode153 Find Minimum in Rotated Sorted Array.py" afterPath="$PROJECT_DIR$/leetcode153 Find Minimum in Rotated Sorted Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode154 Find Minimum in Rotated Sorted Array II.py" afterPath="$PROJECT_DIR$/leetcode154 Find Minimum in Rotated Sorted Array II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode155 Min Stack.py" afterPath="$PROJECT_DIR$/leetcode155 Min Stack.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode156 Binary Tree Upside Down.py" afterPath="$PROJECT_DIR$/leetcode156 Binary Tree Upside Down.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" afterPath="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode159 Longest Substring with At Most Two Distinct Characters.py" afterPath="$PROJECT_DIR$/leetcode159 Longest Substring with At Most Two Distinct Characters.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode160 Intersection of Two Linkded Lists.py" afterPath="$PROJECT_DIR$/leetcode160 Intersection of Two Linkded Lists.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode161 One Edit Distance.py" afterPath="$PROJECT_DIR$/leetcode161 One Edit Distance.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode162 Find Peak Element.py" afterPath="$PROJECT_DIR$/leetcode162 Find Peak Element.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode163 Missing Ranges.py" afterPath="$PROJECT_DIR$/leetcode163 Missing Ranges.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode165 Compare Version Numbers.py" afterPath="$PROJECT_DIR$/leetcode165 Compare Version Numbers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode166 Fraction to Recurring Decimal.py" afterPath="$PROJECT_DIR$/leetcode166 Fraction to Recurring Decimal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode167 Two Sum II - Input array is sorted.py" afterPath="$PROJECT_DIR$/leetcode167 Two Sum II - Input array is sorted.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode168 Excel Sheet Column Title.py" afterPath="$PROJECT_DIR$/leetcode168 Excel Sheet Column Title.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode169 Majority Element.py" afterPath="$PROJECT_DIR$/leetcode169 Majority Element.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode170 Two Sum III - Data Structure Design.py" afterPath="$PROJECT_DIR$/leetcode170 Two Sum III - Data Structure Design.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode171 Excel Sheet Column Number.py" afterPath="$PROJECT_DIR$/leetcode171 Excel Sheet Column Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode172 Factorial Trailing Zeroes.py" afterPath="$PROJECT_DIR$/leetcode172 Factorial Trailing Zeroes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode173 Binary Search Tree Iterator.py" afterPath="$PROJECT_DIR$/leetcode173 Binary Search Tree Iterator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode174 Dungeon Game.py" afterPath="$PROJECT_DIR$/leetcode174 Dungeon Game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode179 Largest Number.py" afterPath="$PROJECT_DIR$/leetcode179 Largest Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode186 Reverse Words in a String II.py" afterPath="$PROJECT_DIR$/leetcode186 Reverse Words in a String II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode187 Repeated DNA Sequences.py" afterPath="$PROJECT_DIR$/leetcode187 Repeated DNA Sequences.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode189 Rotate Array.py" afterPath="$PROJECT_DIR$/leetcode189 Rotate Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode190 Reverse Bits.py" afterPath="$PROJECT_DIR$/leetcode190 Reverse Bits.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode191 Number of 1 Bits.py" afterPath="$PROJECT_DIR$/leetcode191 Number of 1 Bits.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode198 House Robber.py" afterPath="$PROJECT_DIR$/leetcode198 House Robber.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode199 Binary Tree Right Side View.py" afterPath="$PROJECT_DIR$/leetcode199 Binary Tree Right Side View.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode200 Number of Islands.py" afterPath="$PROJECT_DIR$/leetcode200 Number of Islands.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode201 Bitwise AND of Numbers Range.py" afterPath="$PROJECT_DIR$/leetcode201 Bitwise AND of Numbers Range.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode202 Happy Number.py" afterPath="$PROJECT_DIR$/leetcode202 Happy Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode203 Remove Linked List Elements.py" afterPath="$PROJECT_DIR$/leetcode203 Remove Linked List Elements.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode204 Count Primes.py" afterPath="$PROJECT_DIR$/leetcode204 Count Primes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode205 Isomorphic Strings.py" afterPath="$PROJECT_DIR$/leetcode205 Isomorphic Strings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode206 Reverse Linked List.py" afterPath="$PROJECT_DIR$/leetcode206 Reverse Linked List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode207 Course Schedule.py" afterPath="$PROJECT_DIR$/leetcode207 Course Schedule.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode208 Implement Trie (Prefix Tree).py" afterPath="$PROJECT_DIR$/leetcode208 Implement Trie (Prefix Tree).py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode209 Minimum Size Subarray Sum.py" afterPath="$PROJECT_DIR$/leetcode209 Minimum Size Subarray Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode210 Course Schedule II.py" afterPath="$PROJECT_DIR$/leetcode210 Course Schedule II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py" afterPath="$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode212 Word Search II.py" afterPath="$PROJECT_DIR$/leetcode212 Word Search II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode213 House Robber II.py" afterPath="$PROJECT_DIR$/leetcode213 House Robber II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode214 Shortest Palindrome.py" afterPath="$PROJECT_DIR$/leetcode214 Shortest Palindrome.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode215 Kth Largest Element in an Array.py" afterPath="$PROJECT_DIR$/leetcode215 Kth Largest Element in an Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode216 Combination Sum III.py" afterPath="$PROJECT_DIR$/leetcode216 Combination Sum III.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode217 Contains Duplicate.py" afterPath="$PROJECT_DIR$/leetcode217 Contains Duplicate.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode218 The Skyline Problem.py" afterPath="$PROJECT_DIR$/leetcode218 The Skyline Problem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode219 Contains Duplicate II.py" afterPath="$PROJECT_DIR$/leetcode219 Contains Duplicate II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode220 Contains Duplicate III.py" afterPath="$PROJECT_DIR$/leetcode220 Contains Duplicate III.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode221 Maximal Square.py" afterPath="$PROJECT_DIR$/leetcode221 Maximal Square.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode222 Count Complete Tree Nodes.py" afterPath="$PROJECT_DIR$/leetcode222 Count Complete Tree Nodes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode223 Rectangle Area.py" afterPath="$PROJECT_DIR$/leetcode223 Rectangle Area.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode225 Implement Stack using Queues.py" afterPath="$PROJECT_DIR$/leetcode225 Implement Stack using Queues.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode226 Invert Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode226 Invert Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode227 Basic Calculator.py" afterPath="$PROJECT_DIR$/leetcode227 Basic Calculator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode228 Summary Ranges.py" afterPath="$PROJECT_DIR$/leetcode228 Summary Ranges.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode229 Majority Element II.py" afterPath="$PROJECT_DIR$/leetcode229 Majority Element II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode230 Kth Smallest Element in a BST.py" afterPath="$PROJECT_DIR$/leetcode230 Kth Smallest Element in a BST.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode231 Power of Two.py" afterPath="$PROJECT_DIR$/leetcode231 Power of Two.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode232 Implement Queue using Stacks.py" afterPath="$PROJECT_DIR$/leetcode232 Implement Queue using Stacks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode234 Palindrome Linked List.py" afterPath="$PROJECT_DIR$/leetcode234 Palindrome Linked List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode235 Lowest Common Ancester of a Binary Search Tree.py" afterPath="$PROJECT_DIR$/leetcode235 Lowest Common Ancester of a Binary Search Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode237 Delete Node in a Linked List.py" afterPath="$PROJECT_DIR$/leetcode237 Delete Node in a Linked List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode238 Product of Array Except Self.py" afterPath="$PROJECT_DIR$/leetcode238 Product of Array Except Self.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode239 Sliding Window Maximum.py" afterPath="$PROJECT_DIR$/leetcode239 Sliding Window Maximum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode240 Search a 2D Matrix II.py" afterPath="$PROJECT_DIR$/leetcode240 Search a 2D Matrix II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode241 Different Ways to Add Parentheses.py" afterPath="$PROJECT_DIR$/leetcode241 Different Ways to Add Parentheses.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode242 Valid Anagram.py" afterPath="$PROJECT_DIR$/leetcode242 Valid Anagram.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode243 Shortest Word Distance.py" afterPath="$PROJECT_DIR$/leetcode243 Shortest Word Distance.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode244 Shortest Word Distance II.py" afterPath="$PROJECT_DIR$/leetcode244 Shortest Word Distance II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode245 Shortest Word Distance III.py" afterPath="$PROJECT_DIR$/leetcode245 Shortest Word Distance III.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode246 Strobogrammatic.py" afterPath="$PROJECT_DIR$/leetcode246 Strobogrammatic.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode247 Strobogrammatic Number II.py" afterPath="$PROJECT_DIR$/leetcode247 Strobogrammatic Number II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode249 Group Shifted Strings.py" afterPath="$PROJECT_DIR$/leetcode249 Group Shifted Strings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode250 Count Univalue Subtrees.py" afterPath="$PROJECT_DIR$/leetcode250 Count Univalue Subtrees.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode251 Flatten 2D Vector.py" afterPath="$PROJECT_DIR$/leetcode251 Flatten 2D Vector.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode252 Meeting Rooms.py" afterPath="$PROJECT_DIR$/leetcode252 Meeting Rooms.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode253 Meeting Rooms II.py" afterPath="$PROJECT_DIR$/leetcode253 Meeting Rooms II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode255 Verify Preorder Sequence in Binary Search Tree.py" afterPath="$PROJECT_DIR$/leetcode255 Verify Preorder Sequence in Binary Search Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode256 Paint House.py" afterPath="$PROJECT_DIR$/leetcode256 Paint House.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode257 Binary Tree Paths.py" afterPath="$PROJECT_DIR$/leetcode257 Binary Tree Paths.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode258 Add Digits.py" afterPath="$PROJECT_DIR$/leetcode258 Add Digits.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode259 3Sum Smaller.py" afterPath="$PROJECT_DIR$/leetcode259 3Sum Smaller.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode260 Single Number III.py" afterPath="$PROJECT_DIR$/leetcode260 Single Number III.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode261 Graph Valid Tree.py" afterPath="$PROJECT_DIR$/leetcode261 Graph Valid Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode263 Ugly Number.py" afterPath="$PROJECT_DIR$/leetcode263 Ugly Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode264 Ugly Number II.py" afterPath="$PROJECT_DIR$/leetcode264 Ugly Number II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode265 Paint House II.py" afterPath="$PROJECT_DIR$/leetcode265 Paint House II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode267 Palindrome Permutation II.py" afterPath="$PROJECT_DIR$/leetcode267 Palindrome Permutation II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode268 Missing Number.py" afterPath="$PROJECT_DIR$/leetcode268 Missing Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode269 Alien Dictionary.py" afterPath="$PROJECT_DIR$/leetcode269 Alien Dictionary.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode270 Closest Binary Search Tree.py" afterPath="$PROJECT_DIR$/leetcode270 Closest Binary Search Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode271 Encode and Decode Strings.py" afterPath="$PROJECT_DIR$/leetcode271 Encode and Decode Strings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode273 Integer to English Words.py" afterPath="$PROJECT_DIR$/leetcode273 Integer to English Words.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode274 H-Index.py" afterPath="$PROJECT_DIR$/leetcode274 H-Index.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode275 H-Index II.py" afterPath="$PROJECT_DIR$/leetcode275 H-Index II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode276 Paint Fence.py" afterPath="$PROJECT_DIR$/leetcode276 Paint Fence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode277 Find the Celebrity.py" afterPath="$PROJECT_DIR$/leetcode277 Find the Celebrity.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode279 Perfect Square.py" afterPath="$PROJECT_DIR$/leetcode279 Perfect Square.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode280 Wiggle Sort.py" afterPath="$PROJECT_DIR$/leetcode280 Wiggle Sort.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode281 Zigzag Iterator.py" afterPath="$PROJECT_DIR$/leetcode281 Zigzag Iterator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode282 Expression Add Operators.py" afterPath="$PROJECT_DIR$/leetcode282 Expression Add Operators.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode283 Move Zeros.py" afterPath="$PROJECT_DIR$/leetcode283 Move Zeros.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode284 Peeking Iterator.py" afterPath="$PROJECT_DIR$/leetcode284 Peeking Iterator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py" afterPath="$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode286 Walls and Gates.py" afterPath="$PROJECT_DIR$/leetcode286 Walls and Gates.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode287 Find the Duplicate Number.py" afterPath="$PROJECT_DIR$/leetcode287 Find the Duplicate Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode288 Unique Word Abbrevation.py" afterPath="$PROJECT_DIR$/leetcode288 Unique Word Abbrevation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode289 Game of Life.py" afterPath="$PROJECT_DIR$/leetcode289 Game of Life.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode290 Word Pattern.py" afterPath="$PROJECT_DIR$/leetcode290 Word Pattern.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode291 Word Pattern II.py" afterPath="$PROJECT_DIR$/leetcode291 Word Pattern II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode292 Nim Game.py" afterPath="$PROJECT_DIR$/leetcode292 Nim Game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode293 Flip Game.py" afterPath="$PROJECT_DIR$/leetcode293 Flip Game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode295 Find Median from Data Stream.py" afterPath="$PROJECT_DIR$/leetcode295 Find Median from Data Stream.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode296 Best Meeting Point.py" afterPath="$PROJECT_DIR$/leetcode296 Best Meeting Point.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode298 Binary Tree Longest Consecutive Sequence.py" afterPath="$PROJECT_DIR$/leetcode298 Binary Tree Longest Consecutive Sequence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode299 Bulls and Cows.py" afterPath="$PROJECT_DIR$/leetcode299 Bulls and Cows.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode300 Longest Increasing Subsequence.py" afterPath="$PROJECT_DIR$/leetcode300 Longest Increasing Subsequence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode302 Smallest Rectangle Enclosing Black Pixels.py" afterPath="$PROJECT_DIR$/leetcode302 Smallest Rectangle Enclosing Black Pixels.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode303 Range Sum Query.py" afterPath="$PROJECT_DIR$/leetcode303 Range Sum Query.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode304 Range Sum Query 2D - Immutable.py" afterPath="$PROJECT_DIR$/leetcode304 Range Sum Query 2D - Immutable.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode305 Number of Islands II.py" afterPath="$PROJECT_DIR$/leetcode305 Number of Islands II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode306 Additive Number.py" afterPath="$PROJECT_DIR$/leetcode306 Additive Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode307 Range Sum Query - Mutable.py" afterPath="$PROJECT_DIR$/leetcode307 Range Sum Query - Mutable.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode308 Range Sum Query 2D - Mutable.py" afterPath="$PROJECT_DIR$/leetcode308 Range Sum Query 2D - Mutable.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode309 Best Time to Buy and Sell Stock with Cooldown.py" afterPath="$PROJECT_DIR$/leetcode309 Best Time to Buy and Sell Stock with Cooldown.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode310 Minimum Height Trees.py" afterPath="$PROJECT_DIR$/leetcode310 Minimum Height Trees.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode311 Sparse Matrix Multiplication.py" afterPath="$PROJECT_DIR$/leetcode311 Sparse Matrix Multiplication.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode312 Burst Balloons.py" afterPath="$PROJECT_DIR$/leetcode312 Burst Balloons.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode313 Super Ugly Number.py" afterPath="$PROJECT_DIR$/leetcode313 Super Ugly Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode314 Binary Tree Vertical Order Traversal.py" afterPath="$PROJECT_DIR$/leetcode314 Binary Tree Vertical Order Traversal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode315 Count of Smaller Numbers After Self.py" afterPath="$PROJECT_DIR$/leetcode315 Count of Smaller Numbers After Self.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode316 Remove Duplicate Letters.py" afterPath="$PROJECT_DIR$/leetcode316 Remove Duplicate Letters.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode318 Maximum Product of Word Lengths.py" afterPath="$PROJECT_DIR$/leetcode318 Maximum Product of Word Lengths.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode319 Bulb Switcher.py" afterPath="$PROJECT_DIR$/leetcode319 Bulb Switcher.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode320 Generalized Abbreviation.py" afterPath="$PROJECT_DIR$/leetcode320 Generalized Abbreviation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode322 Coin Change.py" afterPath="$PROJECT_DIR$/leetcode322 Coin Change.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode323 Number of Connected Components in an Undirected Graph.py" afterPath="$PROJECT_DIR$/leetcode323 Number of Connected Components in an Undirected Graph.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode324 Wiggle Sort II.py" afterPath="$PROJECT_DIR$/leetcode324 Wiggle Sort II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode325 Maximum Size Subarray Sum Equals k.py" afterPath="$PROJECT_DIR$/leetcode325 Maximum Size Subarray Sum Equals k.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode326 Power of Three.py" afterPath="$PROJECT_DIR$/leetcode326 Power of Three.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode327 Count of Range Sum.py" afterPath="$PROJECT_DIR$/leetcode327 Count of Range Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode328 Odd Even Linked List.py" afterPath="$PROJECT_DIR$/leetcode328 Odd Even Linked List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode329 Longest Increasing Path in a Matrix.py" afterPath="$PROJECT_DIR$/leetcode329 Longest Increasing Path in a Matrix.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode330 Patching Array.py" afterPath="$PROJECT_DIR$/leetcode330 Patching Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode331 Verify Preorder Serialization of a Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode331 Verify Preorder Serialization of a Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode332 Reconstruct Itinerary.py" afterPath="$PROJECT_DIR$/leetcode332 Reconstruct Itinerary.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode333 Largest BST Subtree.py" afterPath="$PROJECT_DIR$/leetcode333 Largest BST Subtree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode334 Increasing Triplet Subsequence.py" afterPath="$PROJECT_DIR$/leetcode334 Increasing Triplet Subsequence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode335 Self Crossing.py" afterPath="$PROJECT_DIR$/leetcode335 Self Crossing.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode336 Palindrome Pairs.py" afterPath="$PROJECT_DIR$/leetcode336 Palindrome Pairs.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode337 House Robber III.py" afterPath="$PROJECT_DIR$/leetcode337 House Robber III.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode338 Counting Bits.py" afterPath="$PROJECT_DIR$/leetcode338 Counting Bits.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode339 Nested List Weight Sum.py" afterPath="$PROJECT_DIR$/leetcode339 Nested List Weight Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py" afterPath="$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode342 Power of Four.py" afterPath="$PROJECT_DIR$/leetcode342 Power of Four.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode343 Integer Break.py" afterPath="$PROJECT_DIR$/leetcode343 Integer Break.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode344 Reverse String.py" afterPath="$PROJECT_DIR$/leetcode344 Reverse String.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode345 Reverse Vowels of a String.py" afterPath="$PROJECT_DIR$/leetcode345 Reverse Vowels of a String.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode346 Moving Average from Data Stream.py" afterPath="$PROJECT_DIR$/leetcode346 Moving Average from Data Stream.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode347 Top K Frequent Elements.py" afterPath="$PROJECT_DIR$/leetcode347 Top K Frequent Elements.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode348 Design Tic-Tac-Toe.py" afterPath="$PROJECT_DIR$/leetcode348 Design Tic-Tac-Toe.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode349 Intersection of Two Arrays.py" afterPath="$PROJECT_DIR$/leetcode349 Intersection of Two Arrays.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode35 Search Insert Position.py" afterPath="$PROJECT_DIR$/leetcode35 Search Insert Position.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode350 Intersection of Two Array II.py" afterPath="$PROJECT_DIR$/leetcode350 Intersection of Two Array II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode351 Android Unlock Patterns.py" afterPath="$PROJECT_DIR$/leetcode351 Android Unlock Patterns.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode352 Data Stream as Disjoint Intervals.py" afterPath="$PROJECT_DIR$/leetcode352 Data Stream as Disjoint Intervals.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode353 Design Snake Game.py" afterPath="$PROJECT_DIR$/leetcode353 Design Snake Game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode355 Design Twitter.py" afterPath="$PROJECT_DIR$/leetcode355 Design Twitter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode356 Line Reflection.py" afterPath="$PROJECT_DIR$/leetcode356 Line Reflection.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode358 Rearrange String k Distance Apart.py" afterPath="$PROJECT_DIR$/leetcode358 Rearrange String k Distance Apart.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode359 Logger Rate Limiter.py" afterPath="$PROJECT_DIR$/leetcode359 Logger Rate Limiter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode36 Valid Sudoku.py" afterPath="$PROJECT_DIR$/leetcode36 Valid Sudoku.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode360 Sort Transformed Array.py" afterPath="$PROJECT_DIR$/leetcode360 Sort Transformed Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode361 Bomb Enemy.py" afterPath="$PROJECT_DIR$/leetcode361 Bomb Enemy.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode364 Nested List Weight Sum II.py" afterPath="$PROJECT_DIR$/leetcode364 Nested List Weight Sum II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode365 Water and Jug Problem.py" afterPath="$PROJECT_DIR$/leetcode365 Water and Jug Problem.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode366 Find Leaves of Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode366 Find Leaves of Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode367 Valid Perfect Square.py" afterPath="$PROJECT_DIR$/leetcode367 Valid Perfect Square.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode368 Largest Divisible Subset.py" afterPath="$PROJECT_DIR$/leetcode368 Largest Divisible Subset.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode369 Plus One Linked List.py" afterPath="$PROJECT_DIR$/leetcode369 Plus One Linked List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode37 Sudoku Solver.py" afterPath="$PROJECT_DIR$/leetcode37 Sudoku Solver.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode370 Range Addition.py" afterPath="$PROJECT_DIR$/leetcode370 Range Addition.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode371 Sum of Two Integers.py" afterPath="$PROJECT_DIR$/leetcode371 Sum of Two Integers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode372 Super Pow.py" afterPath="$PROJECT_DIR$/leetcode372 Super Pow.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode373 Find K Pairs with Smallest Sums.py" afterPath="$PROJECT_DIR$/leetcode373 Find K Pairs with Smallest Sums.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode374 Guess Number Higher or Lower.py" afterPath="$PROJECT_DIR$/leetcode374 Guess Number Higher or Lower.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode375 Guess Number Higher or Lower II.py" afterPath="$PROJECT_DIR$/leetcode375 Guess Number Higher or Lower II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode376 Wiggle Subsequence.py" afterPath="$PROJECT_DIR$/leetcode376 Wiggle Subsequence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" afterPath="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py" afterPath="$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode379 Design Phone Directory.py" afterPath="$PROJECT_DIR$/leetcode379 Design Phone Directory.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode38 Count and say.py" afterPath="$PROJECT_DIR$/leetcode38 Count and say.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode380 Insert Delete GetRandom O(1).py" afterPath="$PROJECT_DIR$/leetcode380 Insert Delete GetRandom O(1).py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode381 Insert Delete GetRandom O(1) - Duplicates allowed.py" afterPath="$PROJECT_DIR$/leetcode381 Insert Delete GetRandom O(1) - Duplicates allowed.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode382 Linked List Random Node.py" afterPath="$PROJECT_DIR$/leetcode382 Linked List Random Node.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode383 Ransom Note.py" afterPath="$PROJECT_DIR$/leetcode383 Ransom Note.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode384 Shuffle an Array.py" afterPath="$PROJECT_DIR$/leetcode384 Shuffle an Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode385 Mini Parser.py" afterPath="$PROJECT_DIR$/leetcode385 Mini Parser.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode386 Lexicographical Numbers.py" afterPath="$PROJECT_DIR$/leetcode386 Lexicographical Numbers.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode387 First Unique Character in a String.py" afterPath="$PROJECT_DIR$/leetcode387 First Unique Character in a String.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode388 Longest Absolute File Path.py" afterPath="$PROJECT_DIR$/leetcode388 Longest Absolute File Path.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode389 Find the Difference.py" afterPath="$PROJECT_DIR$/leetcode389 Find the Difference.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode39 Combination Sum.py" afterPath="$PROJECT_DIR$/leetcode39 Combination Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode390 Elimination Game.py" afterPath="$PROJECT_DIR$/leetcode390 Elimination Game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode391 Perfect Rectangle.py" afterPath="$PROJECT_DIR$/leetcode391 Perfect Rectangle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode392 Is Subsequence.py" afterPath="$PROJECT_DIR$/leetcode392 Is Subsequence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode393 UTF-8 Validation.py" afterPath="$PROJECT_DIR$/leetcode393 UTF-8 Validation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode394 Decode String.py" afterPath="$PROJECT_DIR$/leetcode394 Decode String.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode395 Longest Substring with At Least K Repeating Characters.py" afterPath="$PROJECT_DIR$/leetcode395 Longest Substring with At Least K Repeating Characters.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode396 Rotate Function.py" afterPath="$PROJECT_DIR$/leetcode396 Rotate Function.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode397 Integer Replacement.py" afterPath="$PROJECT_DIR$/leetcode397 Integer Replacement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode398 Random Pick Index.py" afterPath="$PROJECT_DIR$/leetcode398 Random Pick Index.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode399 Evaluation Division.py" afterPath="$PROJECT_DIR$/leetcode399 Evaluation Division.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode40 Combination Sum II.py" afterPath="$PROJECT_DIR$/leetcode40 Combination Sum II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode400 Nth Digit.py" afterPath="$PROJECT_DIR$/leetcode400 Nth Digit.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode401. Binary Watch.py" afterPath="$PROJECT_DIR$/leetcode401. Binary Watch.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode402 Remove K Digits.py" afterPath="$PROJECT_DIR$/leetcode402 Remove K Digits.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode403 Frog Jump.py" afterPath="$PROJECT_DIR$/leetcode403 Frog Jump.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode404 Sum of Left Leaves.py" afterPath="$PROJECT_DIR$/leetcode404 Sum of Left Leaves.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode405 Convert a Number to Hexadecimal.py" afterPath="$PROJECT_DIR$/leetcode405 Convert a Number to Hexadecimal.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode406 Queue Reconstruction by Height.py" afterPath="$PROJECT_DIR$/leetcode406 Queue Reconstruction by Height.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py" afterPath="$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode408 Valid Word Abbreviation.py" afterPath="$PROJECT_DIR$/leetcode408 Valid Word Abbreviation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode409 Longest Palindrome.py" afterPath="$PROJECT_DIR$/leetcode409 Longest Palindrome.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode410 Split Array Largest Sum.py" afterPath="$PROJECT_DIR$/leetcode410 Split Array Largest Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode411 Minimum Unique Word Abbreviation.py" afterPath="$PROJECT_DIR$/leetcode411 Minimum Unique Word Abbreviation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode412 Fizz Buzz.py" afterPath="$PROJECT_DIR$/leetcode412 Fizz Buzz.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode413 Arithmetic Slices.py" afterPath="$PROJECT_DIR$/leetcode413 Arithmetic Slices.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode414 Third Maximum Number.py" afterPath="$PROJECT_DIR$/leetcode414 Third Maximum Number.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode415 Add Strings.py" afterPath="$PROJECT_DIR$/leetcode415 Add Strings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode416 Partition Equal Subset Sum.py" afterPath="$PROJECT_DIR$/leetcode416 Partition Equal Subset Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode417 Pacific Atlantic Water Flow.py" afterPath="$PROJECT_DIR$/leetcode417 Pacific Atlantic Water Flow.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode418 Sentence Screen Fitting.py" afterPath="$PROJECT_DIR$/leetcode418 Sentence Screen Fitting.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode42 Trapping Rain Water.py" afterPath="$PROJECT_DIR$/leetcode42 Trapping Rain Water.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode421 Maximum XOR of Two Numbers in an Array.py" afterPath="$PROJECT_DIR$/leetcode421 Maximum XOR of Two Numbers in an Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode422 Valid Word Square.py" afterPath="$PROJECT_DIR$/leetcode422 Valid Word Square.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode423 Reconstruct Original Digits from English.py" afterPath="$PROJECT_DIR$/leetcode423 Reconstruct Original Digits from English.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode424 Longest Repeating Character Replacement.py" afterPath="$PROJECT_DIR$/leetcode424 Longest Repeating Character Replacement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode425 Word Squares.py" afterPath="$PROJECT_DIR$/leetcode425 Word Squares.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode43 Multiply Strings.py" afterPath="$PROJECT_DIR$/leetcode43 Multiply Strings.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode433 Minimum Genetic Mutation.py" afterPath="$PROJECT_DIR$/leetcode433 Minimum Genetic Mutation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode434 Number of Segments in a String.py" afterPath="$PROJECT_DIR$/leetcode434 Number of Segments in a String.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode435 Non-overlapping Intervals.py" afterPath="$PROJECT_DIR$/leetcode435 Non-overlapping Intervals.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode436 Find Right Interval.py" afterPath="$PROJECT_DIR$/leetcode436 Find Right Interval.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode437 Path Sum III.py" afterPath="$PROJECT_DIR$/leetcode437 Path Sum III.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode438 Find All Anagrams in a String.py" afterPath="$PROJECT_DIR$/leetcode438 Find All Anagrams in a String.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode44 Wildcard Matching.py" afterPath="$PROJECT_DIR$/leetcode44 Wildcard Matching.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode441 Arranging Coins.py" afterPath="$PROJECT_DIR$/leetcode441 Arranging Coins.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode442 Find All Duplicates in an Array.py" afterPath="$PROJECT_DIR$/leetcode442 Find All Duplicates in an Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode444 Sequence Reconstruction.py" afterPath="$PROJECT_DIR$/leetcode444 Sequence Reconstruction.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode445 Add Two Numbers II.py" afterPath="$PROJECT_DIR$/leetcode445 Add Two Numbers II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode448 Find All Numbers Disappeared in an Array.py" afterPath="$PROJECT_DIR$/leetcode448 Find All Numbers Disappeared in an Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode449 Serialize and Deserialize BST.py" afterPath="$PROJECT_DIR$/leetcode449 Serialize and Deserialize BST.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode450 Delete Node in a BST.py" afterPath="$PROJECT_DIR$/leetcode450 Delete Node in a BST.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode451 Sort Characters By Frequency.py" afterPath="$PROJECT_DIR$/leetcode451 Sort Characters By Frequency.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode452 Mininum Number of Arrows to Burst Balloons.py" afterPath="$PROJECT_DIR$/leetcode452 Mininum Number of Arrows to Burst Balloons.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode453 Minimum Moves to Equal Array Elements.py" afterPath="$PROJECT_DIR$/leetcode453 Minimum Moves to Equal Array Elements.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode454 4Sum II.py" afterPath="$PROJECT_DIR$/leetcode454 4Sum II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode455 Assign Cookies.py" afterPath="$PROJECT_DIR$/leetcode455 Assign Cookies.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode457 Circular Array Loop.py" afterPath="$PROJECT_DIR$/leetcode457 Circular Array Loop.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode459 Repeated Substring Pattern.py" afterPath="$PROJECT_DIR$/leetcode459 Repeated Substring Pattern.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode46 Permutations.py" afterPath="$PROJECT_DIR$/leetcode46 Permutations.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode460 LFU Cache.py" afterPath="$PROJECT_DIR$/leetcode460 LFU Cache.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode461 Hamming Distance.py" afterPath="$PROJECT_DIR$/leetcode461 Hamming Distance.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode462 Minimum Moves to Equal Array Elements II.py" afterPath="$PROJECT_DIR$/leetcode462 Minimum Moves to Equal Array Elements II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode463 Island Perimeter.py" afterPath="$PROJECT_DIR$/leetcode463 Island Perimeter.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode464 Can I Win.py" afterPath="$PROJECT_DIR$/leetcode464 Can I Win.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode47 Permutations II.py" afterPath="$PROJECT_DIR$/leetcode47 Permutations II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode475 Heaters.py" afterPath="$PROJECT_DIR$/leetcode475 Heaters.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode476 Number Complement.py" afterPath="$PROJECT_DIR$/leetcode476 Number Complement.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode477 Total Hamming Distance.py" afterPath="$PROJECT_DIR$/leetcode477 Total Hamming Distance.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode48 Rotate Image.py" afterPath="$PROJECT_DIR$/leetcode48 Rotate Image.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode481 Magical String.py" afterPath="$PROJECT_DIR$/leetcode481 Magical String.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode482 License Key Formatting.py" afterPath="$PROJECT_DIR$/leetcode482 License Key Formatting.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode484 Find Permutation.py" afterPath="$PROJECT_DIR$/leetcode484 Find Permutation.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode485 Max Consecutive Ones.py" afterPath="$PROJECT_DIR$/leetcode485 Max Consecutive Ones.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode486 Predict the Winner.py" afterPath="$PROJECT_DIR$/leetcode486 Predict the Winner.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode487 Max Consecutive Ones II.py" afterPath="$PROJECT_DIR$/leetcode487 Max Consecutive Ones II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode488 Zuma Game.py" afterPath="$PROJECT_DIR$/leetcode488 Zuma Game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode49 Group Anagrams.py" afterPath="$PROJECT_DIR$/leetcode49 Group Anagrams.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode492 Construct the Rectangle.py" afterPath="$PROJECT_DIR$/leetcode492 Construct the Rectangle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode494 Target Sum.py" afterPath="$PROJECT_DIR$/leetcode494 Target Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode50 Pow(x, n).py" afterPath="$PROJECT_DIR$/leetcode50 Pow(x, n).py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode505 The Maze II.py" afterPath="$PROJECT_DIR$/leetcode505 The Maze II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode506 Relative Ranks.py" afterPath="$PROJECT_DIR$/leetcode506 Relative Ranks.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode529 Minesweeper.py" afterPath="$PROJECT_DIR$/leetcode529 Minesweeper.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode53 Maximum Subarray.py" afterPath="$PROJECT_DIR$/leetcode53 Maximum Subarray.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode535 Encode and Decode TinyURL.py" afterPath="$PROJECT_DIR$/leetcode535 Encode and Decode TinyURL.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode54 Spiral Matrix.py" afterPath="$PROJECT_DIR$/leetcode54 Spiral Matrix.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode55 Jump Game.py" afterPath="$PROJECT_DIR$/leetcode55 Jump Game.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode56 Merge Intervals.py" afterPath="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode57 Insert Interval.py" afterPath="$PROJECT_DIR$/leetcode57 Insert Interval.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode58 Length of Last word.py" afterPath="$PROJECT_DIR$/leetcode58 Length of Last word.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode59 Spiral Matrix II.py" afterPath="$PROJECT_DIR$/leetcode59 Spiral Matrix II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode60 Permutation Sequence.py" afterPath="$PROJECT_DIR$/leetcode60 Permutation Sequence.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode61 Rotate List.py" afterPath="$PROJECT_DIR$/leetcode61 Rotate List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode62 Unique Paths.py" afterPath="$PROJECT_DIR$/leetcode62 Unique Paths.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode63 Unique Paths II.py" afterPath="$PROJECT_DIR$/leetcode63 Unique Paths II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode64 Minimum Path Sum.py" afterPath="$PROJECT_DIR$/leetcode64 Minimum Path Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode66 Plus one.py" afterPath="$PROJECT_DIR$/leetcode66 Plus one.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode67 Add binary.py" afterPath="$PROJECT_DIR$/leetcode67 Add binary.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode68 Text Justification.py" afterPath="$PROJECT_DIR$/leetcode68 Text Justification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode69 Sqrt(x).py" afterPath="$PROJECT_DIR$/leetcode69 Sqrt(x).py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode70 Climbing stairs.py" afterPath="$PROJECT_DIR$/leetcode70 Climbing stairs.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode71 Simplify Path.py" afterPath="$PROJECT_DIR$/leetcode71 Simplify Path.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode72 Edit Distance.py" afterPath="$PROJECT_DIR$/leetcode72 Edit Distance.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode73 Set Matrix Zeroes.py" afterPath="$PROJECT_DIR$/leetcode73 Set Matrix Zeroes.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode74 Search a 2D Matrix.py" afterPath="$PROJECT_DIR$/leetcode74 Search a 2D Matrix.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode75 Sort Colors.py" afterPath="$PROJECT_DIR$/leetcode75 Sort Colors.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" afterPath="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode77 Combinations.py" afterPath="$PROJECT_DIR$/leetcode77 Combinations.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode78 Subsets.py" afterPath="$PROJECT_DIR$/leetcode78 Subsets.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode79 Word Search.py" afterPath="$PROJECT_DIR$/leetcode79 Word Search.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode80 Remove Duplicates from Sorted Array II.py" afterPath="$PROJECT_DIR$/leetcode80 Remove Duplicates from Sorted Array II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py" afterPath="$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode82 Remove Duplicate from Sorted List II.py" afterPath="$PROJECT_DIR$/leetcode82 Remove Duplicate from Sorted List II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode83 Remove Duplicates from Sorted List.py" afterPath="$PROJECT_DIR$/leetcode83 Remove Duplicates from Sorted List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode85 Maximal Rectangle.py" afterPath="$PROJECT_DIR$/leetcode85 Maximal Rectangle.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode86 Partition List.py" afterPath="$PROJECT_DIR$/leetcode86 Partition List.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode88 Merge sorted array.py" afterPath="$PROJECT_DIR$/leetcode88 Merge sorted array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode89 Gray Code.py" afterPath="$PROJECT_DIR$/leetcode89 Gray Code.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode90 Subsets II.py" afterPath="$PROJECT_DIR$/leetcode90 Subsets II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode91 Decode Ways.py" afterPath="$PROJECT_DIR$/leetcode91 Decode Ways.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode92 Reverse Linked List II.py" afterPath="$PROJECT_DIR$/leetcode92 Reverse Linked List II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode93 Restore IP Addresses.py" afterPath="$PROJECT_DIR$/leetcode93 Restore IP Addresses.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode95 Unique Binary Search Trees.py" afterPath="$PROJECT_DIR$/leetcode95 Unique Binary Search Trees.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode96 Unique Binary Search Trees.py" afterPath="$PROJECT_DIR$/leetcode96 Unique Binary Search Trees.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode98 Validate Binary Search Tree.py" afterPath="$PROJECT_DIR$/leetcode98 Validate Binary Search Tree.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -123,9 +467,11 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode368_Largest_Divisible_Subset.coverage" NAME="leetcode368 Largest Divisible Subset Coverage Results" MODIFIED="1470136836391" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode388_Longest_Absolute_File_Path.coverage" NAME="leetcode388 Longest Absolute File Path Coverage Results" MODIFIED="1476471566216" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode38_Count_and_say.coverage" NAME="leetcode38 Count and say Coverage Results" MODIFIED="1457906542766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode246_Strobogrammatic.coverage" NAME="leetcode246 Strobogrammatic Coverage Results" MODIFIED="1490516324199" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode119_Pascal_s_Triangle_II.coverage" NAME="leetcode119 Pascal's Triangle II Coverage Results" MODIFIED="1463262414863" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode238_Product_of_Array_Except_Self.coverage" NAME="leetcode238 Product of Array Except Self Coverage Results" MODIFIED="1465082762903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode306_Additive_Number.coverage" NAME="leetcode306 Additive Number Coverage Results" MODIFIED="1475387740439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode253_Meeting_Rooms_II.coverage" NAME="leetcode253 Meeting Rooms II Coverage Results" MODIFIED="1490516440195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode98_Validate_Binary_Search_Tree.coverage" NAME="leetcode98 Validate Binary Search Tree Coverage Results" MODIFIED="1480745696383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode254_Factor_Combinations.coverage" NAME="leetcode254 Factor Combinations Coverage Results" MODIFIED="1486506864559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode102_Binary_Tree_Level_Order_Traversal.coverage" NAME="leetcode102 Binary Tree Level Order Traversal Coverage Results" MODIFIED="1459117499859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -166,6 +512,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode_198_House_Robber.coverage" NAME="leetcode 198 House Robber Coverage Results" MODIFIED="1463183006627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode128_Longest_Consecutive_Sequence.coverage" NAME="leetcode128 Longest Consecutive Sequence Coverage Results" MODIFIED="1458688700512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode267_Palindrome_Permutation_II.coverage" NAME="leetcode267 Palindrome Permutation II Coverage Results" MODIFIED="1474815919163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode38_Count_and_say.coverage" NAME="leetcode38 Count and say Coverage Results" MODIFIED="1490514206335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode210_Course_Schedule_II.coverage" NAME="leetcode210 Course Schedule II Coverage Results" MODIFIED="1479587019326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode90_Subsets_II.coverage" NAME="leetcode90 Subsets II Coverage Results" MODIFIED="1469356942940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode370_Range_Addition.coverage" NAME="leetcode370 Range Addition Coverage Results" MODIFIED="1476136396321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -280,6 +627,7 @@
     <SUITE FILE_PATH="coverage/untitled1$leetcode_6_Zigzag.coverage" NAME="leetcode 6 Zigzag Coverage Results" MODIFIED="1453677535406" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode476_Number_Complement.coverage" NAME="leetcode476 Number Complement Coverage Results" MODIFIED="1485370150498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode22_Generate_Parentheses.coverage" NAME="leetcode22 Generate Parentheses Coverage Results" MODIFIED="1478996222620" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode36_Valid_Sudoku.coverage" NAME="leetcode36 Valid Sudoku Coverage Results" MODIFIED="1490514145852" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$just4test__1_.coverage" NAME="just4test (1) Coverage Results" MODIFIED="1459882013193" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode34_Search_for_a_Range.coverage" NAME="leetcode34 Search for a Range Coverage Results" MODIFIED="1470188764635" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode407_Trapping_Rain_Water_II.coverage" NAME="leetcode407 Trapping Rain Water II Coverage Results" MODIFIED="1489088496397" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -309,6 +657,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode322_Coin_Change.coverage" NAME="leetcode322 Coin Change Coverage Results" MODIFIED="1471801304123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode336_Palindrome_Pairs.coverage" NAME="leetcode336 Palindrome Pairs Coverage Results" MODIFIED="1480477044432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode59_Spiral_Matrix_II.coverage" NAME="leetcode59 Spiral Matrix II Coverage Results" MODIFIED="1466560786000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode161_One_Edit_Distance.coverage" NAME="leetcode161 One Edit Distance Coverage Results" MODIFIED="1490515443680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode270_Closest_Binary_Search_Tree.coverage" NAME="leetcode270 Closest Binary Search Tree Coverage Results" MODIFIED="1464883616590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode271_Encode_and_Decode_Strings.coverage" NAME="leetcode271 Encode and Decode Strings Coverage Results" MODIFIED="1481222536935" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode7_Reverse_Integer.coverage" NAME="leetcode7 Reverse Integer Coverage Results" MODIFIED="1453708264650" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -322,11 +671,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="fkuagain.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="fkuagain.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fkuagain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8786611">
-              <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Maximum Average Subarray.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Maximum Average Subarray.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -347,57 +706,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode523 Continuous Subarray Sum.py" />
-        <option value="$PROJECT_DIR$/leetcode471 Encode String with Shortest Length.py" />
-        <option value="$PROJECT_DIR$/leetcode524 Longest Word in Dictionary through Deleting.py" />
-        <option value="$PROJECT_DIR$/leetcode520 Detect Capital.py" />
-        <option value="$PROJECT_DIR$/leetcode530 Minimum Absolute Difference in BST.py" />
-        <option value="$PROJECT_DIR$/leetcode526 Beautiful Arrangement.py" />
-        <option value="$PROJECT_DIR$/leetcode352 Data Stream as Disjoint Intervals.py" />
-        <option value="$PROJECT_DIR$/leetcode145 Binary Tree Postorder Traversal.py" />
-        <option value="$PROJECT_DIR$/leetcode272 Closest Binary Search Tree Value II.py" />
+        <option value="$PROJECT_DIR$/leetcode414 Third Maximum Number.py" />
+        <option value="$PROJECT_DIR$/leetcode416 Partition Equal Subset Sum.py" />
+        <option value="$PROJECT_DIR$/leetcode417 Pacific Atlantic Water Flow.py" />
+        <option value="$PROJECT_DIR$/leetcode418 Sentence Screen Fitting.py" />
+        <option value="$PROJECT_DIR$/leetcode421 Maximum XOR of Two Numbers in an Array.py" />
+        <option value="$PROJECT_DIR$/leetcode422 Valid Word Square.py" />
+        <option value="$PROJECT_DIR$/leetcode423 Reconstruct Original Digits from English.py" />
+        <option value="$PROJECT_DIR$/leetcode424 Longest Repeating Character Replacement.py" />
+        <option value="$PROJECT_DIR$/leetcode425 Word Squares.py" />
+        <option value="$PROJECT_DIR$/leetcode433 Minimum Genetic Mutation.py" />
+        <option value="$PROJECT_DIR$/leetcode434 Number of Segments in a String.py" />
+        <option value="$PROJECT_DIR$/leetcode435 Non-overlapping Intervals.py" />
+        <option value="$PROJECT_DIR$/leetcode436 Find Right Interval.py" />
+        <option value="$PROJECT_DIR$/leetcode437 Path Sum III.py" />
+        <option value="$PROJECT_DIR$/leetcode438 Find All Anagrams in a String.py" />
+        <option value="$PROJECT_DIR$/leetcode441 Arranging Coins.py" />
+        <option value="$PROJECT_DIR$/leetcode442 Find All Duplicates in an Array.py" />
+        <option value="$PROJECT_DIR$/leetcode444 Sequence Reconstruction.py" />
+        <option value="$PROJECT_DIR$/leetcode445 Add Two Numbers II.py" />
+        <option value="$PROJECT_DIR$/leetcode448 Find All Numbers Disappeared in an Array.py" />
+        <option value="$PROJECT_DIR$/leetcode449 Serialize and Deserialize BST.py" />
+        <option value="$PROJECT_DIR$/leetcode450 Delete Node in a BST.py" />
+        <option value="$PROJECT_DIR$/leetcode451 Sort Characters By Frequency.py" />
+        <option value="$PROJECT_DIR$/leetcode452 Mininum Number of Arrows to Burst Balloons.py" />
+        <option value="$PROJECT_DIR$/leetcode453 Minimum Moves to Equal Array Elements.py" />
+        <option value="$PROJECT_DIR$/leetcode454 4Sum II.py" />
+        <option value="$PROJECT_DIR$/leetcode455 Assign Cookies.py" />
+        <option value="$PROJECT_DIR$/leetcode457 Circular Array Loop.py" />
+        <option value="$PROJECT_DIR$/leetcode459 Repeated Substring Pattern.py" />
+        <option value="$PROJECT_DIR$/leetcode460 LFU Cache.py" />
+        <option value="$PROJECT_DIR$/leetcode461 Hamming Distance.py" />
+        <option value="$PROJECT_DIR$/leetcode462 Minimum Moves to Equal Array Elements II.py" />
+        <option value="$PROJECT_DIR$/leetcode463 Island Perimeter.py" />
+        <option value="$PROJECT_DIR$/leetcode464 Can I Win.py" />
+        <option value="$PROJECT_DIR$/leetcode467. Unique Substrings in Wraparound String.py" />
+        <option value="$PROJECT_DIR$/leetcode475 Heaters.py" />
+        <option value="$PROJECT_DIR$/leetcode476 Number Complement.py" />
+        <option value="$PROJECT_DIR$/leetcode477 Total Hamming Distance.py" />
+        <option value="$PROJECT_DIR$/leetcode481 Magical String.py" />
+        <option value="$PROJECT_DIR$/leetcode482 License Key Formatting.py" />
+        <option value="$PROJECT_DIR$/leetcode484 Find Permutation.py" />
+        <option value="$PROJECT_DIR$/leetcode485 Max Consecutive Ones.py" />
+        <option value="$PROJECT_DIR$/leetcode486 Predict the Winner.py" />
+        <option value="$PROJECT_DIR$/leetcode487 Max Consecutive Ones II.py" />
         <option value="$PROJECT_DIR$/leetcode488 Zuma Game.py" />
-        <option value="$PROJECT_DIR$/leetcode517 Super Washing Machines.py" />
-        <option value="$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py" />
-        <option value="$PROJECT_DIR$/leetcode317 Shortest Distance from All Buildings.py" />
-        <option value="$PROJECT_DIR$/leetcode516 Longest Palindromic Subsequence.py" />
-        <option value="$PROJECT_DIR$/leetcode535 Encode and Decode TinyURL.py" />
-        <option value="$PROJECT_DIR$/leetcode94 Binary Tree Inorder Traversal.py" />
+        <option value="$PROJECT_DIR$/leetcode492 Construct the Rectangle.py" />
+        <option value="$PROJECT_DIR$/leetcode494 Target Sum.py" />
+        <option value="$PROJECT_DIR$/leetcode505 The Maze II.py" />
+        <option value="$PROJECT_DIR$/leetcode506 Relative Ranks.py" />
         <option value="$PROJECT_DIR$/leetcode529 Minesweeper.py" />
-        <option value="$PROJECT_DIR$/dropboxOA.py" />
-        <option value="$PROJECT_DIR$/leetcode502 IPO.py" />
-        <option value="$PROJECT_DIR$/fkuagain.py" />
-        <option value="$PROJECT_DIR$/leetcode543 Diameter of Binary Tree.py" />
-        <option value="$PROJECT_DIR$/leetcode90 Subsets II.py" />
-        <option value="$PROJECT_DIR$/Egg Drop Problem.py" />
-        <option value="$PROJECT_DIR$/leetcode1 Two Sum.py" />
-        <option value="$PROJECT_DIR$/leetcode2 Add two Numbers.py" />
-        <option value="$PROJECT_DIR$/leetcode4 Median of Two Sorted Arrays.py" />
-        <option value="$PROJECT_DIR$/leetcode5 Longest Palindromic Substring.py" />
-        <option value="$PROJECT_DIR$/leetcode7 Reverse Integer.py" />
-        <option value="$PROJECT_DIR$/leetcode9 Palindrome Number.py" />
-        <option value="$PROJECT_DIR$/leetcode10 Regular Expression Matching.py" />
-        <option value="$PROJECT_DIR$/leetcode11 Container with Most Water.py" />
-        <option value="$PROJECT_DIR$/leetcode12 Integer to Roman.py" />
-        <option value="$PROJECT_DIR$/leetcode13 Roman to Integer.py" />
-        <option value="$PROJECT_DIR$/leetcode15 3Sum.py" />
-        <option value="$PROJECT_DIR$/leetcode16 3Sum Closest.py" />
-        <option value="$PROJECT_DIR$/leetcode18 4Sum.py" />
-        <option value="$PROJECT_DIR$/leetcode19 Remove Nth Node From End of List.py" />
-        <option value="$PROJECT_DIR$/leetcode20 Valid Parentheses.py" />
-        <option value="$PROJECT_DIR$/leetcode21 Merge Two Sorted Lists.py" />
-        <option value="$PROJECT_DIR$/leetcode22 Generate Parentheses.py" />
-        <option value="$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py" />
-        <option value="$PROJECT_DIR$/leetcode23 Swap Nodes in Pairs.py" />
-        <option value="$PROJECT_DIR$/leetcode25 Reverse Nodes in k-Group.py" />
-        <option value="$PROJECT_DIR$/leetcode26 Remove Duplicates from Sorted Array.py" />
-        <option value="$PROJECT_DIR$/leetcode27 Remove Element.py" />
-        <option value="$PROJECT_DIR$/leetcode28 Implement strStr().py" />
-        <option value="$PROJECT_DIR$/leetcode29 Devide Two Integers.py" />
-        <option value="$PROJECT_DIR$/leetcode30 Substring with Concatenation of All Words.py" />
-        <option value="$PROJECT_DIR$/leetcode31 Next Permutation.py" />
-        <option value="$PROJECT_DIR$/leetcode33 Search in Rotated Sorted Array.py" />
-        <option value="$PROJECT_DIR$/leetcode34 Search for a Range.py" />
+        <option value="$PROJECT_DIR$/leetcode535 Encode and Decode TinyURL.py" />
       </list>
     </option>
   </component>
@@ -486,8 +845,8 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode30 Substring with Concatenation of All Words">
-    <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.leetcode253 Meeting Rooms II">
+    <configuration default="false" name="leetcode36 Valid Sudoku" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -500,12 +859,12 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fkuagain.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode36 Valid Sudoku.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="leetcode502 IPO" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="leetcode38 Count and say" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -518,12 +877,12 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode502 IPO.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode38 Count and say.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="leetcode23 Swap Nodes in Pairs" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="leetcode161 One Edit Distance" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -536,12 +895,12 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode24 Swap Nodes in Pairs.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode161 One Edit Distance.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="leetcode25 Reverse Nodes in k-Group" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="leetcode246 Strobogrammatic" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -554,12 +913,12 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode25 Reverse Nodes in k-Group.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode246 Strobogrammatic.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
     </configuration>
-    <configuration default="false" name="leetcode30 Substring with Concatenation of All Words" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration default="false" name="leetcode253 Meeting Rooms II" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -572,7 +931,7 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode30 Substring with Concatenation of All Words.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode253 Meeting Rooms II.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -866,19 +1225,19 @@
       <item index="2" class="java.lang.String" itemvalue="Python.leetcode3 Longest Substring Without Repeating Characters" />
       <item index="3" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="4" class="java.lang.String" itemvalue="Python.just4test" />
-      <item index="5" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode502 IPO" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode23 Swap Nodes in Pairs" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode25 Reverse Nodes in k-Group" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode30 Substring with Concatenation of All Words" />
+      <item index="5" class="java.lang.String" itemvalue="Python.leetcode36 Valid Sudoku" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode38 Count and say" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode161 One Edit Distance" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode246 Strobogrammatic" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode253 Meeting Rooms II" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode30 Substring with Concatenation of All Words" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode25 Reverse Nodes in k-Group" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode23 Swap Nodes in Pairs" />
-        <item index="3" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode502 IPO" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode253 Meeting Rooms II" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode246 Strobogrammatic" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode161 One Edit Distance" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode38 Count and say" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode36 Valid Sudoku" />
       </list>
     </recent_temporary>
   </component>
@@ -954,82 +1313,218 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode488 Zuma Game.py">
+    <entry file="file://$PROJECT_DIR$/leetcode460 LFU Cache.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0078125">
-          <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state vertical-scroll-proportion="-2.8912134">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode517 Super Washing Machines.py">
+    <entry file="file://$PROJECT_DIR$/leetcode461 Hamming Distance.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4861111">
-          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.031380754">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode516 Longest Palindromic Subsequence.py">
+    <entry file="file://$PROJECT_DIR$/leetcode462 Minimum Moves to Equal Array Elements II.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8877551">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state vertical-scroll-proportion="-1.0397489">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode317 Shortest Distance from All Buildings.py">
+    <entry file="file://$PROJECT_DIR$/leetcode463 Island Perimeter.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2890625">
-          <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
+        <state vertical-scroll-proportion="0.031380754">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode407 Trapping Rain Water II.py">
+    <entry file="file://$PROJECT_DIR$/leetcode464 Can I Win.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5">
-          <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode535 Encode and Decode TinyURL.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode94 Binary Tree Inorder Traversal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8877551">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode508 Most Frequent Subtree Sum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1938776">
+        <state vertical-scroll-proportion="1.2238494">
           <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode529 Minesweeper.py">
+    <entry file="file://$PROJECT_DIR$/leetcode467 Unique Substrings in Wraparound String.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.09414226">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode502 IPO.py">
+    <entry file="file://$PROJECT_DIR$/leetcode468 Validate IP Address.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0584677">
-          <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode469 Convex Polygon.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.5690377">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode471 Encode String with Shortest Length.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.38075313">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode473 Matchsticks to Square.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16108787">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode474 Ones and Zeroes.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode475 Heaters.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.22384937">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode476 Number Complement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56485355">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode477 Total Hamming Distance.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031380754">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode481 Magical String.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.38075313">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode482 License Key Formatting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031380754">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode484 Find Permutation.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031380754">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode485 Max Consecutive Ones.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031380754">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode486 Predict the Winner.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.78451884">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode487 Max Consecutive Ones II.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.031380754">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode488 Zuma Game.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.4079498">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode490 The Maze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.4121339">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode491 Increasing Subsequence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode492 Construct the Rectangle.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.12552302">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode494 Target Sum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.12970711">
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode495 Teemo Attacking.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode496 Next Greater Element I.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1042,34 +1537,162 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode505 The Maze II.py">
+    <entry file="file://$PROJECT_DIR$/leetcode501 Find Mode in Binary Search Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="-1.1610879">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode251 Flatten 2D Vector.py">
+    <entry file="file://$PROJECT_DIR$/leetcode502 IPO.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.17943548">
+        <state vertical-scroll-proportion="-0.31799164">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode230 Kth Smallest Element in a BST.py">
+    <entry file="file://$PROJECT_DIR$/leetcode503 Next Greater Element II.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6048387">
-          <caret line="20" column="18" selection-start-line="20" selection-start-column="18" selection-end-line="20" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode448 Find All Numbers Disappeared in an Array.py">
+    <entry file="file://$PROJECT_DIR$/leetcode504 Base 7.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.57459676">
-          <caret line="19" column="18" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode505 The Maze II.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.4121339">
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode506 Relative Ranks.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08995816">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode508 Most Frequent Subtree Sum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.4121339">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode513 Find Bottom Left Tree Value.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16108787">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode515 Find Largest Value in Each Tree Row.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.31799164">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode516 Longest Palindromic Subsequence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.3451883">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode517 Super Washing Machines.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode520 Detect Capital.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode523 Continuous Subarray Sum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.16108787">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode524 Longest Word in Dictionary through Deleting.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode525 Contiguous Array.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode526 Beautiful Arrangement.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode529 Minesweeper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.4748954">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode530 Minimum Absolute Difference in BST.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.035564855">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode535 Encode and Decode TinyURL.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.15690376">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode543 Diameter of Binary Tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.12970711">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1082,282 +1705,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/fkuagain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Maximum Average Subarray.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode543 Diameter of Binary Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031055901">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode90 Subsets II.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Egg Drop Problem.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6832298">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dropboxOA.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6583851">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode1 Two Sum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.65217394">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode2 Add two Numbers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0248448">
-          <caret line="33" column="8" selection-start-line="33" selection-start-column="8" selection-end-line="33" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode4 Median of Two Sorted Arrays.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3664596">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode5 Longest Palindromic Substring.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8695652">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode7 Reverse Integer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1863354">
-          <caret line="6" column="8" selection-start-line="6" selection-start-column="8" selection-end-line="6" selection-end-column="8" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode9 Palindrome Number.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0931677">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode10 Regular Expression Matching.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5031056">
-          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode11 Container with Most Water.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8074534">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode12 Integer to Roman.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0931677">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode13 Roman to Integer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3975155">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode15 3Sum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0559006">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode16 3Sum Closest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7763975">
-          <caret line="25" column="16" selection-start-line="25" selection-start-column="16" selection-end-line="25" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode18 4Sum.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4285715">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode17 Letter Combinations of a Phone Number.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.621118">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode19 Remove Nth Node From End of List.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4596273">
-          <caret line="47" column="15" selection-start-line="47" selection-start-column="15" selection-end-line="47" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode20 Valid Parentheses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1180124">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode21 Merge Two Sorted Lists.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8695652">
-          <caret line="28" column="16" selection-start-line="28" selection-start-column="16" selection-end-line="28" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode22 Generate Parentheses.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8695652">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9627329">
-          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode24 Swap Nodes in Pairs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0559006">
-          <caret line="34" column="18" selection-start-line="34" selection-start-column="18" selection-end-line="34" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode25 Reverse Nodes in k-Group.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.3221757">
-          <caret line="74" column="0" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode26 Remove Duplicates from Sorted Array.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5334728">
-          <caret line="17" column="23" selection-start-line="17" selection-start-column="23" selection-end-line="17" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode27 Remove Element.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.09414226">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode28 Implement strStr().py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031380754">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode29 Devide Two Integers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6589958">
-          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode30 Substring with Concatenation of All Words.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8828452">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode31 Next Permutation.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.91004187">
-          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode33 Search in Rotated Sorted Array.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75313807">
-          <caret line="24" column="51" selection-start-line="24" selection-start-column="51" selection-end-line="24" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode34 Search for a Range.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.8514644">
-          <caret line="59" column="0" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fkuagain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8786611">
-          <caret line="28" column="11" selection-start-line="28" selection-start-column="11" selection-end-line="28" selection-end-column="11" />
           <folding />
         </state>
       </provider>

@@ -1,10 +1,15 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
 
+
 # one pass, in-place solution
+
 class Solution(object):
     def reverseBetween(self, head, m, n):
 
@@ -29,6 +34,8 @@ class Solution(object):
             find.next = swap
 
         return dummy.next
+
+
 
 a = ListNode(1)
 b = ListNode(2)

@@ -1,3 +1,4 @@
+
 from copy import copy
 class Solution(object):
     def generatePalindromes(self, s):
@@ -50,6 +51,7 @@ class Solution(object):
             ans[i] = ans[i][0]
 
         return ans
+
 
 
 Sol = Solution()

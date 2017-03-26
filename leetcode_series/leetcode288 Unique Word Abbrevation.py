@@ -1,12 +1,10 @@
+
 # problem description is super vague, see clearance here:
 # https://discuss.leetcode.com/topic/37254/let-me-explain-the-question-with-better-examples
 
 class ValidWordAbbr(object):
     def __init__(self, dictionary):
-        """
-        initialize your data structure here.
-        :type dictionary: List[str]
-        """
+
         self.dic = {}
         self.wordset = set(dictionary)
         for word in self.wordset:
@@ -21,11 +19,7 @@ class ValidWordAbbr(object):
 
 
     def isUnique(self, word):
-        """
-        check if a word is unique.
-        :type word: str
-        :rtype: bool
-        """
+
         if not word: return True
 
         if len(word) <= 2:

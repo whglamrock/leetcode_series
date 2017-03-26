@@ -1,16 +1,21 @@
+
 '''
 idea came from: https://leetcode.com/discuss/86469/python-easy-iterative-and-recursive-solution
 construct an BST like the one from https://en.wikipedia.org/wiki/Binary_search_tree
 and go through the while loop.
 '''
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
 
+
 class Solution(object):
     def kthSmallest(self, root, k):
+
         stack = []
         while root or stack:
             while root:
@@ -24,6 +29,7 @@ class Solution(object):
             root = root.right  # not from stack, but from the smallest node's right.
             # in our case when the above line makes root 3->6, this move makes sure we won't
             # overlook numbers between 3~6 (in the next while loop, 6->4, stack.append(4)).
+
 
 
 a = TreeNode(8)

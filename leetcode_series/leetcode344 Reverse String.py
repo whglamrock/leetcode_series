@@ -1,4 +1,6 @@
+
 # Does this question make any fucking sense?
+
 class Solution(object):
     def reverseString(self, s):
 

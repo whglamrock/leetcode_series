@@ -1,6 +1,8 @@
+
 # the idea is to use hashtable to act as prefix tree.
 
 import collections
+
 class Solution(object):
     def wordSquares(self, words):
 

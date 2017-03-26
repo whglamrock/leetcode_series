@@ -1,9 +1,7 @@
+
 class Solution(object):
     def levelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
+
         if root is None:
             return []
         queue = [root]
@@ -19,4 +17,5 @@ class Solution(object):
                 if node.right != None:
                     queue.append(node.right)
             ans.append(level)
+
         return ans

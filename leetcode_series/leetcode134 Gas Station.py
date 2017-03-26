@@ -1,4 +1,6 @@
+
 # set up two pointers to extend the 'window'.
+
 class Solution(object):
     def canCompleteCircuit(self, gas, cost):
 
@@ -18,6 +20,7 @@ class Solution(object):
             return start
         else:
             return -1
+
 
 
 gas = [2,5,1,8,4,5,2]

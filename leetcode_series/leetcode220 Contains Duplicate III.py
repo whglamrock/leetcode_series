@@ -1,5 +1,7 @@
+
 # O(N) solution. idea is bucket sort.
 # idea from: https://discuss.leetcode.com/topic/19991/o-n-python-using-buckets-with-explanation-10-lines
+
 class Solution(object):
     def containsNearbyAlmostDuplicate(self, nums, k, t):
 

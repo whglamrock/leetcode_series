@@ -1,4 +1,6 @@
+
 # idea came from lc 198: House Robber
+
 class Solution(object):
     def rob(self, nums):
 

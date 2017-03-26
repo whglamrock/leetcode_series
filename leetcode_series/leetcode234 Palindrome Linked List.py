@@ -1,8 +1,12 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
+
 
 class Solution(object):
     def isPalindrome(self, head):
@@ -47,6 +51,8 @@ class Solution(object):
             head, slow = head.next, slow.next
 
         return True
+
+
 
 a = ListNode(1)
 b = ListNode(2)

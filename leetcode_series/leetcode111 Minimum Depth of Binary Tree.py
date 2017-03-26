@@ -1,15 +1,15 @@
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
 
+
 class Solution(object):
     def minDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
+
         if root is None:
             return 0
 
@@ -27,6 +27,8 @@ class Solution(object):
                 return min(fku(root1.left,level),fku(root1.right,level))
 
         return fku(root,1)
+
+
 
 a = TreeNode(1)
 b = TreeNode(2)

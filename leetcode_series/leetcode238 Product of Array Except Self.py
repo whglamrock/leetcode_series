@@ -1,5 +1,7 @@
+
 # O(n) time, O(1) space solution. Note: the output doesn't count as extra space
 # If the question asks for not using division, then use the following solution
+
 class Solution(object):
     def productExceptSelf(self, nums):
 
@@ -15,6 +17,7 @@ class Solution(object):
             right *= nums[i]
 
         return res
+
 
 
 Sol = Solution()

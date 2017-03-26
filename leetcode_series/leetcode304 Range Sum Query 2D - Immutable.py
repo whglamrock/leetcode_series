@@ -1,4 +1,6 @@
+
 # idea is dp.
+
 class NumMatrix(object):
     def __init__(self, matrix):
 
@@ -20,10 +22,10 @@ class NumMatrix(object):
         return self.summatrix[row2 + 1][col2 + 1] + self.summatrix[row1][col1] - self.summatrix[row2 + 1][col1] - self.summatrix[row1][col2 + 1]
 
 
+
 matrix = [[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]]
 Sol = NumMatrix(matrix)
 print Sol.sumRegion(1, 1, 2, 2)
-
 
 
 

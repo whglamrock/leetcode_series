@@ -1,7 +1,9 @@
+
 '''
 a very complicated math question. Should be marked hard.
 idea from: https://discuss.leetcode.com/topic/50586/math-solusion-based-on-euler-s-theorem-power-called-only-once-c-java-1-line-python/2
 '''
+
 class Solution(object):
     def superPow(self, a, b):
 
@@ -21,6 +23,7 @@ class Solution(object):
             b = num
 
         return pow(a, b, 1337)
+
 
 
 Sol = Solution()

@@ -1,3 +1,4 @@
+
 # Definition for an interval.
 # class Interval(object):
 #     def __init__(self, s=0, e=0):
@@ -5,6 +6,7 @@
 #         self.end = e
 
 # O(nlogn) binary search solution
+
 class Solution(object):
     def findRightInterval(self, intervals):
 

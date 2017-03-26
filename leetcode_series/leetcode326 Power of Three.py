@@ -1,4 +1,6 @@
+
 # the request is not using any loop/recursion. So it is definitely one of most stupid leetcode questions.
+
 import math
 class Solution(object):
     def isPowerOfThree(self, n):

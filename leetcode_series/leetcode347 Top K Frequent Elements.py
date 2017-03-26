@@ -1,5 +1,7 @@
+
 # use each frequency as a 'bucket', within which stores the corresponding elements.
 # retrieve them one by one from the maximum, with k -= 1 every time.
+
 class Solution(object):
     def topKFrequent(self, nums, k):
 
@@ -25,6 +27,7 @@ class Solution(object):
                     k -= 1
                     if k == 0:
                         return res
+
 
 
 k = 4

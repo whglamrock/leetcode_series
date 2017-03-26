@@ -1,6 +1,8 @@
+
 # idea came from: https://discuss.leetcode.com/topic/31015/very-easy-to-understand-one-pass-o-n-solution-with-no-extra-space/2
 # pay attention to the initial value settings for the following 4 variables.
 # O(N) time, O(1) space.
+
 class Solution(object):
     def maxProfit(self, prices):
 
@@ -21,6 +23,7 @@ class Solution(object):
             has1_sell = prices[i] + has1_donothing
 
         return max(has1_sell, has0_donothing)   # on last day you either sell or do nothing.
+
 
 
 Sol = Solution()

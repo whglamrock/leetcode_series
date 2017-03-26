@@ -1,4 +1,6 @@
+
 # set two pointers from head and back, respectively.
+
 class Solution(object):
     def reverseVowels(self, s):
 
@@ -6,7 +8,7 @@ class Solution(object):
             return s
         s = list(s)   # remember this operator
         n = len(s)
-        vowel = set(['a','e','i','o','u','A','E','I','O','U'])
+        vowel = {'a','e','i','o','u','A','E','I','O','U'}
         i, j = 0, n-1
         while i<j:
             if s[i] in vowel and s[j] in vowel:

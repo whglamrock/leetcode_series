@@ -1,4 +1,6 @@
+
 # write down the binary representation from 1 to 32, we could find the regulation.
+
 class Solution(object):
     def countBits(self, num):
 
@@ -16,6 +18,8 @@ class Solution(object):
             accum += i
 
         return [0]+ans[:num]
+
+
 
 Sol = Solution()
 print Sol.countBits(5)

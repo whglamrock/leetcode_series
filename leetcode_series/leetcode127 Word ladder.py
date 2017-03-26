@@ -1,3 +1,4 @@
+
 class Solution(object):
     def ladderLength(self, beginWord, endWord, wordList):
 
@@ -25,6 +26,8 @@ class Solution(object):
             wordList -= front    # (P.S.: "-=" works for set), dumb used transformations to avoid cycle
 
         return 0    # for case when beginWord == endWord
+
+
 
 beginWord = "hit"
 endWord = "hit"

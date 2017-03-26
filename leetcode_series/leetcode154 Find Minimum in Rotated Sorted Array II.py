@@ -1,3 +1,4 @@
+
 class Solution(object):
     def findMin(self, nums):
 
@@ -18,6 +19,8 @@ class Solution(object):
 
 # extreme cases like [10, 1, 10, 10, 10] and [10, 10, 10, 1, 10] are very
 # important
+
+
 
 '''
 # the following code has problem for test case like [10, 1, 10, 10, 10]:

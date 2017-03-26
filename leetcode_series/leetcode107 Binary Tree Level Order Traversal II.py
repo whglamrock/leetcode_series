@@ -1,9 +1,7 @@
+
 class Solution(object):
     def levelOrderBottom(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
+
         if root == None:
             return []
         ans = []

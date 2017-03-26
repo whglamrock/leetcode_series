@@ -1,6 +1,8 @@
+
 '''
 Unhappy numbers will enter into a infinite loop; happy numbers will end up with 1 as the sum of digit squares.
 '''
+
 class Solution(object):
     def isHappy(self, n):
 
@@ -20,6 +22,8 @@ class Solution(object):
                 return False
             else:
                 return True
+
+
 
 Sol = Solution()
 print Sol.isHappy(19)

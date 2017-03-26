@@ -1,4 +1,7 @@
-class Solution(object): # use part of the code from leetcode190 reverse bits
+
+# use part of the code from leetcode190 reverse bits
+
+class Solution(object):
     
     def hammingWeight(self, n):
         def find(num):

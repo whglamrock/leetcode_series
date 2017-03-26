@@ -1,4 +1,6 @@
+
 # super easy, but using 'import collections, collections.Counter(magazine) is more high level'
+
 class Solution(object):
     def canConstruct(self, ransomNote, magazine):
 

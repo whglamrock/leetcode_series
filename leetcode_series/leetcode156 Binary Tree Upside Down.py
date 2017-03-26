@@ -1,9 +1,13 @@
+
 # Definition for a binary tree node. (P.S. in the leetcode, do not include the TreeNode class)
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
+
 
 class Solution(object):
     def upsideDownBinaryTree(self, root):

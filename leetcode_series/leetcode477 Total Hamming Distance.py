@@ -1,3 +1,4 @@
+
 # use mask to count the number of elements that have 1 at position i, so the position i will
 # contribute count * (n - count) to the total hamming distance.
 

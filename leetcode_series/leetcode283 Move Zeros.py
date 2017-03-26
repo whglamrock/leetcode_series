@@ -1,3 +1,4 @@
+
 class Solution(object):
     def moveZeroes(self, nums):
 
@@ -20,6 +21,8 @@ class Solution(object):
             nums[k] = 0
 
         #return nums    # the stupid leetcode asks for returning nothing.
+
+
 
 nums = [0, 1, 0, 3, 12]
 Sol = Solution()

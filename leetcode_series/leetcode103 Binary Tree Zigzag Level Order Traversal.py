@@ -1,9 +1,7 @@
+
 class Solution(object):
     def zigzagLevelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
+
         if root is None:
             return []
         queue = [root]
@@ -25,4 +23,5 @@ class Solution(object):
                 level.reverse()
                 ans.append(level)
             counter += 1
+
         return ans

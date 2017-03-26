@@ -1,3 +1,4 @@
+
 '''
 sink the island solution, modifying the original grid.
 once find one breakthrough point, through recursion find all connected '1's and make them 0,

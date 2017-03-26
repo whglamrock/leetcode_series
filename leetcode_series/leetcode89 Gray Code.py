@@ -1,13 +1,12 @@
+
 '''
 Write doen the binary numbers of grade code in order when n == 4, all newly added numbers are based on previous level (add a '1'
 or '0' to the end of each previous level number)
 '''
+
 class Solution(object):
     def grayCode(self, n):
-        """
-        :type n: int
-        :rtype: List[int]
-        """
+
         if n == 0:
             return [0]
         if n == 1:

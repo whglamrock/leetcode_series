@@ -1,7 +1,9 @@
+
 '''
 stupid leetcode very unfriendly to iterative solution.
 if not replacing the list 'item' with string, it will get MLE.
 '''
+
 class Solution(object):
     def numberOfPatterns(self, m, n):
 
@@ -29,6 +31,7 @@ class Solution(object):
             prev = new
 
         return sum(res[m - 1:])
+
 
 
 Sol = Solution()

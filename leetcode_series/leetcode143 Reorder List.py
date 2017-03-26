@@ -1,9 +1,13 @@
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
 
+
 # O(1) space solution.
+
 class Solution(object):
     def reorderList(self, head):
 
@@ -28,6 +32,7 @@ class Solution(object):
             second.next, second = first, second.next
 
         # the lc asks for returning nothing
+
 
 
 '''

@@ -1,3 +1,4 @@
+
 class Solution(object):
     def intersect(self, nums1, nums2):
 
@@ -31,6 +32,7 @@ class Solution(object):
                         ans.append(item)
 
         return ans
+
 
 
 Sol = Solution()

@@ -1,5 +1,7 @@
+
 # idea from: https://discuss.leetcode.com/topic/6186/java-backtracking-solution
 # notice how this fucker write the backtracking. Always think efficiently using less space for bktrck.
+
 class Solution(object):
     def partition(self, s):
 
@@ -23,6 +25,7 @@ class Solution(object):
 
         helper(0, [])
         return self.ans
+
 
 
 Sol = Solution()

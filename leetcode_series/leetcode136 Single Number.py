@@ -1,3 +1,4 @@
+
 class Solution(object):
     def singleNumber(self, nums):
 
@@ -6,8 +7,11 @@ class Solution(object):
             res ^= num
         return res
 
+
+
 Sol = Solution()
 print Sol.singleNumber([2,1,4,5,4,2,1])
+
 
 
 '''

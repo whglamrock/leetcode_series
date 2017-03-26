@@ -1,4 +1,6 @@
+
 # use the nums itself as hashtable.
+
 class Solution(object):
     def findDuplicates(self, nums):
 

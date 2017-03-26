@@ -1,4 +1,6 @@
+
 # Typical unionfind solution
+
 class Solution(object):
     def validTree(self, n, edges):
 

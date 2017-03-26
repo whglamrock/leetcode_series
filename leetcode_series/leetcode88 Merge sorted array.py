@@ -1,12 +1,7 @@
+
 class Solution(object):
     def merge(self, nums1, m, nums2, n):
-        """
-        :type nums1: List[int]
-        :type m: int
-        :type nums2: List[int]
-        :type n: int
-        :rtype: void Do not return anything, modify nums1 in-place instead.
-        """
+
         if m == 0:
             for x in range(n):
                 nums1[x]=nums2[x]
@@ -25,6 +20,8 @@ class Solution(object):
             if j<n:
                 for l in range(m+j,m+n):
                     nums1[l] = nums2[l-m]
+
+
 
 a = [0,0,0,0,0]
 b = [1,2,3,4,5]

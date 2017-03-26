@@ -1,3 +1,19 @@
+
+class Solution(object):
+    def rotate(self, nums, k):
+
+        nums[:] = nums[len(nums)-k:]+nums[:len(nums)-k]
+        return nums
+
+
+
+a = [1,2,3,4,5,6]
+k = 2
+Sol = Solution()
+print Sol.rotate(a,k)
+
+
+
 '''
 class Solution(object):
     def rotate(self, nums, k):
@@ -20,20 +36,4 @@ class Solution(object):
             nums.insert(0,x)
 
         return nums
-
 '''
-
-class Solution(object):
-    def rotate(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: void Do not return anything, modify nums in-place instead.
-        """
-        nums[:] = nums[len(nums)-k:]+nums[:len(nums)-k]
-        return nums
-
-a = [1,2,3,4,5,6]
-k = 2
-Sol = Solution()
-print Sol.rotate(a,k)

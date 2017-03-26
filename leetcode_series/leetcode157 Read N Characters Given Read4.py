@@ -1,14 +1,10 @@
+
 # read the code, if really encountering this fucking problem, ask ton of questions!
 # the number of chars in file could be less than, equal to, more than n
 # the read4 API will record which point of file the last read4 function moved to
 
 class Solution(object):
     def read(self, buf, n):
-        """
-        :type buf: Destination buffer (List[str])
-        :type n: Maximum number of characters to read (int)
-        :rtype: The number of characters read (int)
-        """
 
         idx = 0
         while n > 0:

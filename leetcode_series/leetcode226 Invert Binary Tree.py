@@ -1,9 +1,13 @@
+
 # Definition for a binary tree node.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
+
 
 class Solution(object):
     def invertTree(self, root):
@@ -19,6 +23,8 @@ class Solution(object):
             self.invertTree(root.right)
 
         return root
+
+
 
 a = TreeNode(1)
 b = TreeNode(2)

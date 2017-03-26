@@ -1,4 +1,6 @@
+
 # for enumerate operator, see: https://docs.python.org/2/library/functions.html#enumerate
+
 class Solution(object):
     def containsNearbyDuplicate(self, nums, k):
         
@@ -11,9 +13,11 @@ class Solution(object):
         return False
 
 
+
 a = [1,0,1,1]
 Sol = Solution()
 print Sol.containsNearbyDuplicate(a,1)
+
 
 
 '''

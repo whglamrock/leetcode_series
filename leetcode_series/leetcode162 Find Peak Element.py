@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 # Binary search find the 'maximum' value
 # It isn't the actual maximum but will "peak": the left/right element smaller than it.
@@ -15,7 +16,6 @@ class Solution(object):
                 r = mid
 
         return l
-
 
 # nums[l:r + 1] are candidates. The element right on the left of nums[l] is smaller than
 # nums[l], the element right on the right of nums[r] smaller than nums[r].

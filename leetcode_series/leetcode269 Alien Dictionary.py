@@ -1,5 +1,7 @@
+
 # classic toposort way.
 # BFS/DFS solution see: https://discuss.leetcode.com/topic/32587/python-dfs-bfs-toposort-solutions
+
 import collections
 class Solution(object):
     def alienOrder(self, words):

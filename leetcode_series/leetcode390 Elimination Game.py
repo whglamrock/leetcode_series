@@ -1,3 +1,4 @@
+
 class Solution(object):
     def lastRemaining(self, n):
 
@@ -13,6 +14,8 @@ class Solution(object):
             left = not left
 
         return head
+
+
 
 Sol = Solution()
 print Sol.lastRemaining(8)

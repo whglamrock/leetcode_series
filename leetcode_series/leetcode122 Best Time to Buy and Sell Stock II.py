@@ -1,4 +1,6 @@
+
 # instruction is super unclear, actually you can sell/buy one stock within the same day without cooldown.
+
 class Solution(object):
     def maxProfit(self, prices):
 
@@ -12,6 +14,8 @@ class Solution(object):
             i -= 1
 
         return maxprof
+
+
 
 Sol = Solution()
 prices = [1,4,5,2,9,16]

@@ -1,7 +1,9 @@
+
 '''
 the idea is to use the int[] dp to store the length of longest wiggle subsequence that ends with each nums[i]
 O(n) solution. The key to it is to notice that dp is a non-decreasing list.
 '''
+
 class Solution(object):
     def wiggleMaxLength(self, nums):
         """

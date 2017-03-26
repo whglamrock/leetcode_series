@@ -1,3 +1,4 @@
+
 # the only way to avoid TLE in OJ is to use dp
 
 class Solution(object):
@@ -17,7 +18,6 @@ class Solution(object):
                 dp[i] += dp[i - 2]
 
         return dp[-1]
-
 
 
 

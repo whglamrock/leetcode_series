@@ -1,4 +1,6 @@
+
 from collections import deque
+
 class Solution(object):
     def characterReplacement(self, s, k):
 
@@ -45,6 +47,7 @@ class Solution(object):
             longest = max(longest, maxcover + k + 1)
 
         return min(longest, len(s))
+
 
 
 Sol = Solution()

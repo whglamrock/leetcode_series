@@ -1,11 +1,10 @@
+
 # idea from: https://discuss.leetcode.com/topic/63213/java-o-n-solution-using-bit-manipulation-and-hashmap/7
 # read the discussion in the above link, the idea is the build maixmum bit by bit from left to right
+
 class Solution(object):
     def findMaximumXOR(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+
         maximum, mask = 0, 0
         for i in xrange(31, -1, -1):
             mask += (1 << i)

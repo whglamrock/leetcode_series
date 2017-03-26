@@ -1,5 +1,7 @@
+
 # two pointers to record the current smallest and second smallest.
 # read the fucking, code, no fucking reference.
+
 class Solution(object):
     def increasingTriplet(self, nums):
 
@@ -12,6 +14,7 @@ class Solution(object):
             else:
                 return True
         return False
+
 
 
 Sol = Solution()

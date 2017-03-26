@@ -1,4 +1,6 @@
+
 # Very boring and senseless question from Google.
+
 class Solution(object):
     def gameOfLife(self, board):
 

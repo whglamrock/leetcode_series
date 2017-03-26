@@ -1,3 +1,4 @@
+
 # note: the lenth of word is guaranteed smaller than maxWidth
 
 class Solution(object):

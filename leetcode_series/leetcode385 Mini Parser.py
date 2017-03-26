@@ -1,7 +1,9 @@
+
 """
 This is the interface that allows for creating nested lists.
 You should not implement it, or speculate about its implementation
 """
+
 class NestedInteger(object):
    def __init__(self, value=None):
        """
@@ -41,13 +43,11 @@ class NestedInteger(object):
        :rtype List[NestedInteger]
        """
 
+
 # go through the case when s == "[123,[456,[789]],[[234]],345]"
 class Solution(object):
     def deserialize(self, s):
-        """
-        :type s: str
-        :rtype: NestedInteger
-        """
+
         if (not s):
             return
         if s[0] != '[':

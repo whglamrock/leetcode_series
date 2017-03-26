@@ -1,18 +1,19 @@
+
 # Definition for an interval.
+
 class Interval(object):
     def __init__(self, s=0, e=0):
+
         self.start = s
         self.end = e
 
+
 # Binary search solution, but not necessarily O(logN), because the we need to copy
 # the rest of elements in intervals to ans, which takes O(n) time in worst case
+
 class Solution(object):
     def insert(self, intervals, newInterval):
-        """
-        :type intervals: List[Interval]
-        :type newInterval: Interval
-        :rtype: List[Interval]
-        """
+
         if not intervals:
             return [newInterval]
 

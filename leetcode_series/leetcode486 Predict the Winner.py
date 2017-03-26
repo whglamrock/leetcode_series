@@ -1,3 +1,4 @@
+
 # a standard minmax solution.
 # for MIT OCW: https://www.youtube.com/watch?v=Tw1k46ywN6E&feature=youtu.be&list=PLUl4u3cNGP6317WaSNfmCvGym2ucw3oGp&t=3622
 

@@ -1,9 +1,12 @@
-'''A very straightforward solution that converts the 10-ary number into 26-ary ones: the tricky part is the lack
+
+'''
+A very straightforward solution that converts the 10-ary number into 26-ary ones: the tricky part is the lack
 of equivalent number '0'. Because in the Excel sheet column, when in the input n == 1, it means the first column A.
 The last digit of every column is at least 'A' (not start from 0).
-   However, the conversion is still done by the same way: "n%26" to get the value for every digit. It is just "every
+However, the conversion is still done by the same way: "n%26" to get the value for every digit. It is just "every
 number is added by 1 "(like in 10-ary numbers, 0 to 9 became 1 to 10; in 26-ary numbers, 0-25 became 1-26)
 '''
+
 class Solution(object):
     def convertToTitle(self, n):
         """
@@ -16,6 +19,8 @@ class Solution(object):
             r = chr(n%26+65) + r
             n /= 26
         return r
+
+
 
 Sol = Solution()
 print Sol.convertToTitle(702)

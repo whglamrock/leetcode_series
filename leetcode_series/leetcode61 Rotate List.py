@@ -1,12 +1,17 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
+
 
 # understand the definition of 'Rotate' is very important: e.g., original linked list
 # is 1->2->3->4->5, k=2; It means operating 'take the last one off and put it before the head' k times.
 # i.e., it goes through: 1)5->1->2->3->4; 2)4->5->1->2->3.
+
 class Solution(object):
     def rotateRight(self, head, k):
 

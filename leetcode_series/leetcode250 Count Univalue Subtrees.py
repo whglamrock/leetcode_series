@@ -1,9 +1,13 @@
+
 # Definition for a binary tree node.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
+
 
 class Solution(object):
     def countUnivalSubtrees(self, root):
@@ -39,6 +43,8 @@ class Solution(object):
         count(root)
 
         return len(counter)
+
+
 
 a = TreeNode(5)
 b = TreeNode(1)

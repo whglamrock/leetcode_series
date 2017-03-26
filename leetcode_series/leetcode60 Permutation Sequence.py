@@ -1,3 +1,4 @@
+
 class Solution(object):
     def getPermutation(self, n, k):
 
@@ -25,6 +26,7 @@ class Solution(object):
             divider -= 1
 
         return ''.join(base)
+
 
 
 Sol = Solution()

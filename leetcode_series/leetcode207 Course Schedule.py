@@ -1,3 +1,4 @@
+
 # Another BFS way from: https://discuss.leetcode.com/topic/13854/easy-bfs-topological-sort-java/7
 # running time O(V+E). V: number of vertexes, E: number of edges
 
@@ -35,10 +36,12 @@ class Solution(object):
         return len(greater) == 0
 
 
+
 Sol = Solution()
 numCourses = 2
 prerequisites = [[1,0]]
 print Sol.canFinish(numCourses, prerequisites)
+
 
 
 '''

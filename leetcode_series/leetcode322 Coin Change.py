@@ -1,4 +1,6 @@
+
 # BFS solution, not DP. much faster than DP.
+
 class Solution(object):
     def coinChange(self, coins, amount):
 
@@ -32,10 +34,12 @@ class Solution(object):
         return -1
 
 
+
 Sol = Solution()
 coins = [1,2,5]
 amount = 11
 print Sol.coinChange(coins, amount)
+
 
 
 '''

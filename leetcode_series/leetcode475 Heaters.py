@@ -1,3 +1,4 @@
+
 # the key is to think of: the optimal way to warm the house is to use two nearest heaters.
 
 class Solution(object):

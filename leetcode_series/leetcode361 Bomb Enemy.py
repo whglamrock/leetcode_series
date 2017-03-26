@@ -1,7 +1,9 @@
+
 # Google OA question.
 # Solutions without using the built-in function can't be accepted by the motherfuncking leetcode.
 # so I force myself to use the 'join', 'split', which makes code short but ugly... waste of time.
 # Stefan's answer: https://discuss.leetcode.com/topic/48566/short-o-mn-python
+
 class Solution(object):
     def maxKilledEnemies(self, grid):
 
@@ -60,9 +62,11 @@ class Solution(object):
         return ans
 
 
+
 Sol = Solution()
 grid = [['0','E','0','0'],['E','0','W','E'],['0','E','0','0']]
 print Sol.maxKilledEnemies(grid)
+
 
 
 '''

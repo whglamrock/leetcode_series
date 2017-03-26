@@ -1,10 +1,9 @@
+
 # one-digit number: 9 nums; two-digit number: 90 nums...
+
 class Solution(object):
     def findNthDigit(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
+
         i = 0
         accum = 0   # to acuumulate the number of cycles (per cycle per number of digits)
         while accum < n:
@@ -24,6 +23,7 @@ class Solution(object):
         else:
             actualnum = start + orderofnum
             return int(str(actualnum)[remain - 1])
+
 
 
 Sol = Solution()

@@ -1,3 +1,4 @@
+
 # keep the min prices of previous days
 
 class Solution(object):
@@ -14,6 +15,7 @@ class Solution(object):
             minprice = min(minprice, prices[i])
 
         return maxprofit
+
 
 
 a = [2,6,1,4,9]

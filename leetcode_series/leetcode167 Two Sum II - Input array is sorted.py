@@ -1,4 +1,6 @@
+
 # super easy... don't understand why it is ranked 'medium'
+
 class Solution(object):
     def twoSum(self, numbers, target):
 

@@ -1,4 +1,6 @@
+
 # O(1) time complexity, because num can't be bigger than 9.
+
 class Solution(object):
     def readBinaryWatch(self, num):
 

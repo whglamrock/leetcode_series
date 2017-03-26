@@ -1,5 +1,7 @@
+
 # idea came from: https://discuss.leetcode.com/topic/4417/possibly-simplest-solution-with-o-n-time-complexity
 # O(N) time, O(1) Space.
+
 class Solution(object):
     def maxProduct(self, nums):
 
@@ -14,6 +16,8 @@ class Solution(object):
             res = max(maximum, res)
 
         return res
+
+
 
 Sol = Solution()
 nums = [-9,-4,2,7,-3,8,3]

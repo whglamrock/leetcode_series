@@ -1,4 +1,6 @@
+
 # An actual divide-and-conquer solution, or... mergesort solution
+
 class Solution(object):
     def countSmaller(self, nums):
 
@@ -29,6 +31,7 @@ class Solution(object):
         sort(list(enumerate(nums)))
         #print nums
         return smaller
+
 
 
 Sol = Solution()

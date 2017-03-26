@@ -1,3 +1,4 @@
+
 # O(nlogn) binary search solution
 
 class Solution(object):

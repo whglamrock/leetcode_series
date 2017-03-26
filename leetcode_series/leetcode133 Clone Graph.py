@@ -1,10 +1,15 @@
+
 # Definition for a undirected graph node
+
 class UndirectedGraphNode(object):
       def __init__(self, x):
+
         self.label = x
         self.neighbors = []
 
+
 # AC O(n) time/space solution, not very efficient though...
+
 class Solution(object):
     def cloneGraph(self, node):
 
@@ -44,6 +49,7 @@ class Solution(object):
                     todo.append(item)
 
         return ans
+
 
 
 Sol = Solution()

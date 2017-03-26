@@ -1,4 +1,6 @@
+
 # 'reach' is the farthest position to which nums[i] can jump
+
 class Solution(object):
     def canJump(self, nums):
 

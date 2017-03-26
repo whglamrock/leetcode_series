@@ -1,3 +1,4 @@
+
 # suppose we take m steps. sumvalue + m * (n - 1) = x * n = (minNum + m) * n
 #   Thus, m = (sumvalue - n * minNum) / n
 

@@ -1,5 +1,7 @@
+
 # Intro to Union find: https://www.youtube.com/watch?v=ID00PMy0-vE&t=761s
 # m, n are useless.
+
 class Solution(object):
     def numIslands2(self, m, n, positions):
 
@@ -16,25 +18,31 @@ class Solution(object):
 
         return ans
 
+
 # the classic way of defining a Unionfind object
+
 class Union(object):
     def __init__(self):
+
         self.id = {}    # a pointer that points to its parent
         self.sz = {}    # how many nodes are under a specific root
         self.count = 0
 
     def add(self, p):
+
         self.id[p] = p
         self.count += 1
         self.sz[p] = 1
 
     def root(self, i):
+
         while self.id[i] != i:
             self.id[i] = self.id[self.id[i]]    # path compression
             i = self.id[i]
         return i
 
     def unite(self, p, q):  # in the problem, p and q are presented as tuples.
+
         p = self.root(p)
         q = self.root(q)
         if p == q:

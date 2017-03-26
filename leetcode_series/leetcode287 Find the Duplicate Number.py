@@ -1,3 +1,4 @@
+
 # the idea is consider the array as a linked list and use fast & slow pointers
 # to find circle. P.S., when they meet, it could any point inside the circle, not
 # necessarily the duplicate number.
@@ -59,6 +60,7 @@ class Solution(object):
             return slow
 
         return -1
+
 
 
 Sol = Solution()

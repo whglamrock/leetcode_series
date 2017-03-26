@@ -1,13 +1,11 @@
+
 # O(n) time, O(1) space solution
 # keep a slicing window, the summary is the sum of subarray ends with nums[j], the
 # window will always be the smallest window ends with nums[j].
+
 class Solution(object):
     def minSubArrayLen(self, s, nums):
-        """
-        :type s: int
-        :type nums: List[int]
-        :rtype: int
-        """
+
         if (not nums):
             return 0
 
@@ -27,10 +25,12 @@ class Solution(object):
         return minlength
 
 
+
 s = 7
 nums = [2,3,1,2,4,3]
 Sol = Solution()
 print Sol.minSubArrayLen(s, nums)
+
 
 
 '''

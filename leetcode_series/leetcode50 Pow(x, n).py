@@ -1,4 +1,6 @@
+
 # O(logN) running time solution
+
 class Solution(object):
     def myPow(self, x, n):
 
@@ -12,6 +14,7 @@ class Solution(object):
             return self.myPow(x * x, n / 2)
         else:
             return x * self.myPow(x * x, n / 2)
+
 
 
 Sol = Solution()

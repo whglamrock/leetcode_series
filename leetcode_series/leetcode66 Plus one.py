@@ -1,3 +1,4 @@
+
 class Solution(object):
     def plusOne(self, digits):
 
@@ -12,6 +13,7 @@ class Solution(object):
             digits = [1] + digits
 
         return digits
+
 
 
 a = [1,2,3,4,5,6]

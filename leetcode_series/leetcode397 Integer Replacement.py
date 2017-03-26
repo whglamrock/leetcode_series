@@ -1,5 +1,7 @@
+
 # idea from: https://discuss.leetcode.com/topic/58334/a-couple-of-java-solutions-with-explanations
 # logic is we divide into three conditions.
+
 class Solution(object):
     def integerReplacement(self, n):
 

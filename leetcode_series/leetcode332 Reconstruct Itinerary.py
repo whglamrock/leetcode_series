@@ -1,3 +1,4 @@
+
 # Important Euler path theory: http://www.ctl.ua.edu/math103/euler/howcanwe.htm
 # Euler Path search algorithm: http://stackoverflow.com/questions/17467228/looking-for-algorithm-finding-euler-path
 
@@ -13,6 +14,7 @@
 #   JFK* -> A* -> C* -> D* -> B* -> C* -> JFK* -> D* -> A*.
 
 # An delicate recursive solution, O(n) space; except the sort part, the rest takes O(n) time.
+
 from collections import defaultdict
 class Solution(object):
     def findItinerary(self, tickets):
@@ -32,6 +34,7 @@ class Solution(object):
 
         visit('JFK')
         return ans[::-1]
+
 
 
 tickets = [["JFK","A"],["A","C"],["C","D"],["D","A"],["JFK","D"],["D","B"],["B","C"],["C","JFK"]]

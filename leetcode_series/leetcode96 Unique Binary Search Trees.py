@@ -1,7 +1,9 @@
+
 '''
 idea came from: https://leetcode.com/discuss/24282/dp-solution-in-6-lines-with-explanation-f-i-n-g-i-1-g-n-i
 dynamic programming
 '''
+
 class Solution(object):
     def numTrees(self, n):
 

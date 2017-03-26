@@ -1,4 +1,6 @@
+
 # idea from: https://discuss.leetcode.com/topic/60394/easy-concept-with-python-c-java-solution
+
 class Solution(object):
     def reconstructQueue(self, people):
 
@@ -11,6 +13,7 @@ class Solution(object):
             print ans
 
         return ans
+
 
 
 Sol = Solution()

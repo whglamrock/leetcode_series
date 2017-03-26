@@ -1,3 +1,4 @@
+
 # O(N) solution
 # lstrip will strip all '0's on the left
 # The idea is:

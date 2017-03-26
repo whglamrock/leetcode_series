@@ -1,5 +1,7 @@
+
 # O(n) time, O(1) space ugly solution
 # slow/fast pointer is always common for loop detection
+
 class Solution(object):
     def circularArrayLoop(self, nums):
 

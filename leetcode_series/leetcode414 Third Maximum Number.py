@@ -1,5 +1,7 @@
+
 # if we set the secondmaximum and thirdmaximum to -2147483648 initially,
 # we need to worry about the test case like [-2147483648, 1, 2].
+
 class Solution(object):
     def thirdMax(self, nums):
 

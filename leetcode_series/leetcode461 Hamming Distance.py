@@ -1,3 +1,4 @@
+
 # compare the bit one by one from the least to most significant
 
 class Solution(object):

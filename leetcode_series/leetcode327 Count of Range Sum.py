@@ -1,4 +1,6 @@
+
 # see explanation: https://discuss.leetcode.com/topic/33770/short-simple-o-n-log-n
+
 class Solution(object):
     def countRangeSum(self, nums, lower, upper):
 

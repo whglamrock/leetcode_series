@@ -1,3 +1,4 @@
+
 '''
 The worst case is o(n^2) when: 1) the citations array is in descending order, and within every
 while loop of the hIndex function, the n-current > citations[current] (this is under extreme circumstances
@@ -7,6 +8,7 @@ array is in ascending order, and within every while loop of the hIndex function,
 citations[current].
 On average, its o(n) time complexity, see: https://leetcode.com/discuss/60349/better-solution-than-hint-no-extra-space
 '''
+
 class Solution(object):
     def dividedByPartition(self, a, start, end):
 
@@ -44,6 +46,8 @@ class Solution(object):
                 # never happen. Therefore, the start = current+1, search moves to the right side.
 
         return hIndex
+
+
 
 Sol = Solution()
 citations = [3, 0, 6, 1, 5]

@@ -1,11 +1,15 @@
+
 class ListNode(object):
     def __init__(self, x):
         self.val = x
         self.next = None
 
+
 # Solution without knowing the length
+
 class Solution(object):
     def getIntersectionNode(self, headA, headB):
+
         if not headA or not headB:
             return None
         ptA, ptB, jumpA = headA, headB, False
@@ -21,6 +25,7 @@ class Solution(object):
                     return None
             if not ptB:
                 ptB = headA
+
 
 
 a = ListNode(1)
@@ -49,6 +54,7 @@ i.next = f
 Sol = Solution()
 final = Sol.getIntersectionNode(g,a)
 print final.val
+
 
 
 '''

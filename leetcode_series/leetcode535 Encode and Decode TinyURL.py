@@ -4,7 +4,6 @@
 #   left end of s; a hidden fact is that it stops removing chars when the first char that doesn't
 #   exist in substr appears in s!
 
-
 class Codec:
 
     def encode(self, longUrl):

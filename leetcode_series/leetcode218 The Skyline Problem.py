@@ -1,5 +1,7 @@
+
 # explanation for the skyline problem: https://briangordon.github.io/2014/08/the-skyline-problem.html
 # code from: https://discuss.leetcode.com/topic/26420/14-line-python-code-straightforward-easy-to-understand
+
 import heapq
 class Solution(object):
     def getSkyline(self, buildings):
@@ -25,6 +27,7 @@ class Solution(object):
             addsky(t, h)
 
         return sky[1:]
+
 
 
 Sol = Solution()

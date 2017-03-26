@@ -1,5 +1,7 @@
+
 # By the definition of ugly number, if its factors include any numbers other than 2,3,5 (e.g. -2, -3, -5, etc.), it
 # is not a ugly number.
+
 class Solution(object):
     def isUgly(self, num):
 
@@ -8,6 +10,7 @@ class Solution(object):
                 num /= p # divide the num by 2,3,5 ('yin shi fen jie') to see if there are other factors left.
 
         return num == 1
+
 
 
 Sol = Solution()

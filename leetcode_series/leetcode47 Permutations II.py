@@ -1,4 +1,6 @@
+
 # no extra space.
+
 class Solution(object):
     def permuteUnique(self, nums):
 
@@ -14,12 +16,16 @@ class Solution(object):
         return ans
 
 
+
 Sol = Solution()
 nums = [1,2,3]
 print Sol.permuteUnique(nums)
 
+
+
 '''
 # my original not clean code with o(n^2) space.
+
 import copy
 class Solution(object):
     def permuteUnique(self, nums):

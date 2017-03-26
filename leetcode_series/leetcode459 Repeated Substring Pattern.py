@@ -1,3 +1,4 @@
+
 # sufficient and necessary condition to prove the theory is right:
 #   https://discuss.leetcode.com/topic/68206/easy-python-solution-with-explaination
 # 1) if s in (s + s)[1:-1], it means s is repeated;

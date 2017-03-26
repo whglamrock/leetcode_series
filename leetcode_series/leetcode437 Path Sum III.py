@@ -1,12 +1,17 @@
+
 # Definition for a binary tree node.
+
 class TreeNode(object):
     def __init__(self, x):
+
         self.val = x
         self.left = None
         self.right = None
 
+
 # every time we hit a new node, we calculate if there is a feasible path that ENDS with
 # this node.
+
 class Solution(object):
     def helper(self, lst, target):
 

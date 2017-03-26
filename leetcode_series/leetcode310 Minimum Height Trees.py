@@ -1,4 +1,6 @@
+
 # O(N) running time/space solution
+
 import collections
 class Solution(object):
     def findMinHeightTrees(self, n, edges):

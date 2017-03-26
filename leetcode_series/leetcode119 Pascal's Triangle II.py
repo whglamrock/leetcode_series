@@ -1,9 +1,7 @@
+
 class Solution(object):
     def getRow(self, rowIndex):
-        """
-        :type rowIndex: int
-        :rtype: List[int]
-        """
+
         lst = []
 
         for i in range(rowIndex+1):
@@ -18,6 +16,8 @@ class Solution(object):
                 lst.append(multiplier1/multiplier2)
 
         return lst
+
+
 
 a = Solution()
 b = a.getRow(8)

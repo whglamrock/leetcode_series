@@ -1,8 +1,10 @@
+
 # in the following solution, 'compatible' means: after adding the new curNum to the previous subsets,
 # they are still inter-divisible. If can't read the reference, rewrite every i & j for loop for our
 # test case to understand.
 
 from copy import copy
+
 # P.S.: How could the copied list remain when the original list changes? Use the 'copy' operator!
 class Solution(object):
     def largestDivisibleSubset(self, nums):
@@ -46,6 +48,7 @@ class Solution(object):
             if len(localSet) > len(res):
                 res = localSet
         return res
+
 
 
 Sol = Solution()

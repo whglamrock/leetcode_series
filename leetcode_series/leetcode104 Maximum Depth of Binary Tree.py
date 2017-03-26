@@ -1,9 +1,7 @@
+
 class Solution(object):
     def maxDepth(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
+
         if root is None:
             return 0
         queue = [root]
@@ -21,7 +19,10 @@ class Solution(object):
         return ans
 
 
+
 """
+# recursive solution
+
 class Solution(object):
     def maxDepth(self, root):
         def dfs(level, root, res):
@@ -33,5 +34,5 @@ class Solution(object):
         res = [0]
         dfs(1, root, res)
         return res[0]
-(recursive solution)"""
+"""
 

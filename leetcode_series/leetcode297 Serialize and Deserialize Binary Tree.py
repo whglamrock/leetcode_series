@@ -15,11 +15,7 @@ from collections import deque
 class Codec:
 
     def serialize(self, root):
-        """Encodes a tree to a single string.
 
-        :type root: TreeNode
-        :rtype: str
-        """
         if not root:
             return ''
 
@@ -38,15 +34,9 @@ class Codec:
             todo = next
         return ','.join(ans)
 
-
     # the key is to remember to check if the queue is empty
-
     def deserialize(self, data):
-        """Decodes your encoded data to tree.
 
-        :type data: str
-        :rtype: TreeNode
-        """
         if not data:
             return None
 
