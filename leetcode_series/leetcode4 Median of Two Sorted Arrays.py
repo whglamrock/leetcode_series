@@ -1,6 +1,8 @@
+
 '''
 idea came from: https://leetcode.com/discuss/15790/share-my-o-log-min-m-n-solution-with-explanation
 '''
+
 class Solution(object):
     def findMedianSortedArrays(self, A, B):
         m, n = len(A), len(B)
@@ -38,6 +40,8 @@ class Solution(object):
                     min_of_right = min(A[i], B[j])
 
                 return (max_of_left + min_of_right)/2.0
+
+
 
 Sol = Solution()
 print Sol.findMedianSortedArrays([1,2,3,4,5],[6,7,8,9,10,13])

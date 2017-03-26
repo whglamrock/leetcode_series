@@ -1,3 +1,4 @@
+
 class Solution:
 
     def findSubstring(self, s, words):
@@ -20,13 +21,12 @@ class Solution:
             # 'foo bar bar foo...', 'oob arb arf ...', 'oba rba rfo ...', in l times we for sure can find the
             # substring match. e.g., if l == 3, there is no need to do k == 4 (j travels in: 'bar bar foo ...', which
             # is redundant cuz we've already had 'foo bar bar foo...')
-
             left = k
             subd = {}
             count = 0
-
             for j in xrange(k, len(s)-l+1, l):
                 tword = s[j:j+l]
+
                 # if it's a valid word
                 if tword in d:
                     if tword in subd:   # store the substring in subd word by word, and count each word.
@@ -48,6 +48,7 @@ class Solution:
                         # In other test cases, the part before 'BAR'(1) differs but this while loop still works .
                     if count == len(words):
                         ans.append(left)
+
                 # when not a valid word
                 else:
                     left = j + l  # always keep the 'left' equal to next j cuz 'left' needs to add in 'ans'.
@@ -55,6 +56,8 @@ class Solution:
                     count = 0
 
         return ans
+
+
 
 Sol = Solution()
 s = 'foobarbarfoothefoobarfooman'

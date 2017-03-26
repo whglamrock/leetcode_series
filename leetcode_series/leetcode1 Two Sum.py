@@ -1,4 +1,6 @@
+
 # use hash-table to build O(n) solution
+
 class Solution(object):
     def twoSum(self, nums, target):
 
@@ -16,6 +18,7 @@ class Solution(object):
                 else:
                     if len(dic[item]) > 1:
                         return [dic[item][0], dic[item][1]]
+
 
 
 '''

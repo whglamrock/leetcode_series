@@ -1,13 +1,10 @@
+
 '''
 O(n) time complexity, O(1) time space complexity
 '''
 
 class Solution(object):
     def romanToInt(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
 
         def judge(zifu):
             if zifu == 'I':
@@ -44,6 +41,7 @@ class Solution(object):
                     ans += judge(s[i])
 
         return ans
+
 
 
 a = 'D'

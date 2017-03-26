@@ -1,9 +1,7 @@
+
 class Solution(object):
     def isValid(self, s):
-        """
-        :type s: str
-        :rtype: bool
-        """
+
         fanhui = True
         i = 0
         lst = []
@@ -30,9 +28,12 @@ class Solution(object):
                     i -= 1
             else:
                 i += 1
+
         if len(lst) != 0:
             fanhui = False
         return fanhui
+
+
 
 atr = '(){[()]}()[]{}{[()]}{[()]}{}{}('
 a = Solution()

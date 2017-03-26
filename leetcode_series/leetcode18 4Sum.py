@@ -1,3 +1,4 @@
+
 class Solution(object):
     def fourSum(self, nums, target):
 
@@ -5,7 +6,9 @@ class Solution(object):
 
             if len(nums) < N or N < 2 or target < nums[0] * N or target > nums[-1] * N:  # early termination
                 return
-            if N == 2: # two pointers solve sorted 2-sum problem
+
+            # two pointers solve sorted 2-sum problem
+            if N == 2:
                 l,r = 0,len(nums)-1
                 while l < r:
                     s = nums[l] + nums[r]
@@ -18,7 +21,8 @@ class Solution(object):
                         l += 1
                     else:
                         r -= 1
-            else: # recursively reduce N
+            # recursively reduce N
+            else:
                 for i in xrange(len(nums)-N+1):
                     if i == 0 or (i > 0 and nums[i-1] != nums[i]):
                         findNsum(nums[i+1:], target-nums[i], N-1, result+[nums[i]], results)
@@ -34,10 +38,12 @@ class Solution(object):
         return results
 
 
+
 s = [0,1,5,0,1,5,5,-4]
 target = 11
 Sol = Solution()
 print Sol.fourSum(s,target)
+
 
 
 '''

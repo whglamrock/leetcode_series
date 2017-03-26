@@ -1,11 +1,16 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
 
+
 class Solution(object):
     def mergeKLists(self, lists):
+
         res = []
         for l in lists:
             while l:
@@ -22,6 +27,8 @@ class Solution(object):
             dummy = dummy.next
 
         return temp.next
+
+
 
 a = ListNode(0)
 b = ListNode(3)

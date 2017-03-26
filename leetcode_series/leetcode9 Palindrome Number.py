@@ -1,4 +1,6 @@
+
 # in the lc OJ, all negative numbers should be returned false
+
 class Solution(object):
     def isPalindrome(self, x):
 

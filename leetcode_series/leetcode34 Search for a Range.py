@@ -1,4 +1,6 @@
+
 # Idea: find the target value first, then search the start in left area, the end in right area.
+
 class Solution(object):
     def searchRange(self, nums, target):
         l, r = 0, len(nums)-1
@@ -53,6 +55,8 @@ class Solution(object):
             return [start, end]
         else:
             return [index, index]
+
+
 
 Sol = Solution()
 nums = [2,2]

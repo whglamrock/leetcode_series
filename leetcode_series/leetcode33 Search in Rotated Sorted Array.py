@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 # ONE-PASS o(logn) solution
 # idea came from: https://discuss.leetcode.com/topic/47785/1-pass-binary-search-in-python-11-lines-50-ms
@@ -37,6 +38,8 @@ class Solution(object):
         else:
             return -1
 
+
+
 '''
 # Another more simple, one pass solution came from leetcode 88.
 class Solution(object):
@@ -59,6 +62,8 @@ class Solution(object):
                     r = mid - 1
         return -1
 '''
+
+
 
 '''
 # my original two-pass but still o(logn) solution:

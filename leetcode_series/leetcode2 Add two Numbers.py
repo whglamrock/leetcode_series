@@ -15,6 +15,7 @@ class Solution(object):
         temp2 = l2
         str1 = ''
         str2 = ''
+
         while temp1 or temp2:
             if temp1:
                 str1 += str(temp1.val)
@@ -22,6 +23,7 @@ class Solution(object):
             if temp2:
                 str2 += str(temp2.val)
                 temp2 = temp2.next
+
         num1 = int(str1[::-1])
         num2 = int(str2[::-1])
         num = num1 + num2
@@ -29,6 +31,7 @@ class Solution(object):
         temp = m
         if num == 0:
             return m
+
         while num > 0:
             digit = num % 10
             num = int(num/10)

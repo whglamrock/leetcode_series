@@ -1,3 +1,4 @@
+
 '''
 In this problem, we assume that there is no "." or "*" in s, the p does not start with "*",
 there won't be consecutive '*'s in p, the * can only eliminates one preceding char.

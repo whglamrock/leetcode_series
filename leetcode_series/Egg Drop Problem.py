@@ -1,3 +1,4 @@
+
 # Description: http://www.geeksforgeeks.org/dynamic-programming-set-11-egg-dropping-puzzle/
 
 class Solution(object):
@@ -18,6 +19,7 @@ class Solution(object):
 
         #print n, k, mininmum + 1
         return mininmum + 1
+
 
 
 Sol = Solution()

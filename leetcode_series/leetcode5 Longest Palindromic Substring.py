@@ -1,5 +1,8 @@
-"""This O(n^2) algorithm is based on: every time the substring grows, it can only grow by ONE
-charater or TWO. The proof can be found on: https://leetcode.com/discuss/21332/python-o-n-2-method-with-some-optimization-88ms"""
+
+"""
+This O(n^2) algorithm is based on: every time the substring grows, it can only grow by ONE
+charater or TWO. The proof can be found on: https://leetcode.com/discuss/21332/python-o-n-2-method-with-some-optimization-88ms
+"""
 
 class Solution(object):
     def longestPalindrome(self, s):
@@ -22,6 +25,7 @@ class Solution(object):
             i += 1
 
         return s[start: end + 1]
+
 
 
 Sol = Solution()

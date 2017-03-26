@@ -1,14 +1,18 @@
+
 # Definition for singly-linked list.
+
 class ListNode(object):
     def __init__(self, x):
+
         self.val = x
         self.next = None
+
 
 class Solution(object):
     def reverseKGroup(self, head, k):
 
-        def reverse(node0, node1, n):# e.g., if k = 4, the lists became 4->3->2->1->5->6->7->8->9,
-            current = node1          # the node0 is 1, the node1 is 5
+        def reverse(node0, node1, n): # e.g., if k = 4, the lists became 4->3->2->1->5->6->7->8->9,
+            current = node1           # the node0 is 1, the node1 is 5
             preceding = node0
             if node0.val == None:
                 preceding.next = current # in the first round of the recursion,connect the newly defined
@@ -26,7 +30,7 @@ class Solution(object):
             if node0.val != None:
                 preceding.next = current.next
                 current.next = node1
-                tail.next = current # e.g. in 4->3->2->1->5->6->7->8->9, '1' is before '5', when swapping
+                tail.next = current  # e.g. in 4->3->2->1->5->6->7->8->9, '1' is before '5', when swapping
                 # '5' and '6', the '1' needs to reconnect to '6'
             else:
                 preceding.next = current.next # e.g. in 1->2->3->4->5->6->7->8->9, there is no nodes before
@@ -37,8 +41,8 @@ class Solution(object):
             else:
                 return reverse(ListNode(None),current,n+1) # for the first round of recursion
 
-
-        def judge(node): # check if there are enough remaining nodes for swap
+        # check if there are enough remaining nodes for swap
+        def judge(node):
             temp = node
             counter = 0
             while temp:
@@ -66,6 +70,8 @@ class Solution(object):
             marker +=1 # just to prevent from assigning a new value to res.
 
         return res.next
+
+
 
 a = ListNode(1)
 b = ListNode(2)

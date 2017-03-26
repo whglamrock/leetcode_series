@@ -1,3 +1,4 @@
+
 '''
 Binary Shift trick, in our case, we take (32,5) as an example
 '''
@@ -18,9 +19,12 @@ class Solution:
                 res += i
                 i <<= 1
                 temp <<= 1
+
         if not positive:
             res = -res
         return min(max(-2147483648, res), 2147483647)
+
+
 
 Sol = Solution()
 print Sol.divide(32,5)

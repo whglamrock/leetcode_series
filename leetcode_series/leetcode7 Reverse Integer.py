@@ -1,7 +1,10 @@
+
 # too easy. no explanation
 # but be aware of all edge cases to avoid overflow
+
 class Solution(object):
     def reverse(self, x):
+
         if abs(x) >= 2147483647:
             return 0
 

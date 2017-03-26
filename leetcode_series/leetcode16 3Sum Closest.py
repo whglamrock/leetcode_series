@@ -23,6 +23,7 @@ class Solution(object):
                     r -= 1
                 else:
                     return newsum
+
         return ans
 
 

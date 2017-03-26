@@ -1,3 +1,4 @@
+
 '''
     Two pointers are set: i starts from 0, j starts from len(height)-1; let's say height[i] < height[j]).
     Should we move i or j?

@@ -1,3 +1,4 @@
+
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
@@ -21,8 +22,10 @@ class ListNode(object):
 
 class Solution(object):
     def removeNthFromEnd(self, head, n):
+
         counter = 0
         current = head
+
         while current.getNext() is not None:
             current = current.getNext()
             counter += 1
@@ -30,13 +33,17 @@ class Solution(object):
         counterdown = 0
         current = head
         previous = None
+
         while counterdown < counter-n:
             previous = current
             current = current.getNext()
             counterdown += 1
         fku = current.next
         previous.setNext(fku)
+
         return head
+
+
 
 a = ListNode(1)
 b = ListNode(2)
@@ -48,5 +55,4 @@ c.setNext(d)
 
 fk = Solution()
 show = fk.removeNthFromEnd(a,2)
-
 print show.next.next.getData()
