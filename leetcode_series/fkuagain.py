@@ -7,6 +7,8 @@ print b
 for key in b.keys():
    print key
 
+print 1 >> 1
+
 
 
 
