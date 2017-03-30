@@ -10,6 +10,8 @@ for key in b.keys():
 print 1 >> 1
 
 print str(-1)
+print int('01')
+
 
 
 
