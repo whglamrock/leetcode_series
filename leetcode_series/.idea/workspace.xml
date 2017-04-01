@@ -178,6 +178,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode273_Integer_to_English_Words.coverage" NAME="leetcode273 Integer to English Words Coverage Results" MODIFIED="1485984810768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode256_Paint_House.coverage" NAME="leetcode256 Paint House Coverage Results" MODIFIED="1465091657049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode23_Swap_Nodes_in_Pairs.coverage" NAME="leetcode23 Swap Nodes in Pairs Coverage Results" MODIFIED="1490513651874" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode542_01_Matrix.coverage" NAME="leetcode542 01 Matrix Coverage Results" MODIFIED="1491081638422" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode108_Convert_Sorted_Array_to_Binary_Search_Tree.coverage" NAME="leetcode108 Convert Sorted Array to Binary Search Tree Coverage Results" MODIFIED="1478279832274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode18_4Sum.coverage" NAME="leetcode18 4Sum Coverage Results" MODIFIED="1462309432861" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode31_Next_Permutation.coverage" NAME="leetcode31 Next Permutation Coverage Results" MODIFIED="1463154233354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -308,11 +309,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode536 Construct Binary Tree from String.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leetcode536 Construct Binary Tree from String.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetcode536 Construct Binary Tree from String.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2552301">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode542 01 Matrix.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode542 01 Matrix.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.4748954">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -333,7 +344,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode437 Path Sum III.py" />
         <option value="$PROJECT_DIR$/leetcode438 Find All Anagrams in a String.py" />
         <option value="$PROJECT_DIR$/leetcode441 Arranging Coins.py" />
         <option value="$PROJECT_DIR$/leetcode442 Find All Duplicates in an Array.py" />
@@ -384,6 +394,7 @@
         <option value="$PROJECT_DIR$/leetcode539 Minimum Time Difference.py" />
         <option value="$PROJECT_DIR$/leetcode533 Lonely Pixel II.py" />
         <option value="$PROJECT_DIR$/leetcode536 Construct Binary Tree from String.py" />
+        <option value="$PROJECT_DIR$/leetcode542 01 Matrix.py" />
       </list>
     </option>
   </component>
@@ -393,8 +404,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="272" />
-    <option name="y" value="30" />
+    <option name="x" value="74" />
+    <option name="y" value="34" />
     <option name="width" value="1175" />
     <option name="height" value="732" />
   </component>
@@ -473,25 +484,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode533 Lonely Pixel II">
-    <configuration default="false" name="leetcode507 Perfect Number" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode507 Perfect Number.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.leetcode542 01 Matrix">
     <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -560,6 +553,24 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode533 Lonely Pixel II.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode542 01 Matrix" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode542 01 Matrix.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -853,19 +864,19 @@
       <item index="2" class="java.lang.String" itemvalue="Python.leetcode3 Longest Substring Without Repeating Characters" />
       <item index="3" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="4" class="java.lang.String" itemvalue="Python.just4test" />
-      <item index="5" class="java.lang.String" itemvalue="Python.leetcode507 Perfect Number" />
-      <item index="6" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode544 Output Contest Matches" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode539 Minimum Time Difference" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode533 Lonely Pixel II" />
+      <item index="5" class="java.lang.String" itemvalue="Python.fkuagain" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode544 Output Contest Matches" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode539 Minimum Time Difference" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode533 Lonely Pixel II" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode542 01 Matrix" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode533 Lonely Pixel II" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode539 Minimum Time Difference" />
-        <item index="2" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode544 Output Contest Matches" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode507 Perfect Number" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode542 01 Matrix" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode533 Lonely Pixel II" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode539 Minimum Time Difference" />
+        <item index="3" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode544 Output Contest Matches" />
       </list>
     </recent_temporary>
   </component>
@@ -892,7 +903,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="272" y="30" width="1175" height="732" extended-state="0" />
+    <frame x="74" y="34" width="1175" height="732" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30297872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -901,7 +912,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49000868" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23680241" sideWeight="0.50706714" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23680241" sideWeight="0.50706714" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24934839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -941,14 +952,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode475 Heaters.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.22384937">
-          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode476 Number Complement.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.56485355">
@@ -1343,8 +1346,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode536 Construct Binary Tree from String.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2552301">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode542 01 Matrix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4748954">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding />
         </state>
       </provider>
