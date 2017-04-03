@@ -1,5 +1,5 @@
 
-# key is use hash table to search
+# key is use sumarray and hash table to search
 
 class Solution(object):
     def maxSubArrayLen(self, nums, k):
@@ -7,19 +7,24 @@ class Solution(object):
         if not nums:
             return 0
 
-        sumvalue = 0
-        # edge case when the desired subarray starts from the first element
-        dic = {0: -1}
-        res = 0
-
+        sumarray = []
+        sumdic = {0: -1}
+        ans = 0
         for i in xrange(len(nums)):
-            sumvalue += nums[i]
-            # the dic always store the smallest end index of accumulate sumarray that sum to a specific value
-            if sumvalue not in dic:
-                dic[sumvalue] = i
-            # i - dic[sumvalue - k], not dic[sumvalue] - dic[sumvalue - k]
-            if sumvalue - k in dic:
-                res = max(res, i - dic[sumvalue - k])
+            newsum = sumarray[-1] + nums[i] if sumarray else nums[i]
+            sumarray.append(newsum)
+            # if the sum value is already already occurred we don't update because we only
+            #   need the smallest index to product the longest subarray
+            if newsum not in sumdic:
+                sumdic[newsum] = i
+            if newsum - k in sumdic:
+                ans = max(ans, i - sumdic[newsum - k])
 
-        return res
+        return ans
 
+
+
+Sol = Solution()
+nums = [1, -1, 5, -2, 3]
+k = 3
+print Sol.maxSubArrayLen(nums, k)
