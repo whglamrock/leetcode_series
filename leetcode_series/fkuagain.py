@@ -1,4 +1,4 @@
-from collections import Counter
+from collections import Counter, deque
 
 a = [1, 2, 3, 4, 5]
 b = Counter(a)
@@ -11,6 +11,10 @@ print 1 >> 1
 
 print str(-1)
 print int('01')
+
+a = deque(a)
+# the deque can't be sliced
+print a
 
 
 
