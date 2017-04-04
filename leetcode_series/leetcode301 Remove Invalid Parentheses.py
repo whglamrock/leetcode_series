@@ -24,7 +24,7 @@ class Solution(object):
             # j can be i, because s[i] also needs to be removed
             for j in xrange(lastj, i + 1):
                 # only need to remove one parentheses from consecutive ones
-                if s[j] == par[1] and (j == lastj or s[j - 1] != par[1]):
+                if s[j] == par[1] and (j == lastj or s[j] != s[j - 1]):
                     # after removing one char from s, the new 's' and s[i] will become valid again
                     self.remove(s[:j] + s[j + 1:], i, j, par)
 
