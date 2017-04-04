@@ -10,7 +10,7 @@
 class Solution(object):
     def multiply(self, A, B):
 
-        if A == None or B == None or not A or not B or not A[0] or not B[0]:
+        if not A or not B or not A[0] or not B[0]:
             return None
 
         m, n, l = len(A), len(A[0]), len(B[0])
