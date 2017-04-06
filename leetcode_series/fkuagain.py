@@ -1,20 +1,8 @@
-from collections import Counter, deque
+a = 1
+b = [1,2,3,4]
+print b[a > 0]
+print b[a < 0]
 
-a = [1, 2, 3, 4, 5]
-b = Counter(a)
-print b
-
-for key in b.keys():
-   print key
-
-print 1 >> 1
-
-print str(-1)
-print int('01')
-
-a = deque(a)
-# the deque can't be sliced
-print a
 
 
 
