@@ -17,6 +17,7 @@ class Solution(object):
         #   so there is no need to add space before 'Thousands[i]'
         def helper(triplet):
 
+            # very necessary, to avoid add additional space if triplet == 0, try test case: num == 50688
             if triplet == 0:
                 return ''
             elif triplet < 20:
@@ -37,3 +38,9 @@ class Solution(object):
             i += 1
 
         return ans.rstrip(' ')
+
+
+
+Sol = Solution()
+num = 1234567890
+print Sol.numberToWords(num)
