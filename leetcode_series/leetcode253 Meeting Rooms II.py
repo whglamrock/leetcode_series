@@ -17,7 +17,6 @@ class Solution(object):
 
         intervals.sort(key = lambda x: x.start)
         pq = []
-        heapify(pq)
         numofrooms = 0
 
         # pq stores the end time
