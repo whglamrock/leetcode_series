@@ -12,9 +12,7 @@ def isBadVersion(num):
 class Solution(object):
     def firstBadVersion(self, n):
 
-        if not n:
-            return True
-
+        # there is no need to check whether n == 0, because n always >= 1 according to the problem
         l, r = 1, n
 
         while l < r:
