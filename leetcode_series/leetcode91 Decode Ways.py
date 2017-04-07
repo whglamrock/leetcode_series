@@ -6,15 +6,14 @@ class Solution(object):
 
         if not s: return 0
 
-        dp = [0] * (len(s) + 1)
+        dp = [0 for i in xrange(len(s) + 1)]
         dp[0] = 1
-        if s[0] != '0':
-            dp[1] = 1
 
-        for i in xrange(2, len(s) + 1):
+        for i in xrange(1, len(s) + 1):
             if s[i - 1] != '0':
                 dp[i] += dp[i - 1]
-            if '10' <= s[i - 2: i] <= '26':
+            # set the lower bound as 10 to avoid checking whether s[i - 2] == '0'
+            if i - 2 >= 0 and 10 <= int(s[i - 2: i]) <= 26:
                 dp[i] += dp[i - 2]
 
         return dp[-1]
