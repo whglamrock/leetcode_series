@@ -23,6 +23,7 @@ class Solution(object):
                     r -= 1
                 else:
                     ans.append([nums[i], nums[l], nums[r]])
+                    # check the duplicates here insteaad of at the begining of the big while loop
                     while l < r and nums[l] == nums[l + 1]:
                         l += 1
                     while l < r and nums[r] == nums[r - 1]:
@@ -39,6 +40,43 @@ s = [0,0,0]
 target = 0
 Sol = Solution()
 print Sol.threeSum(s)
+
+
+
+'''
+
+# the following will definitely word in a real interview. Stupid motherfucking leetcode
+
+class Solution(object):
+    def threeSum(self, nums):
+
+        if not nums or len(nums) < 3:
+            return []
+        nums.sort()
+
+        ans = []
+        for i in xrange(len(nums) - 2):
+            if i >= 1 and nums[i] == nums[i - 1]: continue
+            l, r = i + 1, len(nums) - 1
+            while l < r:
+                s = nums[i] + nums[l] + nums[r]
+                if l > i + 1 and nums[l] == nums[l - 1]:
+                    l += 1
+                    continue
+                if r < len(nums) - 1 and nums[r] == nums[r + 1]:
+                    r -= 1
+                    continue
+                if s < 0:
+                    l += 1
+                elif s > 0:
+                    r -= 1
+                else:
+                    ans.append([nums[i], nums[l], nums[r]])
+                    l += 1
+                    r -= 1
+
+        return ans
+'''
 
 
 
