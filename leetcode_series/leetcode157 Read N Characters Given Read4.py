@@ -16,8 +16,7 @@ class Solution(object):
             l = read4(cnm)
 
             # if no more char in file, return
-            if not l:
-                return idx
+            if l == 0: break
 
             # write cnm into buf directly; i will be within 4
             for i in xrange(min(l, n)):
@@ -25,7 +24,7 @@ class Solution(object):
                 # the length of buf should be a very big number
                 buf[idx] = cnm[i]   # this step is necessary
                 idx += 1
-                n -= 1
+            n -= l
 
         return idx
 
