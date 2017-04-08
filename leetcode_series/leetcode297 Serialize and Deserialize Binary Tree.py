@@ -12,6 +12,7 @@ class TreeNode(object):
 # the idea is level order traversal
 
 from collections import deque
+
 class Codec:
 
     def serialize(self, root):
@@ -69,3 +70,63 @@ class Codec:
 # Your Codec object will be instantiated and called as such:
 # codec = Codec()
 # codec.deserialize(codec.serialize(root))
+
+
+
+'''
+# practice:
+
+from collections import deque
+
+class Codec:
+
+    def serialize(self, root):
+
+        ans = []
+        todo = deque()
+        todo.append(root)
+
+        while todo:
+            next = deque()
+            while todo:
+                node = todo.popleft()
+                if not node:
+                    ans.append('N')
+                else:
+                    ans.append(str(node.val))
+                    next.append(node.left)
+                    next.append(node.right)
+            todo = next
+
+        return ','.join(ans)
+
+    def deserialize(self, data):
+
+        data = data.split(',')
+        data = deque(data)
+        if not data or data[0] == 'N':
+            return None
+        root = TreeNode(int(data.popleft()))
+        todo = deque()
+        todo.append(root)
+
+        while todo:
+            next = deque()
+            while todo:
+                node = todo.popleft()
+                if data:
+                    val = data.popleft()
+                    if val != 'N':
+                        leftchild = TreeNode(int(val))
+                        next.append(leftchild)
+                        node.left = leftchild
+                if data:
+                    val = data.popleft()
+                    if val != 'N':
+                        rightchild = TreeNode(int(val))
+                        next.append(rightchild)
+                        node.right = rightchild
+            todo = next
+
+        return root
+'''

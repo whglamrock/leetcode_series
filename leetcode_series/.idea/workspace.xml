@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" afterPath="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -317,11 +317,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode157 Read N Characters Given Read4.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py">
+      <file leaf-file-name="leetcode297 Serialize and Deserialize Binary Tree.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4697286">
-              <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+            <state vertical-scroll-proportion="2.1607516">
+              <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -342,7 +342,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode462 Minimum Moves to Equal Array Elements II.py" />
         <option value="$PROJECT_DIR$/leetcode463 Island Perimeter.py" />
         <option value="$PROJECT_DIR$/leetcode464 Can I Win.py" />
         <option value="$PROJECT_DIR$/leetcode467. Unique Substrings in Wraparound String.py" />
@@ -393,6 +392,7 @@
         <option value="$PROJECT_DIR$/leetcode277 Find the Celebrity.py" />
         <option value="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
         <option value="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
+        <option value="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
       </list>
     </option>
   </component>
@@ -402,8 +402,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="84" />
-    <option name="y" value="68" />
+    <option name="x" value="83" />
+    <option name="y" value="29" />
     <option name="width" value="1175" />
     <option name="height" value="732" />
   </component>
@@ -901,7 +901,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="84" y="68" width="1175" height="732" extended-state="0" />
+    <frame x="83" y="29" width="1175" height="732" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30297872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -950,14 +950,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode504 Base 7.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode505 The Maze II.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.4121339">
@@ -1342,6 +1334,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8455115">
+          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fkuagain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1350,10 +1350,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py">
+    <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4697286">
-          <caret line="15" column="21" selection-start-line="15" selection-start-column="21" selection-end-line="15" selection-end-column="21" />
+        <state vertical-scroll-proportion="2.1607516">
+          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
           <folding />
         </state>
       </provider>
