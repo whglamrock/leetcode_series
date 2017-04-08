@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode200 Number of Islands.py" afterPath="$PROJECT_DIR$/leetcode200 Number of Islands.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -317,11 +317,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode297 Serialize and Deserialize Binary Tree.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
+      <file leaf-file-name="leetcode200 Number of Islands.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode200 Number of Islands.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="2.1607516">
-              <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.50104386">
+              <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -342,7 +342,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode463 Island Perimeter.py" />
         <option value="$PROJECT_DIR$/leetcode464 Can I Win.py" />
         <option value="$PROJECT_DIR$/leetcode467. Unique Substrings in Wraparound String.py" />
         <option value="$PROJECT_DIR$/leetcode475 Heaters.py" />
@@ -393,6 +392,7 @@
         <option value="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
         <option value="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
         <option value="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
+        <option value="$PROJECT_DIR$/leetcode200 Number of Islands.py" />
       </list>
     </option>
   </component>
@@ -950,14 +950,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode505 The Maze II.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.4121339">
-          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode506 Relative Ranks.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08995816">
@@ -1342,6 +1334,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.43841335">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fkuagain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1350,10 +1350,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
+    <entry file="file://$PROJECT_DIR$/leetcode200 Number of Islands.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.1607516">
-          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.50104386">
+          <caret line="16" column="38" selection-start-line="16" selection-start-column="38" selection-end-line="16" selection-end-column="38" />
           <folding />
         </state>
       </provider>
