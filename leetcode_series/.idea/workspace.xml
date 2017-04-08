@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" afterPath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode277 Find the Celebrity.py" afterPath="$PROJECT_DIR$/leetcode277 Find the Celebrity.py" />
     </list>
     <ignored path="untitled1.iws" />
@@ -317,11 +318,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode277 Find the Celebrity.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode277 Find the Celebrity.py">
+      <file leaf-file-name="leetcode158 Read N Characters Given Read4 II - Call multiple times.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.1273487">
-              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.12526096">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -342,7 +343,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode460 LFU Cache.py" />
         <option value="$PROJECT_DIR$/leetcode461 Hamming Distance.py" />
         <option value="$PROJECT_DIR$/leetcode462 Minimum Moves to Equal Array Elements II.py" />
         <option value="$PROJECT_DIR$/leetcode463 Island Perimeter.py" />
@@ -393,6 +393,7 @@
         <option value="$PROJECT_DIR$/leetcode10 Regular Expression Matching.py" />
         <option value="$PROJECT_DIR$/leetcode15 3Sum.py" />
         <option value="$PROJECT_DIR$/leetcode277 Find the Celebrity.py" />
+        <option value="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
       </list>
     </option>
   </component>
@@ -402,8 +403,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="106" />
-    <option name="y" value="37" />
+    <option name="x" value="-50" />
+    <option name="y" value="55" />
     <option name="width" value="1175" />
     <option name="height" value="732" />
   </component>
@@ -901,7 +902,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="106" y="37" width="1175" height="732" extended-state="0" />
+    <frame x="-50" y="55" width="1175" height="732" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30297872" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -950,14 +951,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode501 Find Mode in Binary Search Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.1610879">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode502 IPO.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.31799164">
@@ -1342,6 +1335,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode277 Find the Celebrity.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8455115">
+          <caret line="27" column="10" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fkuagain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1350,10 +1351,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode277 Find the Celebrity.py">
+    <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1273487">
-          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.12526096">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -1,6 +1,8 @@
+
 # for more info about the read4 API, refer to lc157
 
 from collections import deque
+
 class Solution(object):
     def __init__(self):
 

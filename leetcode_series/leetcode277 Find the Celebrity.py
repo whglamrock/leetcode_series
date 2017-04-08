@@ -10,6 +10,7 @@
 class Solution(object):
     def findCelebrity(self, n):
 
+        # IMPORTANT! it is very easy to forget to check the corner case
         if n <= 1:
             return n - 1
 
@@ -21,8 +22,10 @@ class Solution(object):
             if knows(x, i):
                 x = i
 
-        # after the above for loop, x don't know all people from x + 1 to n - 1
-        #   so we only need to check people from 0 to x - 1
+        # after the above for loop, x don't know all people from x + 1 to n - 1 (x + 1 to n - 1 ruled out)
+        #   and all people from 0 to x - 1 were also ruled out because if they are possible celebrity,
+        #   then they won't be removed by "x = i".
+        # so we only need to check people from 0 to x - 1
         for j in xrange(x):
             if knows(x, j):
                 return -1
