@@ -11,35 +11,31 @@ class ListNode(object):
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
 
-        temp1 = l1
-        temp2 = l2
-        str1 = ''
-        str2 = ''
+        if not l1 or not l2:
+            return None
 
-        while temp1 or temp2:
-            if temp1:
-                str1 += str(temp1.val)
-                temp1 = temp1.next
-            if temp2:
-                str2 += str(temp2.val)
-                temp2 = temp2.next
+        num1 = ''
+        num2 = ''
+        while l1:
+            num1 += str(l1.val)
+            l1 = l1.next
+        while l2:
+            num2 += str(l2.val)
+            l2 = l2.next
+        num1 = num1[::-1]
+        num2 = num2[::-1]
 
-        num1 = int(str1[::-1])
-        num2 = int(str2[::-1])
-        num = num1 + num2
-        m = ListNode(0)
-        temp = m
-        if num == 0:
-            return m
-
-        while num > 0:
-            digit = num % 10
-            num = int(num/10)
-            newnode = ListNode(digit)
+        num = int(num1) + int(num2)
+        res = ListNode(0)
+        if num == 0: return res
+        temp = res
+        while num:
+            newnode = ListNode(num % 10)
+            num /= 10
             temp.next = newnode
             temp = temp.next
 
-        return m.next
+        return res.next
 
 
 
