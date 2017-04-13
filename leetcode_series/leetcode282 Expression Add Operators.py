@@ -20,7 +20,9 @@ class Solution(object):
 
         return self.ans
 
-    # lastclause is set for operator '*'
+    # lastclause is set for operator '*';
+    # also, there is no way to save the leftexpression to prune all afterward DFSes, because we always
+    #   need to try out three operators
     def helper(self, num, leftresult, leftexpression, lastclause, target):
 
         if not num:
