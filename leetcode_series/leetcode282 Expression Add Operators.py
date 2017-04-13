@@ -6,7 +6,7 @@
 # It is inconvenient to use memoization in this question:
 #   considering the length of current num and leftresult as the key of memo, then different
 #   path with the same key could yield different final results because of the variation the last claus
-# Plus, there is no solution with memoization brought up in discuss
+# There is no solution with memoization brought up in discuss
 
 
 class Solution(object):
@@ -40,3 +40,10 @@ class Solution(object):
                 self.helper(nextnum, leftresult + int(val), leftexpression + '+' + val, int(val), target)
                 self.helper(nextnum, leftresult - int(val), leftexpression + '-' + val, -int(val), target)
                 self.helper(nextnum, leftresult - lastclause + lastclause * int(val), leftexpression + '*' + val, lastclause * int(val), target)
+
+
+
+num = '105'
+target = 5
+Sol = Solution()
+print Sol.addOperators(num, target)
