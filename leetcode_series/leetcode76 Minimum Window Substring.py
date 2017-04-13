@@ -3,47 +3,47 @@
 # edge case: t doesn't exist in s
 
 from collections import Counter
+
 class Solution(object):
     def minWindow(self, s, t):
 
-        if t == None or s == None:
-            return
-        if not t or not s:
-            return ''
-        if len(s) < len(t):
+        if not s or not t:
             return ''
 
-        need, missing = Counter(t), len(t)
-        # i,j is the start/end index of current valid window
+        # i will always be the index of first valid char in a valid window
         i = 0
-        # big convenience to do this:
         I = J = 0
-        #tset = set(t)
+        need, missing = Counter(t), len(t)
 
-        # need[c] < 0 means we don't need this char
+        # j will always be the index of last valid char in a valid window (so the window = s[i:j + 1])
         for j, char in enumerate(s):
 
-            # is c not in need, need will automatically initialize need[c] = 0,
-            #   Counter is a subclass of defaultdict type
-            if need[char] > 0:  # the condition needs to be need[char] > 0, instead of "char in tset"
+            # means we found a needed char;
+            # when need[char] <= 0, the char could also be in t, it is just we don't need it (the window
+            #   has redundant chars)
+            if need[char] > 0:
                 missing -= 1
+
+            # need[char] always "-=1" even when the char is in t (e.g., when need[char] == -1, it means
+            #   the window has one redundant this char)
             need[char] -= 1
 
-            # missing == 0 means we found a valid window and we are gonna shrink it
+            # means the window either has exactly the number of each char we need or has redundant chars
             if missing == 0:
-                # need[s[i]] < 0 means we don't need this char
-                #   and if the char is in t, need[t] will always >= 0
+                # we use while loop to shrink the window as small as possible;
+                #   when the s[i] is in t but also redundant, it will be popped out as well
+                # the first condition is "i <= j" instead of "i < j" because of the definition of i and j;
+                #   it also applies to the scenario when t is empty(hypothetic thinking)
                 while i <= j and need[s[i]] < 0:
                     need[s[i]] += 1
                     i += 1
 
-                # J == 0 is the initial status, if J remains 0, then the missing never == 0,
-                #   which means the t is not in the s;
-                # j is the end index of window so the length = j - i + 1
-                if J == 0 or (j + 1) - i <= J - I:
-                    I, J = i, j + 1
+                # this if condition should be under the above big if condition because we
+                #   only update the I, J when we have a valid window (missing == 0)
+                if J == 0 or (j + 1) - i < J - I:
+                    J, I = j + 1, i
 
-        # Initializing I = J = 0 also fits the condition that t doesn't exist in s
+        # initialize J = 0 and setting the J as j + 1 also fits the condition that t doesn't exist in s
         return s[I:J]
 
 

@@ -32,14 +32,14 @@ class Solution(object):
 
         # because the nextnum is num[:i], i starts from 1
         for i in xrange(1, len(num) + 1):
-            val = num[:i]
+            val = int(num[:i])
             nextnum = num[i:]
             # we need to put the "whether starts with 0" check here instead of arbitrarily using
             #   "if num[0] == '0': return " to end the recursion
             if i == 1 or (i > 1 and num[0] != '0'):
-                self.helper(nextnum, leftresult + int(val), leftexpression + '+' + val, int(val), target)
-                self.helper(nextnum, leftresult - int(val), leftexpression + '-' + val, -int(val), target)
-                self.helper(nextnum, leftresult - lastclause + lastclause * int(val), leftexpression + '*' + val, lastclause * int(val), target)
+                self.helper(nextnum, leftresult + val, leftexpression + '+' + str(val), val, target)
+                self.helper(nextnum, leftresult - val, leftexpression + '-' + str(val), -val, target)
+                self.helper(nextnum, leftresult - lastclause + lastclause * val, leftexpression + '*' + str(val), lastclause * val, target)
 
 
 
