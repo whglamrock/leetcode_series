@@ -22,7 +22,7 @@ class Solution(object):
             # when need[char] <= 0, the char could also be in t, it is just we don't need it (the window
             #   has redundant chars)
             if need[char] > 0:
-                missing -= 1
+                missing -= 1    # we don't touch missing after it reaches 0
 
             # need[char] always "-=1" even when the char is in t (e.g., when need[char] == -1, it means
             #   the window has one redundant this char)

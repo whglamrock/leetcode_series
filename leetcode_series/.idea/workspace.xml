@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode282 Expression Add Operators.py" afterPath="$PROJECT_DIR$/leetcode282 Expression Add Operators.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" afterPath="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
     </list>
     <ignored path="untitled1.iws" />
@@ -325,8 +324,8 @@
       <file leaf-file-name="leetcode76 Minimum Window Substring.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.4091858">
-              <caret line="45" column="103" selection-start-line="45" selection-start-column="103" selection-end-line="45" selection-end-column="103" />
+            <state vertical-scroll-proportion="0.75156575">
+              <caret line="24" column="75" selection-start-line="24" selection-start-column="75" selection-end-line="24" selection-end-column="75" />
               <folding />
             </state>
           </provider>
@@ -1357,8 +1356,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4091858">
-          <caret line="45" column="103" selection-start-line="45" selection-start-column="103" selection-end-line="45" selection-end-column="103" />
+        <state vertical-scroll-proportion="0.75156575">
+          <caret line="24" column="75" selection-start-line="24" selection-start-column="75" selection-end-line="24" selection-end-column="75" />
           <folding />
         </state>
       </provider>
