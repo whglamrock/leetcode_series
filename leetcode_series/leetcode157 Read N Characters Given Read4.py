@@ -5,6 +5,11 @@
 
 class Solution(object):
     def read(self, buf, n):
+        """
+        :type buf: Destination buffer (List[str])
+        :type n: Maximum number of characters to read (int)
+        :rtype: The number of characters read (int)
+        """
 
         idx = 0
         while n > 0:
@@ -29,4 +34,24 @@ class Solution(object):
         return idx
 
 
+
 # The whole question is really confusing and ridiculous.
+
+'''
+# practice:
+
+class Solution(object):
+    def read(self, buf, n):
+
+        i = 0
+        while n:
+            cnm = [''] * 4
+            l = read4(cnm)
+            for j in xrange(min(l, n)):
+                buf[i] = cnm[j]
+                i += 1
+            if l == 0 or n < l: break
+            n -= l
+
+        return i
+'''

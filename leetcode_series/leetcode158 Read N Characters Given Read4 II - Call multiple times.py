@@ -32,11 +32,12 @@ class Solution(object):
             if curlen == 0: break
 
         return index
-    
 
 
 
 '''
+# practice:
+
 from collections import deque
 
 class Solution(object):

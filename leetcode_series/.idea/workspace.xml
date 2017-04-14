@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" afterPath="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" afterPath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
     </list>
     <ignored path="untitled1.iws" />
@@ -321,24 +322,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="6740_script.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="6740_script.py" pinned="false" current-in-tab="true">
         <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/6740_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
+            <state vertical-scroll-proportion="3.580827">
               <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
               <folding>
                 <element signature="e#1#20#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leetcode158 Read N Characters Given Read4 II - Call multiple times.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.83082706">
-              <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -400,7 +391,6 @@
         <option value="$PROJECT_DIR$/leetcode10 Regular Expression Matching.py" />
         <option value="$PROJECT_DIR$/leetcode15 3Sum.py" />
         <option value="$PROJECT_DIR$/leetcode277 Find the Celebrity.py" />
-        <option value="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
         <option value="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode200 Number of Islands.py" />
         <option value="$PROJECT_DIR$/leetcode2 Add two Numbers.py" />
@@ -409,6 +399,7 @@
         <option value="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
         <option value="$USER_HOME$/anaconda/lib/python2.7/site-packages/6740_script.py" />
         <option value="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
+        <option value="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
       </list>
     </option>
   </component>
@@ -418,8 +409,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="282" />
-    <option name="y" value="39" />
+    <option name="x" value="55" />
+    <option name="y" value="31" />
     <option name="width" value="1222" />
     <option name="height" value="760" />
   </component>
@@ -917,7 +908,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="282" y="39" width="1222" height="760" extended-state="0" />
+    <frame x="55" y="31" width="1222" height="760" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2913257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1270,14 +1261,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8455115">
-          <caret line="27" column="0" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43841335">
@@ -1358,21 +1341,29 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/6740_script.py">
+    <entry file="file://$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
-          <folding>
-            <element signature="e#1#20#0" expanded="true" />
-          </folding>
+        <state vertical-scroll-proportion="0.33834586">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.83082706">
-          <caret line="34" column="1" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
+        <state vertical-scroll-proportion="1.0714285">
+          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/6740_script.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="3.580827">
+          <caret line="127" column="0" selection-start-line="127" selection-start-column="0" selection-end-line="127" selection-end-column="0" />
+          <folding>
+            <element signature="e#1#20#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
