@@ -10,36 +10,32 @@ class Solution(object):
             return False
 
         if len(s) == len(t):
-            count = 0
-            for i in xrange(len(s)):
-                if s[i] != t[i]:
-                    count += 1
-                    if count > 1:
-                        return False
-            if count == 1:
-                return True
-            else:
-                return False
-        elif len(s) == len(t) + 1:
             i = 0
-            while i < len(t) and s[i] == t[i]:
+            while i < len(s):
+                if s[i] != t[i]:
+                    break
                 i += 1
+            # in this case, t == s
+            if i == len(s): return False
             i += 1
             while i < len(s):
-                if s[i] != t[i - 1]:
-                    return False
-                i += 1
-            return True
-        elif len(t) == len(s) + 1:
-            i = 0
-            while i < len(s) and s[i] == t[i]:
-                i += 1
-            i += 1
-            while i < len(t):
-                if t[i] != s[i - 1]:
+                if s[i] != t[i]:
                     return False
                 i += 1
             return True
         else:
-            return False
-
+            # make sure s is always longer than t
+            if len(s) < len(t):
+                s, t = t, s
+            i = 0
+            while i < len(t):
+                if s[i] != t[i]:
+                    break
+                i += 1
+            # in this case, s[:len(s) - 1] == t
+            if i == len(t): return True
+            while i < len(t):
+                if s[i + 1] != t[i]:
+                    return False
+                i += 1
+            return True
