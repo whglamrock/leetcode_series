@@ -35,11 +35,12 @@ class WordDictionary(object):
         else:
             if word[i] != '.':
                 # very important, because if we don't check word[i], the 'node.children[word[i]]'
-                # will create a key word[i] in node.children
+                #   will create a key word[i] in node.children
                 if word[i] not in node.children: return False
                 return self.searchword(node.children[word[i]], word, i + 1)
             else:
                 for child in node.children.values():
+                    # here, we must use DFS for it's much faster than BFS
                     if self.searchword(child, word, i + 1):
                         return True
                 return False
