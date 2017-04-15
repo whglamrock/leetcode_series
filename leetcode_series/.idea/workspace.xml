@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py" afterPath="$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py" afterPath="$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -334,11 +334,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode285 Inorder Successor in BST.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py">
+      <file leaf-file-name="leetcode211 Add and Search Word - Data structure design.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.6071428">
-              <caret line="57" column="64" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.05639098">
+              <caret line="2" column="82" selection-start-line="2" selection-start-column="82" selection-end-line="2" selection-end-column="82" />
               <folding />
             </state>
           </provider>
@@ -359,7 +359,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode486 Predict the Winner.py" />
         <option value="$PROJECT_DIR$/leetcode487 Max Consecutive Ones II.py" />
         <option value="$PROJECT_DIR$/leetcode488 Zuma Game.py" />
         <option value="$PROJECT_DIR$/leetcode492 Construct the Rectangle.py" />
@@ -410,6 +409,7 @@
         <option value="$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py" />
         <option value="$PROJECT_DIR$/leetcode161 One Edit Distance.py" />
         <option value="$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py" />
+        <option value="$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py" />
       </list>
     </option>
   </component>
@@ -419,8 +419,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="97" />
-    <option name="y" value="24" />
+    <option name="x" value="160" />
+    <option name="y" value="52" />
     <option name="width" value="1222" />
     <option name="height" value="760" />
   </component>
@@ -918,7 +918,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="97" y="24" width="1222" height="760" extended-state="0" />
+    <frame x="160" y="52" width="1222" height="760" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2913257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -967,22 +967,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode525 Contiguous Array.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode526 Beautiful Arrangement.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode529 Minesweeper.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.4748954">
@@ -1359,6 +1343,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6071428">
+          <caret line="57" column="64" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/anaconda/lib/python2.7/site-packages/6740_script.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1369,10 +1361,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py">
+    <entry file="file://$PROJECT_DIR$/leetcode208 Implement Trie (Prefix Tree).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6071428">
-          <caret line="57" column="64" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="64" />
+        <state vertical-scroll-proportion="-0.63533837">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.05639098">
+          <caret line="2" column="82" selection-start-line="2" selection-start-column="82" selection-end-line="2" selection-end-column="82" />
           <folding />
         </state>
       </provider>
