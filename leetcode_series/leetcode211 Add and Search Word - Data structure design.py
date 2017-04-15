@@ -1,6 +1,7 @@
 
 # In worst case same time complexity is O(26^N), space complexity is O(26^N).
-#   but the overall/average space complexity is still better than the set solution
+#   but the overall/average space complexity is still better than the set solution,
+#   e.g., try test case like "....aaab", "......e", etc.
 # Generally, number of words usually are longer than the length of a single word
 
 from _collections import defaultdict
