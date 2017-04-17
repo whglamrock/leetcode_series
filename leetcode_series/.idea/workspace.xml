@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;" />
+    <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py" afterPath="$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" afterPath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
+    </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -320,11 +323,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode547 Friend Circles.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leetcode547 Friend Circles.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetcode547 Friend Circles.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.028680688">
+            <state vertical-scroll-proportion="0.0">
               <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode158 Read N Characters Given Read4 II - Call multiple times.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.8030593">
+              <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -345,7 +358,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode488 Zuma Game.py" />
         <option value="$PROJECT_DIR$/leetcode492 Construct the Rectangle.py" />
         <option value="$PROJECT_DIR$/leetcode494 Target Sum.py" />
         <option value="$PROJECT_DIR$/leetcode505 The Maze II.py" />
@@ -386,7 +398,6 @@
         <option value="$PROJECT_DIR$/leetcode554 Brick Wall.py" />
         <option value="$PROJECT_DIR$/leetcode282 Expression Add Operators.py" />
         <option value="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
-        <option value="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
         <option value="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
         <option value="$PROJECT_DIR$/leetcode257 Binary Tree Paths.py" />
         <option value="$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py" />
@@ -396,6 +407,8 @@
         <option value="$USER_HOME$/anaconda/lib/python2.7/site-packages/6740_script.py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode547 Friend Circles.py" />
+        <option value="$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py" />
+        <option value="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
       </list>
     </option>
   </component>
@@ -405,8 +418,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="53" />
-    <option name="y" value="23" />
+    <option name="x" value="78" />
+    <option name="y" value="54" />
     <option name="width" value="1222" />
     <option name="height" value="751" />
   </component>
@@ -904,7 +917,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="53" y="23" width="1222" height="751" extended-state="0" />
+    <frame x="78" y="54" width="1222" height="751" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2913257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -953,14 +966,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode530 Minimum Absolute Difference in BST.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.035564855">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode535 Encode and Decode TinyURL.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.15690376">
@@ -1281,14 +1286,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0714285">
-          <caret line="38" column="11" selection-start-line="38" selection-start-column="11" selection-end-line="38" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode257 Binary Tree Paths.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28195488">
@@ -1357,8 +1354,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode547 Friend Circles.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.028680688">
+        <state vertical-scroll-proportion="0.0">
           <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8030593">
+          <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
           <folding />
         </state>
       </provider>

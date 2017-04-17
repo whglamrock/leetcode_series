@@ -7,14 +7,13 @@ class Solution(object):
         if not prices:
             return 0
 
-        maxprofit = 0
+        ans = 0
         minprice = prices[0]
-        for i in xrange(1, len(prices)):
-            newprofit = prices[i] - minprice
-            maxprofit = max(maxprofit, newprofit)
-            minprice = min(minprice, prices[i])
+        for price in prices:
+            minprice = min(minprice, price)
+            ans = max(ans, price - minprice)
 
-        return maxprofit
+        return ans
 
 
 

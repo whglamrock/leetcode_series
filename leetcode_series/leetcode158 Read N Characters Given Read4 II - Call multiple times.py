@@ -24,12 +24,14 @@ class Solution(object):
             #   cnm will be like ['a', 'b', 'c'] instead of ['a', 'b', 'c', '']
             self.queue.extend(cnm)
 
-            curlen = min(len(self.queue), n - index)
-            for i in xrange(curlen):
+            currlen = min(len(self.queue), n - index)
+            # because currlen always <= n - index, so after the
+            #   following loop index will never exceed n
+            for i in xrange(currlen):
                 buf[index] = self.queue.popleft()
                 index += 1
 
-            if curlen == 0: break
+            if currlen == 0: break
 
         return index
 
@@ -58,9 +60,7 @@ class Solution(object):
             cnm = [''] * 4
             l = read4(cnm)
             for j in xrange(l):
-                # actually this condition could be saved because there won't be empty chars in cnm
-                if cnm[j]:
-                    self.q.append(cnm[j])
+                self.q.append(cnm[j])
             if len(self.q) >= n or l == 0:
                 break
 
