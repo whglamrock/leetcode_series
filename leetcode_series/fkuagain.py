@@ -1,7 +1,8 @@
 a = 1
-b = [1,2,3,4]
-print b[a > 0]
-print b[a < 0]
+
+b = 4
+print ~b
+
 
 
 
