@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py" afterPath="$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" afterPath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode547 Friend Circles.py" afterPath="$PROJECT_DIR$/leetcode547 Friend Circles.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -323,21 +323,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode547 Friend Circles.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leetcode547 Friend Circles.py">
+      <file leaf-file-name="leetcode297 Serialize and Deserialize Binary Tree.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leetcode158 Read N Characters Given Read4 II - Call multiple times.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8030593">
-              <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+            <state vertical-scroll-proportion="1.7743785">
+              <caret line="128" column="19" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -392,7 +382,6 @@
         <option value="$PROJECT_DIR$/leetcode10 Regular Expression Matching.py" />
         <option value="$PROJECT_DIR$/leetcode15 3Sum.py" />
         <option value="$PROJECT_DIR$/leetcode277 Find the Celebrity.py" />
-        <option value="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode200 Number of Islands.py" />
         <option value="$PROJECT_DIR$/leetcode2 Add two Numbers.py" />
         <option value="$PROJECT_DIR$/leetcode554 Brick Wall.py" />
@@ -406,9 +395,10 @@
         <option value="$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py" />
         <option value="$USER_HOME$/anaconda/lib/python2.7/site-packages/6740_script.py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
-        <option value="$PROJECT_DIR$/leetcode547 Friend Circles.py" />
         <option value="$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py" />
         <option value="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
+        <option value="$PROJECT_DIR$/leetcode547 Friend Circles.py" />
+        <option value="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
       </list>
     </option>
   </component>
@@ -418,8 +408,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="78" />
-    <option name="y" value="54" />
+    <option name="x" value="90" />
+    <option name="y" value="78" />
     <option name="width" value="1222" />
     <option name="height" value="751" />
   </component>
@@ -917,7 +907,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="78" y="54" width="1222" height="751" extended-state="0" />
+    <frame x="90" y="78" width="1222" height="751" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2913257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1206,14 +1196,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.43841335">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode2 Add two Numbers.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.908142">
@@ -1352,14 +1334,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode547 Friend Circles.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="29" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1370,8 +1344,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8030593">
+        <state vertical-scroll-proportion="0.48757172">
           <caret line="28" column="56" selection-start-line="28" selection-start-column="56" selection-end-line="28" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode547 Friend Circles.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.7743785">
+          <caret line="128" column="19" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
           <folding />
         </state>
       </provider>

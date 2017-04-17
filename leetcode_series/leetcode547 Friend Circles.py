@@ -1,5 +1,5 @@
 
-# typical union find solution
+# remember the typical union find solution
 
 class Solution(object):
     def findCircleNum(self, M):

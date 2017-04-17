@@ -33,6 +33,7 @@ class Codec:
                 next.append(node.left)
                 next.append(node.right)
             todo = next
+
         return ','.join(ans)
 
     # the key is to remember to check if the queue is empty
@@ -82,10 +83,10 @@ class Codec:
 
     def serialize(self, root):
 
+        if not root:
+            return ''
+        todo = deque([root])
         ans = []
-        todo = deque()
-        todo.append(root)
-
         while todo:
             next = deque()
             while todo:
@@ -102,30 +103,27 @@ class Codec:
 
     def deserialize(self, data):
 
-        data = data.split(',')
-        data = deque(data)
-        if not data or data[0] == 'N':
+        if not data:
             return None
+        data = deque(data.split(','))
         root = TreeNode(int(data.popleft()))
-        todo = deque()
-        todo.append(root)
-
+        todo = deque([root])
         while todo:
             next = deque()
             while todo:
                 node = todo.popleft()
                 if data:
-                    val = data.popleft()
-                    if val != 'N':
-                        leftchild = TreeNode(int(val))
-                        next.append(leftchild)
+                    value = data.popleft()
+                    if value != 'N':
+                        leftchild = TreeNode(int(value))
                         node.left = leftchild
+                        next.append(leftchild)
                 if data:
-                    val = data.popleft()
-                    if val != 'N':
-                        rightchild = TreeNode(int(val))
-                        next.append(rightchild)
+                    value = data.popleft()
+                    if value != 'N':
+                        rightchild = TreeNode(int(value))
                         node.right = rightchild
+                        next.append(rightchild)
             todo = next
 
         return root
