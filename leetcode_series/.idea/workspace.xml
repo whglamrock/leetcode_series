@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py" afterPath="$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode139 Word Break.py" afterPath="$PROJECT_DIR$/leetcode139 Word Break.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -324,11 +324,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode341 Flatten Nested List Iterator.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leetcode341 Flatten Nested List Iterator.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.34799236">
+            <state vertical-scroll-proportion="0.0">
               <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode139 Word Break.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode139 Word Break.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6309751">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -349,7 +359,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode494 Target Sum.py" />
         <option value="$PROJECT_DIR$/leetcode505 The Maze II.py" />
         <option value="$PROJECT_DIR$/leetcode506 Relative Ranks.py" />
         <option value="$PROJECT_DIR$/leetcode529 Minesweeper.py" />
@@ -400,6 +409,7 @@
         <option value="$PROJECT_DIR$/leetcode547 Friend Circles.py" />
         <option value="$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py" />
+        <option value="$PROJECT_DIR$/leetcode139 Word Break.py" />
       </list>
     </option>
   </component>
@@ -409,8 +419,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="43" />
-    <option name="y" value="69" />
+    <option name="x" value="153" />
+    <option name="y" value="83" />
     <option name="width" value="1222" />
     <option name="height" value="751" />
   </component>
@@ -908,7 +918,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="43" y="69" width="1222" height="751" extended-state="0" />
+    <frame x="153" y="83" width="1222" height="751" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2913257" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -957,14 +967,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode543 Diameter of Binary Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.12970711">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lintcode DiceSum.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1361,8 +1363,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.34799236">
+        <state vertical-scroll-proportion="0.0">
           <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode139 Word Break.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6309751">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>
