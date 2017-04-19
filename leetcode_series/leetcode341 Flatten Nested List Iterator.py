@@ -26,6 +26,7 @@ class NestedInteger(object):
         """
 
 # important idea: stack
+
 class NestedIterator(object):
 
     def __init__(self, nestedList):
@@ -41,6 +42,8 @@ class NestedIterator(object):
 
     def next(self):
 
+        # I guess we don't need to check if it hasNext()? because it should be
+        #   already checked before this function being called
         return self.lst.pop()
 
     def hasNext(self):
@@ -52,3 +55,33 @@ class NestedIterator(object):
 # Your NestedIterator object will be instantiated and called as such:
 # i, v = NestedIterator(nestedList), []
 # while i.hasNext(): v.append(i.next())
+
+
+
+'''
+# recursive solution:
+
+class NestedIterator(object):
+
+    def __init__(self, nestedList):
+
+        self.pool = []
+        def flatten(nestedList):
+            for item in nestedList:
+                if item.isInteger():
+                    self.pool.append(item.getInteger())
+                else:
+                    newnestedList = item.getList()
+                    flatten(newnestedList)
+        flatten(nestedList)
+        self.pool.reverse()
+
+    def next(self):
+
+        if self.hasNext():
+            return self.pool.pop()
+
+    def hasNext(self):
+
+        return len(self.pool) != 0
+'''
