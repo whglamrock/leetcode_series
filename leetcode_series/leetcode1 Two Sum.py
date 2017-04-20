@@ -1,28 +1,30 @@
 
-# use hash-table to build O(n) solution
+# O(N) hash-table solution
+
+from collections import defaultdict
 
 class Solution(object):
     def twoSum(self, nums, target):
 
-        dic = {}
-        for i in xrange(len(nums)):
-            if nums[i] not in dic:
-                dic[nums[i]] = [i]
-            else:
-                dic[nums[i]].append(i)
+        mapping = defaultdict(list)
+        for i, num in enumerate(nums):
+            mapping[num].append(i)
 
-        for item in dic:
-            if target - item in dic:
-                if target - item != item:
-                    return [dic[item][0], dic[target - item][0]]
+        for key in mapping:
+            if target - key in mapping:
+                if target - key == key:  # means this element occurred more than once
+                    if len(mapping[key]) >= 2:
+                        return mapping[key][:2]
                 else:
-                    if len(dic[item]) > 1:
-                        return [dic[item][0], dic[item][1]]
+                    return [mapping[key][0], mapping[target - key][0]]
+
+        return []
 
 
 
 '''
 # in lintcode, several edge cases need to be considered.
+
 class Solution:
 
     def twoSum(self, nums, target):

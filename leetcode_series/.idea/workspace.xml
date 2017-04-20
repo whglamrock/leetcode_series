@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode139 Word Break.py" afterPath="$PROJECT_DIR$/leetcode139 Word Break.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode56 Merge Intervals.py" afterPath="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode1 Two Sum.py" afterPath="$PROJECT_DIR$/leetcode1 Two Sum.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -325,11 +324,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode341 Flatten Nested List Iterator.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py">
+      <file leaf-file-name="leetcode1 Two Sum.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode1 Two Sum.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2759924">
-              <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.028355388">
+              <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -350,7 +349,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode506 Relative Ranks.py" />
         <option value="$PROJECT_DIR$/leetcode529 Minesweeper.py" />
         <option value="$PROJECT_DIR$/leetcode535 Encode and Decode TinyURL.py" />
         <option value="$PROJECT_DIR$/leetcode246 Strobogrammatic.py" />
@@ -401,6 +399,7 @@
         <option value="$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py" />
         <option value="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
         <option value="$PROJECT_DIR$/leetcode139 Word Break.py" />
+        <option value="$PROJECT_DIR$/leetcode1 Two Sum.py" />
       </list>
     </option>
   </component>
@@ -410,8 +409,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="88" />
-    <option name="y" value="43" />
+    <option name="x" value="179" />
+    <option name="y" value="27" />
     <option name="width" value="1192" />
     <option name="height" value="757" />
   </component>
@@ -909,7 +908,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="88" y="43" width="1192" height="757" extended-state="0" />
+    <frame x="179" y="27" width="1192" height="757" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29865772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -958,14 +957,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode246 Strobogrammatic.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5334728">
-          <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Maximum Average Subarray.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1206,14 +1197,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode282 Expression Add Operators.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5615866">
-          <caret line="41" column="130" selection-start-line="41" selection-start-column="130" selection-end-line="41" selection-end-column="130" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.75156575">
@@ -1336,14 +1319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fkuagain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode56 Merge Intervals.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39697543">
@@ -1360,10 +1335,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode282 Expression Add Operators.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1625708">
+          <caret line="41" column="130" selection-start-line="41" selection-start-column="130" selection-end-line="41" selection-end-column="130" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode341 Flatten Nested List Iterator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.2759924">
           <caret line="45" column="61" selection-start-line="45" selection-start-column="61" selection-end-line="45" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fkuagain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode1 Two Sum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.028355388">
+          <caret line="1" column="18" selection-start-line="1" selection-start-column="18" selection-end-line="1" selection-end-column="18" />
           <folding />
         </state>
       </provider>
