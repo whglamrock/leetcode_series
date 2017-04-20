@@ -1,23 +1,18 @@
 
-# recursive solution
+# elegant iterative solution, perfectly using the backtracking idea
 
 class Solution(object):
     def subsets(self, nums):
 
-        if (not nums):
-            return [[]]
+        res = [[]]
+        nums.sort()
 
-        ans = []    # no need to sort, because all numbers in nums are distinct
-        def dfs(lastindex, already):
-            ans.append(already)
-            if lastindex == len(nums) - 1:
-                return
+        for num in nums:
+            # in this way, the "bound for for loop is changed" error won't occur
+            res += [item + [num] for item in res]
+            # or simply do, next = deepcopy(res), for item in res: next.append(item + [num]), res = next
 
-            for i in xrange(lastindex + 1, len(nums)):
-                dfs(i, already + [nums[i]])
-
-        dfs(-1, [])
-        return ans
+        return res
 
 
 
@@ -29,26 +24,24 @@ print ans
 
 
 '''
-# iterative solution
+# classic recursive DFS solution
+
 class Solution(object):
     def subsets(self, nums):
 
-        ans = []    # no need to sort
-        pre = []
-        while (not pre) or len(pre[-1]) <= len(nums):
-            if (not pre):
-                for i in xrange(len(nums)):
-                    pre.append([nums[i],i])
-                    ans.append([nums[i]])
-            else:
-                next = []
-                for item in pre:
-                    index = item.pop()
-                    for j in xrange(index+1, len(nums)):
-                        next.append(item+[nums[j],j])
-                        ans.append(item+[nums[j]])
-                pre = next
-        ans.append([])
+        if not nums:
+            return []
 
-        return ans
+        nums.sort()
+        self.nums = nums
+        self.res = []
+        self.dfs(0, [])
+
+        return self.res
+
+    def dfs(self, i, path):
+
+        self.res.append(path)
+        for j in xrange(i, len(self.nums)):
+            self.dfs(j + 1, path + [self.nums[j]])
 '''
