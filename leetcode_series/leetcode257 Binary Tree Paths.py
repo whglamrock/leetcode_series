@@ -59,23 +59,27 @@ print Sol.binaryTreePaths(a)
 '''
 # iterative solution
 
-class Solution:
-    # dfs + stack
-    def binaryTreePaths1(self, root):
+class Solution(object):
+    def binaryTreePaths(self, root):
 
         if not root:
             return []
 
-        res, stack = [], [(root, "")]
-        while stack:
-            node, ls = stack.pop()
-            if not node.left and not node.right:
-                res.append(ls+str(node.val))
-            if node.right:
-                stack.append((node.right, ls+str(node.val)+"->"))
-            if node.left:
-                stack.append((node.left, ls+str(node.val)+"->"))
+        ans = []
+        stack = [(root, str(root.val))]
 
-        return res
+        # this way is DFS;
+        # if we change the stack into deque and popleft from it every time, plus switch the left/right order
+        #   it will become BFS
+        while stack:
+            node, path = stack.pop()
+            if not node.left and not node.right:
+                ans.append(path)
+            if node.right:
+                stack.append((node.right, path + '->' + str(node.right.val)))
+            if node.left:
+                stack.append((node.left, path + '->' + str(node.left.val)))
+        
+        return ans
 '''
 
