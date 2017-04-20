@@ -21,6 +21,8 @@ class Solution(object):
                 self.ans.append(path)
                 return
             if node.left:
+                # it is more efficient to put path increment here, instead of
+                #   having to check if the path empty at the top of recursion
                 helper(node.left, path + '->' + str(node.left.val))
             if node.right:
                 helper(node.right, path + '->' + str(node.right.val))
@@ -60,8 +62,10 @@ print Sol.binaryTreePaths(a)
 class Solution:
     # dfs + stack
     def binaryTreePaths1(self, root):
+
         if not root:
             return []
+
         res, stack = [], [(root, "")]
         while stack:
             node, ls = stack.pop()
