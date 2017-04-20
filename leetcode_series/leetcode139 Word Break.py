@@ -25,26 +25,30 @@ class Solution(object):
 '''
 # DFS with memoization solution:
 
-
 class Solution(object):
     def wordBreak(self, s, wordDict):
 
-        self.dic = {}
-        worddic = set(wordDict)
+        if not wordDict:
+            return False    # because s is non-empty
 
-        def helper(currs, worddic):
-            if not currs:
+        wordDict = set(wordDict)
+        self.memo = {}
+
+        def dfs(substring, wordDict):
+
+            if not substring:
                 return True
-            if currs in self.dic:
-                return self.dic[currs]
-            for i in xrange(1, len(currs) + 1):
-                if currs[:i] in worddic:
-                    if helper(currs[i:], worddic):
+            if substring in self.memo:
+                return self.memo[substring]
+            for i in xrange(1, len(substring) + 1):
+                if substring[:i] in wordDict:
+                    if dfs(substring[i:], wordDict):
                         return True
                     else:
-                        self.dic[currs[i:]] = False
-            self.dic[currs] = False
+                        self.memo[substring[i:]] = False
+
+            self.memo[substring] = False
             return False
 
-        return helper(s, worddic)
+        return dfs(s, wordDict)
 '''
