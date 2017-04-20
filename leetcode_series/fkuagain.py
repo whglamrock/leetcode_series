@@ -1,7 +1,8 @@
 a = 1
 
 b = 4
-print ~b
+print ord('A') - ord('a')
+
 
 
 

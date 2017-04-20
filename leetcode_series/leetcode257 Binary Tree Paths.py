@@ -79,7 +79,7 @@ class Solution(object):
                 stack.append((node.right, path + '->' + str(node.right.val)))
             if node.left:
                 stack.append((node.left, path + '->' + str(node.left.val)))
-        
+
         return ans
 '''
 
