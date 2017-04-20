@@ -12,28 +12,24 @@ class TreeNode(object):
 class BSTIterator(object):
     def __init__(self, root):
 
-        self.stack = []
-        self.res = []
-        while root or self.stack:
+        self.traversal = []
+        stack = []
+        while root or stack:
             while root:
-                self.stack.append(root)
+                stack.append(root)
                 root = root.left
-            root = self.stack.pop()
-            self.res.append(root.val)
+            root = stack.pop()
+            self.traversal.append(root.val)
             root = root.right
-        self.res.reverse()
+        self.traversal.reverse()
 
     def hasNext(self):
 
-        return len(self.res) != 0
+        return len(self.traversal) != 0
 
     def next(self):
 
-        if len(self.res) != 0:
-            ans = self.res.pop()
-            return ans
-        else:
-            return None
+        return self.traversal.pop()  # no need to check if traversal empty, see how iterator is called
 
 
 
