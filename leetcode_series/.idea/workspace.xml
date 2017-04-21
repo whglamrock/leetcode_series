@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode78 Subsets.py" afterPath="$PROJECT_DIR$/leetcode78 Subsets.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode98 Validate Binary Search Tree.py" afterPath="$PROJECT_DIR$/leetcode98 Validate Binary Search Tree.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -328,11 +328,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode78 Subsets.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode78 Subsets.py">
+      <file leaf-file-name="leetcode98 Validate Binary Search Tree.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode98 Validate Binary Search Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.879017">
-              <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.28355387">
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -353,7 +353,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode507 Perfect Number.py" />
         <option value="$PROJECT_DIR$/leetcode532 K-diff Pairs in an Array.py" />
         <option value="$PROJECT_DIR$/leetcode544 Output Contest Matches.py" />
         <option value="$PROJECT_DIR$/leetcode537 Complex Number Multiplication.py" />
@@ -404,6 +403,7 @@
         <option value="$PROJECT_DIR$/leetcode125 Valid palindrome.py" />
         <option value="$PROJECT_DIR$/leetcode75 Sort Colors.py" />
         <option value="$PROJECT_DIR$/leetcode78 Subsets.py" />
+        <option value="$PROJECT_DIR$/leetcode98 Validate Binary Search Tree.py" />
       </list>
     </option>
   </component>
@@ -413,8 +413,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="52" />
-    <option name="y" value="51" />
+    <option name="x" value="65" />
+    <option name="y" value="32" />
     <option name="width" value="1192" />
     <option name="height" value="757" />
   </component>
@@ -912,7 +912,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="52" y="51" width="1192" height="757" extended-state="0" />
+    <frame x="65" y="32" width="1192" height="757" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29865772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -961,14 +961,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode544 Output Contest Matches.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.62761503">
-          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode537 Complex Number Multiplication.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.8786611">
@@ -1347,14 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fkuagain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode75 Sort Colors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1365,8 +1349,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode78 Subsets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.879017">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        <state vertical-scroll-proportion="-0.02079395">
+          <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fkuagain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="25" selection-start-line="3" selection-start-column="25" selection-end-line="3" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode98 Validate Binary Search Tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.28355387">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>

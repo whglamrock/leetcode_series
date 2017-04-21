@@ -16,22 +16,20 @@ class Solution(object):
             return True
 
         self.flag = True
-        def helper(node, curmin, curmax):
-            if curmax != None and node.val >= curmax:
+        def helper(node, lo, hi):
+            if not lo < node.val < hi:
                 self.flag = False
-            if curmin != None and node.val <= curmin:
-                self.flag = False
+                return False    # return immediately to prune useless recursions
             if node.left:
-                if curmax == None:
-                    helper(node.left, curmin, node.val)
-                else:
-                    helper(node.left, curmin, min(curmax, node.val))
+                if helper(node.left, lo, min(node.val, hi)) == False:
+                    self.flag = False
+                    return False    # return immediately to prune useless recursions
             if node.right:
-                if curmin == None:
-                    helper(node.right, node.val, curmax)
-                else:
-                    helper(node.right, max(curmin, node.val), curmax)
+                if helper(node.right, max(node.val, lo), hi) == False:
+                    self.flag = False
+                    return False    # return immediately to prune useless recursions
+            return True    # this return is for the above two sub if statement
 
-        helper(root, None, None)
+        helper(root, -2147483649, 2147483648)   # the initial bounds are set to the min/max int -/+1
         return self.flag
 
