@@ -9,6 +9,37 @@ class TreeNode(object):
         self.right = None
 
 
+# iterative inorder traversal solution. Recite the while loop! Every line!
+
+class Solution(object):
+    def isValidBST(self, root):
+
+        if not root:    # according to stupid leetcode setting
+            return True
+
+        stack = []
+        prev = None
+        while root or stack:
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            # root is the node that just popped from stack, so there is no need to check it
+            if prev and prev.val >= root.val:
+                return False
+            prev = root
+            root = root.right
+            # the original root's right could be empty
+            if root and prev.val >= root.val:
+                return False
+
+        return True
+
+
+
+'''
+# recursive, but still fast because the efficient the pruning
+
 class Solution(object):
     def isValidBST(self, root):
 
@@ -32,4 +63,5 @@ class Solution(object):
 
         helper(root, -2147483649, 2147483648)   # the initial bounds are set to the min/max int -/+1
         return self.flag
+'''
 
