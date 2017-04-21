@@ -3,6 +3,7 @@ a = 1
 b = 4
 print ord('A') - ord('a')
 
+print b**b
 
 
 
