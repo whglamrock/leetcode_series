@@ -10,9 +10,9 @@ class Solution(object):
         # using example like "100 * 100", we can know at most how many digits the answer has
         digits = [0 for _ in xrange(len(num1) + len(num2))]
 
-        for i, char1 in enumerate(num1):
-            for j, char2 in enumerate(num2):
-                product = (ord(char1) - ord('0')) * (ord(char2) - ord('0'))
+        for i, digit1 in enumerate(num1):
+            for j, digit2 in enumerate(num2):
+                product = (ord(digit1) - ord('0')) * (ord(digit2) - ord('0'))
                 tens = product / 10
                 ones = product % 10
                 digits[i + j] += tens
@@ -22,4 +22,11 @@ class Solution(object):
         for digit in digits:
             res = res * 10 + digit
         return str(res)
+
+
+
+Sol = Solution()
+num1 = '15'
+num2 = '25'
+print Sol.multiply(num1, num2)
 
