@@ -8,32 +8,26 @@ class ListNode(object):
         self.next = None
 
 
+# the idea is to disconnnect the node one by one from head
+#   and connect to newhead's previous, while the new linkedlist is never connected the old one
+
 class Solution(object):
     def reverseList(self, head):
 
-        if (not head) or head.next == None:
-            return head
+        if not head: return
 
-        tail = head
-        while tail.next:
-            tail = tail.next
+        newhead = None
+        while head:
+            # the nextnode serves as "temp" to locate the next node to be disconnected
+            nextnode = head.next
+            # at this point, the head is the newly disconnected node, and need to be newhead's previous
+            head.next = newhead
+            # newhead points to its previous, the newly disconnected node we just connected in above line
+            newhead = head
+            # the head points to the residue of old linkedlist
+            head = nextnode
 
-        curr = head
-        prev = ListNode(None)
-        prev.next = curr
-        while curr != tail:
-            if curr == head:
-                prev.next = curr.next
-                tail.next = curr
-                curr.next = None
-                curr = prev.next
-            else:
-                prev.next = curr.next
-                curr.next = tail.next
-                tail.next = curr
-                curr = prev.next
-
-        return tail
+        return newhead
 
 
 
@@ -57,32 +51,23 @@ while x:
 
 
 '''
-# recursive solution:
+# recursive solution (slow, not recommended)
 
 class Solution(object):
     def reverseList(self, head):
 
-        if (not head) or head.next == None:
-            return head
+        return self.moveFromOldToNew(head, None)
 
-        tail = head
-        length = 0
-        while tail.next:
-            tail = tail.next
-            length += 1
+    def moveFromOldToNew(self, head, newhead):
 
-        def recursive(root, currhead, iteration):
-            if iteration == length:
-                return currhead
+        if not head:
+            return newhead
+        nextnode = head.next
+        head.next = newhead
+        newhead = head
+        head = nextnode
 
-            prev = root
-            curr = prev.next
-            prev.next = curr.next
-            curr.next = currhead
-
-            return recursive(prev,curr,iteration+1)
-
-        return recursive(head,head,0)
+        return self.moveFromOldToNew(head, newhead)
 '''
 
 
