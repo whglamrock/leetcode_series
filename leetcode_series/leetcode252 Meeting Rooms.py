@@ -6,6 +6,8 @@ class Interval(object):
         self.end = e
 
 
+# think through the idea: we only need to check whether the two adjacent intervals overlap
+
 class Solution(object):
     def canAttendMeetings(self, intervals):
 
@@ -25,23 +27,3 @@ Sol = Solution()
 interval1 = Interval(10,30)
 interval2 = Interval(15,55)
 print Sol.canAttendMeetings([interval1,interval2])
-
-
-
-'''
-# The original sloppy solution with time complexity o(nlogn)
-
-class Solution(object):
-    def canAttendMeetings(self, intervals):
-
-        timing = []
-        for item in intervals:
-            timing.append([item.start, item.end])
-        timing.sort()
-
-        for i in xrange(len(timing) - 1):
-            if timing[i+1][0] < timing[i][1]:
-                return False
-
-        return True
-'''

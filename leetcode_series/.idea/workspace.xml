@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fkuagain.py" afterPath="$PROJECT_DIR$/fkuagain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode133 Clone Graph.py" afterPath="$PROJECT_DIR$/leetcode133 Clone Graph.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode252 Meeting Rooms.py" afterPath="$PROJECT_DIR$/leetcode252 Meeting Rooms.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,6 +57,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode495_Teemo_Attacking.coverage" NAME="leetcode495 Teemo Attacking Coverage Results" MODIFIED="1487372559685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode320_Generalized_Abbreviation.coverage" NAME="leetcode320 Generalized Abbreviation Coverage Results" MODIFIED="1477631811188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode506_Relative_Ranks.coverage" NAME="leetcode506 Relative Ranks Coverage Results" MODIFIED="1487115561899" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode252_Meeting_Rooms.coverage" NAME="leetcode252 Meeting Rooms Coverage Results" MODIFIED="1493075941487" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode169_Majority_Element.coverage" NAME="leetcode169 Majority Element Coverage Results" MODIFIED="1460753536021" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode112_Path_Sum.coverage" NAME="leetcode112 Path Sum Coverage Results" MODIFIED="1459840202235" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode166_Fraction_to_Recurring_Decimal.coverage" NAME="leetcode166 Fraction to Recurring Decimal Coverage Results" MODIFIED="1473571122418" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -332,11 +332,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode133 Clone Graph.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode133 Clone Graph.py">
+      <file leaf-file-name="leetcode252 Meeting Rooms.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode252 Meeting Rooms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.68384075">
-              <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.61358315">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -357,7 +357,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode538. Convert BST to Greater Tree.py" />
         <option value="$PROJECT_DIR$/leetcode538 Convert BST to Greater Tree.py" />
         <option value="$PROJECT_DIR$/leetcode531 Lonely Pixel I.py" />
         <option value="$PROJECT_DIR$/leetcode539 Minimum Time Difference.py" />
@@ -408,6 +407,7 @@
         <option value="$PROJECT_DIR$/leetcode206 Reverse Linked List.py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode133 Clone Graph.py" />
+        <option value="$PROJECT_DIR$/leetcode252 Meeting Rooms.py" />
       </list>
     </option>
   </component>
@@ -417,8 +417,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="153" />
-    <option name="y" value="104" />
+    <option name="x" value="197" />
+    <option name="y" value="52" />
     <option name="width" value="1192" />
     <option name="height" value="721" />
   </component>
@@ -497,7 +497,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode133 Clone Graph">
+  <component name="RunManager" selected="Python.leetcode252 Meeting Rooms">
     <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -512,24 +512,6 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fkuagain.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="leetcode78 Subsets" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode78 Subsets.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -584,6 +566,24 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode133 Clone Graph.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode252 Meeting Rooms" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode252 Meeting Rooms.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -878,18 +878,18 @@
       <item index="3" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="4" class="java.lang.String" itemvalue="Python.just4test" />
       <item index="5" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode78 Subsets" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode43 Multiply Strings" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode206 Reverse Linked List" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode133 Clone Graph" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode43 Multiply Strings" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode206 Reverse Linked List" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode133 Clone Graph" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode252 Meeting Rooms" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode133 Clone Graph" />
-        <item index="1" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode206 Reverse Linked List" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode43 Multiply Strings" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode78 Subsets" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode252 Meeting Rooms" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode133 Clone Graph" />
+        <item index="2" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode206 Reverse Linked List" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode43 Multiply Strings" />
       </list>
     </recent_temporary>
   </component>
@@ -916,7 +916,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="153" y="104" width="1192" height="721" extended-state="0" />
+    <frame x="197" y="52" width="1192" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29865772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -965,14 +965,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode539 Minimum Time Difference.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.031380754">
-          <caret line="1" column="83" selection-start-line="1" selection-start-column="83" selection-end-line="1" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode533 Lonely Pixel II.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4707113">
@@ -1359,6 +1351,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode133 Clone Graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.440281">
+          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fkuagain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1367,10 +1367,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode133 Clone Graph.py">
+    <entry file="file://$PROJECT_DIR$/leetcode252 Meeting Rooms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.68384075">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.61358315">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
           <folding />
         </state>
       </provider>
