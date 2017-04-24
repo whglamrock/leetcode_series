@@ -1,5 +1,6 @@
 
-# Definition for a undirected graph node
+# Definition for a undirected graph node,
+#   where the neighbors is a list of UndirectedGraphNodes
 
 class UndirectedGraphNode(object):
       def __init__(self, x):
@@ -8,47 +9,34 @@ class UndirectedGraphNode(object):
         self.neighbors = []
 
 
-# AC O(n) time/space solution, not very efficient though...
+# AC O(n) time/space solution, where m is the sum of number of neighbors of all nodes.
+# However, the so called "UndirectedGraph" is not really undirected, because most likely the 1->2, 2->1
+#   connection pair will not appear twice in the BFS based on each test case given by leetcode.
 
-class Solution(object):
+from collections import deque
+
+class Solution:
+    # @param node, a undirected graph node
+    # @return a undirected graph node
     def cloneGraph(self, node):
 
-        if (not node):
+        if not node:
             return
 
-        dick = {}
-        nodelist = {}   # to visit the newly cloned nodes.
-        savelist = {}   # to visit the actual node in the original graph
-        todo = [node]
-        while todo:
-            new = todo.pop()
-            if new.label not in nodelist:
-                newnode = UndirectedGraphNode(new.label)
-                nodelist[new.label] = newnode
-                savelist[new.label] = new
-            for item in new.neighbors:
-                if item.label not in nodelist:
-                    todo.append(item)
+        newnode = UndirectedGraphNode(node.label)
+        newlabeltonode = {node.label: newnode}
+        queue = deque([node])
 
-        for item in savelist:
-            dick[item] = []
-            for neighbor in savelist[item].neighbors:
-                dick[item].append(neighbor.label)
+        while queue:
+            oldnode = queue.popleft()
+            # there is no need to check if oldnode is in the newlabeltonode dictionary
+            for neighbor in oldnode.neighbors:
+                if neighbor.label not in newlabeltonode:    # means this node haven't been visited/added to the queue
+                    newlabeltonode[neighbor.label] = UndirectedGraphNode(neighbor.label)
+                    queue.append(neighbor)    # BFS
+                newlabeltonode[oldnode.label].neighbors.append(newlabeltonode[neighbor.label])
 
-        new = nodelist[node.label]
-        todo = [new]
-        ans = new
-        while todo:    # clone the graph by stack
-            cur = todo.pop()
-            if cur.label not in dick: continue
-            for val in dick[cur.label]:
-                cur.neighbors.append(nodelist[val])
-            del dick[cur.label]
-            for item in cur.neighbors:
-                if item.label in dick:
-                    todo.append(item)
-
-        return ans
+        return newnode
 
 
 
