@@ -13,6 +13,9 @@ class Solution(object):
     def inorderSuccessor(self, root, p):
 
         succ = None
+        # remember under no circumstances will occur (p.val < root.val then p.val > root.val)
+        #   or (p.val > root.val then p.val < root.val), because of the nature of BST
+
         while root:
             # in this case, the p could be in root's left subtree
             #   or the current root is p's right child
