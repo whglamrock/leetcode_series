@@ -7,8 +7,7 @@ class Solution(object):
 
         # there is no need to check whether nums is empty because n > 1
         n = len(nums)
-        res = [0] * n
-        res[0] = 1
+        res = [1] * n   # preset res[i] to 1, save the "res[0] = 1" step
 
         # in first pass, make each element of res the product of its left elements (excluding self)
         for i in xrange(1, n):
