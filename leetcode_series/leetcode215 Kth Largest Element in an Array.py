@@ -5,11 +5,11 @@ The idea is Quicksort, but takes only O(n) time complexity
 '''
 
 # P.S. Selection sort: on average O(N^2) running time
-
 # O(n) solution
 # If we don't shuffle the nums array, we can randomly choose the pivot.
 
 import random
+
 class Solution(object):
     def findKthLargest(self, nums, k):
 
@@ -80,7 +80,9 @@ print Sol.findKthLargest(nums, k)
 
 '''
 # O(nlogn) solution:
+
 from heapq import *
+
 class Solution(object):
     def findKthLargest(self, nums, k):
 
@@ -92,4 +94,17 @@ class Solution(object):
                 heappop(heap)
 
         return heappop(heap)
+
+
+# what' interesting is that the simplest solution actually runs super fast:
+
+class Solution(object):
+    def findKthLargest(self, nums, k):
+
+        if not nums or len(nums) < k:
+            return
+
+        nums.sort()
+        nums.reverse()
+        return nums[k - 1]
 '''
