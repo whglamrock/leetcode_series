@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode56 Merge Intervals.py" afterPath="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -66,6 +66,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode215_Kth_Largest_Element_in_an_Array.coverage" NAME="leetcode215 Kth Largest Element in an Array Coverage Results" MODIFIED="1483219925201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$Maximum_Average_Subarray.coverage" NAME="Maximum Average Subarray Coverage Results" MODIFIED="1485068080375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode372_Super_Pow.coverage" NAME="leetcode372 Super Pow Coverage Results" MODIFIED="1476136261574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode236_Lowest_Common_Ancestor_of_a_Binary_Tree.coverage" NAME="leetcode236 Lowest Common Ancestor of a Binary Tree Coverage Results" MODIFIED="1493150248315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode11_Container_with_Most_Water.coverage" NAME="leetcode11 Container with Most Water Coverage Results" MODIFIED="1461269365056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode190_Reverse_Bits.coverage" NAME="leetcode190 Reverse Bits Coverage Results" MODIFIED="1463160054110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode242_Valid_Anagram.coverage" NAME="leetcode242 Valid Anagram Coverage Results" MODIFIED="1463792444372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -334,11 +335,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode56 Merge Intervals.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode56 Merge Intervals.py">
+      <file leaf-file-name="leetcode236 Lowest Common Ancestor of a Binary Tree.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.3700234">
-              <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.87822014">
+              <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
               <folding />
             </state>
           </provider>
@@ -359,7 +360,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode531 Lonely Pixel I.py" />
         <option value="$PROJECT_DIR$/leetcode539 Minimum Time Difference.py" />
         <option value="$PROJECT_DIR$/leetcode533 Lonely Pixel II.py" />
         <option value="$PROJECT_DIR$/leetcode536 Construct Binary Tree from String.py" />
@@ -410,6 +410,7 @@
         <option value="$PROJECT_DIR$/leetcode252 Meeting Rooms.py" />
         <option value="$PROJECT_DIR$/leetcode218 The Skyline Problem.py" />
         <option value="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
+        <option value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
       </list>
     </option>
   </component>
@@ -419,8 +420,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="238" />
-    <option name="y" value="82" />
+    <option name="x" value="-6" />
+    <option name="y" value="105" />
     <option name="width" value="1192" />
     <option name="height" value="721" />
   </component>
@@ -499,25 +500,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode56 Merge Intervals">
-    <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fkuagain.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.leetcode236 Lowest Common Ancestor of a Binary Tree">
     <configuration default="false" name="leetcode133 Clone Graph" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -586,6 +569,24 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode236 Lowest Common Ancestor of a Binary Tree" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -879,19 +880,19 @@
       <item index="2" class="java.lang.String" itemvalue="Python.leetcode3 Longest Substring Without Repeating Characters" />
       <item index="3" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="4" class="java.lang.String" itemvalue="Python.just4test" />
-      <item index="5" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode133 Clone Graph" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode252 Meeting Rooms" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode218 The Skyline Problem" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode56 Merge Intervals" />
+      <item index="5" class="java.lang.String" itemvalue="Python.leetcode133 Clone Graph" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode252 Meeting Rooms" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode218 The Skyline Problem" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode56 Merge Intervals" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode236 Lowest Common Ancestor of a Binary Tree" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode56 Merge Intervals" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode218 The Skyline Problem" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode252 Meeting Rooms" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode133 Clone Graph" />
-        <item index="4" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode236 Lowest Common Ancestor of a Binary Tree" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode56 Merge Intervals" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode218 The Skyline Problem" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode252 Meeting Rooms" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode133 Clone Graph" />
       </list>
     </recent_temporary>
   </component>
@@ -918,7 +919,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="238" y="82" width="1192" height="721" extended-state="0" />
+    <frame x="-6" y="105" width="1192" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29865772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -967,14 +968,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode542 01 Matrix.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5962343">
-          <caret line="19" column="31" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode536 Construct Binary Tree from String.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.09414226">
@@ -1257,14 +1250,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode173 Binary Search Tree Iterator.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode257 Binary Tree Paths.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="2.2967863">
@@ -1353,9 +1338,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode173 Binary Search Tree Iterator.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.4754099">
+          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode56 Merge Intervals.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.2459016">
+          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode218 The Skyline Problem.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.17564403">
+        <state vertical-scroll-proportion="-0.07025761">
           <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding />
         </state>
@@ -1369,10 +1370,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode56 Merge Intervals.py">
+    <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.3700234">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.87822014">
+          <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
           <folding />
         </state>
       </provider>

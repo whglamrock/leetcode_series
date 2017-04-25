@@ -9,20 +9,64 @@ class TreeNode(object):
         self.right = None
 
 
+# iterative solution
+# we always assume the p and q in the tree
+
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
 
-        if (not root):
-            return root
+        if not root:
+            return
 
-        if root == p or root == q:
-            return root
+        # remember in Python, the key could be a self-defined class and hashcode will calculated too
+        parent = {root: None}
+        # using stack to traverse the tree
+        stack = [root]
 
-        leftans = self.lowestCommonAncestor(root.left, p, q)
-        rightans = self.lowestCommonAncestor(root.right, p, q)
-        if leftans and rightans:
-            return root
-        elif leftans:
-            return leftans
-        else:
-            return rightans
+        # the condition conjunction has to be "or" because the we need to find parent for both p and q
+        while p not in parent or q not in parent:
+            node = stack.pop()
+            if node.left:
+                parent[node.left] = node
+                stack.append(node.left)
+            if node.right:
+                parent[node.right] = node
+                stack.append(node.right)
+
+        # save all ancestors of p, and starting from q and going up to find the first one in ancestor
+        ancestor = set()
+        # it applies even when root == p or root == q
+        while p:
+            ancestor.add(p)
+            p = parent[p]
+        while q and q not in ancestor:
+            q = parent[q]
+
+        return q
+
+
+
+'''
+# common recursive solution
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+
+        if not root:
+            return
+
+        # the recursion actually checks if p or q is in the subtree of node
+        def helper(node, p, q):
+            if node == p or node == q:
+                return node
+            leftans = helper(node.left, p, q) if node.left else None
+            rightans = helper(node.right, p, q) if node.right else None
+            if leftans and rightans:
+                return node
+            elif leftans:
+                return leftans
+            else:
+                return rightans
+
+        return helper(root, p, q)
+'''
