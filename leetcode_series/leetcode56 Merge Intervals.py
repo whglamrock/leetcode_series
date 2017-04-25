@@ -17,20 +17,23 @@ class Solution(object):
             return []
 
         intervals.sort(key = lambda x: x.start)
-        currstart = intervals[0].start
-        currend = intervals[0].end
         ans = []
+        lo, hi = intervals[0].start, intervals[0].end
 
-        for interval in intervals:
-            s, e = interval.start, interval.end
-            if s > currend:
-                ans.append([currstart, currend])
-                currstart, currend = s, e
+        for i in xrange(1, len(intervals)):
+            if intervals[i].start <= hi:
+                hi = max(hi, intervals[i].end)
             else:
-                currend = max(currend, e)
-        ans.append([currstart, currend])
+                ans.append(Interval(lo, hi))
+                lo, hi = intervals[i].start, intervals[i].end
+        ans.append(Interval(lo, hi))
 
-        res = []
-        for item in ans:
-            res.append(Interval(item[0], item[1]))
-        return res
+        return ans
+
+
+
+Sol = Solution()
+intervals = [Interval(1, 3), Interval(2, 6), Interval(8, 10), Interval(15, 18)]
+ans = Sol.merge(intervals)
+for item in ans:
+    print item.start, item.end
