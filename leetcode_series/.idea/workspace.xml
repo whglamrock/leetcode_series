@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="Push changes&#10;">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
-    </list>
+    <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="" />
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -66,7 +64,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode215_Kth_Largest_Element_in_an_Array.coverage" NAME="leetcode215 Kth Largest Element in an Array Coverage Results" MODIFIED="1483219925201" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$Maximum_Average_Subarray.coverage" NAME="Maximum Average Subarray Coverage Results" MODIFIED="1485068080375" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode372_Super_Pow.coverage" NAME="leetcode372 Super Pow Coverage Results" MODIFIED="1476136261574" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/leetcode_series$leetcode236_Lowest_Common_Ancestor_of_a_Binary_Tree.coverage" NAME="leetcode236 Lowest Common Ancestor of a Binary Tree Coverage Results" MODIFIED="1493150248315" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode236_Lowest_Common_Ancestor_of_a_Binary_Tree.coverage" NAME="leetcode236 Lowest Common Ancestor of a Binary Tree Coverage Results" MODIFIED="1493151316293" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode11_Container_with_Most_Water.coverage" NAME="leetcode11 Container with Most Water Coverage Results" MODIFIED="1461269365056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode190_Reverse_Bits.coverage" NAME="leetcode190 Reverse Bits Coverage Results" MODIFIED="1463160054110" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode242_Valid_Anagram.coverage" NAME="leetcode242 Valid Anagram Coverage Results" MODIFIED="1463792444372" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -335,11 +333,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode236 Lowest Common Ancestor of a Binary Tree.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leetcode236 Lowest Common Ancestor of a Binary Tree.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.87822014">
+            <state vertical-scroll-proportion="0.0">
               <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode285 Inorder Successor in BST.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="1.0538641">
+              <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -387,7 +395,6 @@
         <option value="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
         <option value="$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py" />
         <option value="$PROJECT_DIR$/leetcode161 One Edit Distance.py" />
-        <option value="$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py" />
         <option value="$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py" />
         <option value="$USER_HOME$/anaconda/lib/python2.7/site-packages/6740_script.py" />
         <option value="$PROJECT_DIR$/leetcode121 Best Time to Buy and Sell Stock.py" />
@@ -411,6 +418,7 @@
         <option value="$PROJECT_DIR$/leetcode218 The Skyline Problem.py" />
         <option value="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
         <option value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
+        <option value="$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py" />
       </list>
     </option>
   </component>
@@ -420,8 +428,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-6" />
-    <option name="y" value="105" />
+    <option name="x" value="78" />
+    <option name="y" value="58" />
     <option name="width" value="1192" />
     <option name="height" value="721" />
   </component>
@@ -907,6 +915,13 @@
       <option name="number" value="Default" />
       <updated>1451879093320</updated>
     </task>
+    <task id="LOCAL-00001" summary="Push changes&#10;">
+      <created>1493151339203</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1493151339203</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView">
@@ -919,20 +934,21 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="105" width="1192" height="721" extended-state="0" />
+    <frame x="78" y="58" width="1192" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29865772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784432" sideWeight="0.5099913" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49000868" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30214724" sideWeight="0.50706714" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30214724" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24934839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39520958" sideWeight="0.49293286" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39417177" sideWeight="0.4899329" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1152,14 +1168,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6071428">
-          <caret line="57" column="64" selection-start-line="57" selection-start-column="64" selection-end-line="57" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode208 Implement Trie (Prefix Tree).py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.63533837">
@@ -1372,8 +1380,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87822014">
+        <state vertical-scroll-proportion="0.0">
           <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0538641">
+          <caret line="30" column="0" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
           <folding />
         </state>
       </provider>
