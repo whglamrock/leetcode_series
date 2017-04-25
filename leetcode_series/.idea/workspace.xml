@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode238 Product of Array Except Self.py" afterPath="$PROJECT_DIR$/leetcode238 Product of Array Except Self.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode38 Count and say.py" afterPath="$PROJECT_DIR$/leetcode38 Count and say.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -146,7 +146,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode_198_House_Robber.coverage" NAME="leetcode 198 House Robber Coverage Results" MODIFIED="1463183006627" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode128_Longest_Consecutive_Sequence.coverage" NAME="leetcode128 Longest Consecutive Sequence Coverage Results" MODIFIED="1458688700512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode267_Palindrome_Permutation_II.coverage" NAME="leetcode267 Palindrome Permutation II Coverage Results" MODIFIED="1474815919163" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/leetcode_series$leetcode38_Count_and_say.coverage" NAME="leetcode38 Count and say Coverage Results" MODIFIED="1490514206335" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode38_Count_and_say.coverage" NAME="leetcode38 Count and say Coverage Results" MODIFIED="1493158065818" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode210_Course_Schedule_II.coverage" NAME="leetcode210 Course Schedule II Coverage Results" MODIFIED="1479587019326" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode90_Subsets_II.coverage" NAME="leetcode90 Subsets II Coverage Results" MODIFIED="1469356942940" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode370_Range_Addition.coverage" NAME="leetcode370 Range Addition Coverage Results" MODIFIED="1476136396321" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -337,11 +337,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode238 Product of Array Except Self.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode238 Product of Array Except Self.py">
+      <file leaf-file-name="leetcode38 Count and say.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode38 Count and say.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.31615925">
-              <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+            <state vertical-scroll-proportion="0.8430913">
+              <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -362,7 +362,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode542 01 Matrix.py" />
         <option value="$PROJECT_DIR$/leetcode545 Boundary of Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode283 Move Zeros.py" />
         <option value="$PROJECT_DIR$/leetcode325 Maximum Size Subarray Sum Equals k.py" />
@@ -413,6 +412,7 @@
         <option value="$PROJECT_DIR$/leetcode49 Group Anagrams.py" />
         <option value="$PROJECT_DIR$/leetcode79 Word Search.py" />
         <option value="$PROJECT_DIR$/leetcode238 Product of Array Except Self.py" />
+        <option value="$PROJECT_DIR$/leetcode38 Count and say.py" />
       </list>
     </option>
   </component>
@@ -422,7 +422,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="99" />
+    <option name="x" value="176" />
     <option name="y" value="40" />
     <option name="width" value="1192" />
     <option name="height" value="721" />
@@ -502,25 +502,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode79 Word Search">
-    <configuration default="false" name="leetcode56 Merge Intervals" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.leetcode38 Count and say">
     <configuration default="false" name="leetcode236 Lowest Common Ancestor of a Binary Tree" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -589,6 +571,24 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode79 Word Search.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode38 Count and say" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode38 Count and say.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -882,19 +882,19 @@
       <item index="2" class="java.lang.String" itemvalue="Python.leetcode3 Longest Substring Without Repeating Characters" />
       <item index="3" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="4" class="java.lang.String" itemvalue="Python.just4test" />
-      <item index="5" class="java.lang.String" itemvalue="Python.leetcode56 Merge Intervals" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode236 Lowest Common Ancestor of a Binary Tree" />
-      <item index="7" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode49 Group Anagrams" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode79 Word Search" />
+      <item index="5" class="java.lang.String" itemvalue="Python.leetcode236 Lowest Common Ancestor of a Binary Tree" />
+      <item index="6" class="java.lang.String" itemvalue="Python.fkuagain" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode49 Group Anagrams" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode79 Word Search" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode38 Count and say" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode79 Word Search" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode49 Group Anagrams" />
-        <item index="2" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode236 Lowest Common Ancestor of a Binary Tree" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode56 Merge Intervals" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode38 Count and say" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode79 Word Search" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode49 Group Anagrams" />
+        <item index="3" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode236 Lowest Common Ancestor of a Binary Tree" />
       </list>
     </recent_temporary>
   </component>
@@ -928,7 +928,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="99" y="40" width="1192" height="721" extended-state="0" />
+    <frame x="176" y="40" width="1192" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29865772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -978,14 +978,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode325 Maximum Size Subarray Sum Equals k.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72025055">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode67 Add binary.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.908142">
@@ -1372,6 +1364,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode238 Product of Array Except Self.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31615925">
+          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fkuagain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1380,10 +1380,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode238 Product of Array Except Self.py">
+    <entry file="file://$PROJECT_DIR$/leetcode38 Count and say.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31615925">
-          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+        <state vertical-scroll-proportion="0.8430913">
+          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
           <folding />
         </state>
       </provider>

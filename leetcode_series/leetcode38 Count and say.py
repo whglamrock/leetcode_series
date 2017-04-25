@@ -2,33 +2,27 @@
 class Solution(object):
     def countAndSay(self, n):
 
-        string = '11'
-        newstring = ''
+        if n <= 0:
+            return ''
         if n == 1:
             return '1'
         if n == 2:
             return '11'
 
-        for i in range(2,n):
-            newstring = ''
-            counter = 1
-            for j in range(len(string)-1):
-                if string[j] == string[j+1] and j+1 != len(string)-1:
-                    counter += 1
-                if string[j] != string[j+1]:
-                    newstring += str(counter)
-                    newstring += string[j]
-                    counter = 1
-                    if j+1 == len(string)-1:
-                        newstring += str(counter)
-                        newstring += string[j+1]
-                elif j+1 == len(string)-1:
-                    counter += 1
-                    newstring += str(counter)
-                    newstring += string[j+1]
-            string = newstring
+        ans = '11'
+        for i in xrange(2, n):
+            newseq = ''
+            count = 0
+            for j in xrange(len(ans)):
+                if j == 0 or (j > 0 and ans[j] == ans[j - 1]):
+                    count += 1
+                else:
+                    newseq += str(count) + ans[j - 1]
+                    count = 1
+            newseq += str(count) + ans[-1]
+            ans = newseq
 
-        return newstring
+        return ans
 
 
 
