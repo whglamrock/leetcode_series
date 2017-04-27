@@ -28,7 +28,7 @@ class Solution(object):
         def shuffle(array):
 
             for i in xrange(1, len(array)):
-                j = random.randint(0, i)
+                j = random.randint(0, i)    # 0 <= j <= i, different from randrange()
                 exchange(array, i, j)
 
         def partition(array, lo, hi):

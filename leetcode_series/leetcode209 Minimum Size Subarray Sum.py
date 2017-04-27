@@ -1,33 +1,30 @@
 
 # O(n) time, O(1) space solution
-# keep a slicing window, the summary is the sum of subarray ends with nums[j], the
-# window will always be the smallest window ends with nums[j].
+# keep a minimum slicing window, the sum of which always >= s
 
 class Solution(object):
     def minSubArrayLen(self, s, nums):
 
-        if (not nums):
+        if not nums or sum(nums) < s:
             return 0
 
-        windowsum = 0
-        leftindex = 0
-        minlength = 2147483647
+        cursum = 0
+        l = 0
+        minsize = len(nums)
 
-        for i in xrange(len(nums)):
-            windowsum += nums[i]
-            if windowsum >= s:
-                while windowsum - nums[leftindex] >= s:
-                    windowsum -= nums[leftindex]
-                    leftindex += 1
-                minlength = min(minlength, i - leftindex + 1)
+        for i, num in enumerate(nums):
+            cursum += num
+            while cursum >= s:
+                minsize = min(minsize, i - l + 1)
+                cursum -= nums[l]
+                l += 1
 
-        if minlength > len(nums): return 0
-        return minlength
+        return minsize
 
 
 
 s = 7
-nums = [2,3,1,2,4,3]
+nums = [2, 3, 1, 2, 4, 3]
 Sol = Solution()
 print Sol.minSubArrayLen(s, nums)
 
@@ -37,38 +34,44 @@ print Sol.minSubArrayLen(s, nums)
 # the leetcode also asks for a 0(nlogn) solution...
 # 0(nlogn) time, O(n) space solution
 # idea from: https://discuss.leetcode.com/topic/13749/two-ac-solutions-in-java-with-time-complexity-of-n-and-nlogn-with-explanation/2
+
 class Solution(object):
     def minSubArrayLen(self, s, nums):
 
-        if (not nums) or len(nums) == 0:
+        if not nums or sum(nums) < s:
             return 0
 
-        def findright(l, r, array, target):
-            start = l
-            while l <= r:
-                mid = l + (r - l) / 2
-                if array[mid] - array[start] > target:
-                    r = mid - 1
-                elif array[mid] - array[start] == target:
-                    return mid
-                else:
-                    l = mid + 1
-            return min(l, len(array)-1)    # consider when array[-1] - array[start] < s,
-            # l will = len(array). so we need to return a valid index.
+        n = len(nums)
+        sums = [0] * (n + 1)
+        for i in xrange(1, n + 1):
+            sums[i] = sums[i - 1] + nums[i - 1]
 
-        sumarray = [0] * (len(nums) + 1)    # cumulative value of nums. notice the length
-        for i in xrange(1, len(nums) + 1):    # starts from 1, means sumarray[0] = 0
-            sumarray[i] = sumarray[i-1] + nums[i-1]
+        minsize = n
+        for i in xrange(n + 1):
+            target = sums[i] + s
+            # the left/right bound of contiguous array is i/end
+            end = self.binarysearch(i, n, sums, target)
+            # then within all left bounds in sums[i + 1:], we can't find a valid right bound
+            if sums[end] - sums[i] < s: break
+            minsize = min(minsize, end - i)
 
-        res = 2147483647
-        for i in xrange(len(nums) + 1):
-            j = findright(i, len(nums), sumarray, s)
-            if sumarray[j] - sumarray[i] >= s and j - i < res:
-                res = j - i    # considering the findright function will always return a index
-                # even if "array[-1] - array[start] < s", we need to make sure j - i is
-                # meaningful, by adding "sumarray[j] - sumarray[i] >= s".
+        return minsize
 
-        if res == 2147483647:
-            return 0
-        return res
+    # to find the smallest/leftmost sums[x] in sums[lo: hi + 1] that sums[x] - sums[lo] >= s
+    # we assume that we definitely can find such a sums[x]
+    def binarysearch(self, lo, hi, sums, target):
+
+        while lo < hi:
+            mid = lo + (hi - lo) / 2
+            # this mid is candidate
+            if sums[mid] > target:
+                hi = mid
+            # this mid is invalid, then the left bound should be mid + 1
+            elif sums[mid] < target:
+                lo = mid + 1
+            else:
+                # we already found the leftmost one, because every element in sums is unique
+                return mid
+
+        return lo
 '''
