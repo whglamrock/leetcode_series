@@ -1,6 +1,6 @@
-dic = {'b': 2, 'd': 5, 'a': 1}
-a = sorted(dic.keys())
-print a
+a = '/home/'
+print a.split('/')
+
 
 
 

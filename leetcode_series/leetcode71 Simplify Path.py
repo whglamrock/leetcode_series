@@ -1,6 +1,6 @@
 
 # O(n) running time/space solution
-# understand the unix style path: '..' means going above by one level.
+# understand the unix style path: '..' means going above by one level; '.' means simply doing nothing
 # e.g., when the path is a/b/c, you type 'cd..' in cmd line, your current directory becomes a/b
 
 class Solution(object):
@@ -8,6 +8,7 @@ class Solution(object):
 
         path = path.split('/')
         res = []
+        
         for item in path:
             if not item or item == '.':
                 continue
