@@ -4,7 +4,7 @@
 
 from heapq import *
 
-# optimal O(NlogN）solution, where n is the number of elements in set(buildings)
+# optimal O(NlogN) solution, where n is the number of elements in set(buildings)
 
 class Solution(object):
     def getSkyline(self, buildings):
