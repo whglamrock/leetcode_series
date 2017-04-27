@@ -5,7 +5,8 @@ The idea is Quicksort, but takes only O(n) time complexity
 '''
 
 # P.S. Selection sort: on average O(N^2) running time
-# O(n) solution
+# O(n) solution. It is proved that if we randomly choose the pivot (or pre-shuffle the nums array),
+#   the number of times the final while loop executes will be constant
 # If we don't shuffle the nums array, we can randomly choose the pivot.
 
 import random
@@ -13,59 +14,58 @@ import random
 class Solution(object):
     def findKthLargest(self, nums, k):
 
-        def exchange(a, i, j):
+        if not nums or len(nums) < k:
+            return
 
-            a[i], a[j] = a[j], a[i]
+        def exchange(array, i, j):
 
-        # notice how the shuffle is written: all elements exchange with left ones
+            array[i], array[j] = array[j], array[i]
+
+        # notice how the shuffle is written: all elements exchange with left ones (including self)
+        # in this way, we can make sure that each number has the same probability of being at each position
+        #   e.g., the probability of the first number being at positon 0 is: 1/2 * 2/3 * 3/4 *...* (n-1)/n
+        #   = 1/n
         def shuffle(array):
 
-            for index in xrange(1, len(array)):
-                # the maximum of r will still be len(array) - 1
-                r = random.randrange(index + 1)
-                exchange(array, r, index)
+            for i in xrange(1, len(array)):
+                j = random.randint(0, i)
+                exchange(array, i, j)
 
-        # To ensure all elements on the left of j are <= array[lo],
-            #   on the right are > array[lo]
         def partition(array, lo, hi):
 
             i, j = lo, hi
-            # the condition can't be i <= j (e.g., try test case nums = [99, 99], k = 1).
+            # the condition has to be i < j, because of test cases like [99, 99],
+            #   when the j won't even move and while loop becomes infinite
             while i < j:
-                # We can switch the order of two following while loops because
-                #   they don't overlap.
-                # At last we can guarantee array[j] <= array[lo] and array[j + 1:]
-                #   are all > array[lo].
-                while j > lo and array[j] > array[lo]:
-                    j -= 1
-                # At last there could be (array[i] > array[lo] and i > j),
-                #   where we cannot exchange(array, i, j) here.
-                # And it also explains why we can't exchange(array, lo, i) at last.
+                # after the first while loop, if i < hi, then array[i] > array[lo]
                 while i < hi and array[i] <= array[lo]:
                     i += 1
+                # after the second while loop, if j > lo, then array[j] <= array[lo]
+                while j > lo and array[j] > array[lo]:
+                    j -= 1
+                # based on the two exit conditions, when i > j happens, then we have
+                #   the partition array we want
                 if i > j: break
                 exchange(array, i, j)
-            # Due to the above settings, we cannot exchange(array, lo, i) here,
-            #   and we need to make sure that all array[j + 1:] are strictly > array[lo] not >=.
-            exchange(array, lo, j)
+            # we exchange array[lo] with array[j] instead of array[i] because we want
+            #   strictly ensure that after exchange, all elements on the left of array[lo]
+            #   are <= array[lo], on the right are > array[lo]
+            exchange(array, lo, j)  # remember: array[j + 1] > array[lo]
             return j
 
         shuffle(nums)
-        k = len(nums) - k
+        k = len(nums) - k   # we wanna find the len(nums) - k smallest
         lo, hi = 0, len(nums) - 1
 
-        # logarithmically reduce the search range, but the number of
-        # times the while loop operates will still be linear
+        # we always make sure lo <= k <= hi; the exit condition is lo == hi
         while lo < hi:
             j = partition(nums, lo, hi)
-            # lo = j + 1 not j
             if j < k:
                 lo = j + 1
-            # hi = j - 1 not j
             elif j > k:
                 hi = j - 1
             else:
-                break
+                return nums[k]    # or break
 
         return nums[k]
 
