@@ -8,7 +8,7 @@ class Solution(object):
 
         path = path.split('/')
         res = []
-        
+
         for item in path:
             if not item or item == '.':
                 continue

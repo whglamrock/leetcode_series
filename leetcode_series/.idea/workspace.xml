@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fkuagain.py" afterPath="$PROJECT_DIR$/fkuagain.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode71 Simplify Path.py" afterPath="$PROJECT_DIR$/leetcode71 Simplify Path.py" />
     </list>
     <ignored path="untitled1.iws" />
@@ -345,17 +344,7 @@
         <entry file="file://$PROJECT_DIR$/leetcode71 Simplify Path.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.3">
-              <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leetcode57 Insert Interval.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leetcode57 Insert Interval.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+              <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1380,7 +1369,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode57 Insert Interval.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.04">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
         </state>
@@ -1397,7 +1386,7 @@
     <entry file="file://$PROJECT_DIR$/leetcode71 Simplify Path.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3">
-          <caret line="10" column="8" selection-start-line="10" selection-start-column="8" selection-end-line="10" selection-end-column="8" />
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
           <folding />
         </state>
       </provider>
