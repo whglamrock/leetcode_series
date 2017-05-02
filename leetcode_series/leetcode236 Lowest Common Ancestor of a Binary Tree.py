@@ -25,6 +25,7 @@ class Solution(object):
 
         # the condition conjunction has to be "or" because the we need to find parent for both p and q
         while p not in parent or q not in parent:
+            # there is no need to check the stack, because we always assume the p/q is in the tree
             node = stack.pop()
             if node.left:
                 parent[node.left] = node
@@ -55,8 +56,10 @@ class Solution(object):
         if not root:
             return
 
-        # the recursion actually checks if p or q is in the subtree of node
-        def helper(node, p, q):
+        # the recursion actually returns the lowestCommonAncestor of p or q
+        # we only need one of (p, q) in the subtree without knowing it is specifically p or q
+        def traversal(node, p, q):
+
             if node == p or node == q:
                 return node
             leftans = helper(node.left, p, q) if node.left else None
@@ -68,5 +71,5 @@ class Solution(object):
             else:
                 return rightans
 
-        return helper(root, p, q)
+        return traversal(root, p, q)
 '''

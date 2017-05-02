@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode494 Target Sum.py" afterPath="$PROJECT_DIR$/leetcode494 Target Sum.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -341,11 +341,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode494 Target Sum.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode494 Target Sum.py">
+      <file leaf-file-name="leetcode236 Lowest Common Ancestor of a Binary Tree.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.94">
-              <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.61">
+              <caret line="65" column="71" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
               <folding />
             </state>
           </provider>
@@ -404,7 +404,6 @@
         <option value="$PROJECT_DIR$/leetcode133 Clone Graph.py" />
         <option value="$PROJECT_DIR$/leetcode252 Meeting Rooms.py" />
         <option value="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
-        <option value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py" />
         <option value="$PROJECT_DIR$/leetcode49 Group Anagrams.py" />
         <option value="$PROJECT_DIR$/leetcode79 Word Search.py" />
@@ -417,6 +416,7 @@
         <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode71 Simplify Path.py" />
         <option value="$PROJECT_DIR$/leetcode494 Target Sum.py" />
+        <option value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
       </list>
     </option>
   </component>
@@ -426,8 +426,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="96" />
-    <option name="y" value="29" />
+    <option name="x" value="40" />
+    <option name="y" value="58" />
     <option name="width" value="1192" />
     <option name="height" value="721" />
   </component>
@@ -932,7 +932,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="96" y="29" width="1192" height="721" extended-state="0" />
+    <frame x="40" y="58" width="1192" height="721" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29865772" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -942,7 +942,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49000868" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19018404" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19018404" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24934839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1296,14 +1296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.87822014">
-          <caret line="25" column="102" selection-start-line="25" selection-start-column="102" selection-end-line="25" selection-end-column="102" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode49 Group Anagrams.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4028103">
@@ -1368,6 +1360,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode494 Target Sum.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.99">
+          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode71 Simplify Path.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3">
@@ -1384,10 +1384,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode494 Target Sum.py">
+    <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.94">
-          <caret line="33" column="0" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.61">
+          <caret line="65" column="71" selection-start-line="65" selection-start-column="71" selection-end-line="65" selection-end-column="71" />
           <folding />
         </state>
       </provider>
