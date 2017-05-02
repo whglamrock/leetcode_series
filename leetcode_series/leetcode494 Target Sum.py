@@ -1,32 +1,33 @@
 
 # the key is to transfer the problem into subset sum
+# O(N * value) classical dp approach, where value is the average value of each element in nums
+# see explanation: https://discuss.leetcode.com/topic/76243/java-15-ms-c-3-ms-o-ns-iterative-dp-solution-using-subset-sum-with-explanation
 
 class Solution(object):
-    def findTargetSumWays(self, nums, s):
+    def findTargetSumWays(self, nums, S):
 
-        sumnums = 0
-        for i in xrange(len(nums)):
-            sumnums += nums[i]
-            nums[i] += nums[i]
+        sumofnums = sum(nums)
+        if sumofnums < S or (sumofnums + S) % 2 != 0:
+            return 0
 
-        return 0 if sumnums < s else self.subsetSum(nums, s + sumnums)
+        return self.subsetSum(nums, (sumofnums + S) / 2)
 
-    # here all elements in nums will be non-negative and we don't need to worry about the symbol
-    def subsetSum(self, nums, s):
+    def subsetSum(self, nums, S):
 
-        n = len(nums)
-        # dp[i][j] means the number of ways to get sum i using the first j numbers
-        dp = [[0 for j in xrange(n + 1)] for i in xrange(s + 1)]
-        dp[0][0] = 1
+        # using one dimensional dp array and updating all elements in each for loop
+        dp = [0 for j in xrange(S + 1)]
+        dp[0] = 1
 
-        for i in xrange(s + 1):
-            for j in xrange(1, n + 1):
-                # initialize the dp[i][j] with dp[i][j - 1] because we can get sum i by simply
-                #   ignore the jth number
-                dp[i][j] = dp[i][j - 1]
-                # jth number refers nums[j - 1]
-                if i - nums[j - 1] >= 0:
-                    # we only need to look at the (j - 1)th column here
-                    dp[i][j] += dp[i - nums[j - 1]][j - 1]
+        for num in nums:
+            for i in xrange(S, num - 1, -1):
+                if dp[i - num] != 0:    # or even save this if statement because "+= 0" still applies
+                    dp[i] += dp[i - num]
 
-        return dp[-1][-1]   # i.e., dp[s][n]
+        return dp[-1]
+
+
+
+Sol = Solution()
+nums = [1, 1, 1, 1, 1]
+S = 3
+print Sol.findTargetSumWays(nums, S)
