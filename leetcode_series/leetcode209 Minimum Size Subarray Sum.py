@@ -52,7 +52,7 @@ class Solution(object):
             # the left/right bound of contiguous array is i/end
             end = self.binarysearch(i, n, sums, target)
             # then within all left bounds in sums[i + 1:], we can't find a valid right bound
-            if sums[end] - sums[i] < s: break
+            if sums[end] < target: break
             minsize = min(minsize, end - i)
 
         return minsize

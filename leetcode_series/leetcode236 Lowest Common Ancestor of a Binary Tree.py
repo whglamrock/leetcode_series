@@ -40,7 +40,7 @@ class Solution(object):
         while p:
             ancestor.add(p)
             p = parent[p]
-        while q and q not in ancestor:
+        while q not in ancestor:    # there is no need to check q is None
             q = parent[q]
 
         return q
