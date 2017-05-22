@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode28 Implement strStr().py" afterPath="$PROJECT_DIR$/leetcode28 Implement strStr().py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" afterPath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,6 +48,7 @@
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode49_Group_Anagrams.coverage" NAME="leetcode49 Group Anagrams Coverage Results" MODIFIED="1493153855768" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode231_Power_of_Two.coverage" NAME="leetcode231 Power of Two Coverage Results" MODIFIED="1463765125513" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode83_Remove_Duplicates_from_Sorted_List.coverage" NAME="leetcode83 Remove Duplicates from Sorted List Coverage Results" MODIFIED="1457974491460" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode28_Implement_strStr__.coverage" NAME="leetcode28 Implement strStr() Coverage Results" MODIFIED="1495465590271" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode8_String_to_Integer.coverage" NAME="leetcode8 String to Integer Coverage Results" MODIFIED="1453849181766" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode78_Subsets.coverage" NAME="leetcode78 Subsets Coverage Results" MODIFIED="1492725164810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode72_Simplify_Path.coverage" NAME="leetcode72 Simplify Path Coverage Results" MODIFIED="1484859762941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -356,8 +356,8 @@
       <file leaf-file-name="leetcode28 Implement strStr().py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode28 Implement strStr().py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.38922155">
-              <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.35928145">
+              <caret line="16" column="83" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -518,25 +518,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode572 Subtree of Another Tree">
-    <configuration default="false" name="leetcode209 Minimum Size Subarray Sum" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode209 Minimum Size Subarray Sum.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.leetcode28 Implement strStr()">
     <configuration default="false" name="leetcode57 Insert Interval" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -605,6 +587,24 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode28 Implement strStr()" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode28 Implement strStr().py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -898,19 +898,19 @@
       <item index="2" class="java.lang.String" itemvalue="Python.leetcode3 Longest Substring Without Repeating Characters" />
       <item index="3" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="4" class="java.lang.String" itemvalue="Python.just4test" />
-      <item index="5" class="java.lang.String" itemvalue="Python.leetcode209 Minimum Size Subarray Sum" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode57 Insert Interval" />
-      <item index="7" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode494 Target Sum" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode572 Subtree of Another Tree" />
+      <item index="5" class="java.lang.String" itemvalue="Python.leetcode57 Insert Interval" />
+      <item index="6" class="java.lang.String" itemvalue="Python.fkuagain" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode494 Target Sum" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode572 Subtree of Another Tree" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode28 Implement strStr()" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode572 Subtree of Another Tree" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode494 Target Sum" />
-        <item index="2" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode57 Insert Interval" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode209 Minimum Size Subarray Sum" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode28 Implement strStr()" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode572 Subtree of Another Tree" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode494 Target Sum" />
+        <item index="3" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode57 Insert Interval" />
       </list>
     </recent_temporary>
   </component>
@@ -953,7 +953,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49000868" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18865031" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18865031" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24934839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1395,8 +1395,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode28 Implement strStr().py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.38922155">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.35928145">
+          <caret line="16" column="83" selection-start-line="16" selection-start-column="83" selection-end-line="16" selection-end-column="83" />
           <folding />
         </state>
       </provider>

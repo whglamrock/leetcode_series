@@ -14,12 +14,13 @@ class Solution(object):
                 pat[i] = j + 1
                 i += 1
                 j += 1
-            elif j == 0:
+            elif j == 0:    # it's actually j = pat[j - 1] for the case whne j == 0
                 pat[i] = 0
                 i += 1
             else:
                 j = pat[j - 1]
 
+        print pat
         return pat
 
     def strStr(self, haystack, needle):
@@ -35,7 +36,7 @@ class Solution(object):
         i, j = 0, 0
         pat = self.ComputePrefixFunction(needle)
 
-        while i < len(haystack) and j < len(needle):
+        while i < n and j < m:
             if haystack[i] == needle[j]:
                 i += 1
                 j += 1
@@ -51,7 +52,7 @@ class Solution(object):
 
 
 Sol = Solution()
-print Sol.strStr('abcdefgsjabcde','bcde')
+print Sol.strStr('abcdefgsjabcdeb','bcdeb')
 
 
 
