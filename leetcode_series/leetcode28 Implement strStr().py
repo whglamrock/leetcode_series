@@ -14,13 +14,13 @@ class Solution(object):
                 pat[i] = j + 1
                 i += 1
                 j += 1
-            elif j == 0:    # it's actually j = pat[j - 1] for the case whne j == 0
+            elif j == 0:    # it's actually j = pat[j - 1] for the case when j == 0
                 pat[i] = 0
                 i += 1
-            else:
-                j = pat[j - 1]
+            else:   # at this point, needle[j] != needle[i]
+                j = pat[j - 1]  # we need to the prefix position to compare in next loop
 
-        print pat
+        #print pat
         return pat
 
     def strStr(self, haystack, needle):
