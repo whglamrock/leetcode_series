@@ -52,8 +52,6 @@ class Solution(object):
         strs = self.serialize(s)
         strt = self.serialize(t)
 
-        #print strs
-        #print strt
         return self.strStr(strs, strt) != -1
 
     def ComputePrefixFunction(self, needle):
@@ -107,6 +105,7 @@ class Solution(object):
             return ''
         todo = [root]
         ans = []
+
         while todo:
             node = todo.pop()
             if not node:

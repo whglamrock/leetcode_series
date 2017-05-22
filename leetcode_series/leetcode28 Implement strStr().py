@@ -34,6 +34,7 @@ class Solution(object):
         # at this time, i is the haystack pointer, j is the needle pointer
         i, j = 0, 0
         pat = self.ComputePrefixFunction(needle)
+        
         while i < len(haystack) and j < len(needle):
             if haystack[i] == needle[j]:
                 i += 1
