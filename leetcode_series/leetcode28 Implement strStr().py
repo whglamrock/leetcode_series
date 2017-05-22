@@ -25,6 +25,7 @@ class Solution(object):
                 #   2) if needle[i] != needle[pat[j - 1]], the "pat[i] = pat[j - 1]" will make loop infinite
                 #      because i, j don't += 1 anymore.
                 j = pat[j - 1]
+                # we can't put j = 0 here either , try test case: "aabaaabaaac", "aabaaac".
 
         #print pat
         return pat
@@ -63,7 +64,7 @@ class Solution(object):
 
 
 Sol = Solution()
-print Sol.strStr('abcdefgsjabcdeb','bcdeb')
+print Sol.strStr('aabaaabaaac','aabaaac')
 
 
 
