@@ -8,8 +8,8 @@ class Solution(object):
         pat = [0] * len(needle)
         # j is the prefix pointer, i is the suffix pointer
         j, i = 0, 1
+
         while i < len(needle):
-            #print j, i
             if needle[i] == needle[j]:
                 pat[i] = j + 1
                 i += 1
@@ -34,7 +34,7 @@ class Solution(object):
         # at this time, i is the haystack pointer, j is the needle pointer
         i, j = 0, 0
         pat = self.ComputePrefixFunction(needle)
-        
+
         while i < len(haystack) and j < len(needle):
             if haystack[i] == needle[j]:
                 i += 1

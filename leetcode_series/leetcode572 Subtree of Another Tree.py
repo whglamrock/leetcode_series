@@ -14,32 +14,26 @@ class TreeNode(object):
 class Solution(object):
     def isSubtree(self, s, t):
 
-        def compare(root1, root2):
+        def issame(root1, root2):
 
             if not root1 or not root2:
                 return root1 == root2
+
             if root1.val != root2.val:
                 return False
 
-            leftans = compare(root1.left, root2.left)
-            rightans = compare(root1.right, root2.right)
-            return leftans and rightans
+            return issame(root1.left, root2.left) and issame(root1.right, root2.right)
 
-        self.flag = False
-        def traverse(root, roottobecompared):
+        todo = [s]
+        while todo:
+            node = todo.pop()
+            if not node: continue
+            if node.val == t.val and issame(node, t):
+                    return True
+            todo.append(node.left)
+            todo.append(node.right)
 
-            if not root:
-                return
-            if compare(root, roottobecompared):
-                self.flag = True
-                return
-
-            traverse(root.left, roottobecompared)
-            traverse(root.right, roottobecompared)
-
-        traverse(s, t)
-        return self.flag
-
+        return False
 
 
 '''
