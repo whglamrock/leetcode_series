@@ -18,12 +18,12 @@ class Solution(object):
         if not root:
             return
 
-        # remember in Python, the key could be a self-defined class and hashcode will calculated too
+        # in Python the key could be a self-defined class and hashcode will be calculated too
         parent = {root: None}
-        # using stack to traverse the tree
+        # using stack to traverse the tree (right subtree first DFS)
         stack = [root]
 
-        # the condition conjunction has to be "or" because the we need to find parent for both p and q
+        # the condition conjunction has to be "or" because the we need both p and q
         while p not in parent or q not in parent:
             # there is no need to check the stack, because we always assume the p/q is in the tree
             node = stack.pop()
@@ -38,7 +38,7 @@ class Solution(object):
         ancestor = set()
         # it applies even when root == p or root == q
         while p:
-            # don't add parent[p] here, think about p is p's ancestor too
+            # don't add parent[p] here, think about that p is p's ancestor too
             ancestor.add(p)  # if parent[p] == None, adding parent[p] will add None
             p = parent[p]
         while q not in ancestor:    # there is no need to check q is None

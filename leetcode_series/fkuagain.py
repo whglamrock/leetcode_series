@@ -5,6 +5,8 @@ a.add(3)
 
 a = sorted(a)
 print a
+a.sort(key = lambda x: -x)
+print a
 
 
 
