@@ -46,32 +46,28 @@ class Solution(object):
         for i in xrange(1, n + 1):
             sums[i] = sums[i - 1] + nums[i - 1]
 
-        minsize = n
-        for i in xrange(n + 1):
-            target = sums[i] + s
+        minlen = n
+        for i in xrange(n):
             # the left/right bound of contiguous array is i/end
-            end = self.binarysearch(i, n, sums, target)
+            end = self.binarySearch(sums, i, n, sums[i] + s)
             # then within all left bounds in sums[i + 1:], we can't find a valid right bound
-            if sums[end] < target: break
-            minsize = min(minsize, end - i)
+            if sums[end] < s + sums[i]: break
+            minlen = min(minlen, end - i)
 
-        return minsize
+        return minlen
 
-    # to find the smallest/leftmost sums[x] in sums[lo: hi + 1] that sums[x] - sums[lo] >= s
-    # we assume that we definitely can find such a sums[x]
-    def binarysearch(self, lo, hi, sums, target):
+    # to find the leftmost(i.e., smallest) sums[i] that >= target
+    def binarySearch(self, sums, l, r, target):
 
-        while lo < hi:
-            mid = lo + (hi - lo) / 2
-            # this mid is candidate
-            if sums[mid] > target:
-                hi = mid
-            # this mid is invalid, then the left bound should be mid + 1
-            elif sums[mid] < target:
-                lo = mid + 1
-            else:
-                # we already found the leftmost one, because every element in sums is unique
+        # exit condition is l == r
+        while l < r:
+            mid = l + (r - l) / 2
+            if sums[mid] == target:
                 return mid
+            elif sums[mid] < target:    # sums[mid] can't be the candidate
+                l = mid + 1
+            else:   # sums[mid] is still the candidate
+                r = mid
 
-        return lo
+        return l    # or return r
 '''
