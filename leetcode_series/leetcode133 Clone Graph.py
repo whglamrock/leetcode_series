@@ -9,9 +9,10 @@ class UndirectedGraphNode(object):
         self.neighbors = []
 
 
-# AC O(n) time/space solution, where m is the sum of number of neighbors of all nodes.
-# However, the so called "UndirectedGraph" is not really undirected, because most likely the 1->2, 2->1
-#   connection pair will not appear twice in the BFS based on each test case given by leetcode.
+# AC O(n) time/space solution, where n is the sum of number of neighbors of all nodes.
+# However, the so called "UndirectedGraph" is not really undirected, because most likely
+#   the 1->2, 2->1 pair will not appear twice in the BFS based on each
+#   test case given by leetcode.
 
 from collections import deque
 
@@ -30,11 +31,11 @@ class Solution:
         while queue:
             oldnode = queue.popleft()
             # there is no need to check if oldnode is in the newlabeltonode dictionary
-            for neighbor in oldnode.neighbors:
-                if neighbor.label not in newlabeltonode:    # means this node haven't been visited/added to the queue
-                    newlabeltonode[neighbor.label] = UndirectedGraphNode(neighbor.label)
-                    queue.append(neighbor)    # BFS
-                newlabeltonode[oldnode.label].neighbors.append(newlabeltonode[neighbor.label])
+            for oldneighbor in oldnode.neighbors:
+                if oldneighbor.label not in newlabeltonode:    # means this node haven't been visited/added to the queue
+                    newlabeltonode[oldneighbor.label] = UndirectedGraphNode(oldneighbor.label)
+                    queue.append(oldneighbor)    # BFS
+                newlabeltonode[oldnode.label].neighbors.append(newlabeltonode[oldneighbor.label])
 
         return newnode
 
