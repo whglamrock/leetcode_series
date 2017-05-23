@@ -356,8 +356,8 @@
       <file leaf-file-name="leetcode236 Lowest Common Ancestor of a Binary Tree.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7984645">
-              <caret line="41" column="83" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.45297503">
+              <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
               <folding />
             </state>
           </provider>
@@ -448,8 +448,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="60" />
-    <option name="y" value="81" />
+    <option name="x" value="23" />
+    <option name="y" value="59" />
     <option name="width" value="1073" />
     <option name="height" value="741" />
   </component>
@@ -954,7 +954,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="60" y="81" width="1073" height="741" extended-state="0" />
+    <frame x="23" y="59" width="1073" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33178005" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1405,8 +1405,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7984645">
-          <caret line="41" column="83" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.45297503">
+          <caret line="59" column="32" selection-start-line="59" selection-start-column="32" selection-end-line="59" selection-end-column="32" />
           <folding />
         </state>
       </provider>

@@ -57,7 +57,7 @@ class Solution(object):
         if not root:
             return
 
-        # the recursion actually returns the lowestCommonAncestor of p or q
+        # the recursion directly returns the lowestCommonAncestor of p or q
         # we only need one of (p, q) in the subtree without knowing it is specifically p or q
         def traversal(node, p, q):
 
