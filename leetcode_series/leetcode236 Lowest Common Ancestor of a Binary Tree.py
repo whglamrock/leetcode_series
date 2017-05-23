@@ -73,4 +73,23 @@ class Solution(object):
                 return rightans
 
         return traversal(root, p, q)
+
+
+
+# a cleaner solution:
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+
+        if root == p or root == q:
+            return root
+        leftans = self.lowestCommonAncestor(root.left, p, q) if root.left else None
+        rightans = self.lowestCommonAncestor(root.right, p, q) if root.right else None
+
+        if leftans and rightans:
+            return root
+        elif leftans:
+            return leftans
+        else:
+            return rightans
 '''

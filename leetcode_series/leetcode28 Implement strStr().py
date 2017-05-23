@@ -51,13 +51,15 @@ class Solution(object):
             elif j == 0:
                 i += 1
             else:
+                # it is possible to jump multiple times; it's possible this happens in several
+                #   consecutive loops
                 j = pat[j - 1]
                 # we don't do i += 1 here, because needle[j] don't match haystack[i]
-                # 1) needle[:j] matches haystack[i - j:i]
-                # 2) after doing the switch on j, j becomes pat[j - 1]
-                # 3) so needle[:pat[j - 1]] matches haystack[i - j:i]
-                # 4) we still don't know if haystack[i] matches needle[:pat[j - 1] + 1]
-                # 5) thus, we needa check haystack[i] and don't do i += 1
+                #   1) needle[:j] matches haystack[i - j:i]
+                #   2) after doing the switch on j, j becomes pat[j - 1]
+                #   3) so needle[:pat[j - 1]] matches haystack[i - j:i]
+                #   4) we still don't know if haystack[i] matches needle[:pat[j - 1] + 1]
+                #   5) thus, we needa check haystack[i] and don't do i += 1
 
         return -1
 
