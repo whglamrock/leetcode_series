@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode133 Clone Graph.py" afterPath="$PROJECT_DIR$/leetcode133 Clone Graph.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -343,31 +343,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode218 The Skyline Problem.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leetcode218 The Skyline Problem.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leetcode133 Clone Graph.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode133 Clone Graph.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.28790787">
-              <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="leetcode572 Subtree of Another Tree.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode236 Lowest Common Ancestor of a Binary Tree.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.7984645">
+              <caret line="41" column="83" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
               <folding />
             </state>
           </provider>
@@ -442,13 +432,13 @@
         <option value="$PROJECT_DIR$/leetcode57 Insert Interval.py" />
         <option value="$PROJECT_DIR$/leetcode71 Simplify Path.py" />
         <option value="$PROJECT_DIR$/leetcode494 Target Sum.py" />
-        <option value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode209 Minimum Size Subarray Sum.py" />
         <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
         <option value="$PROJECT_DIR$/leetcode28 Implement strStr().py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode218 The Skyline Problem.py" />
         <option value="$PROJECT_DIR$/leetcode133 Clone Graph.py" />
+        <option value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
       </list>
     </option>
   </component>
@@ -458,8 +448,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="90" />
-    <option name="y" value="30" />
+    <option name="x" value="60" />
+    <option name="y" value="81" />
     <option name="width" value="1073" />
     <option name="height" value="741" />
   </component>
@@ -964,7 +954,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="90" y="30" width="1073" height="741" extended-state="0" />
+    <frame x="60" y="81" width="1073" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33178005" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1349,14 +1339,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.26">
-          <caret line="42" column="73" selection-start-line="42" selection-start-column="73" selection-end-line="42" selection-end-column="73" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode49 Group Anagrams.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49">
@@ -1381,14 +1363,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode28 Implement strStr().py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1405,6 +1379,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode133 Clone Graph.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.28790787">
+          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode218 The Skyline Problem.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1413,10 +1395,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode133 Clone Graph.py">
+    <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.28790787">
-          <caret line="14" column="4" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.7984645">
+          <caret line="41" column="83" selection-start-line="41" selection-start-column="83" selection-end-line="41" selection-end-column="83" />
           <folding />
         </state>
       </provider>

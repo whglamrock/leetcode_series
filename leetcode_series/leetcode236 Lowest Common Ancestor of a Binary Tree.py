@@ -38,7 +38,8 @@ class Solution(object):
         ancestor = set()
         # it applies even when root == p or root == q
         while p:
-            ancestor.add(p)
+            # don't add parent[p] here, think about p is p's ancestor too
+            ancestor.add(p)  # if parent[p] == None, adding parent[p] will add None
             p = parent[p]
         while q not in ancestor:    # there is no need to check q is None
             q = parent[q]
