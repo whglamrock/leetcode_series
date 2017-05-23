@@ -12,34 +12,33 @@ class Solution(object):
         if not buildings:
             return []
 
-        # because we only add the x position to positions,
-        #   we only one of multiple Lis with the same value
+        # building the positions set is to construct the scanner
+        #   in which each scan stop only occurs once
         positions = set()
-        for item in buildings:
-            positions.add(item[0])
-            positions.add(item[1])
-
-        # while the vertical line "scans" the sky, the live stores the current "live" positions:
-        #   a building is "live" is the current line crosses the building
-        live = []
-        # it could any [x, 0]. the second element has to be 0 because of the following if statement
-        sky = [[-1, 0]]
-
-        i = 0
+        for l, r, h in buildings:
+            positions.add(l)
+            positions.add(r)
         # sorted function changes the set into a sorted list
-        for t in sorted(positions):
-            # add new buildings that are alive now
-            while i < len(buildings) and buildings[i][0] <= t:
+        positions = sorted(positions)
+
+        live = []
+        i = 0
+        n = len(buildings)
+        # it could any [x, 0]. the second element has to be 0 because of the following if statement
+        sky = [[-1, 0]]  # in this case x = -1
+
+        for pos in positions:
+            while i < n and buildings[i][0] <= pos:
                 heappush(live, [-buildings[i][2], buildings[i][1]])
                 i += 1
-            # discard the buildings that have been passed by the scan line
-            while live and live[0][1] <= t:
+            # we won't miss the buildings that have been passed, even if such building is short
+            while live and live[0][1] <= pos:
                 heappop(live)
-            # if we have live buildings, then h != 0
             h = -live[0][0] if live else 0
             # according to the rules of "key points"
             if sky[-1][-1] != h:
-                sky.append([t, h])
+                # we can't append [h, live[0][1]] here because live[0][1] is the right end of a building
+                sky.append([pos, h])
 
         return sky[1:]
 
