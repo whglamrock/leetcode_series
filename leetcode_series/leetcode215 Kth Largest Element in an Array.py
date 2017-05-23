@@ -23,7 +23,7 @@ class Solution(object):
 
         # notice how the shuffle is written: all elements exchange with left ones (including self)
         # in this way, we can make sure that each number has the same probability of being at each position
-        #   e.g., the probability of the first number being at positon 0 is: 1/2 * 2/3 * 3/4 *...* (n-1)/n
+        #   e.g., the probability of the first number being at position 0 is: 1/2 * 2/3 * 3/4 *...* (n-1)/n
         #   = 1/n
         def shuffle(array):
 
@@ -31,21 +31,22 @@ class Solution(object):
                 j = random.randint(0, i)    # 0 <= j <= i, different from randrange()
                 exchange(array, i, j)
 
+        # AFTER EXCHANGING, make every element on the left/right of array[j] smaller/bigger than it
+        #   and this j could any number in [lo, hi], inclusive
         def partition(array, lo, hi):
 
             i, j = lo, hi
             # the condition has to be i < j, because of test cases like [99, 99],
             #   when the j won't even move and while loop becomes infinite
             while i < j:
-                # after the first while loop, if i < hi, then array[i] > array[lo]
+                # the condition has to be i < hi instead of i <= hi, to avoid index out of range
                 while i < hi and array[i] <= array[lo]:
                     i += 1
-                # after the second while loop, if j > lo, then array[j] <= array[lo]
                 while j > lo and array[j] > array[lo]:
                     j -= 1
                 # based on the two exit conditions, when i > j happens, then we have
                 #   the partition array we want
-                if i > j: break
+                if i >= j: break  # it is possible that j == i - 1; j can't be less!
                 exchange(array, i, j)
             # we exchange array[lo] with array[j] instead of array[i] because we want
             #   strictly ensure that after exchange, all elements on the left of array[lo]
@@ -53,16 +54,17 @@ class Solution(object):
             exchange(array, lo, j)  # remember: array[j + 1] > array[lo]
             return j
 
+        # shuffle is to avoid the worst case
         shuffle(nums)
         k = len(nums) - k   # we wanna find the len(nums) - k smallest
         lo, hi = 0, len(nums) - 1
 
         # we always make sure lo <= k <= hi; the exit condition is lo == hi
-        while lo < hi:
+        while lo < hi:  # think about what to say about the operating times of while loop
             j = partition(nums, lo, hi)
-            if j < k:
+            if j < k:  # based on the settings of partition function, lo can't be j
                 lo = j + 1
-            elif j > k:
+            elif j > k:  # likewise, hi can't be j
                 hi = j - 1
             else:
                 return nums[k]    # or break

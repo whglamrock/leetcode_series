@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode28 Implement strStr().py" afterPath="$PROJECT_DIR$/leetcode28 Implement strStr().py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode215 Kth Largest Element in an Array.py" afterPath="$PROJECT_DIR$/leetcode215 Kth Largest Element in an Array.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -354,11 +353,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode28 Implement strStr().py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode28 Implement strStr().py">
+      <file leaf-file-name="leetcode215 Kth Largest Element in an Array.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode215 Kth Largest Element in an Array.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.6333973">
-              <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+            <state vertical-scroll-proportion="1.9001919">
+              <caret line="66" column="50" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
               <folding />
             </state>
           </provider>
@@ -419,7 +418,6 @@
         <option value="$PROJECT_DIR$/leetcode79 Word Search.py" />
         <option value="$PROJECT_DIR$/leetcode238 Product of Array Except Self.py" />
         <option value="$PROJECT_DIR$/leetcode38 Count and say.py" />
-        <option value="$PROJECT_DIR$/leetcode215 Kth Largest Element in an Array.py" />
         <option value="$PROJECT_DIR$/leetcode57 Insert Interval.py" />
         <option value="$PROJECT_DIR$/leetcode71 Simplify Path.py" />
         <option value="$PROJECT_DIR$/leetcode494 Target Sum.py" />
@@ -430,6 +428,7 @@
         <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode28 Implement strStr().py" />
+        <option value="$PROJECT_DIR$/leetcode215 Kth Largest Element in an Array.py" />
       </list>
     </option>
   </component>
@@ -439,8 +438,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="141" />
-    <option name="y" value="59" />
+    <option name="y" value="94" />
     <option name="width" value="1117" />
     <option name="height" value="741" />
   </component>
@@ -945,7 +943,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="141" y="59" width="1117" height="741" extended-state="0" />
+    <frame x="0" y="94" width="1117" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31871083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1298,14 +1296,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode215 Kth Largest Element in an Array.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48">
-          <caret line="30" column="85" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode57 Insert Interval.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.04">
@@ -1386,6 +1376,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode28 Implement strStr().py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.6333973">
+          <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1394,10 +1392,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode28 Implement strStr().py">
+    <entry file="file://$PROJECT_DIR$/leetcode215 Kth Largest Element in an Array.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.6333973">
-          <caret line="61" column="20" selection-start-line="61" selection-start-column="20" selection-end-line="61" selection-end-column="20" />
+        <state vertical-scroll-proportion="1.9001919">
+          <caret line="66" column="50" selection-start-line="66" selection-start-column="50" selection-end-line="66" selection-end-column="50" />
           <folding />
         </state>
       </provider>
