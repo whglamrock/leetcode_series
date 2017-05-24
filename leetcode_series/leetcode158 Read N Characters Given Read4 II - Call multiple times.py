@@ -3,10 +3,13 @@
 
 from collections import deque
 
+# a memorizable solution from practice:
+
 class Solution(object):
+
     def __init__(self):
 
-        self.queue = deque()
+        self.q = deque()
 
     def read(self, buf, n):
         """
@@ -14,6 +17,45 @@ class Solution(object):
         :type n: Maximum number of characters to read (int)
         :rtype: The number of characters read (int)
         """
+        
+        # step 1: pop out all neccessary chars from q
+        i = 0
+        while n and self.q:
+            buf[i] = self.q.popleft()
+            i += 1
+            n -= 1
+
+        # step 2: read all chars to the deque
+        oldn = n    # to mark how many chars we will need to pop from the q in the next step
+        while n > 0:
+            cnm = [''] * 4
+            l = read4(cnm)
+            if l == 0: break
+            # we can safely use extend: e.g., if there only are 3 chars read, cnm would be like ['a', 'b', 'c']
+            self.q.extend(cnm)
+            n -= l
+
+        # step 3: oldn tells us how many chars we are still in short of
+        while oldn and self.q:
+            buf[i] = self.q.popleft()
+            i += 1
+            oldn -= 1
+
+        return i
+
+
+
+'''
+# original optimal solution from discussion:
+
+from collections import deque
+
+class Solution(object):
+    def __init__(self):
+
+        self.queue = deque()
+
+    def read(self, buf, n):
 
         index = 0
         while True:
@@ -34,40 +76,4 @@ class Solution(object):
             if currlen == 0: break
 
         return index
-
-
-
-'''
-# practice:
-
-from collections import deque
-
-class Solution(object):
-    def __init__(self):
-
-        self.q = deque()
-
-    def read(self, buf, n):
-
-        i = 0
-        if self.q:
-            while n and self.q:
-                buf[i] = self.q.popleft()
-                n -= 1
-                i += 1
-
-        while True:
-            cnm = [''] * 4
-            l = read4(cnm)
-            for j in xrange(l):
-                self.q.append(cnm[j])
-            if len(self.q) >= n or l == 0:
-                break
-
-        while n and self.q:
-            buf[i] = self.q.popleft()
-            i += 1
-            n -= 1
-
-        return i
 '''

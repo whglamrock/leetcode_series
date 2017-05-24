@@ -23,7 +23,7 @@ class Solution(object):
             key = calculatekey(string)
             dic[key].append(string)
 
-        ans = [value for value in dic.values()]
+        ans = list(dic.values())
         return ans
 
 
