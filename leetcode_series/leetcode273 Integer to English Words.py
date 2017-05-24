@@ -24,7 +24,7 @@ class Solution(object):
                 return LESSTHAN20[triplet] + ' '
             elif triplet < 100:
                 return TENS[triplet / 10] + ' ' + helper(triplet % 10)
-                # <=> return Tens[triplet / 10] + ' ' + ((LessThan20[triplet % 10] + ' ') if triplet % 10 > 0 else '')
+                # <=> return TENS[triplet / 10] + ' ' + (LESSTHAN20[triplet % 10] + ' ' if triplet % 10 > 0 else '')
             else:
                 return LESSTHAN20[triplet / 100] + ' Hundred ' + helper(triplet % 100)
 
