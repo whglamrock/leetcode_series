@@ -8,18 +8,18 @@ class Solution(object):
         if not nums or sum(nums) < s:
             return 0
 
-        cursum = 0
-        l = 0
-        minsize = len(nums)
+        winsum = 0
+        i = 0
+        minlen = len(nums)
 
-        for i, num in enumerate(nums):
-            cursum += num
-            while cursum >= s:
-                minsize = min(minsize, i - l + 1)
-                cursum -= nums[l]
-                l += 1
+        for j, num in enumerate(nums):
+            winsum += num
+            while winsum >= s:
+                minlen = min(minlen, j + 1 - i)
+                winsum -= nums[i]
+                i += 1
 
-        return minsize
+        return minlen
 
 
 
@@ -31,7 +31,7 @@ print Sol.minSubArrayLen(s, nums)
 
 
 '''
-# the leetcode also asks for a 0(nlogn) solution...
+# the leetcode also asks for a O(nlogn) solution...
 # 0(nlogn) time, O(n) space solution
 # idea from: https://discuss.leetcode.com/topic/13749/two-ac-solutions-in-java-with-time-complexity-of-n-and-nlogn-with-explanation/2
 
