@@ -30,11 +30,9 @@ class Solution(object):
 
             # means the window either has exactly the number of each char we need or has redundant chars
             if missing == 0:
-                # we use while loop to shrink the window as small as possible;
-                #   when the s[i] is in t but also redundant, it will be popped out as well
-                # the first condition is "i <= j" instead of "i < j" because of the definition of i and j;
-                #   it also applies to the scenario when t is empty(hypothetic thinking)
-                while i <= j and need[s[i]] < 0:
+                # the first condition -- "i < j" is enough, because the "t is empty" scenario has been ruled out
+                #   i <= j is also okay, though
+                while i < j and need[s[i]] < 0:  
                     need[s[i]] += 1
                     i += 1
 

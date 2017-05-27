@@ -17,7 +17,7 @@ class Solution(object):
         :type n: Maximum number of characters to read (int)
         :rtype: The number of characters read (int)
         """
-        
+
         # step 1: pop out all neccessary chars from q
         i = 0
         while n and self.q:

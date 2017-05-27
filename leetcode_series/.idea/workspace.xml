@@ -3,7 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" afterPath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode49 Group Anagrams.py" afterPath="$PROJECT_DIR$/leetcode49 Group Anagrams.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" afterPath="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -354,11 +354,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode158 Read N Characters Given Read4 II - Call multiple times.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
+      <file leaf-file-name="leetcode76 Minimum Window Substring.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54702497">
-              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+            <state vertical-scroll-proportion="0.9788868">
+              <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
               <folding />
             </state>
           </provider>
@@ -390,7 +390,6 @@
         <option value="$PROJECT_DIR$/leetcode2 Add two Numbers.py" />
         <option value="$PROJECT_DIR$/leetcode554 Brick Wall.py" />
         <option value="$PROJECT_DIR$/leetcode282 Expression Add Operators.py" />
-        <option value="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
         <option value="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
         <option value="$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py" />
         <option value="$PROJECT_DIR$/leetcode161 One Edit Distance.py" />
@@ -430,6 +429,7 @@
         <option value="$PROJECT_DIR$/leetcode273 Integer to English Words.py" />
         <option value="$PROJECT_DIR$/leetcode49 Group Anagrams.py" />
         <option value="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
+        <option value="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
       </list>
     </option>
   </component>
@@ -439,8 +439,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="177" />
-    <option name="y" value="87" />
+    <option name="x" value="27" />
+    <option name="y" value="59" />
     <option name="width" value="1117" />
     <option name="height" value="741" />
   </component>
@@ -945,7 +945,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="177" y="87" width="1117" height="741" extended-state="0" />
+    <frame x="27" y="59" width="1117" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31871083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1051,14 +1051,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.75156575">
-          <caret line="24" column="75" selection-start-line="24" selection-start-column="75" selection-end-line="24" selection-end-column="75" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode10 Regular Expression Matching.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.099624">
@@ -1102,14 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="1" column="15" selection-start-line="1" selection-start-column="15" selection-end-line="1" selection-end-column="15" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="3.671128">
-          <caret line="128" column="19" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -1386,6 +1370,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54702497">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="2.6199615">
+          <caret line="128" column="19" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1394,10 +1394,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py">
+    <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54702497">
-          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+        <state vertical-scroll-proportion="0.9788868">
+          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
           <folding />
         </state>
       </provider>
