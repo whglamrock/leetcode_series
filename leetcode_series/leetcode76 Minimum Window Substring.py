@@ -32,7 +32,7 @@ class Solution(object):
             if missing == 0:
                 # the first condition -- "i < j" is enough, because the "t is empty" scenario has been ruled out
                 #   i <= j is also okay, though
-                while i < j and need[s[i]] < 0:  
+                while i < j and need[s[i]] < 0:
                     need[s[i]] += 1
                     i += 1
 
@@ -50,3 +50,45 @@ Sol = Solution()
 s = 'abdcewgaw'
 t = 'abc'
 print Sol.minWindow(s, t)
+
+
+
+'''
+from collections import Counter
+
+# difference: in the while loop, after we found a valid window, we disregard the current head
+#   (the new head will be next "t's char" in the window) and look for the next char (that == the
+#   discarded head).
+# however, in the the above solution, the window will remain valid once we find a valid one
+
+class Solution(object):
+    def minWindow(self, s, t):
+
+        if not s or not t:  # according to the problem description
+            return ''
+
+        need = Counter(t)
+        missing = len(t)
+        i = 0
+        I = J = 0
+        size = 2147483647
+
+        for j, char in enumerate(s):
+            # char in need is not right, because unnecessary chars are also in need
+            if need[char] > 0:
+                missing -= 1
+            need[char] -= 1
+            # means we found a valid window
+            while missing == 0:
+                if size > j - i + 1:
+                    size = j - i + 1
+                    I, J = i, j + 1
+                # if the start of the window is needed, manually disregard it
+                #   and make the window invalid
+                if need[s[i]] == 0:
+                    missing += 1
+                need[s[i]] += 1
+                i += 1
+
+        return s[I:J]
+'''

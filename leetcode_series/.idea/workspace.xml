@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" afterPath="$PROJECT_DIR$/leetcode158 Read N Characters Given Read4 II - Call multiple times.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" afterPath="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
     </list>
     <ignored path="untitled1.iws" />
@@ -357,8 +356,8 @@
       <file leaf-file-name="leetcode76 Minimum Window Substring.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9788868">
-              <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.43186182">
+              <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -1396,8 +1395,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9788868">
-          <caret line="34" column="49" selection-start-line="34" selection-start-column="49" selection-end-line="34" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.43186182">
+          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
           <folding />
         </state>
       </provider>
