@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode13 Roman to Integer.py" afterPath="$PROJECT_DIR$/leetcode13 Roman to Integer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode146 LRU Cache.py" afterPath="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" afterPath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -350,8 +348,8 @@
       <file leaf-file-name="leetcode146 LRU Cache.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode146 LRU Cache.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3819578">
-              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.48176584">
+              <caret line="101" column="61" selection-start-line="101" selection-start-column="61" selection-end-line="101" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -432,8 +430,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="188" />
-    <option name="y" value="82" />
+    <option name="x" value="91" />
+    <option name="y" value="31" />
     <option name="width" value="1117" />
     <option name="height" value="741" />
   </component>
@@ -938,7 +936,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="188" y="82" width="1117" height="741" extended-state="0" />
+    <frame x="91" y="31" width="1117" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31871083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1389,8 +1387,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode146 LRU Cache.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3819578">
-          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.48176584">
+          <caret line="101" column="61" selection-start-line="101" selection-start-column="61" selection-end-line="101" selection-end-column="61" />
           <folding />
         </state>
       </provider>

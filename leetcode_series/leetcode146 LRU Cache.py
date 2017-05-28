@@ -98,16 +98,16 @@ class LRUCache(object):
             return -1
         else:
             value = self.cache[key]
-            del self.cache[key]
-            self.cache[key] = value
+            del self.cache[key]  # it contains the operation of removing last node
+            self.cache[key] = value  # add a node to the head
             return value
 
     def put(self, key, value):
 
         if key in self.cache:
-            del self.cache[key]
+            del self.cache[key]  # it will remove the node from the doubly-linked list as well
         self.cache[key] = value
-        if len(self.cache) > self.cap:
+        if len(self.cache) > self.cap:  # the len operation takes O(1)
             self.cache.popitem(last = False)
 '''
 
