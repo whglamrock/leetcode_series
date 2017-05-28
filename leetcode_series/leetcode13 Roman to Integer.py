@@ -1,44 +1,30 @@
 
-'''
-O(n) time complexity, O(1) time space complexity
-'''
+# O(n) time complexity, O(1) time space complexity
 
 class Solution(object):
     def romanToInt(self, s):
 
-        def judge(zifu):
-            if zifu == 'I':
-                return 1
-            elif zifu == 'V':
-                return 5
-            elif zifu == 'X':
-                return 10
-            elif zifu == 'L':
-                return 50
-            elif zifu == 'C':
-                return 100
-            elif zifu == 'D':
-                return 500
-            elif zifu == 'M':
-                return 1000
+        # there is no need to check whether s is empty because the definition said input will >= 1
+        singleromantoint = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
+        n = len(s)
 
-        if len(s) == 1:
-            return judge(s[0])
+        if n == 1:
+            return singleromantoint[s]
 
-        i = 0
-        ans = 0
-
-        while i < len(s)-1:
-            if judge(s[i]) < judge(s[i+1]):
-                ans += judge(s[i+1])-judge(s[i])
+        i, ans = 0, 0
+        while i < n - 1:
+            currdigit, nextdigit = singleromantoint[s[i]], singleromantoint[s[i + 1]]
+            if currdigit < nextdigit:
+                ans += nextdigit - currdigit
                 i += 2
-                if i == len(s)-1:
-                    ans += judge(s[i])
             else:
-                ans += judge(s[i])
+                # can't directly do "ans += nextdigit + curdigit" because the
+                #   nextdigit in this loop could be attached with the nextdigit
+                #   in the next loop
+                ans += currdigit
                 i += 1
-                if i == len(s)-1:
-                    ans += judge(s[i])
+            if i == n - 1:  # it applies to both conditions
+                ans += singleromantoint[s[i]]
 
         return ans
 
