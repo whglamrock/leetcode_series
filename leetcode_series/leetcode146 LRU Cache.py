@@ -1,13 +1,17 @@
 
-class Node(object):
+# doubly-linked listnode
 
-    def __init__(self, key, value):
+class Node:
+    def __init__(self, key, val):
 
         self.key = key
-        self.val = value
+        self.val = val
         self.prev = None
         self.next = None
 
+
+# idea: implement the OrderedDict data structure ourselves
+# the key is to put the self.cache[key] = node into the add function and del self.cache[key] into remove function
 
 class LRUCache(object):
 
@@ -15,67 +19,71 @@ class LRUCache(object):
 
         self.head = Node(None, None)
         self.tail = Node(None, None)
-        self.cache = {}
+        self.head.next, self.tail.prev = self.tail, self.head
         self.cap = capacity
-        self.head.next = self.tail
-        self.tail.prev = self.head
+        self.keytonode = {}
+        self.size = 0
 
-    def add(self, newnode):
+    def add(self, node):
 
-        newnode.next = self.head.next
-        newnode.prev = self.head
-        self.head.next.prev = newnode
-        self.head.next = newnode
+        oldfirstnode = self.head.next
+        node.prev, node.next = self.head, oldfirstnode
+        self.head.next, oldfirstnode.prev = node, node
+        key = node.key
+        self.keytonode[key] = node
 
+    # name the function as "remove" instead of "pop", because it's not simply popping the last item
     def remove(self, node):
 
-        pre = node.prev
-        nxt = node.next
-        node.prev = None
-        node.next = None
-        pre.next = nxt
-        nxt.prev = pre
+        key = node.key
+        del self.keytonode[key]
+        prevnode, nextnode = node.prev, node.next
+        node.prev, node.next = None, None
+        prevnode.next, nextnode.prev = nextnode, prevnode
 
     def get(self, key):
 
-        if key not in self.cache:
+        if key not in self.keytonode:
             return -1
-        node = self.cache[key]
-        self.remove(node)
-        self.add(node)
-        return node.val
-
-    def set(self, key, value):
-
-        if key not in self.cache:
-            newnode = Node(key, value)
-            self.add(newnode)
-            self.cache[key] = newnode
-            if len(self.cache) > self.cap:
-                dumpnode = self.tail.prev
-                self.remove(dumpnode)
-                del self.cache[dumpnode.key]
         else:
-            node = self.cache[key]
+            node = self.keytonode[key]
+            self.remove(node)
+            self.add(node)
+            return node.val
+
+    def put(self, key, value):
+
+        if key in self.keytonode:   # the size won't change
+            node = self.keytonode[key]
             node.val = value
             self.remove(node)
             self.add(node)
+        else:
+            if self.size == self.cap:
+                # no need to consider the case when self.tail.prev == self.head
+                lastnode = self.tail.prev
+                self.remove(lastnode)
+                self.size -= 1
+            newnode = Node(key, value)
+            self.add(newnode)
+            self.size += 1
 
 
 
 Sol = LRUCache(2)
-Sol.set(2, 1241)
-Sol.set(3, 13)
-Sol.set(4, 124)
+Sol.put(2, 1241)
+Sol.put(3, 13)
+Sol.put(4, 124)
 print Sol.get(3)
-Sol.set(5, 314)
+Sol.put(5, 314)
 
 
 
 '''
-# the insert/pop item from OrderedDict is theoretically O(1), because it's
-# implemented by two hashtables and a doubly-linked list at the bottom level
 from collections import OrderedDict
+
+# the insert/pop item from OrderedDict is O(1)
+# P.S. remember all O(1) hashtable operations are theoretical
 
 class LRUCache(object):
 
@@ -94,7 +102,7 @@ class LRUCache(object):
             self.cache[key] = value
             return value
 
-    def set(self, key, value):
+    def put(self, key, value):
 
         if key in self.cache:
             del self.cache[key]

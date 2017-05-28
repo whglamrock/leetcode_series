@@ -7,7 +7,6 @@ class Solution(object):
         # there is no need to check whether s is empty because the definition said input will >= 1
         singleromantoint = {'I': 1, 'V': 5, 'X': 10, 'L': 50, 'C': 100, 'D': 500, 'M': 1000}
         n = len(s)
-
         if n == 1:
             return singleromantoint[s]
 

@@ -43,10 +43,32 @@ class Solution(object):
 
     def isSubtree(self, s, t):
 
-        strs = self.serialize(s)
-        strt = self.serialize(t)
+        # transfer the tree into string in preorder
+        def preorderTraversal(root):
 
-        return self.strStr(strs, strt) != -1
+            if not root: return ''
+
+            ans = []
+            stack = [root]
+
+            while stack:
+                node = stack.pop()
+                if not node:
+                    ans.append('N')
+                else:
+                    ans.append(str(node.val))
+                    stack.append(node.right)
+                    stack.append(node.left)
+
+            # it's necessary to add ',' to the head
+            #   otherwise e.g.: s = [12], t = [2], then strings = 12,N,N
+            #   stringt = 2,N,N (in this case we should return False
+            #   but the "','.join(ans)" gives true eventually)
+            return ',' + ','.join(ans)
+
+        strings = preorderTraversal(s)
+        stringt = preorderTraversal(t)
+        return self.strStr(strings, stringt) != -1
 
     def ComputePrefixFunction(self, needle):
 
@@ -91,23 +113,4 @@ class Solution(object):
                 j = pat[j - 1]
 
         return -1
-
-    # the serialization code from lc297 needs to be changed into preorder
-    def serialize(self, root):
-
-        if not root:
-            return ''
-        todo = [root]
-        ans = []
-
-        while todo:
-            node = todo.pop()
-            if not node:
-                ans.append('N')
-            else:
-                ans.append(str(node.val))
-                todo.append(node.right)
-                todo.append(node.left)
-
-        return ',' + ','.join(ans)
 '''
