@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode146 LRU Cache.py" afterPath="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
-    </list>
+    <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="" />
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -345,11 +343,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode146 LRU Cache.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode146 LRU Cache.py">
+      <file leaf-file-name="leetcode460 LFU Cache.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode460 LFU Cache.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.48176584">
-              <caret line="101" column="61" selection-start-line="101" selection-start-column="61" selection-end-line="101" selection-end-column="61" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -430,8 +428,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="91" />
-    <option name="y" value="31" />
+    <option name="x" value="128" />
+    <option name="y" value="50" />
     <option name="width" value="1117" />
     <option name="height" value="741" />
   </component>
@@ -936,7 +934,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="91" y="31" width="1117" height="741" extended-state="0" />
+    <frame x="128" y="50" width="1117" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31871083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -986,14 +984,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode2 Add two Numbers.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.908142">
-          <caret line="29" column="31" selection-start-line="29" selection-start-column="31" selection-end-line="29" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode200 Number of Islands.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.43632567">
@@ -1387,8 +1377,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode146 LRU Cache.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48176584">
+        <state vertical-scroll-proportion="0.0">
           <caret line="101" column="61" selection-start-line="101" selection-start-column="61" selection-end-line="101" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode460 LFU Cache.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
