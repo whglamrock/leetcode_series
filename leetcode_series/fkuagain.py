@@ -1,12 +1,6 @@
-a = set()
-a.add(2)
-a.add(1)
-a.add(3)
+a = {1: 2, 3: 4}
+print len(a)
 
-a = sorted(a)
-print a
-a.sort(key = lambda x: -x)
-print a
 
 
 
