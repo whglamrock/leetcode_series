@@ -4,6 +4,12 @@ from collections import OrderedDict
 # in the doubly linked list, the node (each node represents the keys with same count)
 #   is sorted in ascending order
 
+# using a dummy head and a dummy tail instead of solely initializing self.head = None can
+#   avoid all the key errors because we don't have to reset the head after adding a new node
+
+# P.S. consider the corner case: ["LFUCache","put","get","put","get","get"]
+#   [[1],[2,1],[2],[3,2],[2],[3]], when the capacity == 1
+
 class Node:
     def __init__(self, count):
 
@@ -19,9 +25,9 @@ class LFUCache(object):
 
         self.cap = capacity
         # separate the key-value pair hash from the linked list can save lots of trouble
-        self.valuehash = {}
+        self.keytovalue = {}
         # a single node has a container that stores the keys with same count
-        self.nodehash = {}
+        self.keytonode = {}
         self.head = Node(0)
         self.tail = Node(0)
         self.head.next, self.tail.prev = self.tail, self.head
@@ -41,18 +47,18 @@ class LFUCache(object):
             # put the key into the new node's container
             newnode.container[key] = 0   # or it can = anything, Python doesn't have OrderedSet
             # always put the hash alternation at last
-            self.nodehash[key] = newnode
+            self.keytonode[key] = newnode
         else:
             oldfirstnode.container[key] = 0
             # always put the hash alternation at last
-            self.nodehash[key] = oldfirstnode
+            self.keytonode[key] = oldfirstnode
 
     # simply remove the node; very important to remember to check if the node is None
     def removetheNode(self, node):
 
-        prevnode, nextnode = node.prev, node.next
         if node.count == 0:
             return
+        prevnode, nextnode = node.prev, node.next
         node.prev, node.next = None, None
         if prevnode:    # very important to check if the prevnode is None
             prevnode.next = nextnode
@@ -71,14 +77,14 @@ class LFUCache(object):
         if len(firstnode.container) == 0:
             self.removetheNode(firstnode)
 
-        if key in self.nodehash:    # very important to check the key error
-            del self.nodehash[key]
-        if key in self.valuehash:   # very important to check the key error
-            del self.valuehash[key]
+        if key in self.keytonode:    # very important to check the key error
+            del self.keytonode[key]
+        if key in self.keytovalue:   # very important to check the key error
+            del self.keytovalue[key]
 
     def increaseCount(self, key):
 
-        node = self.nodehash[key]
+        node = self.keytonode[key]
         del node.container[key]  # the hash delete job needs to be done first
 
         # remember to check whether the node.next == None
@@ -93,33 +99,33 @@ class LFUCache(object):
         else:
             node.next.container[key] = 0
 
-        self.nodehash[key] = node.next  # at this point, the node.next can't be None
+        self.keytonode[key] = node.next  # at this point, the node.next can't be None
         if len(node.container) == 0:
             self.removetheNode(node)
 
     def get(self, key):
 
-        if key not in self.valuehash:
+        if key not in self.keytovalue:
             return -1
         # the increase count operation won't change the key-value pair in valuehash
         self.increaseCount(key)
         # separate the key-value pair from the increaseCount process to avoid key error
-        return self.valuehash[key]
+        return self.keytovalue[key]
 
     def put(self, key, value):
 
-        if self.cap == 0:   # can't possibly happen, but just in case...
+        if self.cap == 0:   # leetcode did give this corner case
             return
 
-        if key in self.valuehash:
+        if key in self.keytovalue:
             self.increaseCount(key)
         else:
             # remove a node first to make one spot available
-            if len(self.valuehash) == self.cap:
+            if len(self.keytovalue) == self.cap:
                 self.removetheLeastFrequent()
             self.addtoHead(key)
         # always put the hash alternation at last
-        self.valuehash[key] = value
+        self.keytovalue[key] = value
 
 
 
