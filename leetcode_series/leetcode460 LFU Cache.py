@@ -1,5 +1,5 @@
 
-from collections import OrderedDict
+from collections import OrderedDict  # or we can implement OrderedSet ourselves, see lc146
 
 # in the doubly linked list, the node (each node represents the keys with same count)
 #   is sorted in ascending order
@@ -58,6 +58,7 @@ class LFUCache(object):
 
         if node.count == 0:
             return
+
         prevnode, nextnode = node.prev, node.next
         node.prev, node.next = None, None
         if prevnode:    # very important to check if the prevnode is None
@@ -69,7 +70,7 @@ class LFUCache(object):
     def removetheLeastFrequent(self):
 
         firstnode = self.head.next
-        if firstnode.count == 0:
+        if firstnode.count == 0 or len(firstnode.container) == 0:
             return
 
         # no need to check, because if it was empty, it would have been removed before
@@ -84,8 +85,12 @@ class LFUCache(object):
 
     def increaseCount(self, key):
 
+        if key not in self.keytonode:
+            return
         node = self.keytonode[key]
-        del node.container[key]  # the hash delete job needs to be done first
+        del self.keytonode[key]
+        if key in node.container:
+            del node.container[key]  # the hash delete job needs to be done first
 
         # remember to check whether the node.next == None
         if not node.next or node.next.count != node.count + 1:
