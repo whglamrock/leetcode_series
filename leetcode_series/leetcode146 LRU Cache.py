@@ -1,5 +1,5 @@
 
-# doubly-linked listnode
+# implementing the OrderedSet needs doubly-linked list
 
 class Node:
     def __init__(self, key, val):
@@ -10,63 +10,83 @@ class Node:
         self.next = None
 
 
-# idea: implement the OrderedDict data structure ourselves
-# the key is to put the self.cache[key] = node into the add function and del self.cache[key] into remove function
+# manually implement the OrderedSet
+
+class OrderedSet:
+
+    def __init__(self):
+
+        self.head = Node(None, None)
+        self.tail = Node(None, None)
+        self.head.next, self.tail.prev = self.tail, self.head
+        self.keytonode = {}
+
+    def size(self):
+        return len(self.keytonode)
+
+    def find(self, key):
+        return key in self.keytonode
+
+    def delete(self, key):
+
+        node = self.keytonode[key]
+        del self.keytonode[key]
+        prevnode, nextnode = node.prev, node.next
+        node.prev, node.next = None, None
+        prevnode.next, nextnode.prev = nextnode, prevnode
+        return key, node.val
+
+    def add(self, key, val):
+
+        node = Node(key, val)
+        oldfirstnode = self.head.next
+        node.prev, node.next = self.head, oldfirstnode
+        self.head.next, oldfirstnode.prev = node, node
+        self.keytonode[key] = node
+
+    def pop(self):
+
+        lastnode = self.tail.prev
+        if lastnode == self.head or lastnode.key == None:
+            return
+
+        thenodepriortolastnode = lastnode.prev
+        lastnode.prev, lastnode.next = None, None
+        thenodepriortolastnode.next, self.tail.prev = self.tail, thenodepriortolastnode
+
+        lastkey = lastnode.key
+        if lastkey in self.keytonode:
+            del self.keytonode[lastkey]
+
+
+# if the interviewer didn't ask, we use the built-in OrderedDict first;
+#   otherwise manually implement the OrderedSet data structure
 
 class LRUCache(object):
 
     def __init__(self, capacity):
 
-        self.head = Node(None, None)
-        self.tail = Node(None, None)
-        self.head.next, self.tail.prev = self.tail, self.head
         self.cap = capacity
-        self.keytonode = {}
-        self.size = 0
-
-    def add(self, node):
-
-        oldfirstnode = self.head.next
-        node.prev, node.next = self.head, oldfirstnode
-        self.head.next, oldfirstnode.prev = node, node
-        key = node.key
-        self.keytonode[key] = node
-
-    # name the function as "remove" instead of "pop", because it's not simply popping the last item
-    def remove(self, node):
-
-        key = node.key
-        del self.keytonode[key]
-        prevnode, nextnode = node.prev, node.next
-        node.prev, node.next = None, None
-        prevnode.next, nextnode.prev = nextnode, prevnode
+        self.cache = OrderedSet()
 
     def get(self, key):
 
-        if key not in self.keytonode:
+        if not self.cache.find(key):
             return -1
         else:
-            node = self.keytonode[key]
-            self.remove(node)
-            self.add(node)
-            return node.val
+            key, val = self.cache.delete(key)
+            self.cache.add(key, val)
+            return val
 
     def put(self, key, value):
 
-        if key in self.keytonode:   # the size won't change
-            node = self.keytonode[key]
-            node.val = value
-            self.remove(node)
-            self.add(node)
+        if self.cache.find(key):
+            self.cache.delete(key)
+            self.cache.add(key, value)
         else:
-            if self.size == self.cap:
-                # no need to consider the case when self.tail.prev == self.head
-                lastnode = self.tail.prev
-                self.remove(lastnode)
-                self.size -= 1
-            newnode = Node(key, value)
-            self.add(newnode)
-            self.size += 1
+            if self.cache.size() == self.cap:
+                self.cache.pop()
+            self.cache.add(key, value)
 
 
 
@@ -75,6 +95,7 @@ Sol.put(2, 1241)
 Sol.put(3, 13)
 Sol.put(4, 124)
 print Sol.get(3)
+print Sol.get(2)
 Sol.put(5, 314)
 
 

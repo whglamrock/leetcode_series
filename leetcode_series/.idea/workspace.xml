@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode460 LFU Cache.py" afterPath="$PROJECT_DIR$/leetcode460 LFU Cache.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode146 LRU Cache.py" afterPath="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -170,7 +170,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode20_Valid_Parentheses.coverage" NAME="leetcode20 Valid Parentheses Coverage Results" MODIFIED="1456941938750" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode105_Construct_Binary_Tree_from_Preorder_and_Inorder_Traversal.coverage" NAME="leetcode105 Construct Binary Tree from Preorder and Inorder Traversal Coverage Results" MODIFIED="1478407083583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode259_3Sum_Smaller.coverage" NAME="leetcode259 3Sum Smaller Coverage Results" MODIFIED="1465774590652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/leetcode_series$leetcode146_LRU_Cache.coverage" NAME="leetcode146 LRU Cache Coverage Results" MODIFIED="1496000055105" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode146_LRU_Cache.coverage" NAME="leetcode146 LRU Cache Coverage Results" MODIFIED="1496259176382" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode274_H_Index.coverage" NAME="leetcode274 H-Index Coverage Results" MODIFIED="1467428493355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode356_Line_Reflection.coverage" NAME="leetcode356 Line Reflection Coverage Results" MODIFIED="1475870053414" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$dropboxOA.coverage" NAME="dropboxOA Coverage Results" MODIFIED="1485064560200" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -346,11 +346,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode460 LFU Cache.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leetcode460 LFU Cache.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetcode460 LFU Cache.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63339734">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode146 LRU Cache.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode146 LRU Cache.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-1.2380038">
+              <caret line="62" column="62" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
               <folding />
             </state>
           </provider>
@@ -419,9 +429,9 @@
         <option value="$PROJECT_DIR$/leetcode209 Minimum Size Subarray Sum.py" />
         <option value="$PROJECT_DIR$/leetcode13 Roman to Integer.py" />
         <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
-        <option value="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode460 LFU Cache.py" />
+        <option value="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
       </list>
     </option>
   </component>
@@ -431,7 +441,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="14" />
+    <option name="x" value="142" />
     <option name="y" value="23" />
     <option name="width" value="1117" />
     <option name="height" value="741" />
@@ -511,7 +521,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode460 LFU Cache">
+  <component name="RunManager" selected="Python.leetcode146 LRU Cache">
     <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -899,9 +909,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode460 LFU Cache" />
-        <item index="1" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode146 LRU Cache" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode146 LRU Cache" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode460 LFU Cache" />
+        <item index="2" class="java.lang.String" itemvalue="Python.fkuagain" />
         <item index="3" class="java.lang.String" itemvalue="Python.leetcode572 Subtree of Another Tree" />
         <item index="4" class="java.lang.String" itemvalue="Python.leetcode15 3Sum" />
       </list>
@@ -937,7 +947,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="14" y="23" width="1117" height="741" extended-state="0" />
+    <frame x="142" y="23" width="1117" height="741" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31871083" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -946,7 +956,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49000868" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18303572" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18303572" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24934839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1354,14 +1364,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.77735126">
-          <caret line="41" column="0" selection-start-line="41" selection-start-column="0" selection-end-line="114" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode71 Simplify Path.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.28790787">
@@ -1378,18 +1380,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode146 LRU Cache.py">
+    <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48176584">
-          <caret line="101" column="61" selection-start-line="101" selection-start-column="61" selection-end-line="101" selection-end-column="61" />
+        <state vertical-scroll-proportion="-0.057581574">
+          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode460 LFU Cache.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.63339734">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode146 LRU Cache.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.2380038">
+          <caret line="62" column="62" selection-start-line="62" selection-start-column="62" selection-end-line="62" selection-end-column="62" />
           <folding />
         </state>
       </provider>
