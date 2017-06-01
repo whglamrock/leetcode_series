@@ -1,5 +1,5 @@
 
-# implementing the OrderedSet needs doubly-linked list
+# implementing the OrderedSet needs doubly-linked list, the head stores the most recent key
 
 class Node:
     def __init__(self, key, val):
@@ -13,7 +13,6 @@ class Node:
 # manually implement the OrderedSet
 
 class OrderedSet:
-
     def __init__(self):
 
         self.head = Node(None, None)
@@ -22,48 +21,57 @@ class OrderedSet:
         self.keytonode = {}
 
     def size(self):
+
         return len(self.keytonode)
 
-    def find(self, key):
+    def check(self, key):
+
         return key in self.keytonode
+
+    # add to the head
+    def add(self, key, val):
+
+        newnode = Node(key, val)
+        oldfirstnode = self.head.next
+        newnode.prev, newnode.next = self.head, oldfirstnode
+        self.head.next, oldfirstnode.prev = newnode, newnode
+        self.keytonode[key] = newnode
 
     def delete(self, key):
 
+        # put the hash deletion first
         node = self.keytonode[key]
         del self.keytonode[key]
+
+        # disconnect the node from the doubly-linked list
         prevnode, nextnode = node.prev, node.next
         node.prev, node.next = None, None
         prevnode.next, nextnode.prev = nextnode, prevnode
+
+        # to return is to provide input for other adding function
         return key, node.val
-
-    def add(self, key, val):
-
-        node = Node(key, val)
-        oldfirstnode = self.head.next
-        node.prev, node.next = self.head, oldfirstnode
-        self.head.next, oldfirstnode.prev = node, node
-        self.keytonode[key] = node
 
     def pop(self):
 
+        # trivial check for corner case
         lastnode = self.tail.prev
-        if lastnode == self.head or lastnode.key == None:
+        if lastnode.key == None:    # means it's self.head
             return
-
-        thenodepriortolastnode = lastnode.prev
-        lastnode.prev, lastnode.next = None, None
-        thenodepriortolastnode.next, self.tail.prev = self.tail, thenodepriortolastnode
 
         lastkey = lastnode.key
         if lastkey in self.keytonode:
             del self.keytonode[lastkey]
+
+        # disconnect the lastnode
+        thenodepriortolastnode = lastnode.prev
+        lastnode.prev, lastnode.next = None, None
+        thenodepriortolastnode.next, self.tail.prev = self.tail, thenodepriortolastnode
 
 
 # if the interviewer didn't ask, we use the built-in OrderedDict first;
 #   otherwise manually implement the OrderedSet data structure
 
 class LRUCache(object):
-
     def __init__(self, capacity):
 
         self.cap = capacity
@@ -71,7 +79,7 @@ class LRUCache(object):
 
     def get(self, key):
 
-        if not self.cache.find(key):
+        if not self.cache.check(key):
             return -1
         else:
             key, val = self.cache.delete(key)
@@ -80,10 +88,11 @@ class LRUCache(object):
 
     def put(self, key, value):
 
-        if self.cache.find(key):
+        if self.cache.check(key):
             self.cache.delete(key)
             self.cache.add(key, value)
         else:
+            # remember the "size()" is a function of OrderedSet class, not a feature
             if self.cache.size() == self.cap:
                 self.cache.pop()
             self.cache.add(key, value)
