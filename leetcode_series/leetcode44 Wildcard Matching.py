@@ -19,42 +19,47 @@
 #      False, then even if the '*' can match the s[i] by virtually creating one more char,
 #      the whole p[:char + 1] won't match s[:i + 1].
 
-class Solution():
+class Solution(object):
     def isMatch(self, s, p):
 
-        length = len(s)
-        # even if all '*'s represents empty sequence
-        if len(p) - p.count('*') > length:
+        if p == None or s == None:
+            return False
+        if not p:
+            return s == ''
+        # when all '*'s represents empty sequence, s and p still don't match
+        if len(p) - p.count('*') > len(s):
             return False
 
-        dp = [True] + [False] * length
-        # after every outer for loop, the whole dp is updated once
-        # the dp[i] means whether p[:char + 1] matches s[:i] (dp's length is longer than s by 1)
+        lengthofs = len(s)
+        # build a one dimensional dp, and after every outer for loop, the whole dp is updated once
+        dp = [False] * (lengthofs + 1)
+        # means initially, the empty subtring p[:0] matches s[:0]
+        dp[0] = True
+
+        # in each loop, we compare the whole s with the partial p until the last loop
+        #   the i for loop goes through the s
         for char in p:
             if char != '*':
-                for i in reversed(range(length)):
-                    # the dp[i] is the status at i in the previous iteration,
-                    # which tells whether s[:i] matches p[:char]
-                    dp[i + 1] = dp[i] and (s[i] == char or char == '?')
-                    # all new status of dp[i] is based on the previous
-                    # status of previous element dp[i - 1].
+                for i in xrange(lengthofs - 1, -1, -1):
+                    if char == s[i] or char == '?':
+                        dp[i + 1] = dp[i]   # dp[i] means whether s[:i] matches the partial p
+                    else:
+                        dp[i + 1] = False
             else:
-                for i in xrange(1, length + 1):
-                # if the old dp[i] is True, it means s[:i] matches p[:char]
-                # the '*' should represent empty sequence
-                    if dp[i] == True or dp[i - 1] == True:  # old dp[i] and updated dp[i - 1]
+                # the '*' can make sure that once some s[:i] matches p[:the index of char],
+                #   p[:the index of char + 1] will match the whole s
+                for i in xrange(1, lengthofs + 1):  # the i starts from 1 because the '*' can match zero chars
+                    # the dp[i] is the dp[i] from previous big for loop,
+                    #   and dp[i - 1] is updated in the previous small for loop
+                    if dp[i] or dp[i - 1]:
+                        # if dp[i] == True, the new dp[i] = True because the '*' can match zero chars
+                        # if dp[i - 1] == True, the new dp[i] = True because the '*' can match one more char of s
                         dp[i] = True
                     else:
                         dp[i] = False
-                # a simple example when updated dp[i - 1] is False but dp[i] could still be
-                # True if old dp[i] is True: 'a' doesn't match 'ac*', but 'ac' matches 'ac*'
-                # because 'ac' matches 'ac'.
-            # after the first round, the dp[0] needs to be updated;
-            # and the only way it remains True is p == '*****..', etc.
-            dp[0] = dp[0] and (char == '*')
-            #print dp
-
-        return dp[-1]
+            # after the first round of the big for loop, the dp[0] needs to be updated;
+            #   and the only way it remains True is p == '*****..', etc.
+            dp[0] = dp[0] and char == '*'
 
 
 
@@ -63,7 +68,7 @@ p = "a*"
 s1 = 'ac'
 p1 = 'ac*'
 Sol = Solution()
-# print dp in each outer for loop.
+
 print Sol.isMatch(s, p)
 print Sol.isMatch(s1, p1)
 
