@@ -59,7 +59,7 @@ class Solution(object):
                         dp[i] = False
             # after the first round of the big for loop, the dp[0] needs to be updated;
             #   and the only way it remains True is p == '*****..', etc.
-            dp[0] = dp[0] and char == '*'
+            dp[0] = dp[0] and char == '*'   # in real interview, don't forget to update
 
 
 

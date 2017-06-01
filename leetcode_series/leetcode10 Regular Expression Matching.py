@@ -2,6 +2,7 @@
 '''
 In this problem, we assume that there is no "." or "*" in s, the p does not start with "*",
 there won't be consecutive '*'s in p, the * can only eliminates one preceding char.
+Also, the description is vague, without telling that the '*' can actually eliminate one preceding char
 '''
 
 # idea from: https://discuss.leetcode.com/topic/22948/my-dp-approach-in-python-with-comments-and-unittest
