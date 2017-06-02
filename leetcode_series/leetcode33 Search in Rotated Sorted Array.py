@@ -5,15 +5,18 @@ class Solution(object):
     def search(self, nums, target):
 
         l, r = 0, len(nums)-1
+        # remember in this rotated array, always use the left element to compare with the mid;
+            #   you have to consider more cases if using the right element
 
         while l <= r:
             mid = (l + r) / 2
             if nums[mid] == target:
                 return mid
-            if nums[l] <= nums[mid]:
+            # for the nums[l] == nums[mid] case, consider nums = [3, 1], target = 1
+            elif nums[l] <= nums[mid]:  
                 if nums[l] <= target < nums[mid]:
                     r = mid - 1
-                else:
+                else:   # target < nums[l] or target > nums[mid]
                     l = mid + 1
             else:
                 if nums[mid] < target <= nums[r]:
