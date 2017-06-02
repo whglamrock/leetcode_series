@@ -1,8 +1,16 @@
-a = {1: 2, 3: 4}
-print len(a)
+
 import random
-a = random.randint(0, 0)
+a = random.randint(0, 4)
 print a
+if a > 2:
+    pass
+else:
+    print 'fku'
+
+print int('2000')
+
+
+
 
 
 
