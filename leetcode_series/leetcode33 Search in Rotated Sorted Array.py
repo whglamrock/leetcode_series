@@ -1,5 +1,6 @@
 
-# the simplest one pass solution came from lc 88.
+# the simplest one pass solution.
+# the key is to compare the nums[mid] with nums[l] in binary search
 
 class Solution(object):
     def search(self, nums, target):
@@ -9,7 +10,7 @@ class Solution(object):
 
         l, r = 0, len(nums)-1
         # remember in this rotated array, always use the left element to compare with the mid;
-            #   you have to consider more cases if using the right element
+        #   you have to consider more cases if using the right element
 
         while l <= r:
             mid = (l + r) / 2
