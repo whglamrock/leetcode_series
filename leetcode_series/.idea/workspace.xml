@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py" afterPath="$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode75 Sort Colors.py" afterPath="$PROJECT_DIR$/leetcode75 Sort Colors.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -88,7 +88,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode488_Zuma_Game.coverage" NAME="leetcode488 Zuma Game Coverage Results" MODIFIED="1488757537700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode19_Remove_Nth_Node_From_End_of_List.coverage" NAME="leetcode19 Remove Nth Node From End of List Coverage Results" MODIFIED="1456864165747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode399_Evaluation_Division.coverage" NAME="leetcode399 Evaluation Division Coverage Results" MODIFIED="1480625806680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/leetcode_series$leetcode75_Sort_Colors.coverage" NAME="leetcode75 Sort Colors Coverage Results" MODIFIED="1492724289913" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode75_Sort_Colors.coverage" NAME="leetcode75 Sort Colors Coverage Results" MODIFIED="1496527705975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode_347_Top_K_Frequent_Elements.coverage" NAME="leetcode 347 Top K Frequent Elements Coverage Results" MODIFIED="1465265509093" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode460_LFU_Cache.coverage" NAME="leetcode460 LFU Cache Coverage Results" MODIFIED="1496212384223" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode444_Sequence_Reconstruction.coverage" NAME="leetcode444 Sequence Reconstruction Coverage Results" MODIFIED="1481219906259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -351,21 +351,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode81 Search in Rotated Sorted Array.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py">
+      <file leaf-file-name="leetcode75 Sort Colors.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode75 Sort Colors.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.096838">
-              <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leetcode33 Search in Rotated Sorted Array.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leetcode33 Search in Rotated Sorted Array.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+            <state vertical-scroll-proportion="0.50395256">
+              <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -402,7 +392,6 @@
         <option value="$PROJECT_DIR$/leetcode173 Binary Search Tree Iterator.py" />
         <option value="$PROJECT_DIR$/leetcode257 Binary Tree Paths.py" />
         <option value="$PROJECT_DIR$/leetcode125 Valid palindrome.py" />
-        <option value="$PROJECT_DIR$/leetcode75 Sort Colors.py" />
         <option value="$PROJECT_DIR$/leetcode78 Subsets.py" />
         <option value="$PROJECT_DIR$/leetcode98 Validate Binary Search Tree.py" />
         <option value="$PROJECT_DIR$/leetcode43 Multiply Strings.py" />
@@ -437,6 +426,7 @@
         <option value="$PROJECT_DIR$/leetcode33 Search in Rotated Sorted Array.py" />
         <option value="$PROJECT_DIR$/leetcode88 Merge sorted array.py" />
         <option value="$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py" />
+        <option value="$PROJECT_DIR$/leetcode75 Sort Colors.py" />
       </list>
     </option>
   </component>
@@ -446,8 +436,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="170" />
-    <option name="y" value="79" />
+    <option name="x" value="122" />
+    <option name="y" value="64" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
   </component>
@@ -526,7 +516,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode81 Search in Rotated Sorted Array">
+  <component name="RunManager" selected="Python.leetcode75 Sort Colors">
     <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -541,24 +531,6 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fkuagain.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="leetcode44 Wildcard Matching" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode44 Wildcard Matching.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -613,6 +585,24 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode75 Sort Colors" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode75 Sort Colors.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -907,18 +897,18 @@
       <item index="3" class="java.lang.String" itemvalue="Python.just4test" />
       <item index="4" class="java.lang.String" itemvalue="Python.leetcode13 Roman to Integer" />
       <item index="5" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode33 Search in Rotated Sorted Array" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode88 Merge sorted array" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode81 Search in Rotated Sorted Array" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode33 Search in Rotated Sorted Array" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode88 Merge sorted array" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode81 Search in Rotated Sorted Array" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode75 Sort Colors" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode81 Search in Rotated Sorted Array" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode88 Merge sorted array" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode33 Search in Rotated Sorted Array" />
-        <item index="3" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode75 Sort Colors" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode81 Search in Rotated Sorted Array" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode88 Merge sorted array" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode33 Search in Rotated Sorted Array" />
+        <item index="4" class="java.lang.String" itemvalue="Python.fkuagain" />
       </list>
     </recent_temporary>
   </component>
@@ -952,7 +942,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="170" y="79" width="1054" height="749" extended-state="0" />
+    <frame x="122" y="64" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1086,14 +1076,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4820416">
           <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode75 Sort Colors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1386,6 +1368,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5335968">
+          <caret line="18" column="33" selection-start-line="18" selection-start-column="33" selection-end-line="18" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode33 Search in Rotated Sorted Array.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.35573122">
+          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fkuagain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1394,18 +1392,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode33 Search in Rotated Sorted Array.py">
+    <entry file="file://$PROJECT_DIR$/leetcode75 Sort Colors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="12" column="12" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.096838">
-          <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.50395256">
+          <caret line="17" column="69" selection-start-line="17" selection-start-column="69" selection-end-line="17" selection-end-column="69" />
           <folding />
         </state>
       </provider>
