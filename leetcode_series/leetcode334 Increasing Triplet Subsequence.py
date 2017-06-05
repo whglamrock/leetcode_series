@@ -15,9 +15,11 @@ class Solution(object):
             # it' elif, not if!
             elif num <= second:    # it's "<=", not "<"
                 second = num
+            # if it's not "<=" in the above two conditions, it will "return
+            #   True" for case like [1,1,1,1,1,1,1]
             else:
                 return True
-            
+
         return False
 
 

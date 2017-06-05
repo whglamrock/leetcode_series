@@ -1,48 +1,69 @@
 
-# classic DFS
+# see explanation from: https://discuss.leetcode.com/topic/4661/c-solution-and-explanation/2
 
-class Solution:
-    def subsetsWithDup(self, S):
+# for each unique number, we either choose or not choose it to put in each res's instance
+#   so for a series of n duplicates, we can choose put 1 ~ n of them in each res's instance.
 
-        if (not S): return []
-        S.sort()
-        ans = []
+class Solution(object):
+    def subsetsWithDup(self, nums):
 
-        def helper(last, lastindex):
-            original = len(ans)
-            for i in xrange(lastindex+1, len(S)):
-                if i > lastindex+1 and S[i] == S[i-1]:  # memorize this if condition (deal with duplicates).
-                    continue
-                ans.append(last+[S[i]])
-                helper(last+[S[i]], i)
-            if len(ans) == original:
-                return
+        res = [[]]
+        nums.sort()
 
-        helper([], -1)
-        ans.append([])
-        return ans
+        i = 0
+        while i < len(nums):
+            # count how many duplicates in a row
+            count = 0
+            while i + count < len(nums) and nums[count + i] == nums[i]:
+                count += 1
+            # for each individual added instance, use nums[i] to form a series a new instances;
+            #   there are (count) nums[i] in total
+            for j in xrange(len(res)):
+                instance = res[j]
+                for k in xrange(count):
+                    # P.S. we have to build a newinstance, simply using instance.append(nums[i])
+                    #   will result in appending a bunch of same instances into the res!
+                    #   e.g., nums = [1,2,2], nums[i] = 2, count = 2, the res will be added
+                    #   two [1,2,2] because the "Python append(x)" doesn't do deepcopy of x
+                    newinstance = instance + [nums[i]]
+                    res.append(newinstance)
+                    instance = newinstance
+            i += count
+
+        return res
 
 
 
 Sol = Solution()
-S = [1,2,2,2,3,3,4]
+S = [1,2,2,3,4]
 print Sol.subsetsWithDup(S)
 
 
 
 '''
-# optimal solution without extra space
-class Solution:
-    def subsetsWithDup(self, S):
+# no extra space optimal solution
+# can take [1,2,2,3] as an example to see how the range of j is changed
+
+class Solution(object):
+    def subsetsWithDup(self, nums):
 
         res = [[]]
-        S.sort()
-        for i in range(len(S)):
-            if i == 0 or S[i] != S[i - 1]:  # let's assume S = [1,2,2,2,3,3,4]
-                l = len(res)
-            for j in range(len(res) - l, len(res)):    # go through for loop of i & j to find delicacy of this line
-                res.append(res[j] + [S[i]])  # for every s[i], add it to all existent res[j] to form new 'res[j]'.
-        return res
+        nums.sort()
+        l = len(res)
 
-# the most important trick is the move of j's range. Write down every for loop with above test case to find out.
+        for i, num in enumerate(nums):
+            if i == 0 or num != nums[i - 1]:
+                l = len(res)    # the length of previous res
+            # In the previous loop, every instance of the previous-previous res is added a
+            #   nums[i - 1] to form a new instance in the previous res; there are in total
+            #   len(previous-previous res) elements that have been added nums[i - 1];
+            # to avoid adding the nums[i] to those elements again, we need to use len(res) - l
+            #   as the start index of j:
+            #   a) if nums[i] == nums[i - 1], the l will not be updated by the above if statement
+            #   b) if nums[i] != nums[i - 1], the l will be updated to len(previous res) so
+            #      len(previous len) - len(previous len) == 0 and j starts from 0
+            for j in xrange(len(res) - l, len(res)):    # P.S. the range of j will not change
+                res.append(res[j] + [num])
+
+        return res
 '''
