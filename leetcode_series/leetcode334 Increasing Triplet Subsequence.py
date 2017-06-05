@@ -5,14 +5,19 @@
 class Solution(object):
     def increasingTriplet(self, nums):
 
-        first = second = float('inf')
-        for n in nums:
-            if n <= first:
-                first = n
-            elif n <= second:
-                second = n
+        if not nums or len(nums) < 3:
+            return False
+
+        first = second = 2147483647
+        for num in nums:
+            if num <= first:    # remember it's "<=", not "<"
+                first = num
+            # it' elif, not if!
+            elif num <= second:    # it's "<=", not "<"
+                second = num
             else:
                 return True
+            
         return False
 
 
