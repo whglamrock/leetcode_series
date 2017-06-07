@@ -1,5 +1,7 @@
 
 # see explanation from: https://discuss.leetcode.com/topic/4661/c-solution-and-explanation/2
+# compared to another solution commented at last, the following is slower relatively easier
+#   to understand
 
 # for each unique number, we either choose or not choose it to put in each res's instance
 #   so for a series of n duplicates, we can choose put 1 ~ n of them in each res's instance.
