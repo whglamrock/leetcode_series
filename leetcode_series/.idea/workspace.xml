@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode44 Wildcard Matching.py" afterPath="$PROJECT_DIR$/leetcode44 Wildcard Matching.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" afterPath="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -326,6 +326,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode125_Valid_palindrome.coverage" NAME="leetcode125 Valid palindrome Coverage Results" MODIFIED="1458078288341" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode273_Integer_to_English_Words.coverage" NAME="leetcode273 Integer to English Words Coverage Results" MODIFIED="1491520346036" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode322_Coin_Change.coverage" NAME="leetcode322 Coin Change Coverage Results" MODIFIED="1471801304123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode377_Combinations_Sum_IV.coverage" NAME="leetcode377 Combinations Sum IV Coverage Results" MODIFIED="1496857726161" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode336_Palindrome_Pairs.coverage" NAME="leetcode336 Palindrome Pairs Coverage Results" MODIFIED="1480477044432" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode59_Spiral_Matrix_II.coverage" NAME="leetcode59 Spiral Matrix II Coverage Results" MODIFIED="1466560786000" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode161_One_Edit_Distance.coverage" NAME="leetcode161 One Edit Distance Coverage Results" MODIFIED="1492206243177" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -353,11 +354,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode44 Wildcard Matching.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode44 Wildcard Matching.py">
+      <file leaf-file-name="leetcode377 Combinations Sum IV.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode377 Combinations Sum IV.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.9038461">
-              <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.63461536">
+              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -378,7 +379,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode157 Read N Characters Given Read4.py" />
         <option value="$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py" />
         <option value="$PROJECT_DIR$/leetcode161 One Edit Distance.py" />
         <option value="$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py" />
@@ -429,6 +429,7 @@
         <option value="$PROJECT_DIR$/leetcode334 Increasing Triplet Subsequence.py" />
         <option value="$PROJECT_DIR$/leetcode90 Subsets II.py" />
         <option value="$PROJECT_DIR$/leetcode44 Wildcard Matching.py" />
+        <option value="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" />
       </list>
     </option>
   </component>
@@ -438,8 +439,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="181" />
-    <option name="y" value="43" />
+    <option name="x" value="220" />
+    <option name="y" value="51" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
   </component>
@@ -518,25 +519,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode44 Wildcard Matching">
-    <configuration default="false" name="leetcode81 Search in Rotated Sorted Array" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.leetcode377 Combinations Sum IV">
     <configuration default="false" name="leetcode75 Sort Colors" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -605,6 +588,24 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode44 Wildcard Matching.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode377 Combinations Sum IV" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -898,19 +899,19 @@
       <item index="2" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="3" class="java.lang.String" itemvalue="Python.just4test" />
       <item index="4" class="java.lang.String" itemvalue="Python.leetcode13 Roman to Integer" />
-      <item index="5" class="java.lang.String" itemvalue="Python.leetcode81 Search in Rotated Sorted Array" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode75 Sort Colors" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode90 Subsets II" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
+      <item index="5" class="java.lang.String" itemvalue="Python.leetcode75 Sort Colors" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode90 Subsets II" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode90 Subsets II" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode75 Sort Colors" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode81 Search in Rotated Sorted Array" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode90 Subsets II" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode75 Sort Colors" />
       </list>
     </recent_temporary>
   </component>
@@ -944,7 +945,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="181" y="43" width="1054" height="749" extended-state="0" />
+    <frame x="220" y="51" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -994,14 +995,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.34416825">
-          <caret line="2" column="83" selection-start-line="2" selection-start-column="83" selection-end-line="2" selection-end-column="83" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode314 Binary Tree Vertical Order Traversal.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34034416">
@@ -1386,6 +1379,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode44 Wildcard Matching.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9038461">
+          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/fkuagain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1394,10 +1395,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode44 Wildcard Matching.py">
+    <entry file="file://$PROJECT_DIR$/leetcode377 Combinations Sum IV.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.9038461">
-          <caret line="66" column="16" selection-start-line="66" selection-start-column="16" selection-end-line="66" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.63461536">
+          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
           <folding />
         </state>
       </provider>

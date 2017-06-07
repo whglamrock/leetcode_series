@@ -5,19 +5,19 @@
 class Solution(object):
     def combinationSum4(self, nums, target):
 
-        if not nums:
+        if not nums or min(nums) > target:
             return 0
-        start = min(nums)
-        if start > target:
-            return 0
-        # record number of combinations for i
-        dp = [1] + [0] * target
-        for i in xrange(target):    # or 'for i in xrange(len(dp)-1)'
-            # skip numbers that have no combinations
-            if dp[i] != 0:
-                for n in nums:
-                    if i + n < len(dp):    # or 'if i + n < target + 1'
-                        dp[i + n] += dp[i]
+
+        dp = [0] * (target + 1)
+        dp[0] = 1
+
+        for i in xrange(target):
+            if dp[i] == 0:  # avoid TLE, since dp[i] has no combination, nor will any dp[i + j] based on it
+                continue
+            # instead of using "for j in xrange(i)", it can avoid TLE
+            for j in nums:
+                if i + j < target + 1:
+                    dp[i + j] += dp[i]
 
         return dp[-1]
 
