@@ -1,13 +1,8 @@
 
-import random
-a = random.randint(0, 4)
+a = ''
+a = a[1:].split('/')
 print a
-if a > 2:
-    pass
-else:
-    print 'fku'
 
-print int('2000')
 
 
 

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" afterPath="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fkuagain.py" afterPath="$PROJECT_DIR$/fkuagain.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -121,7 +121,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode288_Unique_Word_Abbrevation.coverage" NAME="leetcode288 Unique Word Abbrevation Coverage Results" MODIFIED="1481615715939" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode424_Longest_Repeating_Character_Replacement.coverage" NAME="leetcode424 Longest Repeating Character Replacement Coverage Results" MODIFIED="1477263139444" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode218_The_Skyline_Problem.coverage" NAME="leetcode218 The Skyline Problem Coverage Results" MODIFIED="1478720376753" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/leetcode_series$fkuagain.coverage" NAME="fkuagain Coverage Results" MODIFIED="1496421133024" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$fkuagain.coverage" NAME="fkuagain Coverage Results" MODIFIED="1496874868174" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode39_Combination_Sum.coverage" NAME="leetcode39 Combination Sum Coverage Results" MODIFIED="1468537863020" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode265_Paint_House_II.coverage" NAME="leetcode265 Paint House II Coverage Results" MODIFIED="1484770739941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode400_Nth_Digit.coverage" NAME="leetcode400 Nth Digit Coverage Results" MODIFIED="1477547692147" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -348,17 +348,27 @@
         <entry file="file://$PROJECT_DIR$/fkuagain.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+              <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode377 Combinations Sum IV.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode377 Combinations Sum IV.py">
+      <file leaf-file-name="leetcode588 Design In-Memory File System.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode588 Design In-Memory File System.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.63461536">
-              <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.14423077">
+              <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode378 Kth Smallest Element in a Sorted Matrix.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -379,7 +389,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode23 Merge k Sorted Lists.py" />
         <option value="$PROJECT_DIR$/leetcode161 One Edit Distance.py" />
         <option value="$PROJECT_DIR$/leetcode211 Add and Search Word - Data structure design.py" />
         <option value="$USER_HOME$/anaconda/lib/python2.7/site-packages/6740_script.py" />
@@ -421,7 +430,6 @@
         <option value="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
         <option value="$PROJECT_DIR$/leetcode380 Insert Delete GetRandom O(1).py" />
         <option value="$PROJECT_DIR$/leetcode10 Regular Expression Matching.py" />
-        <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode33 Search in Rotated Sorted Array.py" />
         <option value="$PROJECT_DIR$/leetcode88 Merge sorted array.py" />
         <option value="$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py" />
@@ -430,6 +438,8 @@
         <option value="$PROJECT_DIR$/leetcode90 Subsets II.py" />
         <option value="$PROJECT_DIR$/leetcode44 Wildcard Matching.py" />
         <option value="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" />
+        <option value="$PROJECT_DIR$/fkuagain.py" />
+        <option value="$PROJECT_DIR$/leetcode588 Design In-Memory File System.py" />
       </list>
     </option>
   </component>
@@ -439,8 +449,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="220" />
-    <option name="y" value="51" />
+    <option name="x" value="198" />
+    <option name="y" value="44" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
   </component>
@@ -519,25 +529,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode377 Combinations Sum IV">
-    <configuration default="false" name="leetcode75 Sort Colors" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode75 Sort Colors.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.fkuagain">
     <configuration default="false" name="leetcode334 Increasing Triplet Subsequence" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -606,6 +598,24 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode377 Combinations Sum IV.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fkuagain.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -899,19 +909,19 @@
       <item index="2" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="3" class="java.lang.String" itemvalue="Python.just4test" />
       <item index="4" class="java.lang.String" itemvalue="Python.leetcode13 Roman to Integer" />
-      <item index="5" class="java.lang.String" itemvalue="Python.leetcode75 Sort Colors" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode90 Subsets II" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
+      <item index="5" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode90 Subsets II" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
+      <item index="9" class="java.lang.String" itemvalue="Python.fkuagain" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode90 Subsets II" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode75 Sort Colors" />
+        <item index="0" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode90 Subsets II" />
       </list>
     </recent_temporary>
   </component>
@@ -945,7 +955,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="220" y="51" width="1054" height="749" extended-state="0" />
+    <frame x="198" y="44" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -954,7 +964,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49000868" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19411765" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.19411765" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24934839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -995,22 +1005,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode314 Binary Tree Vertical Order Traversal.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.34034416">
-          <caret line="26" column="74" selection-start-line="26" selection-start-column="74" selection-end-line="26" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode139 Word Break.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7372401">
-          <caret line="26" column="0" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode282 Expression Add Operators.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1625708">
@@ -1387,18 +1381,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fkuagain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode377 Combinations Sum IV.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.63461536">
           <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fkuagain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="5" selection-start-line="1" selection-start-column="5" selection-end-line="1" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode588 Design In-Memory File System.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14423077">
+          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
           <folding />
         </state>
       </provider>
