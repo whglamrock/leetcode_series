@@ -30,36 +30,33 @@ class Solution(object):
         if len(p) - p.count('*') > len(s):
             return False
 
-        lengthofs = len(s)
+        n = len(s)
         # build a one dimensional dp, and after every outer for loop, the whole dp is updated once
-        dp = [False] * (lengthofs + 1)
+        dp = [False] * (n + 1)
         # means initially, the empty subtring p[:0] matches s[:0]
         dp[0] = True
 
         # in each loop, we compare the whole s with the partial p until the last loop
         #   the i for loop goes through the s
         for char in p:
-            if char != '*':
-                for i in xrange(lengthofs - 1, -1, -1):
-                    if char == s[i] or char == '?':
-                        dp[i + 1] = dp[i]   # dp[i] means whether s[:i] matches the partial p
-                    else:
-                        dp[i + 1] = False
+            if char != '*':  # then totally inherit the previous status that whether s[:i - 1] mathers p[:char])
+                for i in xrange(n, 0, -1):
+                    # dp[i] means whether s[:i] matches the partial p
+                    dp[i] = dp[i - 1] and (s[i - 1] == char or char == '?')
             else:
                 # the '*' can make sure that once some s[:i] matches p[:the index of char],
                 #   p[:the index of char + 1] will match the whole s
-                for i in xrange(1, lengthofs + 1):  # the i starts from 1 because the '*' can match zero chars
+                for i in xrange(1, n + 1):  # the i starts from 1 because the '*' can match zero chars
                     # the dp[i] is the dp[i] from previous big for loop,
                     #   and dp[i - 1] is updated in the previous small for loop
-                    if dp[i] or dp[i - 1]:
-                        # if dp[i] == True, the new dp[i] = True because the '*' can match zero chars
-                        # if dp[i - 1] == True, the new dp[i] = True because the '*' can match one more char of s
-                        dp[i] = True
-                    else:
-                        dp[i] = False
+                    dp[i] = dp[i] or dp[i - 1]
+                    # if dp[i] == True, the new dp[i] = True because the '*' can match zero chars
+                    # if dp[i - 1] == True, the new dp[i] = True because the '*' can match one more char of s
             # after the first round of the big for loop, the dp[0] needs to be updated;
             #   and the only way it remains True is p == '*****..', etc.
-            dp[0] = dp[0] and char == '*'   # in real interview, don't forget to update
+            dp[0] = dp[0] and char == '*'   # dp[0] means whether the empty s matches p
+
+        return dp[-1]
 
 
 
