@@ -1,38 +1,36 @@
 
 from collections import deque
+
 class Solution(object):
     def longestConsecutive(self, nums):
 
-        if not nums: return 0
-        numset = set(nums)
-        length = 0
+        if not nums:
+            return 0
+        ans = 0
+        nums = set(nums)
 
-        while numset:
-            s = None
-            for e in numset:
-                s = e
+        while nums:
+            # randomly choose a num and start the union find
+            start = None
+            for num in nums:
+                start = num
                 break
-            if s == None: break
-            curlen = 1
-            todo = deque()
-            todo.append(s)
-            numset.discard(s)
-            while True:
-                prelen = len(todo)
-                if todo[0] - 1 in numset:
-                    newleft = todo[0] - 1
-                    numset.discard(newleft)
-                    todo.appendleft(newleft)
-                    curlen += 1
-                if todo[-1] + 1 in numset:
-                    newright = todo[-1] + 1
-                    numset.discard(newright)
-                    todo.append(newright)
-                    curlen += 1
-                if len(todo) == prelen: break
-            length = max(curlen, length)
+            # if nums is empty, break
+            if start == None: break
+            # initialize the start of the union
+            nums.discard(start)
+            union = deque([start])
+            # keep unifying leftward
+            while union[0] - 1 in nums:
+                nums.discard(union[0] - 1)
+                union.appendleft(union[0] - 1)
+            # keep unifying rightward
+            while union[-1] + 1 in nums:
+                nums.discard(union[-1] + 1)
+                union.append(union[-1] + 1)
+            ans = max(ans, len(union))
 
-        return length
+        return ans
 
 
 
