@@ -3,19 +3,19 @@ class Solution(object):
     def kthSmallest(self, matrix, k):
 
         n = len(matrix)
-        l, r = matrix[0][0], matrix[n-1][n-1]
+        l, r = matrix[0][0], matrix[n - 1][n - 1]
 
         while l < r:    # o(logn), when l == r, exit the while loop, l > r is impossible
-            mid = (l+r) >> 1
-            cnt, j = 0, n-1
-            for i in xrange(n):  # o(n), because j at most goes from n-1 to 1 once. After j == -1, no matter how i
-                # increases, j will remain at -1. If matrix[i][j] always <= mid, j doesn't even need to decrease.
+            mid = l + (r - l) / 2
+            cnt, j = 0, n - 1
+            # o(n), because j at most goes from n-1 to 1 once. If matrix[i][j] always <= mid, j won't decrease.
+            for i in xrange(n):
                 while j >= 0 and matrix[i][j] > mid:
                     j -= 1
-                cnt += j+1
+                cnt += j + 1
             # after the for loop, cnt counts the number of elements that are <= mid.
             if cnt < k:  # mid too small
-                l = mid+1
+                l = mid + 1
             else:  # mid too big or equals to the kth smallest
                 r = mid
         # There is no need to worry if the final l is not a matrix element, because we always ensure that the
@@ -37,3 +37,31 @@ matrix = [
     [13, 21, 31]
 ]
 print Sol.kthSmallest(matrix,8)
+
+
+
+"""
+# a min-heap solution
+
+from heapq import *
+
+class Solution(object):
+    def kthSmallest(self, matrix, k):
+
+        if not matrix or not matrix[0]:
+            return None
+
+        n = len(matrix)
+        q = []
+        for j in xrange(n):
+            heappush(q, [matrix[0][j], (0, j)])
+        for i in xrange(k - 1):
+            currsmallest, (x, y) = heappop(q)
+            if x == n - 1:
+                continue
+            nexttoadd = matrix[x + 1][y]
+            heappush(q, [nexttoadd, (x + 1, y)])
+
+        thekth, (x, y) = heappop(q)
+        return thekth
+"""

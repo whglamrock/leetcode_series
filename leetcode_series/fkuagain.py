@@ -1,10 +1,11 @@
 
-a = ''
-a = a[1:].split('/')
-print a
+from heapq import *
 
-import sys
-import xlrd
+q = []
+heappush(q, [9, (0, 1)])
+while q:
+    currsmallest, (x, y) = heappop(q)
+    print currsmallest, (x, y)
 
 
 
