@@ -1,4 +1,8 @@
 
+# O(nlogn) time complexity
+# the idea is to use binary search to cut the search range by half (logn search times);
+#   within each search, count how many elements <= the mid with O(n) time
+
 class Solution(object):
     def kthSmallest(self, matrix, k):
 
@@ -41,7 +45,7 @@ print Sol.kthSmallest(matrix,8)
 
 
 """
-# a min-heap solution
+# another O(nlogn) min-heap solution
 
 from heapq import *
 

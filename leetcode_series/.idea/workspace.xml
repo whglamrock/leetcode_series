@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fkuagain.py" afterPath="$PROJECT_DIR$/fkuagain.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py" afterPath="$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py" />
     </list>
     <ignored path="untitled1.iws" />
@@ -359,8 +358,8 @@
       <file leaf-file-name="leetcode378 Kth Smallest Element in a Sorted Matrix.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0961539">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.2980769">
+              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -441,8 +440,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="467" />
-    <option name="y" value="48" />
+    <option name="x" value="153" />
+    <option name="y" value="51" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
   </component>
@@ -947,7 +946,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="467" y="48" width="1054" height="749" extended-state="0" />
+    <frame x="153" y="51" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1399,8 +1398,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0961539">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state vertical-scroll-proportion="1.2980769">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
