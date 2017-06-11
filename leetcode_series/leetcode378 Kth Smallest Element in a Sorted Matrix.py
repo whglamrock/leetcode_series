@@ -19,7 +19,7 @@ class Solution(object):
                 cnt += j + 1
             # after the for loop, cnt counts the number of elements that are <= mid.
             if cnt < k:  # mid too small
-                l = mid + 1
+                l = mid + 1  # no "l = mid"! because when l == r - 1 it will go into infinite loop
             else:  # mid too big or equals to the kth smallest
                 r = mid
         # There is no need to worry if the final l is not a matrix element, because we always ensure that the
@@ -75,3 +75,37 @@ class Solution(object):
         thekth, (x, y) = heappop(q)
         return thekth
 """
+
+
+
+'''
+# another binary search solution, just different search direction in the while loop
+# notice why the inner for loop starts from last row
+
+class Solution(object):
+    def kthSmallest(self, matrix, k):
+
+        if not matrix or not matrix[0]:
+            return
+
+        n = len(matrix)
+        l, r = matrix[0][0], matrix[n - 1][n - 1]
+
+        while l < r:
+            mid = l + (r - l) / 2
+            count = 0
+            j = 0
+            # O(n). count the number of elements <= mid
+            for i in xrange(n - 1, -1, -1):
+                # when the condition is "<=", we needa move up to make sure
+                #   the next matrix[i][-1] is still <= mid when j reaches n.
+                while j < n and matrix[i][j] <= mid:
+                    j += 1
+                count += j
+            if count < k:   # then the mid is still the candidate
+                l = mid + 1
+            else:
+                r = mid
+
+        return l
+'''
