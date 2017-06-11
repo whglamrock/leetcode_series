@@ -56,6 +56,7 @@
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode78_Subsets.coverage" NAME="leetcode78 Subsets Coverage Results" MODIFIED="1492725164810" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode72_Simplify_Path.coverage" NAME="leetcode72 Simplify Path Coverage Results" MODIFIED="1484859762941" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode30_Substring_with_Concatenation_of_All_Words.coverage" NAME="leetcode30 Substring with Concatenation of All Words Coverage Results" MODIFIED="1464375981938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode378_Kth_Smallest_Element_in_a_Sorted_Matrix.coverage" NAME="leetcode378 Kth Smallest Element in a Sorted Matrix Coverage Results" MODIFIED="1497218605922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode300_Longest_Increasing_Subsequence.coverage" NAME="leetcode300 Longest Increasing Subsequence Coverage Results" MODIFIED="1481616002938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode335_Self_Crossing.coverage" NAME="leetcode335 Self Crossing Coverage Results" MODIFIED="1478540224967" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode215_Kth_Largest_Element_in_an_Array.coverage" NAME="leetcode215 Kth Largest Element in an Array Coverage Results" MODIFIED="1493325913384" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -358,8 +359,8 @@
       <file leaf-file-name="leetcode378 Kth Smallest Element in a Sorted Matrix.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2980769">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.34615386">
+              <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -440,8 +441,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="153" />
-    <option name="y" value="51" />
+    <option name="x" value="156" />
+    <option name="y" value="45" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
   </component>
@@ -520,25 +521,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.fkuagain">
-    <configuration default="false" name="leetcode334 Increasing Triplet Subsequence" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode334 Increasing Triplet Subsequence.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.leetcode378 Kth Smallest Element in a Sorted Matrix">
     <configuration default="false" name="leetcode44 Wildcard Matching" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -607,6 +590,24 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode102 Binary Tree Level Order Traversal.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode378 Kth Smallest Element in a Sorted Matrix" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -900,19 +901,19 @@
       <item index="2" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="3" class="java.lang.String" itemvalue="Python.just4test" />
       <item index="4" class="java.lang.String" itemvalue="Python.leetcode13 Roman to Integer" />
-      <item index="5" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
-      <item index="8" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode102 Binary Tree Level Order Traversal" />
+      <item index="5" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
+      <item index="7" class="java.lang.String" itemvalue="Python.fkuagain" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode102 Binary Tree Level Order Traversal" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode378 Kth Smallest Element in a Sorted Matrix" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode102 Binary Tree Level Order Traversal" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode334 Increasing Triplet Subsequence" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode378 Kth Smallest Element in a Sorted Matrix" />
+        <item index="1" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode102 Binary Tree Level Order Traversal" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode377 Combinations Sum IV" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode44 Wildcard Matching" />
       </list>
     </recent_temporary>
   </component>
@@ -946,7 +947,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="153" y="51" width="1054" height="749" extended-state="0" />
+    <frame x="156" y="45" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1398,8 +1399,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode378 Kth Smallest Element in a Sorted Matrix.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2980769">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.34615386">
+          <caret line="53" column="34" selection-start-line="53" selection-start-column="34" selection-end-line="53" selection-end-column="34" />
           <folding />
         </state>
       </provider>

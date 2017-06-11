@@ -45,7 +45,13 @@ print Sol.kthSmallest(matrix,8)
 
 
 """
-# another O(nlogn) min-heap solution
+# another O(klogn) min-heap solution.
+# However, the average of k is n/2...lol
+
+# idea: Because for each column, only at most one element remain in the heap,
+#   and this element is the smallest one in the column, we can make sure every popped-out
+#   element is the smallest in the upper part, and is smaller than all the lower part (because
+#   every upper column is smaller than the lower)
 
 from heapq import *
 
@@ -59,7 +65,7 @@ class Solution(object):
         q = []
         for j in xrange(n):
             heappush(q, [matrix[0][j], (0, j)])
-        for i in xrange(k - 1):
+        for i in xrange(k - 1):  # pop out k - 1 times, the last one is for return purpose
             currsmallest, (x, y) = heappop(q)
             if x == n - 1:
                 continue
