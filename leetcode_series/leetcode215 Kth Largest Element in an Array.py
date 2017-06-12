@@ -22,9 +22,9 @@ class Solution(object):
             array[i], array[j] = array[j], array[i]
 
         # notice how the shuffle is written: all elements exchange with left ones (including self)
-        # in this way, we can make sure that each number has the same probability of being at each position
-        #   e.g., the probability of the first number being at position 0 is: 1/2 * 2/3 * 3/4 *...* (n-1)/n
-        #   = 1/n
+        # in this way, we can make sure that each number has the same probability of being at each position:
+        #   1) calculate the probability of remaining in each index of array[:i + 1]
+        #   2) calculate the probability of remaining in each index of array[i + 1:]
         def shuffle(array):
 
             for i in xrange(1, len(array)):
@@ -33,7 +33,7 @@ class Solution(object):
 
         # AFTER EXCHANGING, make every element on the left/right of array[j] smaller/bigger than it
         #   and this j could any number in [lo, hi], inclusive
-        def partition(array, lo, hi):
+        def partition(array, lo, hi):   # strict, pure partition
 
             i, j = lo, hi
             # the condition has to be i < j, because of test cases like [99, 99],
@@ -60,6 +60,8 @@ class Solution(object):
         lo, hi = 0, len(nums) - 1
 
         # we always make sure lo <= k <= hi; the exit condition is lo == hi
+        # P.S. it's not binary but logarithmic, j is not the mid point, so we can't do
+        #   lo = j or hi = j because in next round the j could still be same
         while lo < hi:  # think about what to say about the operating times of while loop
             j = partition(nums, lo, hi)
             if j < k:  # based on the settings of partition function, lo can't be j
