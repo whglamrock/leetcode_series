@@ -1,31 +1,35 @@
 
+# the stupid leetcode changed the type of wordList from set to list.
+
 class Solution(object):
     def ladderLength(self, beginWord, endWord, wordList):
 
-        front, back = {beginWord}, {endWord}
+        if not wordList:
+            return 0    # according to the problem definition
+        # it's told by the definition that beginWord != endWord
+
+        wordList = set(wordList)
+        # to record the current status of transformation
+        todo = {beginWord}
+        # we can discard the beginWord or not
+        #wordList.discard(beginWord)
         length = 2
-        wordList.discard(beginWord)  # when beginWord == endWord and wordList contains beginWord,
-        # it will return 2 if without this line. However, leetcode accepted without this line probabaly
-        # cuz they don't have this extreme case.
 
-        while front:
-            # generate all valid transformations for the next loop
-            new = set([])
-            for word in front:
-                for i in xrange(len(beginWord)):
-                    for ch in "abcdefghijklmnopqrstuvwxyz":
-                        new.update({word[:i]+ch+word[i+1:]})
-            front = new & wordList    # "&" select the elements that in both set new and wordList
-
-            if front & back:    # there are common elements, done
+        while todo:
+            new = set()
+            for word in todo:
+                for i in xrange(len(word)):
+                    for char in 'abcdefghijklmnopqrstuvwxyz':
+                        newword = word[:i] + char + word[i + 1:]
+                        if newword in wordList:
+                            wordList.discard(newword)
+                            new.add(newword)
+            if endWord in new:
                 return length
             length += 1
+            todo = new
 
-            if len(front) > len(back):    # reduce the size of front in next loop
-                front, back = back, front
-            wordList -= front    # (P.S.: "-=" works for set), dumb used transformations to avoid cycle
-
-        return 0    # for case when beginWord == endWord
+        return 0    # the above BFS already tried out all possibilities
 
 
 

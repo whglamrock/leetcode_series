@@ -1,11 +1,13 @@
 
-from heapq import *
+a = set()
+a.add(1)
+a.add(2)
+for i in xrange(10):
+    if i in a:
+        print i
+for num in a:
+    print num
 
-q = []
-heappush(q, [9, (0, 1)])
-while q:
-    currsmallest, (x, y) = heappop(q)
-    print currsmallest, (x, y)
 
 
 

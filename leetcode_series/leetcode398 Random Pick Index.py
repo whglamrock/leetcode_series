@@ -12,13 +12,15 @@ class Solution(object):
 
     def pick(self, target):
 
+        # initiate result as anything is okay since target is in the nums array
         result = -1
         count = 0
-        for i in xrange(len(self.nums)):
+
+        for i, num in enumerate(self.nums):
             if self.nums[i] != target:
                 continue
             count += 1
-            if random.randrange(count) is 0:  # 'is 0' is faster than '== 0'
+            if random.randrange(count) == 0:
                 result = i
 
         return result
