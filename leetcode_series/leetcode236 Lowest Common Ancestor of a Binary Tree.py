@@ -49,38 +49,14 @@ class Solution(object):
 
 
 '''
-# common recursive solution
+# a clean solution:
 
 class Solution(object):
+
+    # this function actually the node that equals to (one of p and q)
     def lowestCommonAncestor(self, root, p, q):
 
-        if not root:
-            return
-
-        # the recursion directly returns the lowestCommonAncestor of p or q
-        # we only need one of (p, q) in the subtree without knowing it is specifically p or q
-        def traversal(node, p, q):
-
-            if node == p or node == q:
-                return node
-            leftans = helper(node.left, p, q) if node.left else None
-            rightans = helper(node.right, p, q) if node.right else None
-            if leftans and rightans:
-                return node
-            elif leftans:
-                return leftans
-            else:
-                return rightans
-
-        return traversal(root, p, q)
-
-
-
-# a cleaner solution:
-
-class Solution(object):
-    def lowestCommonAncestor(self, root, p, q):
-
+        # we assume the p and q will always be in the tree
         if root == p or root == q:
             return root
         leftans = self.lowestCommonAncestor(root.left, p, q) if root.left else None
