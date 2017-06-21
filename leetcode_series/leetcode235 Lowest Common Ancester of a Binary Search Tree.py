@@ -1,6 +1,5 @@
 
 '''
-The definition of binary search tree: https://zh.wikipedia.org/wiki/%E4%BA%8C%E5%85%83%E6%90%9C%E5%B0%8B%E6%A8%B9
 The algorithm idea came from: https://leetcode.com/discuss/44959/3-lines-with-o-1-space-1-liners-alternatives
 As for the trick of tuple: try: c = (2,3)[4>3] and c = (2,3)[2>3]
 '''
@@ -16,6 +15,8 @@ class TreeNode(object):
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
 
+        # we always assume the root won't be empty and p & q are in the BST, so no need to
+        #   check if the root is None
         while (root.val - p.val) * (root.val - q.val) > 0:
             root = (root.left, root.right)[p.val > root.val]
 
@@ -49,7 +50,8 @@ print spot.val
 
 
 '''
-# my solution:
+# my solution
+
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
         while (root.val - p.val) * (root.val - q.val) > 0:
@@ -61,40 +63,5 @@ class Solution(object):
         return root
 '''
 
-
-
-'''
-# my primitive solution:
-class Solution(object):
-    def find(self, head, node):
-        if (not head):
-            return False
-        elif head == node or head.left == node or head.right == node:
-            return True
-        else:
-            return (self.find(head.left, node) or self.find(head.right, node))
-
-    def findboth(self, head, node1, node2):
-        if self.find(head, node1) == self.find(head, node2) == True:
-            return True
-        else:
-            return False
-
-    def lowestCommonAncestor(self, root, p, q):
-
-        if (not root) or self.findboth(root,p,q) == False:
-            return None
-
-        def LCA(gen, node1, node2):
-            if self.findboth(gen.left,node1,node2) == self.findboth(gen.right,node1,node2) == False:
-                return gen
-            else:
-                if self.findboth(gen.left,node1,node2) == True:
-                    return LCA(gen.left,node1,node2)
-                else:
-                    return LCA(gen.right,node1,node2)
-
-        return LCA(root, p, q)
-'''
 
 

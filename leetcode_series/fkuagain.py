@@ -1,12 +1,7 @@
 
-a = set()
-a.add(1)
-a.add(2)
-for i in xrange(10):
-    if i in a:
-        print i
-for num in a:
-    print num
+a = [3, 1, 2]
+print a[2 > 1]
+print a[1 > 2]
 
 
 

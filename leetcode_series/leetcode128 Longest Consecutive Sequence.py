@@ -15,8 +15,7 @@ class Solution(object):
             for num in nums:
                 start = num
                 break
-            # if nums is empty, break
-            if start == None: break
+            # no need to check if the start is None, because the condition for while loop
             # initialize the start of the union
             nums.discard(start)
             union = deque([start])
