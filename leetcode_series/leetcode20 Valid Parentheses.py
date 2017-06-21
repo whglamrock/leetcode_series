@@ -2,41 +2,30 @@
 class Solution(object):
     def isValid(self, s):
 
-        fanhui = True
-        i = 0
-        lst = []
-        for j in range(len(s)):
-            lst.append(s[j])
-        if len(lst)%2 != 0:
-            fanhui = False
+        if not s:
+            return True
+        if len(s) % 2 != 0:
+            return False
 
-        while i+1 < len(lst):
-            if lst[i] == '(' and lst[i+1] == ')':
-                del lst[i]
-                del lst[i]
-                if i > 0:
-                    i -= 1
-            elif lst[i] == '[' and lst[i+1] == ']':
-                del lst[i]
-                del lst[i]
-                if i > 0:
-                    i -= 1
-            elif lst[i] == '{' and lst[i+1] == '}':
-                del lst[i]
-                del lst[i]
-                if i > 0:
-                    i -= 1
+        dic = {'(': ')', '[': ']', '{': '}'}
+        stack = []
+
+        for char in s:
+            if char in dic:
+                stack.append(char)
+            elif not stack:
+                return False
             else:
-                i += 1
+                lastchar = stack.pop()
+                if lastchar not in dic or dic[lastchar] != char:
+                    return False
 
-        if len(lst) != 0:
-            fanhui = False
-        return fanhui
+        return len(stack) == 0
 
 
 
-atr = '(){[()]}()[]{}{[()]}{[()]}{}{}('
-a = Solution()
-print a.isValid(atr)
+s = '(){[()]}()[]{}{[()]}{[()]}{}{}('
+Sol = Solution()
+print Sol.isValid(s)
 
 

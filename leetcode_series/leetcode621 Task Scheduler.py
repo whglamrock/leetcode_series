@@ -1,5 +1,6 @@
 
 # see my explanation: https://discuss.leetcode.com/topic/92852/concise-java-solution-o-n-time-o-26-space/28
+# the priorityQueue solution is actually more troublesome, while the logic is similar.
 
 class Solution(object):
     def leastInterval(self, tasks, n):
