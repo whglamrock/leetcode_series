@@ -36,6 +36,7 @@ class Solution(object):
         return False
 
 
+
 '''
 # O(N) KMP solution that borrows the code from lc28
 

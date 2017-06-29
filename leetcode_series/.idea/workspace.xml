@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" afterPath="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode286 Walls and Gates.py" afterPath="$PROJECT_DIR$/leetcode286 Walls and Gates.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py" afterPath="$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" afterPath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode69 Sqrt(x).py" afterPath="$PROJECT_DIR$/leetcode69 Sqrt(x).py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -168,6 +169,7 @@
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode200_Number_of_Islands.coverage" NAME="leetcode200 Number of Islands Coverage Results" MODIFIED="1491849693169" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode4_Median_of_Two_Sorted_Arrays.coverage" NAME="leetcode4 Median of Two Sorted Arrays Coverage Results" MODIFIED="1467681116545" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode29_Devide_Two_Integers.coverage" NAME="leetcode29 Devide Two Integers Coverage Results" MODIFIED="1463112497056" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode69_Sqrt_x_.coverage" NAME="leetcode69 Sqrt(x) Coverage Results" MODIFIED="1498087759348" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode202_Happy_Number.coverage" NAME="leetcode202 Happy Number Coverage Results" MODIFIED="1463280279389" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode263_Ugly_Number.coverage" NAME="leetcode263 Ugly Number Coverage Results" MODIFIED="1464129340795" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode541_Reverse_String_II.coverage" NAME="leetcode541 Reverse String II Coverage Results" MODIFIED="1490708133820" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -364,21 +366,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode286 Walls and Gates.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode286 Walls and Gates.py">
+      <file leaf-file-name="leetcode572 Subtree of Another Tree.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9561753">
-              <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode572 Subtree of Another Tree.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
+      <file leaf-file-name="leetcode117 Populating Next Right Pointers in Each Node II.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8665339">
+              <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -399,8 +401,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode78 Subsets.py" />
-        <option value="$PROJECT_DIR$/leetcode98 Validate Binary Search Tree.py" />
         <option value="$PROJECT_DIR$/leetcode43 Multiply Strings.py" />
         <option value="$PROJECT_DIR$/leetcode206 Reverse Linked List.py" />
         <option value="$PROJECT_DIR$/leetcode252 Meeting Rooms.py" />
@@ -421,7 +421,6 @@
         <option value="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
         <option value="$PROJECT_DIR$/leetcode209 Minimum Size Subarray Sum.py" />
         <option value="$PROJECT_DIR$/leetcode13 Roman to Integer.py" />
-        <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
         <option value="$PROJECT_DIR$/leetcode460 LFU Cache.py" />
         <option value="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
         <option value="$PROJECT_DIR$/leetcode380 Insert Delete GetRandom O(1).py" />
@@ -450,6 +449,9 @@
         <option value="$PROJECT_DIR$/leetcode235 Lowest Common Ancester of a Binary Search Tree.py" />
         <option value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode286 Walls and Gates.py" />
+        <option value="$PROJECT_DIR$/leetcode69 Sqrt(x).py" />
+        <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
+        <option value="$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py" />
       </list>
     </option>
   </component>
@@ -459,8 +461,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="131" />
-    <option name="y" value="23" />
+    <option name="x" value="84" />
+    <option name="y" value="33" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
   </component>
@@ -531,7 +533,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/TonyTang/SchoolMatch.py" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
@@ -539,43 +541,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode286 Walls and Gates">
-    <configuration default="false" name="leetcode568 Maximum Vacation Days" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode568 Maximum Vacation Days.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="leetcode621 Task Scheduler" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode621 Task Scheduler.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.SchoolMatch">
     <configuration default="false" name="leetcode20 Valid Parentheses" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -626,6 +592,42 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode286 Walls and Gates.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode69 Sqrt(x)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode69 Sqrt(x).py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="SchoolMatch" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/TonyTang" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="untitled1" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/TonyTang/SchoolMatch.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -919,19 +921,19 @@
       <item index="2" class="java.lang.String" itemvalue="Python.leetcode1 Two Sum" />
       <item index="3" class="java.lang.String" itemvalue="Python.just4test" />
       <item index="4" class="java.lang.String" itemvalue="Python.leetcode13 Roman to Integer" />
-      <item index="5" class="java.lang.String" itemvalue="Python.leetcode568 Maximum Vacation Days" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode621 Task Scheduler" />
-      <item index="7" class="java.lang.String" itemvalue="Python.leetcode20 Valid Parentheses" />
-      <item index="8" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode286 Walls and Gates" />
+      <item index="5" class="java.lang.String" itemvalue="Python.leetcode20 Valid Parentheses" />
+      <item index="6" class="java.lang.String" itemvalue="Python.fkuagain" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode286 Walls and Gates" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode69 Sqrt(x)" />
+      <item index="9" class="java.lang.String" itemvalue="Python.SchoolMatch" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode286 Walls and Gates" />
-        <item index="1" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode20 Valid Parentheses" />
-        <item index="3" class="java.lang.String" itemvalue="Python.leetcode621 Task Scheduler" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode568 Maximum Vacation Days" />
+        <item index="0" class="java.lang.String" itemvalue="Python.SchoolMatch" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode69 Sqrt(x)" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode286 Walls and Gates" />
+        <item index="3" class="java.lang.String" itemvalue="Python.fkuagain" />
+        <item index="4" class="java.lang.String" itemvalue="Python.leetcode20 Valid Parentheses" />
       </list>
     </recent_temporary>
   </component>
@@ -965,7 +967,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="131" y="23" width="1054" height="749" extended-state="0" />
+    <frame x="84" y="33" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1015,38 +1017,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode56 Merge Intervals.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2459016">
-          <caret line="39" column="0" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.1241218">
-          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode238 Product of Array Except Self.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31615925">
-          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode38 Count and say.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8430913">
-          <caret line="24" column="18" selection-start-line="24" selection-start-column="18" selection-end-line="24" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode494 Target Sum.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.99">
@@ -1383,14 +1353,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fkuagain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode235 Lowest Common Ancester of a Binary Search Tree.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4621514">
@@ -1407,18 +1369,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
+    <entry file="file://$PROJECT_DIR$/leetcode286 Walls and Gates.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8665339">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode286 Walls and Gates.py">
+    <entry file="file://$PROJECT_DIR$/leetcode69 Sqrt(x).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.9561753">
-          <caret line="32" column="22" selection-start-line="32" selection-start-column="22" selection-end-line="32" selection-end-column="22" />
+        <state vertical-scroll-proportion="0.5079681">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode116 Populating Next Right Pointers in Each Node.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/TonyTang/SchoolMatch.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#43#54#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fkuagain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.8665339">
+          <caret line="29" column="34" selection-start-line="29" selection-start-column="34" selection-end-line="29" selection-end-column="34" />
           <folding />
         </state>
       </provider>

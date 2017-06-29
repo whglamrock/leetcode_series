@@ -10,35 +10,42 @@ class TreeLinkNode:
         self.next = None
 
 
-# the idea is using two pointers to keep track level traversal.
+# the idea is using two pointers to keep track level traversal (in which the pointer of upper
+#   level pointer is similar to lc116).
 # Because the upper level is 'already connected' by the previous loop, so we don't save
 #   the previous level traversal to reference this level's nodes (just need two pointers)
 
 class Solution:
-    # @param root, a tree link node
-    # @return nothing
     def connect(self, root):
 
-        head = root
-        while head:
+        if not root:
+            return
 
-            # use the curr as the level traversal pointer
-            curr = head
-            prev, head = None, None
+        # used to loop through the current upper level
+        curr = root
 
+        while curr:
+            # prev is the key of connection, by which we don't needa check whether the next
+            #   available node is the first node of this lower level (because we initialize
+            #   the prev with None).
+            # head is simply to mark the start of next(lower) level
+            prev, theheadofnextlevel = None, None
             while curr:
                 if curr.left:
-                    # means the first node at this level hasn't been found yet
+                    # then it's time to mark the start of next level
                     if not prev:
-                        head = curr.left
-                    else:
+                        theheadofnextlevel = curr.left
+                    else:   # prev is just a reference of the previously connected node
                         prev.next = curr.left
+                    # we don't do "prev = prev.next" here since it don't fit the "if not prev" scenario
                     prev = curr.left
                 if curr.right:
                     # likewise
                     if not prev:
-                        head = curr.right
+                        theheadofnextlevel = curr.right
                     else:
                         prev.next = curr.right
                     prev = curr.right
                 curr = curr.next
+            # restart from the head of next level
+            curr = theheadofnextlevel

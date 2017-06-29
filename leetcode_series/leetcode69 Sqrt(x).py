@@ -2,19 +2,22 @@
 class Solution(object):
     def mySqrt(self, x):
 
-        left, right = 0, x
-        while left <= right:
-            mid = int((left+right)/2)
-            if mid ** 2 <= x < (mid+1) ** 2:
+        l, r = 0, x
+        # exit condition: l == r
+        while l < r:
+            mid = l + (r - l) / 2
+            if mid * mid <= x < (mid + 1) * (mid + 1):
                 return mid
-            elif mid ** 2 > x:
-                right = mid
-            else:
-                left = mid + 1
+            elif x < mid * mid:
+                r = mid - 1
+            else:   # x > (mid + 1) * (mid + 1)
+                l = mid + 1
+
+        return l
 
 
 
-a = 1
+a = 20
 Sol = Solution()
 b = Sol.mySqrt(a)
 print b
