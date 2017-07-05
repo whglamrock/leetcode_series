@@ -37,6 +37,6 @@ class Solution(object):
 
 
 
-points = [[0,0],[0,1],[1,1],[1,0]]
+points = [[0, 0], [0, 1], [1, 1], [1, 0]]
 Sol = Solution()
 print Sol.isConvex(points)

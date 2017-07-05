@@ -18,20 +18,19 @@ class Solution(object):
 
             if not root1 or not root2:
                 return root1 == root2
-
             if root1.val != root2.val:
                 return False
-
             return issame(root1.left, root2.left) and issame(root1.right, root2.right)
 
         todo = [s]
         while todo:
             node = todo.pop()
-            if not node: continue
-            if node.val == t.val and issame(node, t):
-                    return True
-            todo.append(node.left)
-            todo.append(node.right)
+            if issame(node, t):
+                return True
+            if node.right:
+                todo.append(node.right)
+            if node.left:
+                todo.append(node.left)
 
         return False
 

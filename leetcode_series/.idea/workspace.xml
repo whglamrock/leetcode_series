@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/fkuagain.py" afterPath="$PROJECT_DIR$/fkuagain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode221 Maximal Square.py" afterPath="$PROJECT_DIR$/leetcode221 Maximal Square.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode469 Convex Polygon.py" afterPath="$PROJECT_DIR$/leetcode469 Convex Polygon.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode68 Text Justification.py" afterPath="$PROJECT_DIR$/leetcode68 Text Justification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" afterPath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -369,21 +367,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode572 Subtree of Another Tree.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="leetcode572 Subtree of Another Tree.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leetcode469 Convex Polygon.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode469 Convex Polygon.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.20916335">
-              <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+            <state vertical-scroll-proportion="0.119521916">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -449,12 +437,12 @@
         <option value="$PROJECT_DIR$/leetcode236 Lowest Common Ancestor of a Binary Tree.py" />
         <option value="$PROJECT_DIR$/leetcode286 Walls and Gates.py" />
         <option value="$PROJECT_DIR$/leetcode69 Sqrt(x).py" />
-        <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
         <option value="$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py" />
         <option value="$PROJECT_DIR$/leetcode68 Text Justification.py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode221 Maximal Square.py" />
         <option value="$PROJECT_DIR$/leetcode469 Convex Polygon.py" />
+        <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
       </list>
     </option>
   </component>
@@ -464,7 +452,7 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="180" />
+    <option name="x" value="-36" />
     <option name="y" value="51" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
@@ -970,7 +958,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="180" y="51" width="1054" height="749" extended-state="0" />
+    <frame x="-36" y="51" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1414,18 +1402,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
+    <entry file="file://$PROJECT_DIR$/leetcode469 Convex Polygon.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
+        <state vertical-scroll-proportion="0.89641434">
           <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode469 Convex Polygon.py">
+    <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.20916335">
-          <caret line="15" column="49" selection-start-line="15" selection-start-column="49" selection-end-line="15" selection-end-column="49" />
+        <state vertical-scroll-proportion="0.119521916">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>
