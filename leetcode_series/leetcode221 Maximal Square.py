@@ -1,35 +1,32 @@
 
-# O(N^2) time, O(1) space solution.
+# O(N^2) time, O(N^2) space DP solution; or we can maintain two 1 * n vector dp and pre-dp
+#   to cut the space to O(N)
+# Only the DP solution can guarantee O(N^2) time complexity
 
 class Solution(object):
     def maximalSquare(self, matrix):
 
-        if (not matrix) or (not matrix[0]):
+        if not matrix or not matrix[0]:
             return 0
 
-        def check(i, j, i0, j0):
-            for row in xrange(i0, i + 1):
-                if matrix[row][j] == '0':
-                    return False
-            for col in xrange(j0, j + 1):
-                if matrix[i][col] == '0':
-                    return False
-            return True
+        m, n = len(matrix), len(matrix[0])
+        dp = [[0 for j in xrange(n)] for i in xrange(m)]
+        for i in xrange(m):
+            for j in xrange(n):
+                if matrix[i][j] == '1':
+                    dp[i][j] = 1
+
+        for i in xrange(1, m):
+            for j in xrange(1, n):
+                if matrix[i][j] == '0':
+                    dp[i][j] = 0
+                else:
+                    dp[i][j] = min(dp[i][j - 1], dp[i - 1][j], dp[i - 1][j - 1]) + 1
 
         ans = 0
-        for i in xrange(len(matrix)):
-            if len(matrix) - i <= ans: break
-            for j in xrange(len(matrix[0])):
-                if len(matrix[0]) - j <= ans: break
-                edge = 0
-                if matrix[i][j] == '1':
-                    edge += 1
-                    row, col = i + 1, j + 1
-                    while row < len(matrix) and col < len(matrix[0]) and check(row, col, i, j):
-                        row += 1
-                        col += 1
-                        edge += 1
-                ans = max(ans, edge)
+        for i in xrange(m):
+            themaxofthisline = max(dp[i][j] for j in xrange(n))
+            ans = max(ans, themaxofthisline)
 
         return ans * ans
 

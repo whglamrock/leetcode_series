@@ -1,7 +1,8 @@
 
-a = [3, 1, 2]
-print a[2 > 1]
-print a[1 > 2]
+a = 'fku you'
+print 2 / 3
+
+
 
 
 
