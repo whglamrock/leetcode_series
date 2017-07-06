@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode68 Text Justification.py" afterPath="$PROJECT_DIR$/leetcode68 Text Justification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode274 H-Index.py" afterPath="$PROJECT_DIR$/leetcode274 H-Index.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -91,6 +91,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode122_Best_Time_to_Buy_and_Sell_Stock_II.coverage" NAME="leetcode122 Best Time to Buy and Sell Stock II Coverage Results" MODIFIED="1473364795425" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode127_Word_ladder.coverage" NAME="leetcode127 Word ladder Coverage Results" MODIFIED="1497307420952" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode88_Merge_sorted_array.coverage" NAME="leetcode88 Merge sorted array Coverage Results" MODIFIED="1458067422944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode274_H_Index.coverage" NAME="leetcode274 H-Index Coverage Results" MODIFIED="1499383707140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode488_Zuma_Game.coverage" NAME="leetcode488 Zuma Game Coverage Results" MODIFIED="1488757537700" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode19_Remove_Nth_Node_From_End_of_List.coverage" NAME="leetcode19 Remove Nth Node From End of List Coverage Results" MODIFIED="1456864165747" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode399_Evaluation_Division.coverage" NAME="leetcode399 Evaluation Division Coverage Results" MODIFIED="1480625806680" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -330,6 +331,7 @@
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode206_Reverse_Linked_List.coverage" NAME="leetcode206 Reverse Linked List Coverage Results" MODIFIED="1492819557185" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode67_Add_binary.coverage" NAME="leetcode67 Add binary Coverage Results" MODIFIED="1491317567944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode28_Implement_strStr__.coverage" NAME="leetcode28 Implement strStr() Coverage Results" MODIFIED="1482204789850" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode629_K_Inverse_Pairs_Array.coverage" NAME="leetcode629 K Inverse Pairs Array Coverage Results" MODIFIED="1499379805922" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode411_Minimum_Unique_Word_Abbreviation.coverage" NAME="leetcode411 Minimum Unique Word Abbreviation Coverage Results" MODIFIED="1481696266959" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode209_Minimum_Size_Subarray_Sum.coverage" NAME="leetcode209 Minimum Size Subarray Sum Coverage Results" MODIFIED="1477432824288" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode179_Largest_Number.coverage" NAME="leetcode179 Largest Number Coverage Results" MODIFIED="1481182019611" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -366,11 +368,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode68 Text Justification.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leetcode68 Text Justification.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetcode68 Text Justification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.0458168">
-              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode274 H-Index.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode274 H-Index.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.9262948">
+              <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -391,8 +403,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode56 Merge Intervals.py" />
-        <option value="$PROJECT_DIR$/leetcode285 Inorder Successor in BST.py" />
         <option value="$PROJECT_DIR$/leetcode79 Word Search.py" />
         <option value="$PROJECT_DIR$/leetcode238 Product of Array Except Self.py" />
         <option value="$PROJECT_DIR$/leetcode38 Count and say.py" />
@@ -442,6 +452,8 @@
         <option value="$PROJECT_DIR$/leetcode469 Convex Polygon.py" />
         <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
         <option value="$PROJECT_DIR$/leetcode68 Text Justification.py" />
+        <option value="$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py" />
+        <option value="$PROJECT_DIR$/leetcode274 H-Index.py" />
       </list>
     </option>
   </component>
@@ -451,8 +463,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="90" />
-    <option name="y" value="47" />
+    <option name="x" value="195" />
+    <option name="y" value="81" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
   </component>
@@ -531,7 +543,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode68 Text Justification">
+  <component name="RunManager" selected="Python.leetcode274 H-Index">
     <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -546,42 +558,6 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/fkuagain.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="leetcode69 Sqrt(x)" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="leetcode_series" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode69 Sqrt(x).py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="SchoolMatch" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$USER_HOME$/Desktop/TonyTang" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="untitled1" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$USER_HOME$/Desktop/TonyTang/SchoolMatch.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -618,6 +594,42 @@
       <module name="leetcode_series" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode469 Convex Polygon.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode629 K Inverse Pairs Array" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="leetcode274 H-Index" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="leetcode_series" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/leetcode274 H-Index.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -912,18 +924,18 @@
       <item index="3" class="java.lang.String" itemvalue="Python.just4test" />
       <item index="4" class="java.lang.String" itemvalue="Python.leetcode13 Roman to Integer" />
       <item index="5" class="java.lang.String" itemvalue="Python.fkuagain" />
-      <item index="6" class="java.lang.String" itemvalue="Python.leetcode69 Sqrt(x)" />
-      <item index="7" class="java.lang.String" itemvalue="Python.SchoolMatch" />
-      <item index="8" class="java.lang.String" itemvalue="Python.leetcode68 Text Justification" />
-      <item index="9" class="java.lang.String" itemvalue="Python.leetcode469 Convex Polygon" />
+      <item index="6" class="java.lang.String" itemvalue="Python.leetcode68 Text Justification" />
+      <item index="7" class="java.lang.String" itemvalue="Python.leetcode469 Convex Polygon" />
+      <item index="8" class="java.lang.String" itemvalue="Python.leetcode629 K Inverse Pairs Array" />
+      <item index="9" class="java.lang.String" itemvalue="Python.leetcode274 H-Index" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode68 Text Justification" />
-        <item index="1" class="java.lang.String" itemvalue="Python.leetcode469 Convex Polygon" />
-        <item index="2" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="3" class="java.lang.String" itemvalue="Python.SchoolMatch" />
-        <item index="4" class="java.lang.String" itemvalue="Python.leetcode69 Sqrt(x)" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode274 H-Index" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode629 K Inverse Pairs Array" />
+        <item index="2" class="java.lang.String" itemvalue="Python.leetcode68 Text Justification" />
+        <item index="3" class="java.lang.String" itemvalue="Python.leetcode469 Convex Polygon" />
+        <item index="4" class="java.lang.String" itemvalue="Python.fkuagain" />
       </list>
     </recent_temporary>
   </component>
@@ -957,7 +969,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="90" y="47" width="1054" height="749" extended-state="0" />
+    <frame x="195" y="81" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -966,7 +978,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49000868" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22058824" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22058824" sideWeight="0.5100671" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24934839" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -1007,22 +1019,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode57 Insert Interval.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16506718">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode273 Integer to English Words.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7485605">
-          <caret line="26" column="87" selection-start-line="26" selection-start-column="87" selection-end-line="26" selection-end-column="87" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode49 Group Anagrams.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6909789">
@@ -1409,10 +1405,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.1354581">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode68 Text Justification.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0458168">
-          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode274 H-Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.9262948">
+          <caret line="31" column="0" selection-start-line="31" selection-start-column="0" selection-end-line="31" selection-end-column="0" />
           <folding />
         </state>
       </provider>
