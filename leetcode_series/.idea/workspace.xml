@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode469 Convex Polygon.py" afterPath="$PROJECT_DIR$/leetcode469 Convex Polygon.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" afterPath="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode68 Text Justification.py" afterPath="$PROJECT_DIR$/leetcode68 Text Justification.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -118,7 +117,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode238_Product_of_Array_Except_Self.coverage" NAME="leetcode238 Product of Array Except Self Coverage Results" MODIFIED="1465082762903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode306_Additive_Number.coverage" NAME="leetcode306 Additive Number Coverage Results" MODIFIED="1475387740439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode253_Meeting_Rooms_II.coverage" NAME="leetcode253 Meeting Rooms II Coverage Results" MODIFIED="1490516440195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/leetcode_series$leetcode68_Text_Justification.coverage" NAME="leetcode68 Text Justification Coverage Results" MODIFIED="1499212037116" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode68_Text_Justification.coverage" NAME="leetcode68 Text Justification Coverage Results" MODIFIED="1499368548171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode98_Validate_Binary_Search_Tree.coverage" NAME="leetcode98 Validate Binary Search Tree Coverage Results" MODIFIED="1480745696383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode254_Factor_Combinations.coverage" NAME="leetcode254 Factor Combinations Coverage Results" MODIFIED="1486506864559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode102_Binary_Tree_Level_Order_Traversal.coverage" NAME="leetcode102 Binary Tree Level Order Traversal Coverage Results" MODIFIED="1459117499859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -361,17 +360,17 @@
         <entry file="file://$PROJECT_DIR$/fkuagain.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
+              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode572 Subtree of Another Tree.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
+      <file leaf-file-name="leetcode68 Text Justification.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode68 Text Justification.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.119521916">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state vertical-scroll-proportion="1.0458168">
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -438,11 +437,11 @@
         <option value="$PROJECT_DIR$/leetcode286 Walls and Gates.py" />
         <option value="$PROJECT_DIR$/leetcode69 Sqrt(x).py" />
         <option value="$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py" />
-        <option value="$PROJECT_DIR$/leetcode68 Text Justification.py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
         <option value="$PROJECT_DIR$/leetcode221 Maximal Square.py" />
         <option value="$PROJECT_DIR$/leetcode469 Convex Polygon.py" />
         <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
+        <option value="$PROJECT_DIR$/leetcode68 Text Justification.py" />
       </list>
     </option>
   </component>
@@ -452,8 +451,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-36" />
-    <option name="y" value="51" />
+    <option name="x" value="90" />
+    <option name="y" value="47" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
   </component>
@@ -532,7 +531,7 @@
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
   </component>
-  <component name="RunManager" selected="Python.leetcode469 Convex Polygon">
+  <component name="RunManager" selected="Python.leetcode68 Text Justification">
     <configuration default="false" name="fkuagain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -920,9 +919,9 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.leetcode469 Convex Polygon" />
-        <item index="1" class="java.lang.String" itemvalue="Python.fkuagain" />
-        <item index="2" class="java.lang.String" itemvalue="Python.leetcode68 Text Justification" />
+        <item index="0" class="java.lang.String" itemvalue="Python.leetcode68 Text Justification" />
+        <item index="1" class="java.lang.String" itemvalue="Python.leetcode469 Convex Polygon" />
+        <item index="2" class="java.lang.String" itemvalue="Python.fkuagain" />
         <item index="3" class="java.lang.String" itemvalue="Python.SchoolMatch" />
         <item index="4" class="java.lang.String" itemvalue="Python.leetcode69 Sqrt(x)" />
       </list>
@@ -958,7 +957,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-36" y="51" width="1054" height="749" extended-state="0" />
+    <frame x="90" y="47" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1362,14 +1361,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode68 Text Justification.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.0756972">
-          <caret line="36" column="0" selection-start-line="36" selection-start-column="0" selection-end-line="36" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1932271">
@@ -1382,14 +1373,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fkuagain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="11" selection-start-line="2" selection-start-column="11" selection-end-line="2" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1412,8 +1395,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.119521916">
-          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.62749004">
+          <caret line="21" column="28" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fkuagain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode68 Text Justification.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.0458168">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
           <folding />
         </state>
       </provider>

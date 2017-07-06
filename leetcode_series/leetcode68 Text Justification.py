@@ -7,6 +7,7 @@
 class Solution(object):
     def fullJustify(self, words, maxWidth):
 
+        # the "not words" corner case is also covered in the following
         res = []
         numofletters = 0
         # the len(curr) is the current number of slots needed
@@ -28,9 +29,9 @@ class Solution(object):
             currchunks.append(word)
             numofletters += len(word)
 
-        # the "- len(currchunks) + 1" is to substract the number of single spaces added between words
-        # there is no need to check whether the currchunk is empty
-        return res + [' '.join(currchunks) + ' ' * (maxWidth - numofletters - len(currchunks) + 1)]
+        lastline = ' '.join(currchunks)
+        return res + [lastline + ' ' * (maxWidth - len(lastline))]
+        #return res + [' '.join(currchunks) + ' ' * (maxWidth - numofletters - len(currchunks) + 1)]
         #return res + [' '.join(curr).ljust(maxWidth)]  # the magical "ljust"
 
 
