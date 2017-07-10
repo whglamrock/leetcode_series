@@ -40,7 +40,7 @@ class Solution(object):
 
         n = len(citations)
         # when using "while l < r" instead of "<=", the mid won't be out of range
-        l, r = 0, n - 1  # P.S., r is not initiated as n anymore!   
+        l, r = 0, n - 1  # P.S., r is not initiated as n anymore!
 
         if l == r:  # e.g., citation = [0]
             return 1 if citations[0] >= 1 else 0

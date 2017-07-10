@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode274 H-Index.py" afterPath="$PROJECT_DIR$/leetcode274 H-Index.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode275 H-Index II.py" afterPath="$PROJECT_DIR$/leetcode275 H-Index II.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py" afterPath="$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -380,21 +380,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode275 H-Index II.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode275 H-Index II.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.2549801">
-              <caret line="42" column="68" selection-start-line="42" selection-start-column="68" selection-end-line="42" selection-end-column="68" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="leetcode629 K Inverse Pairs Array.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="leetcode629 K Inverse Pairs Array.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.49203187">
+              <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
               <folding />
             </state>
           </provider>
@@ -463,9 +453,9 @@
         <option value="$PROJECT_DIR$/leetcode469 Convex Polygon.py" />
         <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
         <option value="$PROJECT_DIR$/leetcode68 Text Justification.py" />
-        <option value="$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py" />
         <option value="$PROJECT_DIR$/leetcode274 H-Index.py" />
         <option value="$PROJECT_DIR$/leetcode275 H-Index II.py" />
+        <option value="$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py" />
       </list>
     </option>
   </component>
@@ -1409,18 +1399,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/fkuagain.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode275 H-Index II.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.17928287">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="29" selection-end-column="20" />
           <folding />
         </state>
       </provider>
@@ -1433,10 +1423,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode275 H-Index II.py">
+    <entry file="file://$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.2549801">
-          <caret line="42" column="68" selection-start-line="42" selection-start-column="68" selection-end-line="42" selection-end-column="68" />
+        <state vertical-scroll-proportion="0.49203187">
+          <caret line="21" column="60" selection-start-line="21" selection-start-column="60" selection-end-line="21" selection-end-column="60" />
           <folding />
         </state>
       </provider>
