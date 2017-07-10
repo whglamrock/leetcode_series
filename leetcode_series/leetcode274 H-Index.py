@@ -8,6 +8,7 @@ class Solution(object):
             return 0
 
         n = len(citations)
+        # since the citation of each paper could be 0 to n, its length has to be n + 1
         counting = [0] * (n + 1)
 
         for i, cite in enumerate(citations):
@@ -18,6 +19,7 @@ class Solution(object):
 
         currsum = 0
         for i in xrange(n, -1, -1):
+            # the currsum counts how many papers in total have at least i citations
             currsum += counting[i]
             if currsum >= i:
                 return i
