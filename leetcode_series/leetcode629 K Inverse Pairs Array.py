@@ -24,6 +24,7 @@ class Solution(object):
         # we can analogize n to i, j to k + 1: dp[i][j] = dp[i - 1][j] + dp[i][j - 1] - dp[i - 1][j - i]
         for i in xrange(3, n + 1):
             dp[i][0] = 1
+            # the upper bound has to be the min(k, i * (i - 1) / 2).
             for j in xrange(1, min(k, i * (i - 1) / 2) + 1):
                 dp[i][j] = dp[i - 1][j] + dp[i][j - 1]
                 # when j < i, dp[i - 1][j - i] would be invalid, so in practice dp[i - 1][j - i] would be 0
