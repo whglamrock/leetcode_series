@@ -38,7 +38,7 @@ class Solution(object):
 
 Sol = Solution()
 words = ["This", "is", "an", "example", "of", "text", "justification."]
-ans = Sol.fullJustify(words, 16)
+ans = Sol.fullJustify(words, 15)
 for item in ans:
     print item
 
