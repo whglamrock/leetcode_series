@@ -21,7 +21,6 @@ class Solution(object):
             # when theindexofminheight != i - 1, all bars between them are guaranteed no shorter than theindexofminheight
             else:
                 # get the index of bar that's used as the height of the rec (shortest among current bars)
-                #   and theindexofminheight is the left bound of rectangle
                 theindexofminheight = stack.pop()
                 currarea = 0
                 # the right bound of the rectangle is i - 1, the left bound is stack[-1] + 1

@@ -25,7 +25,7 @@ class Solution(object):
                     currleft = j + 1    # make it the next j
                     left[j] = 0    # make it zero so the max operator can work
             # update the right
-            for j in xrange(n - 1, -1, -1):
+            for j in xrange(n - 1, -1, -1):  # "for j in xrange(n)" don't work here
                 if matrix[i][j] == '1':
                     right[j] = min(right[j], currright)
                 else:
@@ -45,3 +45,67 @@ class Solution(object):
                 maxarea = max(maxarea, (right[j] - left[j]) * height[j])
 
         return maxarea
+
+
+
+'''
+# Or simply reuse the code from lc84, faster in running but a bit more complicated to code
+#   and explain in real interview
+
+class Solution(object):
+    def maximalRectangle(self, matrix):
+
+        if not matrix or not matrix[0]:
+            return 0
+
+        n = len(matrix[0])
+        heights = [0] * n
+        maxarea = 0
+
+        for row in matrix:
+            for j in xrange(n):
+                if row[j] == '1':
+                    heights[j] = heights[j] + 1
+                else:
+                    heights[j] = 0
+            currmaxarea = self.largestRectangleArea(heights)
+            maxarea = max(maxarea, currmaxarea)
+
+        return maxarea
+
+    def largestRectangleArea(self, heights):
+
+        if not heights:
+            return 0
+
+        n = len(heights)
+        i = 0
+        maxarea = 0
+        stack = []
+
+        while i < n:
+            if not stack or heights[i] >= heights[stack[-1]]:
+                stack.append(i)
+                i += 1
+            else:
+                theindexofminheight = stack.pop()
+                h = heights[theindexofminheight]
+                currarea = 0
+                if stack:
+                    currarea = h * (i - 1 - stack[-1])
+                else:
+                    currarea = h * i
+                maxarea = max(maxarea, currarea)
+
+        while stack:
+            theindexofminheight = stack.pop()
+            h = heights[theindexofminheight]
+            currarea = 0
+            if stack:
+                currarea = h * (n - 1 - stack[-1])
+            else:
+                currarea = h * n
+            maxarea = max(maxarea, currarea)
+
+        return maxarea
+'''

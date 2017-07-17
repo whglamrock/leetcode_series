@@ -11,22 +11,22 @@ class Solution(object):
             return 0
 
         n = len(citations)
-        # P.S.: when using "while l < r" instead of "<=", the mid won't be out of range
         l, r = 0, n
 
-        # exit condition: l == r
         while l < r:
+            # the mid won't be index out of range
             mid = l + (r - l) / 2
             if citations[mid] == n - mid:
                 return n - mid
-            # in this case, the n - mid is still candidate
+            # in this case, the n - mid is still candidate, mid can be further smaller
             elif citations[mid] > n - mid:
                 r = mid
-            # all citations[:mid + 1] are < n - mid
+            # for all elements citations[i] on the left of mid, citations[i] <= citations[mid] < n - mid < n - i
             else:
                 l = mid + 1
 
-        # it also applies to when n - l == 0
+        # it applies to the case when n == l
+        #   e.g., [0, 0, 0], [0, 0], [0], if r is initialized as n - 1, it will return 1 (which should be 0)
         return n - l
 
 
