@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode221 Maximal Square.py" afterPath="$PROJECT_DIR$/leetcode221 Maximal Square.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode68 Text Justification.py" afterPath="$PROJECT_DIR$/leetcode68 Text Justification.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode274 H-Index.py" afterPath="$PROJECT_DIR$/leetcode274 H-Index.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode85 Maximal Rectangle.py" afterPath="$PROJECT_DIR$/leetcode85 Maximal Rectangle.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -119,7 +119,7 @@
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode238_Product_of_Array_Except_Self.coverage" NAME="leetcode238 Product of Array Except Self Coverage Results" MODIFIED="1465082762903" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode306_Additive_Number.coverage" NAME="leetcode306 Additive Number Coverage Results" MODIFIED="1475387740439" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/leetcode_series$leetcode253_Meeting_Rooms_II.coverage" NAME="leetcode253 Meeting Rooms II Coverage Results" MODIFIED="1490516440195" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/leetcode_series$leetcode68_Text_Justification.coverage" NAME="leetcode68 Text Justification Coverage Results" MODIFIED="1500166518623" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/leetcode_series$leetcode68_Text_Justification.coverage" NAME="leetcode68 Text Justification Coverage Results" MODIFIED="1500238115419" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode98_Validate_Binary_Search_Tree.coverage" NAME="leetcode98 Validate Binary Search Tree Coverage Results" MODIFIED="1480745696383" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode254_Factor_Combinations.coverage" NAME="leetcode254 Factor Combinations Coverage Results" MODIFIED="1486506864559" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Leetcode series$leetcode102_Binary_Tree_Level_Order_Traversal.coverage" NAME="leetcode102 Binary Tree Level Order Traversal Coverage Results" MODIFIED="1459117499859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
@@ -373,11 +373,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode221 Maximal Square.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/leetcode221 Maximal Square.py">
+      <file leaf-file-name="leetcode85 Maximal Rectangle.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/leetcode85 Maximal Rectangle.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="1.314741">
-              <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode84 Largest Rectangle in Histogram.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode84 Largest Rectangle in Histogram.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-0.55378485">
+              <caret line="1" column="87" selection-start-line="1" selection-start-column="87" selection-end-line="1" selection-end-column="87" />
               <folding />
             </state>
           </provider>
@@ -398,8 +408,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode71 Simplify Path.py" />
-        <option value="$PROJECT_DIR$/leetcode494 Target Sum.py" />
         <option value="$PROJECT_DIR$/leetcode218 The Skyline Problem.py" />
         <option value="$PROJECT_DIR$/leetcode133 Clone Graph.py" />
         <option value="$PROJECT_DIR$/leetcode28 Implement strStr().py" />
@@ -440,7 +448,6 @@
         <option value="$PROJECT_DIR$/leetcode117 Populating Next Right Pointers in Each Node II.py" />
         <option value="$PROJECT_DIR$/leetcode469 Convex Polygon.py" />
         <option value="$PROJECT_DIR$/leetcode572 Subtree of Another Tree.py" />
-        <option value="$PROJECT_DIR$/leetcode274 H-Index.py" />
         <option value="$PROJECT_DIR$/leetcode275 H-Index II.py" />
         <option value="$PROJECT_DIR$/leetcode629 K Inverse Pairs Array.py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
@@ -449,6 +456,9 @@
         <option value="$PROJECT_DIR$/leetcode639 Decode Ways II.py" />
         <option value="$PROJECT_DIR$/leetcode68 Text Justification.py" />
         <option value="$PROJECT_DIR$/leetcode221 Maximal Square.py" />
+        <option value="$PROJECT_DIR$/leetcode274 H-Index.py" />
+        <option value="$PROJECT_DIR$/leetcode85 Maximal Rectangle.py" />
+        <option value="$PROJECT_DIR$/leetcode84 Largest Rectangle in Histogram.py" />
       </list>
     </option>
   </component>
@@ -458,8 +468,8 @@
     <detection-done>true</detection-done>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="116" />
-    <option name="y" value="60" />
+    <option name="x" value="128" />
+    <option name="y" value="82" />
     <option name="width" value="1054" />
     <option name="height" value="749" />
   </component>
@@ -964,7 +974,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="116" y="60" width="1054" height="749" extended-state="0" />
+    <frame x="128" y="82" width="1054" height="749" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29886147" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1014,22 +1024,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode297 Serialize and Deserialize Binary Tree.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="2.6199615">
-          <caret line="128" column="19" selection-start-line="128" selection-start-column="19" selection-end-line="128" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode76 Minimum Window Substring.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.497121">
-          <caret line="52" column="0" selection-start-line="52" selection-start-column="0" selection-end-line="52" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode209 Minimum Size Subarray Sum.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.028790787">
@@ -1344,14 +1338,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode274 H-Index.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2988048">
-          <caret line="10" column="86" selection-start-line="10" selection-start-column="86" selection-end-line="10" selection-end-column="86" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode621 Task Scheduler.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.059760958">
@@ -1400,10 +1386,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode221 Maximal Square.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.314741">
+          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode68 Text Justification.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.1952192">
           <caret line="40" column="31" selection-start-line="40" selection-start-column="31" selection-end-line="40" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode274 H-Index.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.2988048">
+          <caret line="10" column="92" selection-start-line="10" selection-start-column="92" selection-end-line="10" selection-end-column="92" />
           <folding />
         </state>
       </provider>
@@ -1416,10 +1418,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode221 Maximal Square.py">
+    <entry file="file://$PROJECT_DIR$/leetcode85 Maximal Rectangle.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.314741">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode84 Largest Rectangle in Histogram.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.55378485">
+          <caret line="1" column="87" selection-start-line="1" selection-start-column="87" selection-end-line="1" selection-end-column="87" />
           <folding />
         </state>
       </provider>

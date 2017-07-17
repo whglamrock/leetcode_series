@@ -8,7 +8,7 @@ class Solution(object):
             return 0
 
         n = len(citations)
-        # since the citation of each paper could be 0 to n, its length has to be n + 1
+        # even the citation of each paper could be more than n, the h index can at most be n
         counting = [0] * (n + 1)
 
         for i, cite in enumerate(citations):
