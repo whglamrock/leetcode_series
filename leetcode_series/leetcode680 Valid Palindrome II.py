@@ -2,6 +2,7 @@
 class Solution(object):
     def validPalindrome(self, s):
 
+        if s is None: return False
         l, r = 0, len(s) - 1
         while l < r:
             if s[l] != s[r]:

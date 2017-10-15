@@ -1,22 +1,18 @@
 
 # O(N) hash-table solution
 
-from collections import defaultdict
-
 class Solution(object):
+
     def twoSum(self, nums, target):
 
-        mapping = defaultdict(list)
-        for i, num in enumerate(nums):
-            mapping[num].append(i)
+        if nums is None or not nums:
+            return []
 
-        for key in mapping:
-            if target - key in mapping:
-                if target - key == key:  # means this element occurred more than once
-                    if len(mapping[key]) >= 2:
-                        return mapping[key][:2]
-                else:
-                    return [mapping[key][0], mapping[target - key][0]]
+        valueToIndex = {}
+        for i, num in enumerate(nums):
+            if target - num in valueToIndex:
+                return [valueToIndex[target - num], i]
+            valueToIndex[num] = i
 
         return []
 
