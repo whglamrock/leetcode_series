@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py" afterPath="$PROJECT_DIR$/leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode680 Valid Palindrome II.py" afterPath="$PROJECT_DIR$/leetcode680 Valid Palindrome II.py" />
     </list>
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -444,12 +443,12 @@
         <option value="$PROJECT_DIR$/leetcode85 Maximal Rectangle.py" />
         <option value="$PROJECT_DIR$/leetcode275 H-Index II.py" />
         <option value="$PROJECT_DIR$/fkuagain.py" />
-        <option value="$PROJECT_DIR$/leetcode680 Valid Palindrome II.py" />
         <option value="$PROJECT_DIR$/leetcode674 Longest Continuous Increasing Subsequence.py" />
         <option value="$PROJECT_DIR$/leetcode653 Two Sum IV - Input is a BST.py" />
         <option value="$PROJECT_DIR$/leetcode1 Two Sum.py" />
         <option value="$PROJECT_DIR$/leetcode636 Exclusive Time of Functions.py" />
         <option value="$PROJECT_DIR$/leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py" />
+        <option value="$PROJECT_DIR$/leetcode680 Valid Palindrome II.py" />
       </list>
     </option>
   </component>
@@ -966,9 +965,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="25" y="23" width="1226" height="773" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25693312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25693312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32890365" sideWeight="0.49695918" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32784432" sideWeight="0.5099913" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1366,14 +1365,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode680 Valid Palindrome II.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.22488755">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode674 Longest Continuous Increasing Subsequence.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33733132">
@@ -1410,6 +1401,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7485605">
           <caret line="26" column="36" selection-start-line="26" selection-start-column="36" selection-end-line="26" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode680 Valid Palindrome II.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.66568047">
+          <caret line="30" column="9" selection-start-line="30" selection-start-column="9" selection-end-line="30" selection-end-column="9" />
           <folding />
         </state>
       </provider>

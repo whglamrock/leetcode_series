@@ -2,7 +2,9 @@
 class Solution(object):
     def validPalindrome(self, s):
 
-        if s is None: return False
+        if s is None:
+            return False
+
         l, r = 0, len(s) - 1
         while l < r:
             if s[l] != s[r]:
@@ -23,4 +25,9 @@ class Solution(object):
             r -= 1
 
         return True
+
+
+
+# P.S.: there is a possibility that s[l] != s[r] but (s[l + 1] == s[r] and s[l] == s[r - 1]). In this case we can't
+#   just arbitrarily say if s[l + 1] == s[r] then l += 1 and continue moving the pointers.
 
