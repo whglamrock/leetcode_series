@@ -371,11 +371,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="leetcode673 Number of Longest Increasing Subsequence.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/leetcode673 Number of Longest Increasing Subsequence.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.55473375">
+              <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5769231">
-              <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="28" selection-end-column="44" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -396,7 +406,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode13 Roman to Integer.py" />
         <option value="$PROJECT_DIR$/leetcode460 LFU Cache.py" />
         <option value="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
         <option value="$PROJECT_DIR$/leetcode380 Insert Delete GetRandom O(1).py" />
@@ -447,6 +456,7 @@
         <option value="$PROJECT_DIR$/leetcode680 Valid Palindrome II.py" />
         <option value="$PROJECT_DIR$/leetcode670 Maximum Swap.py" />
         <option value="$PROJECT_DIR$/leetcode647 Palindromic Substrings.py" />
+        <option value="$PROJECT_DIR$/leetcode673 Number of Longest Increasing Subsequence.py" />
       </list>
     </option>
   </component>
@@ -1012,14 +1022,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode10 Regular Expression Matching.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.11516315">
-          <caret line="4" column="97" selection-start-line="4" selection-start-column="97" selection-end-line="4" selection-end-column="97" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode81 Search in Rotated Sorted Array.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5335968">
@@ -1371,14 +1373,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/fkuagain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode636 Exclusive Time of Functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7485605">
@@ -1413,8 +1407,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5769231">
-          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="28" selection-end-column="44" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fkuagain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="52" selection-start-line="5" selection-start-column="52" selection-end-line="5" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode673 Number of Longest Increasing Subsequence.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.55473375">
+          <caret line="25" column="44" selection-start-line="25" selection-start-column="44" selection-end-line="25" selection-end-column="44" />
           <folding />
         </state>
       </provider>
