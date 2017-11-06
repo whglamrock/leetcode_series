@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/leetcode680 Valid Palindrome II.py" afterPath="$PROJECT_DIR$/leetcode680 Valid Palindrome II.py" />
-    </list>
+    <list default="true" id="f64464b7-2f15-47cf-b66a-4e2b0842a479" name="Default" comment="" />
     <ignored path="untitled1.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path=".idea/dataSources.local.xml" />
@@ -376,8 +374,8 @@
       <file leaf-file-name="leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5325444">
-              <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+            <state vertical-scroll-proportion="0.5769231">
+              <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="28" selection-end-column="44" />
               <folding />
             </state>
           </provider>
@@ -398,8 +396,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/leetcode76 Minimum Window Substring.py" />
-        <option value="$PROJECT_DIR$/leetcode209 Minimum Size Subarray Sum.py" />
         <option value="$PROJECT_DIR$/leetcode13 Roman to Integer.py" />
         <option value="$PROJECT_DIR$/leetcode460 LFU Cache.py" />
         <option value="$PROJECT_DIR$/leetcode146 LRU Cache.py" />
@@ -449,6 +445,8 @@
         <option value="$PROJECT_DIR$/leetcode636 Exclusive Time of Functions.py" />
         <option value="$PROJECT_DIR$/leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py" />
         <option value="$PROJECT_DIR$/leetcode680 Valid Palindrome II.py" />
+        <option value="$PROJECT_DIR$/leetcode670 Maximum Swap.py" />
+        <option value="$PROJECT_DIR$/leetcode647 Palindromic Substrings.py" />
       </list>
     </option>
   </component>
@@ -1014,22 +1012,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/leetcode146 LRU Cache.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/leetcode380 Insert Delete GetRandom O(1).py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.4395393">
-          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode10 Regular Expression Matching.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.11516315">
@@ -1413,10 +1395,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode670 Maximum Swap.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/leetcode647 Palindromic Substrings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64349115">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/leetcode689 Maximum Sum of 3 Non-Overlapping Subarrays.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5325444">
-          <caret line="24" column="64" selection-start-line="24" selection-start-column="64" selection-end-line="24" selection-end-column="64" />
+        <state vertical-scroll-proportion="0.5769231">
+          <caret line="26" column="43" selection-start-line="26" selection-start-column="43" selection-end-line="28" selection-end-column="44" />
           <folding />
         </state>
       </provider>
