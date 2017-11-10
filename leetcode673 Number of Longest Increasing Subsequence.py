@@ -1,4 +1,6 @@
 
+# O(N^2) solution
+
 class Solution(object):
     def findNumberOfLIS(self, nums):
 
