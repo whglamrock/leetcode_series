@@ -1,44 +1,85 @@
 
 from collections import defaultdict
 
-# advanced union find approach
+# DFS approach, more efficient
 
 class Solution(object):
     def accountsMerge(self, accounts):
 
-        # key is the account email, value is the name.
-        #   it is guaranteed that same person will always have the same name
-        email_to_nameIndex = defaultdict(int)
-        nameIndex_to_emails = defaultdict(set)
+        visited = [False] * len(accounts)
+        # build the map
+        email_to_accounts = defaultdict(list)
         for i, account in enumerate(accounts):
-            # collect all related nameIndices that will need to be united
-            related_name_indices = []
-            for j in xrange(1, len(account)):
-                email = account[j]
-                if email in email_to_nameIndex:
-                    nameIndex = email_to_nameIndex[email]
-                    related_name_indices.append(nameIndex)
-            # add the new accounts to maps
-            for j in xrange(1, len(account)):
-                email = account[j]
-                email_to_nameIndex[email] = i
-                nameIndex_to_emails[i].add(email)
-            # union
-            for related_nameIndex in related_name_indices:
-                related_emails = nameIndex_to_emails[related_nameIndex]
-                # point the email to the new nameIndex
-                for related_email in related_emails:
-                    email_to_nameIndex[related_email] = i
-                # set union
-                nameIndex_to_emails[i] |= related_emails
-                # delete old index entry
-                del nameIndex_to_emails[related_nameIndex]
+            for email in account[1:]:
+                email_to_accounts[email].append(i)
+
+        # cannot delete from the email_to_accounts[email], otherwise there will be for loop error
+        #   emails is a set that stores the emails related to this name
+        def dfs(name_idx, emails):
+            if visited[name_idx]:
+                return
+            visited[name_idx] = True
+            for email in accounts[name_idx][1:]:
+                emails.add(email)
+                for neighbor in email_to_accounts[email]:
+                    dfs(neighbor, emails)
+            return emails
 
         ans = []
-        for nameIndex in nameIndex_to_emails:
-            emailSet = nameIndex_to_emails[nameIndex]
-            name = accounts[nameIndex][0]
-            ans.append([name] + sorted(emailSet))
+        # do the dfs and collect the answer
+        for i, account in enumerate(accounts):
+            name = account[0]
+            emails = dfs(i, set())
+            if emails:
+                ans.append([name] + sorted(emails))
 
         return ans
+
+
+
+'''
+from collections import defaultdict
+
+# classic union find, more efficient than the "find related name index that needs to be united" approach
+
+class Solution(object):
+    def accountsMerge(self, accounts):
+        # key is the child, value is the parent
+        parents = {}
+        # email to name mapping
+        owner = {}
+
+        # initial setup
+        for acc in accounts:
+            for i in xrange(1, len(acc)):
+                parents[acc[i]] = acc[i]
+                owner[acc[i]] = acc[0]
+
+        # within each account, the ROOT parent of each email is same -- the root parent of first email
+        for acc in accounts:
+            rootP = self.find(acc[1], parents)
+            for i in xrange(2, len(acc)):
+                rootP_i = self.find(acc[i], parents)
+                parents[rootP_i] = rootP
+
+        # union (after this point, the parents graph won't change)
+        union = defaultdict(set)	# mapping from the root parent to all its children
+        for acc in accounts:
+            # first email is the parent of other emails in this account, and it's guaranteed that we can
+            # 	find the ultimate root parent from this first email
+            rootP = self.find(acc[1], parents)
+            for i in xrange(1, len(acc)):
+                union[rootP].add(acc[i])
+
+        ans = []
+        for rootP in union:
+            name = owner[rootP]
+            emails = sorted(union[rootP])
+            ans.append([name] + emails)
+
+        return ans
+
+    def find(self, child, parents):
+        return child if parents[child] == child else self.find(parents[child], parents)
+'''
 
