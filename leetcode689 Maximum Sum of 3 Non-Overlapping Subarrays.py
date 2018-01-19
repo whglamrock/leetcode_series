@@ -7,11 +7,11 @@ class Solution(object):
         n = len(nums)
         # dp[i][j] means in ith sum (the sum of all i subarrays), the max subarray sum from 0 to j
         dp = [[0 for j in xrange(n)] for i in xrange(4)]
-        accuSum = [0] * n
         # indices[i][j] means in ith sum, the starting index of the ith max subarray from 0 to j
         indices = [[0 for j in xrange(n)] for i in xrange(4)]
 
         currSum = 0
+        accuSum = [0] * n
         for i in xrange(n):
             currSum += nums[i]
             # accuSum[i] sums from 0 to i
@@ -19,15 +19,16 @@ class Solution(object):
 
         for i in xrange(1, 4):
             # from k - 1, dp[i][j] starts to matter
-            for j in xrange(k - 1, n):
+            for j in xrange(i * k - 1, n):
                 # tmp is actually the newly emerged sum that could "potentially" be the largest
                 tmp = accuSum[j] if j == k - 1 else accuSum[j] - accuSum[j - k] + dp[i - 1][j - k]
                 # arbitrarily inherit from previous status first
                 if j >= k:  # can be removed actually, because dp[i][k - 2] and indices[i][k - 2] were 0 anyways
                     dp[i][j] = dp[i][j - 1]
                     indices[i][j] = indices[i][j - 1]
-                # has to be "tmp > dp[i][j - 1]" instead of ">=" because we need lexicographically smallest index
-                if j > 0 and tmp > dp[i][j - 1]:
+                # has to be "tmp > dp[i][j]" instead of ">=" because we need lexicographically smallest index
+                #   j > 0 condition has to be considered because k can == 1
+                if j > 0 and tmp > dp[i][j]:
                     dp[i][j] = tmp
                     indices[i][j] = j - k + 1
 
