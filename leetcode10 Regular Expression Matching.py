@@ -1,7 +1,8 @@
 
 '''
 In this problem, we assume that there is no "." or "*" in s, the p does not start with "*",
-there won't be consecutive '*'s in p, the * can only eliminates one preceding char.
+    there won't be consecutive '*'s in p, the * can only eliminate one preceding char;
+"*" can also propagate the preceding char for one or more times
 Also, the description is vague, without telling that the '*' can actually eliminate one preceding char
 '''
 
@@ -17,33 +18,35 @@ Also, the description is vague, without telling that the '*' can actually elimin
 class Solution(object):
     def isMatch(self, s, p):
 
-        if s == None or p == None:
-            return False
+        # corner case: when s or p is an empty String
 
         m, n = len(s), len(p)
-        # dp[i][j] defines whether s[:i] matches p[:j]
+        # range needs to be n + 1 because we need to consider matching the empty String
         dp = [[False for j in xrange(n + 1)] for i in xrange(m + 1)]
         dp[0][0] = True
 
+        # consider s is an empty String
         for j in xrange(2, n + 1):
+            # before update all dp[0][j]s are False
             dp[0][j] = dp[0][j - 2] and p[j - 1] == '*'
 
+        # here we don't cover the case when s is empty and dp[0][j]'s values
         for i in xrange(1, m + 1):
             for j in xrange(1, n + 1):
                 if s[i - 1] == p[j - 1] or p[j - 1] == '.':
                     # it is directly "equals to", not "|="
                     dp[i][j] = dp[i - 1][j - 1]
-                elif p[j - 1] == '*':   # in this case j >= 2 because the p won't start with '*'
-                    # matches zero chars
+                elif p[j - 1] == '*':
+                    # matching zero chars
                     dp[i][j] |= dp[i][j - 1]
-                    # elimination
-                    dp[i][j] |= dp[i][j - 2]
-                    # when p[:j] is one char short to match s[:i], we need the '*' to propagate p[j - 2]
-                    if p[j - 2] == s[i - 1] or p[j - 2] == '.':
-                        dp[i][j] |= dp[i - 1][j]
+                    if j >= 2:
+                        # eliminate one preceding char
+                        dp[i][j] |= dp[i][j - 2]
+                        # propagation
+                        if s[i - 1] == p[j - 2] or p[j - 2] == '.':
+                            dp[i][j] |= dp[i - 1][j]
 
         return dp[-1][-1]
-
 
 
 a = 'aba'
