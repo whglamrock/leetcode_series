@@ -6,6 +6,7 @@ class TrieNode:
     def __init__(self):
 
         self.children = defaultdict(TrieNode)
+        # not exactly the weights, but storing the words with this prefix
         self.weights = set()
 
 
@@ -46,7 +47,8 @@ class WordFilter(object):
             if c not in curr.children:
                 return -1
             curr = curr.children[c]
-        # add the all words with prefix to the wordsWithPrefix
+        # add all the words with this prefix to the wordsWithPrefix
+        #   remember the corner case where prefix is an empty String
         if prefix:
             for w in curr.weights:
                 wordsWithPrefix.add(w)

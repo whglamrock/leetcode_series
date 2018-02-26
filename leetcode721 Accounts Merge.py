@@ -20,7 +20,7 @@ class Solution(object):
                 return
             visited[name_idx] = True
             for email in accounts[name_idx][1:]:
-                emails.add(email)
+                emails.add(email)   # the variable emails has to be a set
                 for neighbor in email_to_accounts[email]:
                     dfs(neighbor, emails)
             return emails
@@ -78,7 +78,8 @@ class Solution(object):
             ans.append([name] + emails)
 
         return ans
-
+    
+    # remember this method
     def find(self, child, parents):
         return child if parents[child] == child else self.find(parents[child], parents)
 '''
