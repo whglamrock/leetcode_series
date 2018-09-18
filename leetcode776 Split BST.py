@@ -8,7 +8,7 @@
 
 
 # remember how the logic is formed
-# WUNAO use recursion and goes down the bottom levl
+# WUNAO use recursion and goes down the bottom level
 
 class Solution(object):
     def splitBST(self, root, V):
