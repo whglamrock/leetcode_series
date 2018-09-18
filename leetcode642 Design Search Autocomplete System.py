@@ -6,7 +6,6 @@ from collections import defaultdict
 class TrieNode:
 
     def __init__(self):
-
         self.children = defaultdict(TrieNode)
         self.counts = defaultdict(int)
 
@@ -14,7 +13,6 @@ class TrieNode:
 class AutocompleteSystem(object):
 
     def __init__(self, sentences, times):
-
         self.root = TrieNode()
         self.prefix = ""
         for s, count in zip(sentences, times):
