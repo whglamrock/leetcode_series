@@ -19,6 +19,9 @@ class Solution(object):
 
 
 '''
+
+# "l < r" solution
+
 class Solution(object):
     def search(self, nums, target):
 
