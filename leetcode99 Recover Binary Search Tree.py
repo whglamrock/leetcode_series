@@ -14,6 +14,8 @@ class TreeNode(object):
 class Solution(object):
 
     def __init__(self):
+        # we have to use global variable. directly passing local variables to the
+            # traverse method will cause null pointer exception
         self.firstElement, self.secondElement, self.prevElement = None, None, None
 
     def recoverTree(self, root):
