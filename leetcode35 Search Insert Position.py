@@ -1,33 +1,27 @@
 
 '''
-binary search. This question is really stupid and meaningless.
+the whole point of this question is about returning the insert index when
+target is not found
 '''
 
 class Solution(object):
-    def searchInsert(self, nums, key):
-        if key > nums[len(nums) - 1]:
-            return len(nums)
+    def searchInsert(self, nums, target):
 
-        if key < nums[0]:
-            return 0
-
-        l, r = 0, len(nums) - 1
-        while l <= r:
-            m = (l + r)/2
-            if nums[m] > key:
-                r = m - 1
-                if r >= 0:
-                    if nums[r] < key:
-                        return r + 1
-                else:
-                    return 0
-
-            elif nums[m] < key:
-                l = m + 1
-                if l < len(nums):
-                    if nums[l] > key:
-                        return l
-                else:
-                    return len(nums)
+        l, r = 0, len(nums)
+        # exit condition is l == r
+        while l < r:
+            mid = l + (r - l) / 2
+            if nums[mid] == target:
+                return mid
+            elif nums[mid] < target:
+                l = mid + 1
             else:
-                return m
+                r = mid
+
+        if l < len(nums):
+            if nums[l] < target:
+                return l + 1
+            else:
+                return l
+        else:
+            return l
