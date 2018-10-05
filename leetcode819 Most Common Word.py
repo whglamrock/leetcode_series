@@ -4,21 +4,24 @@ from collections import defaultdict
 class Solution(object):
     def mostCommonWord(self, paragraph, banned):
 
-        wordCount = defaultdict(int)
-        banned = set(banned)
+        symbols = "!?',;. "
         curr = []
+        wordCount = defaultdict(int)
+
         for char in paragraph:
-            if not char.isalpha():
+            if char not in symbols:
+                curr.append(char.lower())
+            else:
                 if curr:
                     word = "".join(curr)
                     wordCount[word] += 1
                     curr = []
-            else:
-                curr.append(char.lower())
         if curr:
             wordCount["".join(curr)] += 1
 
+        print
         maxCount = 0
+        banned = set(banned)
         res = ''
         for word in wordCount:
             if wordCount[word] > maxCount and word not in banned:
