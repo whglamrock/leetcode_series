@@ -19,7 +19,6 @@ class Solution(object):
         if curr:
             wordCount["".join(curr)] += 1
 
-        print
         maxCount = 0
         banned = set(banned)
         res = ''

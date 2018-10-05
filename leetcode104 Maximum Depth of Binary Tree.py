@@ -1,8 +1,9 @@
 
 class Solution(object):
+
     def maxDepth(self, root):
 
-        if root is None:
+        if not root:
             return 0
         queue = [root]
         ans = 0
@@ -24,15 +25,17 @@ class Solution(object):
 # recursive solution
 
 class Solution(object):
+    
     def maxDepth(self, root):
-        def dfs(level, root, res):
-            if root:
-                if level > res[0]:
-                    res[0] = level
-                dfs(level+1, root.left, res)
-                dfs(level+1, root.right,res)
-        res = [0]
-        dfs(1, root, res)
-        return res[0]
+        self.length = 0
+        def traverse(node, pathLength):
+            if not node:
+                self.length = max(self.length, pathLength)
+                return
+            traverse(node.left, pathLength + 1)
+            traverse(node.right, pathLength + 1)
+        
+        traverse(root, 0)
+        return self.length
 """
 
