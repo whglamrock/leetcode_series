@@ -32,9 +32,7 @@ class Solution(object):
             else:
                 window[fruitType] += 1
 
-        if window:
-            ans = max(ans, sum(window.values()))
-
+        ans = max(ans, sum(window.values()))
         return ans
 
 
