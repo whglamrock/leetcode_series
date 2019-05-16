@@ -1,22 +1,33 @@
 
+# recognizing this can be an NP hard question, gut feeling is to use DP
+# divide into 4 conditions
+
 class Solution(object):
     def minSwap(self, A, B):
 
-        # min number of swaps if we fix or swap at position i
-        fixRecord, swapRecord = 0, 1
         n = len(A)
+        dp = [[2147483647, 2147483647] for index in xrange(n)]
+        dp[0] = [0, 1]
 
         for i in xrange(1, n):
-            prevFixRecord, prevSwapRecord = fixRecord, swapRecord
-            if A[i] > A[i - 1] and B[i] > B[i - 1]:
-                if A[i] > B[i - 1] and B[i] > A[i - 1]:  # it means we have the freedom to swap or not
-                    fixRecord = min(prevFixRecord, prevSwapRecord)
-                    swapRecord = min(prevFixRecord, prevSwapRecord) + 1
-                else:  # we either fix record or swap the record under the precondition that the previous one is also swapped
-                    fixRecord = prevFixRecord
-                    swapRecord = prevSwapRecord + 1
-            else:  # in this case, either swap this pair, or the previous pair has to be swapped
-                fixRecord = prevSwapRecord
-                swapRecord = prevFixRecord + 1
 
-        return min(fixRecord, swapRecord)
+            if A[i] > A[i - 1] and B[i] > B[i - 1]:
+                # no swap on i, no swap on i - 1
+                dp[i][0] = min(dp[i][0], dp[i - 1][0])
+                # swap on i, swap on i - 1
+                dp[i][1] = min(dp[i][1], dp[i - 1][1] + 1)
+
+            if A[i] > B[i - 1] and B[i] > A[i - 1]:
+                # swap on i, no swap on i - 1
+                dp[i][1] = min(dp[i][1], dp[i - 1][0] + 1)
+                # no swap on i, swap on i - 1
+                dp[i][0] = min(dp[i][0], dp[i - 1][1])
+
+        return min(dp[-1][0], dp[-1][1])
+
+
+
+Sol = Solution()
+A = [1, 3, 3, 7]
+B = [1, 2, 5, 4]
+print Sol.minSwap(A, B)

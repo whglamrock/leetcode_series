@@ -1,6 +1,9 @@
 
 # the idea is to get out of the idea of "is this string a valid"
-# 
+# but focus on if we have any substring
+
+# P.S. it's hard to know we should keep a stack to store the unmatched
+# indices, but it's the key to solution
 
 class Solution(object):
     def longestValidParentheses(self, s):
