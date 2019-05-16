@@ -17,7 +17,7 @@ class Solution(object):
                 return False
             else:
                 lastchar = stack.pop()
-                if lastchar not in dic or dic[lastchar] != char:
+                if dic[lastchar] != char:
                     return False
 
         return len(stack) == 0
