@@ -25,6 +25,8 @@ class Solution(object):
                 farthest = max(farthest, i + nums[i])
             if farthest >= n - 1:
                 return steps
+
+            # next end = farthest so the index i can reach farthest
             start, end = end + 1, farthest
 
             # not needed because we assume we will always be able to reach it
