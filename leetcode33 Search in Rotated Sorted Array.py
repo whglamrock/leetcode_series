@@ -1,39 +1,34 @@
 
 # the simplest one pass solution.
-# the key is to compare the nums[mid] with nums[l] in binary search
+# comparing the nums[mid] with nums[l] to divide the condition is easier than comparing nums[m] & target
 
 class Solution(object):
     def search(self, nums, target):
-
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: int
+        """
         if not nums:
             return -1
 
-        l, r = 0, len(nums)-1
-        # remember in this rotated array, always use the left element to compare with the mid;
-        #   you have to consider more cases if using the right element
-
+        l, r = 0, len(nums) - 1
         while l <= r:
-            mid = (l + r) / 2
-            if nums[mid] == target:
-                return mid
-            # for the nums[l] == nums[mid] case, consider test case like:
-            #   nums = [3, 1], target = 1
-            #   nums = [5, 1, 2, 3, 4], target = 1  (at last, nums[5, 1])
-            #   nums == [2, 3, 4, 5, 1], target == 1  (at last, nums[5, 1])
-            elif nums[l] <= nums[mid]:  # when there are more (or exactly half) elements on the left
-                if nums[l] <= target < nums[mid]:  # monotonously increasing
-                    r = mid - 1
-                else:   # target < nums[l] or target > nums[mid]
-                    l = mid + 1
-            else:  # when there are more elements on the right of the pivot
-                if nums[mid] < target <= nums[r]:  # monotonously increasing
-                    l = mid + 1
+            m = l + (r - l) / 2
+            if nums[m] == target:
+                return m
+            # instead of comparing nums[m] & target, we divide the condition by whether the left half is ascending
+            # Note: the nums[l] == nums[m] is for case like nums = [3, 1], target = 1
+            elif nums[l] <= nums[m]:  # ascending from l to m
+                if nums[l] <= target < nums[m]:
+                    r = m - 1
                 else:
-                    r = mid - 1
-
-        # P.S., if nums == [5, 1], and the "elif" condition is nums[l] < nums[mid], the while loop will go
-        #   into the small else condition of big else condition; at this point, l == r - 1 == mid, s
-        #   letting r = mid - 1 will miss the right search range and return -1
+                    l = m + 1
+            else:  # ascending from m to r
+                if nums[m] < target <= nums[r]:
+                    l = m + 1
+                else:
+                    r = m - 1
 
         return -1
 
