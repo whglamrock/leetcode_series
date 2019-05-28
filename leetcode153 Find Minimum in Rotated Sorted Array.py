@@ -14,6 +14,8 @@ class Solution(object):
             if nums[l] <= nums[m] <= nums[r]:
                 return nums[l]
             # nums[l] == nums[m] is when search range only contains 1 or 2 nums
+            # in fact in real interviews, we may find ourselves diving the following
+              # elif condition into 2: 1) nums[l] == nums[m]; 2) nums[l] < nums[m]
             elif nums[l] <= nums[m]:
                 l = m + 1
             # in this case, m is still candidate index
