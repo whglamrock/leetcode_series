@@ -42,46 +42,41 @@ print Sol.search(nums, target)
 
 
 '''
-# a delicate two pass O(logN) solution by finding the smallest element first
+# upper bound being n solution, still O(logN)
 
 class Solution(object):
-
     def search(self, nums, target):
-
+    
         if not nums:
             return -1
-        n = len(nums)
-
-        l, r = 0, n - 1
-
-        # find the index of smallest element
-        # the exit condition is l == r
+        
+        l, r = 0, len(nums)
         while l < r:
-            mid = l + (r - l) / 2
-            if nums[mid] > nums[r]:
-                l = mid + 1
-            else:   # nums[mid] < nums[r], then nums[r] is still the candidate
-                r = mid
-
-        pivot = l
-        l, r = 0, n - 1
-
-        # using another "realmid" instead of the mid.
-        # in each search, we don't choose the actual mid element to compare;
-        #   we choose an element (it's just like we are using another standard to choose)
-        #   on the "right" of mid by pivot elements.
-        while l <= r:
-            mid = l + (r - l) / 2
-            realmid = (mid + pivot) % n  # n, not n - 1, because realmid can n - 1
-            if nums[realmid] == target:
-                return realmid
-            # the recalculation of l and r will still be based on the mid:
-            elif nums[realmid] < target:
-                l = mid + 1
+            m = l + (r - l) / 2
+            if nums[m] == target:
+                return m
+            # means it's ascending from l to m
+            elif nums[l] <= nums[m]:
+                if target > nums[m]:
+                    l = m + 1
+                # target < nums[m]
+                else:
+                    if target < nums[l]:
+                        l = m + 1
+                    else:
+                        r = m
+            # means it's ascending from m to r
             else:
-                r = mid - 1
-
-        return -1
+                if target < nums[m]:
+                    r = m
+                # target > nums[m]
+                else:
+                    if target < nums[l]:
+                        l = m + 1
+                    else:
+                        r = m
+        
+        return -1  
 '''
 
 
