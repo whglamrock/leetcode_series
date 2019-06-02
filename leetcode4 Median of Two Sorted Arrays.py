@@ -18,8 +18,9 @@ class Solution(object):
         # search range is based on nums1
         l, r = 0, m
 
-        # we concatenate nums1[:i] & nums2[:j] to be left half and nums1[i:] & nums2[j:] to be right half
-        while l <= r:  # the "=" condition considers when m == 0
+        # 1) we concatenate nums1[:i] & nums2[:j] to be left half and nums1[i:] & nums2[j:] to be right half
+        # 2) the "l == r" condition considers the cases when m == 0, i == 0, i == m
+        while l <= r:
             i = (l + r) / 2
             # remember this index trick that makes sure when the total length is odd number,
               # we always make the  left half has 1 more number
@@ -30,8 +31,8 @@ class Solution(object):
                 l = i + 1
             # j is to small / i is too big
             elif i > 0 and j < n and nums1[i - 1] > nums2[j]:
-                r = i
-            # when i is correct + corner cases
+                r = i   # because initially we set the r = m
+            # when i is correct + corner cases i.e. there is no need to move i
             else:
                 if i == 0:  # no number in nums1 exist in the left half
                     max_of_left = nums2[j - 1]
