@@ -1,16 +1,18 @@
 
+# when encountering this question in the real interview, need to ask whether something like [0, 1, 2, 3, 4, 5]
+    # is possible
+
 class Solution(object):
     def findMin(self, nums):
         """
         :type nums: List[int]
         :rtype: int
         """
-        if not nums:
-            return -1
+        #no need to consider the empty case because it doesn't make any sense for minimum
 
         l, r = 0, len(nums) - 1
         while l <= r:
-            m = (l + r) / 2
+            m = l + (r - l) / 2
             if nums[l] <= nums[m] <= nums[r]:
                 return nums[l]
             # nums[l] == nums[m] is when search range only contains 1 or 2 nums
