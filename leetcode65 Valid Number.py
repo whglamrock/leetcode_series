@@ -17,7 +17,8 @@ class Solution(object):
                  # State (2) - found sign (expect digit/dot). e.g. +.2, -2, etc.
                  {'digit': 3, '.': 4},
 
-                 # State (3) - digit consumer (loop until non-digit). P.S. the value for '.' has to be 5 instead of 4
+                 # State (3) - digit consumer (loop until non-digit). P.S. the value for '.' has to be 5 instead of 4 because
+                   # '+.' is different from '5.'. '5.' is a valid ending state
                  {'digit': 3, '.': 5, 'e': 6, 'blank': 9}, # state 3 means so far we only have integer. e.g., +333, 012314
 
                  # State (4) - found dot (only a digit is valid)
