@@ -48,7 +48,10 @@ class Solution(object):
                 c = 'blank'
             elif c in '+-':
                 c = 'sign'
-            # If char/class is not in our state transition table it is invalid input
+            # elif c is e, c = e, else return False
+
+            # If char/class is not in our state transition table it is invalid input, this condition
+              # rules out the case when c == e
             if c not in states[currentState]:
                 return False
             # State transition
