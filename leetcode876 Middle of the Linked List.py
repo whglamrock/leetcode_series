@@ -28,10 +28,7 @@ class Solution(object):
 
 class Solution(object):
     def middleNode(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
+
         dummyHead = ListNode(None)
         dummyHead.next = head
         slow, fast = dummyHead, dummyHead
