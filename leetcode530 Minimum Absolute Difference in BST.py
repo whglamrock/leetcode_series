@@ -9,7 +9,7 @@ class TreeNode(object):
         self.right = None
 
 
-# idea: inorder traversal, find the min Diff of two consecutive nodes
+# idea: inorder traverse, find the min Diff of two consecutive nodes
 
 class Solution(object):
     def getMinimumDifference(self, root):

@@ -82,7 +82,7 @@ class SummaryRanges(object):
             prev.right = newnode
         #print val
 
-    # do the inorder traversal
+    # do the inorder traverse
     def getIntervals(self):
 
         cur = self.root

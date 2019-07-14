@@ -41,7 +41,7 @@ class Solution(object):
                 root = root.right
             else:
                 pred = root.left
-                # find the predecessor of root in inorder traversal
+                # find the predecessor of root in inorder traverse
                 while pred.right and pred.right is not root:
                     pred = pred.right
                 # means the pred doesn't have a manually created "virtual" link

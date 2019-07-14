@@ -10,10 +10,10 @@ class TreeLinkNode:
         self.next = None
 
 
-# the idea is using two pointers to keep track level traversal (in which the pointer of upper
+# the idea is using two pointers to keep track level traverse (in which the pointer of upper
 #   level pointer is similar to lc116).
 # Because the upper level is 'already connected' by the previous loop, so we don't save
-#   the previous level traversal to reference this level's nodes (just need two pointers)
+#   the previous level traverse to reference this level's nodes (just need two pointers)
 
 class Solution:
     def connect(self, root):

@@ -9,7 +9,7 @@ class TreeNode(object):
         self.right = None
 
 
-# the idea is level order traversal
+# the idea is level order traverse
 
 from collections import deque
 

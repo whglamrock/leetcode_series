@@ -28,7 +28,7 @@ class Solution(object):
         self.firstElement.val = self.secondElement.val
         self.secondElement.val = tmp
 
-    # the prevElement is record the last element in the in-order traversal
+    # the prevElement is record the last element in the in-order traverse
     def traverse(self, node):
 
         if not node:

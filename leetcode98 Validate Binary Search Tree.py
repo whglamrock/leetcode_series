@@ -9,7 +9,7 @@ class TreeNode(object):
         self.right = None
 
 
-# iterative inorder traversal solution. Recite the while loop! Every line!
+# iterative inorder traverse solution. Recite the while loop! Every line!
 
 class Solution(object):
     def isValidBST(self, root):

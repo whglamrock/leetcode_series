@@ -9,7 +9,7 @@ class TreeNode(object):
         self.right = None
 
 
-# idea: inorder traversal
+# idea: inorder traverse
 
 class Solution(object):
     def convertBST(self, root):

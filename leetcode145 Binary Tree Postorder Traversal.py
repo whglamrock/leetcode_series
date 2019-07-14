@@ -9,7 +9,7 @@ class TreeNode(object):
         self.right = None
 
 
-# modify the order of preorder traversal to "root-right-left" and then reverse it
+# modify the order of preorder traverse to "root-right-left" and then reverse it
 #   or just simply use deque and appendleft the newly visited node value
 
 class Solution(object):

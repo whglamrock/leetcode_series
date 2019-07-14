@@ -5,7 +5,7 @@
 
 # the idea is using original list preorder as a stack, and the elements in stack need to
 # be in descending order.
-# P.S. Invalid BST could have same preorder traversal as valid BST's.
+# P.S. Invalid BST could have same preorder traverse as valid BST's.
 
 class Solution(object):
     def verifyPreorder(self, preorder):

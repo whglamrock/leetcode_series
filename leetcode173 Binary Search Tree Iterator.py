@@ -15,7 +15,7 @@ class BSTIterator(object):
         self.traversal = []
         stack = []
 
-        # remember the classic way of iterative in-order traversal
+        # remember the classic way of iterative in-order traverse
         while root or stack:
             while root:
                 stack.append(root)
@@ -31,7 +31,7 @@ class BSTIterator(object):
 
     def next(self):
 
-        return self.traversal.pop()  # no need to check if traversal empty, see how iterator is called
+        return self.traversal.pop()  # no need to check if traverse empty, see how iterator is called
 
 
 
@@ -42,26 +42,26 @@ class BSTIterator(object):
 
 
 '''
-# recursive way of traversal
+# recursive way of traverse
 
 class BSTIterator(object):
     def __init__(self, root):
 
-        self.traversal = []
+        self.traverse = []
         def helper(root):
             if root and root.left:
                 helper(root.left)
-            if root: self.traversal.append(root.val)
+            if root: self.traverse.append(root.val)
             if root and root.right:
                 helper(root.right)
         helper(root)
-        self.traversal.reverse()
+        self.traverse.reverse()
 
     def hasNext(self):
 
-        return len(self.traversal) != 0
+        return len(self.traverse) != 0
 
     def next(self):
 
-        return self.traversal.pop()
+        return self.traverse.pop()
 '''
