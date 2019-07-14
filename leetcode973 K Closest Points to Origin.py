@@ -2,6 +2,8 @@
 import math
 from heapq import *
 
+# O(NlogK) solution
+
 class Solution(object):
     def kClosest(self, points, K):
         """
@@ -10,11 +12,14 @@ class Solution(object):
         :rtype: List[List[int]]
         """
         q = []
+        # P.S. building the size K heap actually only takes O(K) time complexity:
+            # https://www.geeksforgeeks.org/time-complexity-of-building-a-heap/
         for point in points:
             d = self.distance(point)
             heappush(q, [-d, point])
+            # in worth case the following operation will be executed N times
             if len(q) > K:
-                heappop(q)
+                heappop(q)  # this operation takes O(logK) since we need to heapify again to keep the optimal structure
 
         ans = []
         while q:
