@@ -11,12 +11,12 @@ class Solution(object):
         q = deque()
         for char in s:
             q.append(char)
-        # this is to trigger the "stack.append(num)" to avodi dropping the last number
+        # this is to trigger the "stack.append(num)" to avoid dropping the last number
         q.append('+')
         return self.cal(q)
 
     def cal(self, q):
-        # set default sign
+        # set default sign for the "first" number
         sign = '+'
         num = 0
         stack = []
@@ -24,11 +24,12 @@ class Solution(object):
             c = q.popleft()
             if c == ' ':
                 continue
+            # in this case num is definitely 0
             if c.isdigit():
                 num = 10 * num + int(c)
             elif c == '(':
                 num = self.cal(q)
-                # when it's sign or ), we need to do some sub calculation
+            # only add the number to stack when it's sign or ')'
             else:
                 # the sign is the previous sign
                 if sign == '+':
@@ -39,13 +40,13 @@ class Solution(object):
                     stack.append(stack.pop() * num)
                 else:
                     lastNum = stack.pop()
-                    # in python -3 / 2 = -2 instead pf -1
+                    # in python -3 / 2 = -2 instead of -1
                     if lastNum < 0:
                         lastNum = -lastNum
                         stack.append(-(lastNum / num))
                     else:
                         stack.append(lastNum / num)
-                # break the loop because we made sure that '('
+                # means we are already in recursion, needs to return the result of this block instead of further popleft q
                 if c == ')':
                     break
                 num = 0
