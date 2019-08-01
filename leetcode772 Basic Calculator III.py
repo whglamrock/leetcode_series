@@ -10,7 +10,8 @@ class Solution(object):
         """
         q = deque()
         for char in s:
-            q.append(char)
+            if char != ' ':
+                q.append(char)
         # this is to trigger the "stack.append(num)" to avoid dropping the last number
         q.append('+')
         return self.cal(q)
@@ -22,8 +23,6 @@ class Solution(object):
         stack = []
         while q:
             c = q.popleft()
-            if c == ' ':
-                continue
             # in this case num is definitely 0
             if c.isdigit():
                 num = 10 * num + int(c)
