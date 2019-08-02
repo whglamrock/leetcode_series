@@ -1,41 +1,47 @@
 
+from collections import deque
+
 class Solution(object):
     def calculate(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if not s:
+            return 0
 
+        q = deque()
+        for c in s:
+            if c != ' ':
+                q.append(c)
+        q.append('+')
+        return self.cal(q)
+
+    def cal(self, q):
+        sign = '+'
+        num = 0
         stack = []
-        result = 0
-
-        # remove all white spaces:
-        s = s.split(' ')
-        s = ''.join(s)
-        n = len(s)
-
-        i = 0
-        sign = 1    # critical when deal with the first number in a sequence
-        while i < n:
-            # will complete this number without using any other conditions (operators or parentheses)
-            if s[i].isdigit():
-                curr = [s[i]]
-                while i + 1 < n and s[i + 1].isdigit():
-                    curr.append(s[i + 1])
-                    i += 1
-                result += int(''.join(curr)) * sign
-            elif s[i] == '+':
-                sign = 1
-            elif s[i] == '-':
-                sign = -1
-            elif s[i] == '(':
-                stack.append(result)    # brainstorm: consider if including '*', '/' in operators
-                stack.append(sign)
-                result = 0
-                sign = 1    # add a virtual "+" for the 1st number of a new sequence
+        while q:
+            c = q.popleft()
+            if c == '(':
+                num = self.cal(q)
+            elif c.isdigit():
+                num = num * 10 + int(c)
+            # this is when we need to add the num to stack
             else:
-                # first stack.pop() is the previous sign that related to the current "result"
-                # second stack.pop() is the previously calculated number
-                result = stack.pop() * result + stack.pop()
-            i += 1
+                # the sign records the previous sign
+                if sign == '+':
+                    stack.append(num)
+                else:
+                    stack.append(-num)
+                    # break to return the sum(stack) as the result of this sub
+                    # expression within a parenthesis pair
+                if c == ')':
+                    break
+                num = 0
+                sign = c
 
-        return result
+        return sum(stack)
 
 
 
