@@ -32,7 +32,7 @@ class Solution(object):
                 exchange(array, i, j)
 
         # AFTER EXCHANGING, make every element on the left/right of array[j] smaller/bigger than it
-        #   and this j could any number in [lo, hi], inclusive
+        #   and this j could be any number in [lo, hi], inclusive
         def partition(array, lo, hi):   # strict, pure partition
 
             i, j = lo, hi
