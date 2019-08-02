@@ -1,48 +1,50 @@
 
+from collections import deque
+
 class Solution(object):
     def calculate(self, s):
+        """
+        :type s: str
+        :rtype: int
+        """
+        if not s:
+            return 0
 
-        operators = {"+", "-", "*", "/"}
-        i = 0
+        q = deque()
+        for c in s:
+            if c != ' ':
+                q.append(c)
+        q.append('+')
+
         stack = []
-        num = ''
-
-        while i < len(s):
-            if s[i] in operators:
-                if num:
-                    stack.append(int(num))
-                    num = ''
-                stack.append(s[i])
+        num = 0
+        sign = '+'
+        while q:
+            c = q.popleft()
+            if c.isdigit():
+                num = num * 10 + int(c)
+            # we need to calculation at this point
             else:
-                if s[i] != ' ':
-                    num += s[i]    # for number contains more than one digit
-            i += 1
-            if i == len(s) and num:
-                stack.append(int(num))
-        # parse the s
+                # sign records the last sign
+                if sign == '+':
+                    stack.append(num)
+                elif sign == '-':
+                    stack.append(-num)
+                elif sign == '*':
+                    stack.append(stack.pop() * num)
+                else:
+                    lastNum = stack.pop()
+                    if lastNum < 0:
+                        lastNum = -lastNum
+                        stack.append(-(lastNum / num))
+                    else:
+                        stack.append(lastNum / num)
 
-        traversal = []
-        i = 0
-        while i < len(stack):
-            if stack[i] == '*':
-                leftnum = traversal.pop()
-                rightnum = stack[i+1]
-                traversal.append(leftnum * rightnum)
-                i += 2
-            elif stack[i] == '/':
-                leftnum = traversal.pop()
-                rightnum = stack[i+1]
-                traversal.append(leftnum / rightnum)
-                i += 2
-            else:
-                traversal.append(stack[i])
-                i += 1
+                sign = c
+                num = 0
 
-        ans = traversal[0]
-        for i in xrange(1, len(traversal)-1, 2):
-            if traversal[i] == '+':
-                ans += traversal[i+1]
-            else:
-                ans -= traversal[i+1]
+        return sum(stack)
 
-        return ans
+
+
+print Solution().calculate(s="3 + 2* 2")
