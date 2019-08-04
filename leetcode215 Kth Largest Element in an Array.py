@@ -18,6 +18,7 @@ class Solution(object):
         # make it become finding the k smallest num
         k = len(nums) - k
         random.shuffle(nums)
+
         l, r = 0, len(nums) - 1
         while l < r:
             j = self.partition(nums, l, r)
@@ -36,8 +37,11 @@ class Solution(object):
     # nums[:j]/nums[j + 1:] can contain 0 numbers
     def partition(self, nums, l, r):
         i, j = l, r
+        # we assume we are gonna pick nums[l] as the pivot so we compare with nums[l]
         while i < j:
-            # make sure after exchange all nums[i] <= the pivot
+            # make sure after exchange all nums[i] <= the pivot.
+            # note that the condition for while loop can also be i <= r because when we exchange i, j it has to be
+                # i < j so using i <= r won't cause index out of range
             while i < r and nums[i] <= nums[l]:
                 i += 1
             # make sure after exchange all nums[j] > the pivot
@@ -58,10 +62,7 @@ class Solution(object):
 
 
 
-nums = [1, 1, 1, 2, 2, 3, 4, 6, 6, 7, 9]
-k = 5
-Sol = Solution()
-print Sol.findKthLargest(nums, k)
+print Solution().findKthLargest(nums = [1, 1, 1, 2, 2, 3, 4, 6, 6, 7, 9], k = 5)
 
 
 
