@@ -1,6 +1,6 @@
 
 '''
-This idea came from: https://leetcode.com/discuss/36966/solution-explained
+This idea came from: https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
 The idea is Quicksort, but takes only O(n) time complexity
 '''
 
@@ -20,16 +20,6 @@ class Solution(object):
         def exchange(array, i, j):
 
             array[i], array[j] = array[j], array[i]
-
-        # notice how the shuffle is written: all elements exchange with left ones (including self)
-        # in this way, we can make sure that each number has the same probability of being at each position:
-        #   1) calculate the probability of remaining in each index of array[:i + 1]
-        #   2) calculate the probability of remaining in each index of array[i + 1:]
-        def shuffle(array):
-
-            for i in xrange(1, len(array)):
-                j = random.randint(0, i)    # 0 <= j <= i, different from randrange()
-                exchange(array, i, j)
 
         # AFTER EXCHANGING, make every element on the left/right of array[j] smaller/bigger than it
         #   and this j could be any number in [lo, hi], inclusive
@@ -55,7 +45,7 @@ class Solution(object):
             return j
 
         # shuffle is to avoid the worst case
-        shuffle(nums)
+        random.shuffle(nums)
         k = len(nums) - k   # we wanna find the len(nums) - k smallest
         lo, hi = 0, len(nums) - 1
 
