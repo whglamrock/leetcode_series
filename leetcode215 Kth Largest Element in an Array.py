@@ -1,67 +1,60 @@
 
-'''
-This idea came from: https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
-The idea is Quicksort, but takes only O(n) time complexity
-'''
-
-# P.S. Selection sort: on average O(N^2) running time
-# O(n) solution. It is proved that if we randomly choose the pivot (or pre-shuffle the nums array),
-#   the number of times the final while loop executes will be constant
-# If we don't shuffle the nums array, we can randomly choose the pivot.
-
 import random
+
+# This idea came from: https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
+# The idea is Quicksort, but takes only O(n) time complexity because it's mathematically proved the while loop
+    # will only run constant number of times
+
+# in real interview, run edge cases like [1, 2], [2, 1], [99, 99, 1], [1, 99, 99]
+# and a normal test case like [3,2,1,5,6,4]
 
 class Solution(object):
     def findKthLargest(self, nums, k):
-
-        if not nums or len(nums) < k:
-            return
-
-        def exchange(array, i, j):
-
-            array[i], array[j] = array[j], array[i]
-
-        # AFTER EXCHANGING, make every element on the left/right of array[j] smaller/bigger than it
-        #   and this j could be any number in [lo, hi], inclusive
-        def partition(array, lo, hi):   # strict, pure partition
-
-            i, j = lo, hi
-            # the condition has to be i < j, because of test cases like [99, 99],
-            #   when the j won't even move and while loop becomes infinite
-            while i < j:
-                # the condition has to be i < hi instead of i <= hi, to avoid index out of range
-                while i < hi and array[i] <= array[lo]:
-                    i += 1
-                while j > lo and array[j] > array[lo]:
-                    j -= 1
-                # based on the two exit conditions, when i > j happens, then we have
-                #   the partition array we want
-                if i >= j: break  # it is possible that j == i - 1; j can't be less!
-                exchange(array, i, j)
-            # we exchange array[lo] with array[j] instead of array[i] because we want
-            #   strictly ensure that after exchange, all elements on the left of array[lo]
-            #   are <= array[lo], on the right are > array[lo]
-            exchange(array, lo, j)  # remember: array[j + 1] > array[lo]
-            return j
-
-        # shuffle is to avoid the worst case
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: int
+        """
+        # make it become finding the k smallest num
+        k = len(nums) - k
         random.shuffle(nums)
-        k = len(nums) - k   # we wanna find the len(nums) - k smallest
-        lo, hi = 0, len(nums) - 1
-
-        # we always make sure lo <= k <= hi; the exit condition is lo == hi
-        # P.S. it's not binary but logarithmic, j is not the mid point, so we can't do
-        #   lo = j or hi = j because in next round the j could still be same
-        while lo < hi:  # think about what to say about the operating times of while loop
-            j = partition(nums, lo, hi)
-            if j < k:  # based on the settings of partition function, lo can't be j
-                lo = j + 1
-            elif j > k:  # likewise, hi can't be j
-                hi = j - 1
+        l, r = 0, len(nums) - 1
+        while l < r:
+            j = self.partition(nums, l, r)
+            if j == k:
+                return nums[k]
+            elif j < k:
+                l = j + 1
             else:
-                return nums[k]    # or break
+                r = j - 1
 
+        # can also return nums[l] because at this point l == r == k
         return nums[k]
+
+    # the quick sort idea: partition the array. find/make an index j that
+    # all nums[:j] <= nums[j] and all nums[j + 1:] > nums[j]. Note that
+    # nums[:j]/nums[j + 1:] can contain 0 numbers
+    def partition(self, nums, l, r):
+        i, j = l, r
+        while i < j:
+            # make sure after exchange all nums[i] <= the pivot
+            while i < r and nums[i] <= nums[l]:
+                i += 1
+            # make sure after exchange all nums[j] > the pivot
+            while j > l and nums[j] > nums[l]:
+                j -= 1
+            # for case like [99, 99], j can just stay put and i moves all the way to r
+            if i >= j:
+                break
+            self.exchange(nums, i, j)
+
+        self.exchange(nums, j, l)
+        return j
+
+    def exchange(self, nums, i, j):
+        tmp = nums[i]
+        nums[i] = nums[j]
+        nums[j] = tmp
 
 
 
