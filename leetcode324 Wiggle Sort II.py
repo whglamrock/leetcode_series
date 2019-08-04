@@ -94,5 +94,10 @@ class Solution(object):
 
 
 
-print Solution().wiggleSort(nums=[13, 6, 5, 5, 4, 2])
-print Solution().wiggleSort(nums=[4,5,4,5,5,6,5,6])
+nums = [13, 6, 5, 5, 4, 2]
+Solution().wiggleSort(nums)
+print nums
+
+nums = [4,5,4,5,5,6,5,6]
+Solution().wiggleSort(nums)
+print nums
