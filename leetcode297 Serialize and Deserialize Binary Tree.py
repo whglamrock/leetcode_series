@@ -9,60 +9,67 @@ class TreeNode(object):
         self.right = None
 
 
-# the idea is level order traverse
 
 from collections import deque
 
 class Codec:
-
     def serialize(self, root):
-
+        """Encodes a tree to a single string.
+        :type root: TreeNode
+        :rtype: str
+        """
         if not root:
             return ''
 
+        todo = [root]
         ans = []
-        todo = deque([root])
         while todo:
-            next = deque()
-            while todo:
-                node = todo.popleft()
-                if not node:
-                    ans.append('N')
-                    continue
-                ans.append(str(node.val))
-                next.append(node.left)
-                next.append(node.right)
-            todo = next
+            nextTodo = []
+            for node in todo:
+                if node.val != None:
+                    ans.append(str(node.val))
+                    if node.left:
+                        nextTodo.append(node.left)
+                    else:
+                        nextTodo.append(TreeNode(None))
+                    if node.right:
+                        nextTodo.append(node.right)
+                    else:
+                        nextTodo.append(TreeNode(None))
+                else:
+                    ans.append("null")
+            todo = nextTodo
 
         return ','.join(ans)
 
-    # the key is to remember to check if the queue is empty
     def deserialize(self, data):
+        """Decodes your encoded data to tree.
 
+        :type data: str
+        :rtype: TreeNode
+        """
         if not data:
             return None
 
         data = deque(data.split(','))
-        root = TreeNode(int(data.popleft()))
-        todo = deque([root])
+        rootVal = data.popleft()
+        root = TreeNode(int(rootVal))
+        todo = [root]
 
         while todo:
-            next = deque()
-            while todo:
-                node = todo.popleft()
-                if data:
-                    val = data.popleft()
-                    if val != 'N':
-                        leftchild = TreeNode(int(val))
-                        node.left = leftchild
-                        next.append(leftchild)
-                if data:
-                    val = data.popleft()
-                    if val != 'N':
-                        rightchild = TreeNode(int(val))
-                        node.right = rightchild
-                        next.append(rightchild)
-            todo = next
+            nextTodo = []
+            for node in todo:
+                leftVal = data.popleft()
+                if leftVal != 'null':
+                    leftChild = TreeNode(int(leftVal))
+                    node.left = leftChild
+                    nextTodo.append(leftChild)
+                rightVal = data.popleft()
+                if rightVal != 'null':
+                    rightChild = TreeNode(int(rightVal))
+                    node.right = rightChild
+                    nextTodo.append(rightChild)
+            todo = nextTodo
 
         return root
 
