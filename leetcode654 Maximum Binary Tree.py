@@ -7,10 +7,11 @@ class TreeNode(object):
 
 
 
-# Most important point: we need to realize the max binary tree can be constructed with the certain rule
-    # simply just iterating the nums from left to right
-# we only need to know/keep track of the nodes on the right path of the tree
-# see explanation in comment of: https://leetcode.com/problems/maximum-binary-tree/discuss/106156/Java-worst-case-O(N)-solution
+# Most important point: we need to realize the max binary tree can be constructed simply just iterating
+    # the nums from left to right
+
+# we only need to know/keep track of the nodes on the right path of the tree:
+    # https://leetcode.com/problems/maximum-binary-tree/discuss/106156/Java-worst-case-O(N)-solution
 
 class Solution(object):
     def constructMaximumBinaryTree(self, nums):
