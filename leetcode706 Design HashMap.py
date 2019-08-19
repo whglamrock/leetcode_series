@@ -8,12 +8,14 @@ class ListNode:
 
 
 
+# the double linked list solution should satisfy the need in real interview
+
 class MyHashMap(object):
     def __init__(self):
         """
         Initialize your data structure here.
         """
-        self.map = [None for _ in xrange(10000)]
+        self.map = [None] * 10000
 
     def put(self, key, value):
         """
