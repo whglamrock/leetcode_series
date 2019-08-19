@@ -10,7 +10,11 @@ class TreeNode(object):
         self.right = None
 
 
-# idea is to keep two stacks of predecessors and successors
+
+# in real interview, it's pretty hard to directly give out the O(logN) solution. The expectation would be write
+    # the O(N) solution bug free, but give out O(logN) idea
+
+# O(logN) solution is to keep two stacks of predecessors and successors
 
 class Solution(object):
 
