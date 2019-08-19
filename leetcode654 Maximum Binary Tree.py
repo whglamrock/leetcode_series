@@ -22,6 +22,8 @@ class Solution(object):
         if not nums:
             return None
 
+        # we use decreasing stack here because we only need to keep track the nodes on the right path of
+            # tree, and their values will be decreasing
         stack = []
         for num in nums:
             curr = TreeNode(num)
