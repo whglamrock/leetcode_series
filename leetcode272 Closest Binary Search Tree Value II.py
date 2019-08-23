@@ -12,85 +12,91 @@ class TreeNode(object):
 
 
 # in real interview, it's pretty hard to directly give out the O(logN) solution. The expectation would be write
-    # the O(N) solution bug free, but give out O(logN) idea
+    # the O(N) solution bug free, but give out ~O(logN) idea
 
-# O(logN) solution is to keep two stacks of predecessors and successors
+# draw a BST on paper/board to understand why we keep 2 stacks of predecessors and successors, and how
+    # we can get next bigger and next smaller
+
+# It's not strictly O(logN) solution because getNextSuccessor & getNextPredecessor is not constant time,
+    # but it's strictly < O(N) because in the k while loop each node will only be append/pop from pred/succ once
 
 class Solution(object):
-
     def closestKValues(self, root, target, k):
+        """
+        :type root: TreeNode
+        :type target: float
+        :type k: int
+        :rtype: List[int]
+        """
+        if not root:
+            return []
 
-        res, succ, pred = [], [], []
-        self.initializePredecessorStack(root, target, pred)
-        self.initializeSuccessorStack(root, target, succ)
+        pred, succ = [], []
+        self.initializePred(root, target, pred)
+        self.initializeSucc(root, target, succ)
 
-        # to avoid overlapping, we need to pop out one;
-        #   it could also be self.getNextSuccessor(succ).
-        if succ and pred and succ[-1].val == pred[-1].val:  # important to check if succ/pred empty
-            self.getNextPredecessor(pred)
+        # To avoid overlapping, we need to pop out one; we could also cut 1 from pred
+        # It's BST so there won't be duplicate values. Thus we can use "is" check
+        if pred and succ and pred[-1] is succ[-1]:
+            self.getNextSuccessor(succ)
 
-        # since k will always <= n, we don't need to worry about when
-        #   both succ and pred stack are empty
-        while k > 0:
-            if not pred:
-                res.append(self.getNextSuccessor(succ))
-            elif not succ:
-                res.append(self.getNextPredecessor(pred))
-            else:
-                succ_diff = abs(float(succ[-1].val) - target)
-                pred_diff = abs(float(pred[-1].val) - target)
-                if succ_diff < pred_diff:
-                    res.append(self.getNextSuccessor(succ))
+        ans = []
+
+        while k:
+            if pred and succ:
+                diffToPred, diffToSucc = abs(target - pred[-1].val), abs(target - succ[-1].val)
+                if diffToPred > diffToSucc:
+                    ans.append(self.getNextSuccessor(succ))
                 else:
-                    res.append(self.getNextPredecessor(pred))
+                    ans.append(self.getNextPredecessor(pred))
+            elif not pred:
+                ans.append(self.getNextSuccessor(succ))
+            elif not succ:
+                ans.append(self.getNextPredecessor(pred))
             k -= 1
 
-        return res
+        return ans
 
-    def initializePredecessorStack(self, root, target, pred):
-
+    # store the nodes that are <= target along the path
+    def initializePred(self, root, target, pred):
         while root:
             if root.val == target:
                 pred.append(root)
                 break
-            # then we need to go to the right subtree to find the target
-            elif root.val < target:
+            if root.val > target:
+                root = root.left
+            else:
                 pred.append(root)
                 root = root.right
-            else:
-                root = root.left
 
-    def initializeSuccessorStack(self, root, target, succ):
-
+    # store the nodes that are >= target along the path
+    def initializeSucc(self, root, target, succ):
         while root:
             if root.val == target:
                 succ.append(root)
                 break
-            # then we need to go to the left subtree to find the target
-            elif root.val > target:
+            if root.val > target:
                 succ.append(root)
                 root = root.left
             else:
                 root = root.right
 
+    # the time complexity of this depends on whether the BST is a balanced tree
     def getNextPredecessor(self, pred):
-
         curr = pred.pop()
         res = curr.val
         curr = curr.left
         while curr:
             pred.append(curr)
             curr = curr.right
-
         return res
 
+    # the time complexity of this depends on whether the BST is a balanced tree
     def getNextSuccessor(self, succ):
-
         curr = succ.pop()
         res = curr.val
         curr = curr.right
         while curr:
             succ.append(curr)
             curr = curr.left
-
         return res
