@@ -100,3 +100,55 @@ class Solution(object):
             succ.append(curr)
             curr = curr.left
         return res
+
+
+
+'''
+# easier to remember solution, but O(N)
+
+class Solution(object):
+    def closestKValues(self, root, target, k):
+
+        if not root:
+            return
+
+        nums = []
+        self.inOrder(root, nums)
+        l, r = self.findTwoPointers(nums, target)
+
+        ans = []
+        # no need to special case for when l == -1 or r == len(nums)
+        while k:
+            if 0 <= l and r < len(nums):
+                diffToLeft = abs(target - nums[l])
+                diffToRight = abs(target - nums[r])
+                if diffToLeft >= diffToRight:
+                    ans.append(nums[r])
+                    r += 1
+                else:
+                    ans.append(nums[l])
+                    l -= 1
+            elif l < 0:
+                ans.append(nums[r])
+                r += 1
+            else:
+                ans.append(nums[l])
+                l -= 1
+            k -= 1
+
+        return ans
+
+    def inOrder(self, root, traversal):
+        if not root:
+            return
+        self.inOrder(root.left, traversal)
+        traversal.append(root.val)
+        self.inOrder(root.right, traversal)
+
+    def findTwoPointers(self, nums, target):
+        i = 0
+        while i < len(nums) and nums[i] <= target:
+            i += 1
+
+        return i - 1, i
+'''
