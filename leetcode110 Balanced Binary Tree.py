@@ -9,28 +9,29 @@ class TreeNode(object):
         self.right = None
 
 
-# the question title should be modified to "height-balanced BST".
+
+# writing a arbitary O(N) solution is easy, but we need to find optimization to avoid unnecessary traversal
 
 class Solution(object):
     def isBalanced(self, root):
+        """
+        :type root: TreeNode
+        :rtype: bool
+        """
+        height = self.get_height(root)
+        return height != -1
 
+    # dfs
+    def get_height(self, root):
         if not root:
-            return True
+            return 0
+        left = self.get_height(root.left)
+        right = self.get_height(root.right)
 
-        self.flag = True
-        def helper(node, depth):
-            if (not node.left) and (not node.right):
-                return depth
-            leftdepth, rightdepth = depth, depth
-            if node.left:
-                leftdepth = helper(node.left, depth + 1)
-            if node.right:
-                rightdepth = helper(node.right, depth + 1)
-            #print node.val, leftdepth, rightdepth
-            if abs(leftdepth - rightdepth) > 1:
-                self.flag = False
-            return max(leftdepth, rightdepth)
-        helper(root, 1)
-
-        return self.flag
+        if left == -1 or right == -1:
+            # this would prevent further dfs
+            return -1
+        if abs(left - right) > 1:
+            return -1
+        return max(left, right) + 1
 
