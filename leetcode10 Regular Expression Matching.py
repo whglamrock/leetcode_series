@@ -1,94 +1,55 @@
 
-'''
-In this problem, we assume that there is no "." or "*" in s, the p does not start with "*",
-    there won't be consecutive '*'s in p, the * can only eliminate one preceding char;
-"*" can also propagate the preceding char for one or more times
-Also, the description is vague, without telling that the '*' can actually eliminate one preceding char
-'''
+# In this problem, we assume that there is no "." or "*" in s, the p does not start with "*",
+    # there won't be consecutive '*'s in p, the * can only eliminate one preceding char;
+# "*" can also propagate the preceding char for one or more times
 
-# idea from: https://discuss.leetcode.com/topic/22948/my-dp-approach-in-python-with-comments-and-unittest
-# In the propagation condition, we can always consider the scenario as that the transformed p[:j]
-# lack one char to match the s[:i] so we need to the '*' to clone the preceding char to make
-# current p[:j] one char longer. "p[j - 2] == s[i - 1] or p[j - 2] == '.' " means we can clone
-# the char p[j - 2] to match s[i - 1].
-
-# For continuous cloning process, consider the clone process of test case 'bbbbb & b*'
-# and 'bbbcb & b*'.
+# For continuous cloning process, consider test cases like: 'bbbbb & b*', 'bbbcb & b*'.
 
 class Solution(object):
     def isMatch(self, s, p):
-
-        # corner case: when s or p is an empty String
+        """
+        :type s: str
+        :type p: str
+        :rtype: bool
+        """
+        if s == None or p == None:
+            return False
 
         m, n = len(s), len(p)
-        # range needs to be n + 1 because we need to consider matching the empty String
         dp = [[False for j in xrange(n + 1)] for i in xrange(m + 1)]
         dp[0][0] = True
 
-        # consider s is an empty String
-        for j in xrange(2, n + 1):
-            # before update all dp[0][j]s are False
-            dp[0][j] = dp[0][j - 2] and p[j - 1] == '*'
+        # see if p[:j] matches s[:0]. This is also to cope with case like s = "aab", p = "c*a*b" so it
+            # has an initial state to populate from
+        for j in xrange(2, n + 1, 2):
+            if p[j - 1] == '*':
+                dp[0][j] |= dp[0][j - 2]
 
-        # here we don't cover the case when s is empty and dp[0][j]'s values
+        # s only contains a - z, so no need to worry about '*' or '.'
         for i in xrange(1, m + 1):
             for j in xrange(1, n + 1):
-                if s[i - 1] == p[j - 1] or p[j - 1] == '.':
-                    # it is directly "equals to", not "|="
+                if p[j - 1] == '.' or s[i - 1] == p[j - 1]:
                     dp[i][j] = dp[i - 1][j - 1]
+                # note that there won't be 2 '*'s in a row
                 elif p[j - 1] == '*':
-                    # matching zero chars
+                    # matches zero char; e.g., 'a*' matches 'a'
                     dp[i][j] |= dp[i][j - 1]
                     if j >= 2:
-                        # eliminate one preceding char
+                        # offset the previous char
                         dp[i][j] |= dp[i][j - 2]
-                        # propagation
-                        if s[i - 1] == p[j - 2] or p[j - 2] == '.':
+                        # use '*' to proceed 1 more char in s while p pointer stays put
+                        if p[j - 2] == '.' or p[j - 2] == s[i - 1]:
                             dp[i][j] |= dp[i - 1][j]
 
         return dp[-1][-1]
 
 
-a = 'aba'
-b = '.*'
-c = 'bb'
-d = 'bbb*'  # or 'bbbb*'
-Sol = Solution()
-print Sol.isMatch(a,b)
-print Sol.isMatch(c,d)
 
+print Solution().isMatch('bbbbb', 'b*')
+print Solution().isMatch('bbbcbb', 'b*')
+print Solution().isMatch('mississippi', 'mis*is*p*.')
+print Solution().isMatch('av', '.*')
 
-
-'''
-# practice:
-
-class Solution(object):
-    def isMatch(self, s, p):
-
-        if s == None or p == None:
-            return False
-
-        m, n = len(s), len(p)
-        # dp[i][j] means whether s[:i] matches p[:j]
-        dp = [[False for j in xrange(n + 1)] for i in xrange(m + 1)]
-        dp[0][0] = True
-
-        # elimination and propagation
-        for j in xrange(2, n + 1):
-            dp[0][j] = dp[0][j - 2] and p[j - 1] == '*'
-
-        for i in xrange(1, m + 1):
-            for j in xrange(1, n + 1):
-                if s[i - 1] == p[j - 1] or p[j - 1] == '.':
-                    dp[i][j] = dp[i - 1][j - 1]
-                elif p[j - 1] == '*':
-                    dp[i][j] |= dp[i][j - 1]
-                    dp[i][j] |= dp[i][j - 2]
-                    if j >= 2 and p[j - 2] == s[i - 1] or p[j - 2] == '.':
-                        dp[i][j] |= dp[i - 1][j]
-
-        return dp[-1][-1]
-'''
 
 
 
