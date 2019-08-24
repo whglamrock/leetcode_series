@@ -83,7 +83,7 @@ class Solution(object):
     # in this case the num is a string whose length is at most 3
     # e.g., 421
     def convertChunk(self, num):
-        if int(num) == 0:
+        if num == '0':
             return ''
         elif len(num) == 1:
             return self.LESSTHAN20[int(num)]
