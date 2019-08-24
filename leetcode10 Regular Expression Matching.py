@@ -19,11 +19,12 @@ class Solution(object):
         dp = [[False for j in xrange(n + 1)] for i in xrange(m + 1)]
         dp[0][0] = True
 
-        # see if p[:j] matches s[:0]. This is also to cope with case like s = "aab", p = "c*a*b" so it
-            # has an initial state to populate from
+        # see if p[:j] matches s[:0]. Also to deal with case like s = "aab", p = "c*a*b" so it has an initial state
+            # to populate from.
+        # note that we can use a step of 2 to iterate through p
         for j in xrange(2, n + 1, 2):
             if p[j - 1] == '*':
-                dp[0][j] |= dp[0][j - 2]
+                dp[0][j] = dp[0][j - 2]
 
         # s only contains a - z, so no need to worry about '*' or '.'
         for i in xrange(1, m + 1):
