@@ -12,55 +12,77 @@ class Solution(object):
         return M[num/1000] + C[(num%1000)/100] + X[(num%100)/10] + I[num%10];
 '''
 
+
+
+# there are only gonna be 4 digits
+
 class Solution(object):
     def intToRoman(self, num):
+        """
+        :type num: int
+        :rtype: str
+        """
 
-        ans = ''
-        if num/1000 != 0:
-            for i in range(num/1000):
-                ans += 'M'
-            num -= int(num/1000) * 1000
-        if num/900 != 0:
-            ans += 'CM'
-            num -= 900
-        if num/500 != 0:
-            ans += 'D'
-            num -= 500
-        if num/400 != 0:
-            ans += 'CD'
-            num -= 400
-        if num/100 != 0:
-            for i in range(num/100):
-                ans += 'C'
-            num -= int(num/100)* 100
-        if num/90 != 0:
-            ans += 'XC'
-            num -= 90
-        if num/50 != 0:
-            ans += 'L'
-            num -= 50
-        if num/40 != 0:
-            ans += 'XL'
-            num -= 40
-        if num/10 != 0:
-            for i in range(num/10):
-                ans += 'X'
-            num -= int(num/10) * 10
-        if num/9 != 0:
-            ans += 'IX'
-            num -= 9
-        if num/5 != 0:
-            ans += 'V'
-            num -= 5
-        if num/4 != 0:
-            ans += 'IV'
-            num -= 4
-        if num/1 != 0:
-            for i in range(num/1):
-                ans += 'I'
-            num -= int(num/1) * 10
+        thousands = num / 1000
+        num = num % 1000
 
-        return ans
+        hundreds = num / 100
+        num = num % 100
+
+        tens = num / 10
+        num = num % 10
+
+        singles = num
+
+        ans = []
+        # deal with thousands
+        if thousands > 0:
+            for i in xrange(thousands):
+                ans.append('M')
+
+        # deal with hundreds:
+        if hundreds == 9:
+            ans.append('CM')
+        elif hundreds >= 5:
+            ans.append('D')
+            hundreds -= 5
+            for i in xrange(hundreds):
+                ans.append('C')
+        elif hundreds == 4:
+            ans.append('CD')
+        else:
+            for i in xrange(hundreds):
+                ans.append('C')
+
+        # deal with tens:
+        if tens == 9:
+            ans.append('XC')
+        elif tens >= 5:
+            ans.append('L')
+            tens -= 5
+            for i in xrange(tens):
+                ans.append('X')
+        elif tens == 4:
+            ans.append('XL')
+        else:
+            for i in xrange(tens):
+                ans.append('X')
+
+        # deal with singles
+        if singles == 9:
+            ans.append('IX')
+        elif singles >= 5:
+            ans.append('V')
+            singles -= 5
+            for i in xrange(singles):
+                ans.append('I')
+        elif singles == 4:
+            ans.append('IV')
+        else:
+            for i in xrange(singles):
+                ans.append('I')
+
+        return ''.join(ans)
 
 
 
