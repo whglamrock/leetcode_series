@@ -110,45 +110,44 @@ class Solution(object):
     def closestKValues(self, root, target, k):
 
         if not root:
-            return
+            return []
 
         nums = []
         self.inOrder(root, nums)
-        l, r = self.findTwoPointers(nums, target)
+        i, j = self.find2Pointers(nums, target)
 
         ans = []
-        # no need to special case for when l == -1 or r == len(nums)
         while k:
-            if 0 <= l and r < len(nums):
-                diffToLeft = abs(target - nums[l])
-                diffToRight = abs(target - nums[r])
-                if diffToLeft >= diffToRight:
-                    ans.append(nums[r])
-                    r += 1
-                else:
-                    ans.append(nums[l])
-                    l -= 1
-            elif l < 0:
-                ans.append(nums[r])
-                r += 1
+            if i < 0:
+                ans.append(nums[j])
+                j += 1
+            elif j >= len(nums):
+                ans.append(nums[i])
+                i -= 1
+            # it's guaranteed that i < 0 and j >= len(nums) won't both happen because k <= total nodes
             else:
-                ans.append(nums[l])
-                l -= 1
+                diffToLeft = abs(target - nums[i])
+                diffToRight = abs(target - nums[j])
+                if diffToLeft < diffToRight:
+                    ans.append(nums[i])
+                    i -= 1
+                else:
+                    ans.append(nums[j])
+                    j += 1
             k -= 1
-
+        
         return ans
-
+                
+    def find2Pointers(self, nums, target):
+        i = 0
+        while i < len(nums) and nums[i] <= target:
+            i += 1
+        return i - 1, i
+        
     def inOrder(self, root, traversal):
         if not root:
             return
         self.inOrder(root.left, traversal)
         traversal.append(root.val)
         self.inOrder(root.right, traversal)
-
-    def findTwoPointers(self, nums, target):
-        i = 0
-        while i < len(nums) and nums[i] <= target:
-            i += 1
-
-        return i - 1, i
 '''
