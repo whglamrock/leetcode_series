@@ -2,7 +2,9 @@
 from collections import defaultdict, deque
 
 # classic toposort solution O(m * n) solution where n is the avg length of word and m == len(words)
-# if not for detecting circle, solely using one of greater/less can do the toposort
+
+# building both the less/greater relationship dictionary is the typical way. e.g., we need the less
+    # to perform "for greaterChar in less[char]"
 
 class Solution(object):
     def alienOrder(self, words):
@@ -32,6 +34,8 @@ class Solution(object):
         while q:
             char = q.popleft()
             ans.append(char)
+            # skip the nodes that don't any "parents".
+                # this would be for the case for the last few while loops
             if char not in less:
                 continue
             for greaterChar in less[char]:
