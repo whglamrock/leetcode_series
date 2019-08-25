@@ -1,47 +1,60 @@
 
 from collections import defaultdict, deque
 
-# classic toposort way.
-# BFS/DFS solution see: https://discuss.leetcode.com/topic/32587/python-dfs-bfs-toposort-solutions
+# classic toposort solution O(m * n) solution where n is the avg length of word
+# if not for detecting circle, soly using one of greater/less can do the toposort
 
 class Solution(object):
     def alienOrder(self, words):
-
+        """
+        :type words: List[str]
+        :rtype: str
+        """
         if not words:
             return ''
         if len(words) == 1:
             return words[0]
 
-        smaller, bigger = defaultdict(set), defaultdict(set)
-        for i in xrange(1, len(words)):
-            j, n = 0, min(len(words[i - 1]), len(words[i]))
-            while j < n and words[i - 1][j] == words[i][j]:
-                j += 1
-            if j < n:
-                smaller[words[i - 1][j]].add(words[i][j])
-                bigger[words[i][j]].add(words[i - 1][j])
+        # build the less & greater relationship.
+        less, greater = self.buildRelationship(words)
 
-        letters = set(''.join(words))
+        # using q to conduct the topology sort.
+        charSet = set(''.join(words))
         q = deque()
-        for letter in letters:
-            if letter not in bigger:
-                q.append(letter)
+        for char in charSet:
+            # using the greater relationship to build the toposort queue but
+            # we use less to perform the toposort to detect invalid case
+            if char not in greater:
+                q.append(char)
 
         ans = []
+        # pop the verticles that don't have "children" first
         while q:
-            letter = q.popleft()
-            ans.append(letter)
-            if letter in smaller:
-                for biggerletter in smaller[letter]:
-                    bigger[biggerletter].discard(letter)
-                    if len(bigger[biggerletter]) == 0:
-                        # append it to q, not ans because the q could also be in bigger
-                            # it's like "putting the vertex without children in the unvisited set and
-                            # look up its parents"
-                        q.append(biggerletter)
-                        del bigger[biggerletter]
+            char = q.popleft()
+            ans.append(char)
+            if char not in less:
+                continue
+            for greaterChar in less[char]:
+                greater[greaterChar].discard(char)
+                if not greater[greaterChar]:
+                    del greater[greaterChar]
+                    q.append(greaterChar)
 
-        return ''.join(ans) if len(bigger) == 0 else ''
+        return ''.join(ans) if not greater else ''
+
+    # return a less list & greater list to build the relationship
+    def buildRelationship(self, words):
+        less, greater = defaultdict(set), defaultdict(set)
+        for i in xrange(len(words) - 1):
+            minLen = min(len(words[i]), len(words[i + 1]))
+            for j in xrange(minLen):
+                if words[i][j] == words[i + 1][j]:
+                    continue
+                less[words[i][j]].add(words[i + 1][j])
+                greater[words[i + 1][j]].add(words[i][j])
+                break
+
+        return less, greater
 
 
 
