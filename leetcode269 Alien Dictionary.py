@@ -36,9 +36,20 @@ class Solution(object):
                     bigger[biggerletter].discard(letter)
                     if len(bigger[biggerletter]) == 0:
                         # append it to q, not ans because the q could also be in bigger
-                        #   it's like "putting the vertex without children in the unvisited set and
-                        #   look up its parents"
+                            # it's like "putting the vertex without children in the unvisited set and
+                            # look up its parents"
                         q.append(biggerletter)
                         del bigger[biggerletter]
 
         return ''.join(ans) if len(bigger) == 0 else ''
+
+
+
+words = [
+  "wrt",
+  "wrf",
+  "er",
+  "ett",
+  "rftt"
+]
+print Solution().alienOrder(words)
