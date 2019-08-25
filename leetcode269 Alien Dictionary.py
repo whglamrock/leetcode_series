@@ -1,8 +1,8 @@
 
 from collections import defaultdict, deque
 
-# classic toposort solution O(m * n) solution where n is the avg length of word
-# if not for detecting circle, soly using one of greater/less can do the toposort
+# classic toposort solution O(m * n) solution where n is the avg length of word and m == len(words)
+# if not for detecting circle, solely using one of greater/less can do the toposort
 
 class Solution(object):
     def alienOrder(self, words):
@@ -28,7 +28,7 @@ class Solution(object):
                 q.append(char)
 
         ans = []
-        # pop the verticles that don't have "children" first
+        # pop the vertex that don't have "children" first
         while q:
             char = q.popleft()
             ans.append(char)
