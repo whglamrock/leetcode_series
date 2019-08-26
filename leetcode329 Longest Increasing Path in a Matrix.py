@@ -19,16 +19,16 @@ class Solution(object):
                 if self.isLocalMinimum(matrix, i, j):
                     memo.add((i, j))
 
-        lengthOfLongest = 0
+        ans = 0
         while memo:
-            lengthOfLongest += 1
+            ans += 1
             nextMemo = set()
             for i, j in memo:
                 nextIncreasing = self.findNextIncreasingPoints(matrix, i, j)
                 nextMemo |= nextIncreasing
             memo = nextMemo
 
-        return lengthOfLongest
+        return ans
 
     def isLocalMinimum(self, matrix, i, j):
         if i - 1 >= 0 and matrix[i - 1][j] < matrix[i][j]:
