@@ -1,74 +1,50 @@
 
-# Another BFS way from: https://discuss.leetcode.com/topic/13854/easy-bfs-topological-sort-java/7
-# running time O(V+E). V: number of vertexes, E: number of edges
+from collections import deque, defaultdict
 
-# the following is classical topo-sort solution
+# the following is classical topo-sort solution which takes O(V + E), where V: number of vertexes,
+    # E: number of edges
 
-import collections
 class Solution(object):
     def canFinish(self, numCourses, prerequisites):
-
+        """
+        :type numCourses: int
+        :type prerequisites: List[List[int]]
+        :rtype: bool
+        """
         if not prerequisites or numCourses == 0:
             return True
 
-        greater = collections.defaultdict(set)
-        less = collections.defaultdict(set)
-
-        for edge in prerequisites:
-            s, e = edge
-            greater[s].add(e)
-            less[e].add(s)
-
-        queue = collections.deque()
+        less, greater = self.buildRelationship(prerequisites)
+        q = deque()
         for i in xrange(numCourses):
             if i not in greater:
-                queue.append(i)
+                q.append(i)
 
-        while queue:
-            i = queue.popleft()
-            if i in less:
-                for j in less[i]:
-                    greater[j].discard(i)
-                    if len(greater[j]) == 0:
-                        queue.append(j)
-                        del greater[j]
+        while q:
+            j = q.popleft()
+            if j not in less:
+                continue
+            for i in less[j]:
+                greater[i].discard(j)
+                if not greater[i]:
+                    del greater[i]
+                    q.append(i)
 
-        return len(greater) == 0
+        return not greater
+
+    # build less, greater lists so we can conduct the topology sort algorithm
+    def buildRelationship(self, prerequisites):
+        less, greater = defaultdict(set), defaultdict(set)
+        # j is i's prerequisite
+        for i, j in prerequisites:
+            less[j].add(i)
+            greater[i].add(j)
+        return less, greater
 
 
 
-Sol = Solution()
-numCourses = 2
-prerequisites = [[1,0]]
-print Sol.canFinish(numCourses, prerequisites)
-
-
-
-'''
-# my original O(V^2) solution got TLE. But in practical interview, it should be accepted.
-class Solution(object):
-    def canFinish(self, numCourses, prerequisites):
-
-        dick = {}
-        for course in prerequisites:
-            [a, b] = course
-            if b in dick:
-                dick[b].add(a)
-            else:
-                dick[b] = {a}
-            todo = set()
-            todo.add(a)
-            while todo:
-                next = set()
-                for node in todo:
-                    if node in dick:
-                        if b in dick[node]:
-                            return False
-                        next |= dick[node]
-                todo = next
-
-        return True
-'''
+print Solution().canFinish(2, [[1,0],[0,1]])
+print Solution().canFinish(4, [[1,0],[2,1],[3,1],[3,0],[3,2]])
 
 
 
