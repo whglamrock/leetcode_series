@@ -43,6 +43,7 @@ class Solution(object):
                         del greater[j]
                         q.append(j)
 
+        #  it's possible in leetcode greater is empty but ord has extra numbers than ans
         return ans == org and not greater
 
     def buildRelationship(self, seqs):
