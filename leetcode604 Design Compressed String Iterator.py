@@ -2,16 +2,17 @@
 # Not actually an easy question because we need to load the string dynamically (lazy load)
 
 class StringIterator(object):
+    # we assume the input is always valid
     def __init__(self, compressedString):
         """
         :type compressedString: str
         """
         self.compressedStr = compressedString
-
-        self.currChar = compressedString[0] if compressedString else ' '
         self.currIndex = 0
+        self.currChar = compressedString[0] if compressedString else ' '
         self.currCount = 0
 
+        # load the first char to get initial state
         self.loadNextChar()
 
     def next(self):
@@ -37,12 +38,15 @@ class StringIterator(object):
 
     # update the currChar and currCount
     def loadNextChar(self):
+        # when we reached the end of the string
         if self.currIndex >= len(self.compressedStr):
             return
-        self.currChar = self.compressedStr[self.currIndex]
 
-        # move the index to digit char
+        # update the current char
+        self.currChar = self.compressedStr[self.currIndex]
+        # move to the digit char
         self.currIndex += 1
+
         # get the count
         countStr = []
         while self.currIndex < len(self.compressedStr) and self.compressedStr[self.currIndex].isdigit():
@@ -52,7 +56,7 @@ class StringIterator(object):
 
 
 
-        # Your StringIterator object will be instantiated and called as such:
-        # obj = StringIterator(compressedString)
-        # param_1 = obj.next()
-        # param_2 = obj.hasNext()
+# Your StringIterator object will be instantiated and called as such:
+# obj = StringIterator(compressedString)
+# param_1 = obj.next()
+# param_2 = obj.hasNext()
