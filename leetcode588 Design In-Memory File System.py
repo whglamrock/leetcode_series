@@ -7,52 +7,70 @@ from collections import defaultdict
 
 class TrieNode:
     def __init__(self):
-
-        self.isfile = False
+        self.isFile = False
         self.children = defaultdict(TrieNode)
+
 
 
 class FileSystem(object):
     def __init__(self):
-
         self.root = TrieNode()
-        self.filetocontent = defaultdict(str)
+        self.fileToContent = defaultdict(list)
 
+    # the path is alwasy valid
     def ls(self, path):
-
-        path = path.split('/')
+        """
+        :type path: str
+        :rtype: List[str]
+        """
+        directories = path.split('/')
         curr = self.root
-        for directory in path:
-            if not directory: continue
+
+        for directory in directories:
+            if not directory:
+                continue
             curr = curr.children[directory]
-        if curr.isfile:
-            return [path[-1]]
+
+        if curr.isFile:
+            return [directories[-1]]
         else:
             return sorted(curr.children.keys())
 
     def mkdir(self, path):
-
+        """
+        :type path: str
+        :rtype: None
+        """
+        directories = path.split('/')
         curr = self.root
-        path = path.split('/')
 
-        for directory in path:
-            if not directory: continue
+        for directory in directories:
+            if not directory:
+                continue
             curr = curr.children[directory]
 
     def addContentToFile(self, filePath, content):
-
+        """
+        :type filePath: str
+        :type content: str
+        :rtype: None
+        """
+        directories = filePath.split('/')
+        self.fileToContent[filePath].append(content)
         curr = self.root
-        absolutepath = filePath
-        filePath = filePath.split('/')
-        for directory in filePath:
-            if not directory: continue
+
+        for directory in directories:
+            if not directory:
+                continue
             curr = curr.children[directory]
-        curr.isfile = True
-        self.filetocontent[absolutepath] += content
+        curr.isFile = True
 
     def readContentFromFile(self, filePath):
-
-        return self.filetocontent[filePath]
+        """
+        :type filePath: str
+        :rtype: str
+        """
+        return ''.join(self.fileToContent[filePath])
 
 
 
