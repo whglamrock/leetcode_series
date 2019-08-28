@@ -19,7 +19,8 @@ class Solution(object):
         return ans
 
 
-# the classic way of defining a Unionfind object
+
+# the classic way of defining a UnionFind object
 
 class Union(object):
     def __init__(self):
