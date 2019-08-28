@@ -1,101 +1,93 @@
 
-# implementing the OrderedSet needs doubly-linked list, the head stores the most recent key
+# it's natural to think of orderedmap idea. No need for further explanation
 
 class Node:
     def __init__(self, key, val):
-
         self.key = key
         self.val = val
         self.prev = None
         self.next = None
 
 
-# manually implement the OrderedSet
 
-class OrderedSet:
+class OrderedMap:
     def __init__(self):
-
-        self.head = Node(None, None)
-        self.tail = Node(None, None)
+        self.keyToNode = {}
+        self.head, self.tail = Node(None, None), Node(None, None)
         self.head.next, self.tail.prev = self.tail, self.head
-        self.keytonode = {}
 
     def size(self):
+        return len(self.keyToNode)
 
-        return len(self.keytonode)
+    def get(self, key):
+        if key not in self.keyToNode:
+            return None
+        else:
+            val = self.keyToNode[key].val
+            self.remove(key)
+            self.put(key, val)
+            return val
 
-    def check(self, key):
-
-        return key in self.keytonode
-
-    # add to the head
-    def add(self, key, val):
-
-        newnode = Node(key, val)
-        oldfirstnode = self.head.next
-        newnode.prev, newnode.next = self.head, oldfirstnode
-        self.head.next, oldfirstnode.prev = newnode, newnode
-        self.keytonode[key] = newnode
-
-    def delete(self, key):
-
-        # put the hash deletion first
-        node = self.keytonode[key]
-        del self.keytonode[key]
-
-        # disconnect the node from the doubly-linked list
-        prevnode, nextnode = node.prev, node.next
-        node.prev, node.next = None, None
-        prevnode.next, nextnode.prev = nextnode, prevnode
-
-        # to return is to provide input for other adding function
-        return key, node.val
-
-    def pop(self):
-
-        # trivial check for corner case
-        lastnode = self.tail.prev
-        if lastnode.key == None:    # means it's self.head
+    def remove(self, key):
+        if key not in self.keyToNode:
             return
+        node = self.keyToNode[key]
 
-        lastkey = lastnode.key
-        if lastkey in self.keytonode:
-            del self.keytonode[lastkey]
+        # remove from map
+        del self.keyToNode[key]
 
-        # disconnect the lastnode
-        thenodepriortolastnode = lastnode.prev
-        lastnode.prev, lastnode.next = None, None
-        thenodepriortolastnode.next, self.tail.prev = self.tail, thenodepriortolastnode
+        # remove from linkedlist
+        prevNode, nextNode = node.prev, node.next
+        prevNode.next, nextNode.prev = nextNode, prevNode
+        node.prev, node.next = None, None
+
+    def put(self, key, val):
+        if key in self.keyToNode:
+            self.remove(key)
+
+        # add to the map
+        node = Node(key, val)
+        self.keyToNode[key] = node
+
+        # add the node
+        prevFirstNode = self.head.next
+        node.prev, node.next = self.head, prevFirstNode
+        self.head.next, prevFirstNode.prev = node, node
+
+    # pop the last node
+    def pop(self):
+        lastNode = self.tail.prev
+        if lastNode.val == None:  # lastNode is actually head
+            return
+        self.remove(lastNode.key)
 
 
-# if the interviewer didn't ask, we use the built-in OrderedDict first;
-#   otherwise manually implement the OrderedSet data structure
 
 class LRUCache(object):
     def __init__(self, capacity):
-
+        """
+        :type capacity: int
+        """
+        self.orderedMap = OrderedMap()
         self.cap = capacity
-        self.cache = OrderedSet()
 
     def get(self, key):
-
-        if not self.cache.check(key):
-            return -1
-        else:
-            key, val = self.cache.delete(key)
-            self.cache.add(key, val)
-            return val
+        """
+        :type key: int
+        :rtype: int
+        """
+        val = self.orderedMap.get(key)
+        return val if val != None else -1
 
     def put(self, key, value):
-
-        if self.cache.check(key):
-            self.cache.delete(key)
-            self.cache.add(key, value)
-        else:
-            # remember the "size()" is a function of OrderedSet class, not a feature
-            if self.cache.size() == self.cap:
-                self.cache.pop()
-            self.cache.add(key, value)
+        """
+        :type key: int
+        :type value: int
+        :rtype: None
+        """
+        self.orderedMap.put(key, value)
+        while self.orderedMap.size() > self.cap:
+            self.orderedMap.pop()
 
 
 
