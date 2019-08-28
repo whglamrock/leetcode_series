@@ -1,121 +1,121 @@
 
 from collections import OrderedDict
 
-# using a dummy head and a dummy tail instead of solely initializing self.head = None can
-#   avoid all the key errors because we don't have to reset the head after adding a new node
+# to really achieve O(1) time for both get & put
 
 class Node:
     def __init__(self, count):
         self.count = count
+        self.prev, self.next = None, None
         self.keys = OrderedDict()
-        self.prev = None
-        self.next = None
 
-
+# using a dummy head and a dummy tail instead of solely initializing self.head = None can
+    # avoid all the key errors because we don't have to reset the head after adding a new node
 
 class LFUCache(object):
     def __init__(self, capacity):
-
-        self.cap = capacity
-        # separate the key-value pair hash from the linked list can save some trouble
-        self.keytovalue = {}
-        self.keytonode = {}
-        self.head = Node(0)
-        self.tail = Node(0)
+        """
+        :type capacity: int
+        """
+        self.keyToVal = {}
+        self.keyToNode = {}
+        self.head, self.tail = Node(0), Node(0)
         self.head.next, self.tail.prev = self.tail, self.head
+        self.cap = capacity
 
-    def addtoHead(self, key):
-        oldfirstNode = self.head.next
+    # we assume when this method is called, the key is not in our cache
+    def addNewKey(self, key, val):
+        self.keyToVal[key] = val
 
-        if oldfirstNode.count != 1:
-            # create the new node
-            newnode = Node(1)
-            # connect it into the doubly-linked list
-            newnode.prev, newnode.next = self.head, oldfirstNode
-            self.head.next, oldfirstNode.prev = newnode, newnode
-            # put the key into the new node's keys
-            newnode.keys[key] = 0  # Python doesn't have OrderedSet
-            self.keytonode[key] = newnode
+        currFirstNode = self.head.next
+        if currFirstNode.count == 1:
+            # add the key to the count == 1 node
+            currFirstNode.keys[key] = 0
+            # add the key to the keyNode map
+            self.keyToNode[key] = currFirstNode
         else:
-            oldfirstNode.keys[key] = 0
-            self.keytonode[key] = oldfirstNode
-
-    def removetheNode(self, node):
-
-        if node.count == 0:
-            return
-
-        prevnode, nextnode = node.prev, node.next
-        node.prev, node.next = None, None
-        if prevnode:  # very important to check if the prevnode is None
-            prevnode.next = nextnode
-        if nextnode:  # very important to check if the nextnode is None
-            nextnode.prev = prevnode
-
-    def removeLeastFrequent(self):
-
-        leastFrequentNode = self.head.next
-        if leastFrequentNode.count == 0:
-            return
-
-        # no need to check, because if it was empty, it would have been removed before
-        key, val = leastFrequentNode.keys.popitem(last = False)
-        if not leastFrequentNode.keys:
-            self.removetheNode(leastFrequentNode)
-
-        del self.keytonode[key]
-        del self.keytovalue[key]
-
-    # when this method is called, we assume key is in the cache
-    def increaseCount(self, key):
-        if key not in self.keytonode:
-            return
-
-        node = self.keytonode[key]
-        # the key will point to a new node
-        del self.keytonode[key]
-        # remove the key from this node
-        del node.keys[key]
-
-        if node.next.count != node.count + 1:
             # create the node
-            newnode = Node(node.count + 1)
-            newnode.keys[key] = 0
-            # add node to the linkedList
-            nextnode = node.next
-            newnode.prev, newnode.next = node, nextnode
-            node.next = newnode
-            nextnode.prev = newnode
-        else:
-            node.next.keys[key] = 0
+            newFirstNode = Node(1)
+            newFirstNode.keys[key] = 0
+            # add the key to the keyNode map
+            self.keyToNode[key] = newFirstNode
+            # add the node to the linkedList
+            newFirstNode.prev, newFirstNode.next = self.head, currFirstNode
+            self.head.next, currFirstNode.prev = newFirstNode, newFirstNode
 
-        self.keytonode[key] = node.next
+    # we assume when this method is called, the key is already in our cache
+    def increaseCount(self, key):
+        if key not in self.keyToVal:
+            return
+
+        node = self.keyToNode[key]
+        # the key will point to a new node
+        del node.keys[key]
+        del self.keyToNode[key]
+
+        nextNode = node.next
+        if nextNode.count == node.count + 1:
+            # add the key to count + 1's node
+            nextNode.keys[key] = 0
+            # add the node to the key node map
+            self.keyToNode[key] = nextNode
+        else:
+            # create the new node
+            newNode = Node(node.count + 1)
+            newNode.keys[key] = 0
+            # add the node to the key node map
+            self.keyToNode[key] = newNode
+            # add the new node to the linkedList
+            newNode.prev, newNode.next = node, nextNode
+            node.next, nextNode.prev = newNode, newNode
 
         if not node.keys:
-            self.removetheNode(node)
+            self.removeNode(node)
 
-    def get(self, key):
-
-        if key not in self.keytovalue:
-            return -1
-
-        self.increaseCount(key)
-        return self.keytovalue[key]
-
-    def put(self, key, value):
-
-        if self.cap == 0:  # leetcode did give this corner case
+    def popLeastFrequent(self):
+        firstNode = self.head.next
+        # when there is no key to pop
+        if firstNode.count == 0:
             return
 
-        if key in self.keytovalue:
+        key, val = firstNode.keys.popitem(last=False)
+        if not firstNode.keys:
+            self.removeNode(firstNode)
+        del self.keyToVal[key]
+        del self.keyToNode[key]
+
+    def removeNode(self, node):
+        prevNode, nextNode = node.prev, node.next
+        prevNode.next, nextNode.prev = nextNode, prevNode
+        node.prev, node.next = None, None
+
+    def get(self, key):
+        """
+        :type key: int
+        :rtype: int
+        """
+        if key not in self.keyToVal:
+            return -1
+        self.increaseCount(key)
+        return self.keyToVal[key]
+
+    def put(self, key, value):
+        """
+        :type key: int
+        :type value: int
+        :rtype: None
+        """
+        if self.cap == 0:  # stupid leetcode did give this corner case
+            return
+
+        if key in self.keyToVal:
+            self.keyToVal[key] = value
             self.increaseCount(key)
         else:
             # do this before adding the key in keyToVal/keyToNode
-            if len(self.keytovalue) == self.cap:
-                self.removeLeastFrequent()
-            self.addtoHead(key)
-
-        self.keytovalue[key] = value
+            if len(self.keyToVal) == self.cap:
+                self.popLeastFrequent()
+            self.addNewKey(key, value)
 
 
 
