@@ -3,20 +3,25 @@
 
 class Solution(object):
     def maxProfit(self, prices):
+        """
+        :type prices: List[int]
+        :rtype: int
+        """
+        if not prices or len(prices) == 1:
+            return 0
 
-        if (not prices): return 0
+        profit = 0
+        i = 0
+        while i < len(prices) - 1:
+            if prices[i + 1] > prices[i]:
+                profit += prices[i + 1] - prices[i]
+            i += 1
 
-        i = len(prices)-1
-        maxprof = 0
-        while i > 0:
-            if prices[i] - prices[i-1] > 0:
-                maxprof += prices[i] - prices[i-1]
-            i -= 1
-
-        return maxprof
+        return profit
 
 
 
-Sol = Solution()
-prices = [1,4,5,2,9,16]
-print Sol.maxProfit(prices)
+print Solution().maxProfit([1, 4, 5, 2, 9, 16])
+print Solution().maxProfit([7, 1, 5, 3, 6, 4])
+print Solution().maxProfit([1, 2, 3, 4, 5])
+print Solution().maxProfit([7, 6, 4, 3, 1])
