@@ -12,26 +12,26 @@ class Solution(object):
         if not grid or not grid[0]:
             return 0
 
-        def bfs(i, j, m, n, grid):
+        def dfs(i, j, m, n, grid):
             if i - 1 >= 0 and grid[i - 1][j] == '1':
                 grid[i - 1][j] = '0'
-                bfs(i - 1, j, m, n, grid)
+                dfs(i - 1, j, m, n, grid)
             if i + 1 < m and grid[i + 1][j] == '1':
                 grid[i + 1][j] = '0'
-                bfs(i + 1, j, m, n, grid)
+                dfs(i + 1, j, m, n, grid)
             if j - 1 >= 0 and grid[i][j - 1] == '1':
                 grid[i][j - 1] = '0'
-                bfs(i, j - 1, m, n, grid)
+                dfs(i, j - 1, m, n, grid)
             if j + 1 < n and grid[i][j + 1] == '1':
                 grid[i][j + 1] = '0'
-                bfs(i, j + 1, m, n, grid)
+                dfs(i, j + 1, m, n, grid)
 
         m, n = len(grid), len(grid[0])
         count = 0
         for i in xrange(m):
             for j in xrange(n):
                 if grid[i][j] == '1':
-                    bfs(i, j, m, n, grid)
+                    dfs(i, j, m, n, grid)
                     count += 1
 
         return count
