@@ -1,8 +1,10 @@
 
 from collections import deque
 
+# See my own implementation for the DP idea (for generalized question for k transactions):
+    # https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/discuss/39608/A-clean-DP-solution-which-generalizes-to-k-transactions/332925
+
 # O(N) time & space idea. In real interview this solution would be good enough.
-# See DP idea for generalized question for k transactions: https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iii/discuss/39608/A-clean-DP-solution-which-generalizes-to-k-transactions
 
 class Solution(object):
     def maxProfit(self, prices):
