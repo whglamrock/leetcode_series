@@ -86,7 +86,8 @@ class Solution(object):
     			# consider we sell at j or not
     			dp[i][j] = max(dp[i][j - 1], prices[j] + tmpMax)
     			
-    			# tmpMax is the max of (maxProfix using i - 1 transactions until any j, and buy prices[j])
+    			# tmpMax is the max of (maxProfix using i - 1 transactions until j, and buy prices[j]) 
+    			    # among all previous j's
     			tmpMax = max(tmpMax, dp[i - 1][j] - prices[j])
     			maxProf = max(maxProf, dp[i][j])
 
