@@ -17,7 +17,6 @@ class Solution(object):
         # there is no other option for word1 to match with an empty string
         for i in xrange(1, m + 1):
             dp[i][0] = i
-
         # there is no other option for word2 to match with an empty string
         for j in xrange(1, n + 1):
             dp[0][j] = j
@@ -28,11 +27,11 @@ class Solution(object):
                     dp[i][j] = dp[i - 1][j - 1]
                 # compare 3 options
                 else:
-                    # insert a char (word2[j - 1]) at the end of word1's permutation, in this
-                    # case we need the min steps for matching word1[:i] with word2[:j - 1]
+                    # insert a char in word1 to match the extra word2[j - 1];
+                        # so we need the min steps for matching word1[:i] with word2[:j - 1]
                     a = dp[i][j - 1]
-                    # delete a char; in this case we need the min steps for matching
-                    # word1[:i - 1] with word2[:j]
+                    # delete a char; so we need the min steps for matching
+                        # word1[:i - 1] with word2[:j]
                     b = dp[i - 1][j]
                     # replace a char
                     c = dp[i - 1][j - 1]
