@@ -10,6 +10,7 @@ class Solution(object):
         """
 
         m, n = len(A), len(B)
+        # dp[i][j] means longest match ends with A[i - 1] & B[j - 1]
         dp = [[0 for j in xrange(n + 1)] for i in xrange(m + 1)]
 
         for i in xrange(1, m + 1):
