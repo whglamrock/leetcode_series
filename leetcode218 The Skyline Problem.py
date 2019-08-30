@@ -24,7 +24,7 @@ class Solution(object):
 
         live = []
         heapify(live)
-        
+
         sky = [[-1, 0]]  # the first used as a "dummy head"
         i, n = 0, len(buildings)
 
