@@ -26,6 +26,8 @@ class Solution(object):
 
         res = deque()
         for num in nums[::-1]:
+            # we want the sum of counts of lower rank numbers and
+                # at this point only the numbers on the right of num were added to BIT
             # we need smaller numbers so use rank - 1 (BIT "prefix sum" is inclusive)
             count = self.queryBIT(bit, ranks[num] - 1)
             res.appendleft(count)
