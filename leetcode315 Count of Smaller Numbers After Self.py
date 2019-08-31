@@ -2,10 +2,12 @@
 from collections import deque
 
 # redefine the question to a binary index tree question:
-# every number has a rank: the count of numbers smaller than ranks(4) = count of
-# numbers at ranks(3) + count of numbers at ranks(2) + count of numbers at ranks(1).
+    # every number has a rank: the count of numbers smaller than ranks(4) = count of numbers at ranks(3)
+    # + count of numbers at ranks(2) + count of numbers at ranks(1).
 # => this is essentially queryBIT(3).
+
 # Naturally we make ranks(i) = 1.
+
 # if we do this in reverse order, we can get the answer
 
 class Solution(object):
@@ -46,5 +48,4 @@ class Solution(object):
 
 
 
-Sol = Solution()
-print Sol.countSmaller([5, 6, 2, 1, 3, 4, 7, 8, 10])
+print Solution().countSmaller([5, 6, 2, 1, 3, 4, 7, 8, 10])
