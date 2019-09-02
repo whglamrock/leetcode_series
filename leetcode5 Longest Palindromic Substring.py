@@ -1,6 +1,6 @@
 
 # For Manacher algorithm O(N) solution, see: https://leetcode.com/problems/longest-palindromic-substring/discuss/3337/Manacher-algorithm-in-Python-O(n)
-# Following is O(N^2) solution
+# Following is O(N^2) solution. P.S.: notice the direction of j, i indices' iterations in dp!
 
 class Solution(object):
     def longestPalindrome(self, s):
@@ -35,7 +35,7 @@ class Solution(object):
                     maxLen = j - i + 1
                     l, r = i, j
 
-        return s[l: r + 1]
+        return s[l:r + 1]
 
 
 
