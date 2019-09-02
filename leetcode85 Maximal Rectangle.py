@@ -18,7 +18,7 @@ class Solution(object):
         # right[j] stores the right most index k that all right[j:k + 1] is 1
         right = [n] * n
         height = [0] * n
-        
+
         maxArea = 0
         for i in xrange(m):
             currLeft, currRight = 0, n
