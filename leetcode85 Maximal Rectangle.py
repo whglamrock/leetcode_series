@@ -1,111 +1,69 @@
 
-# idea: dp.
+# a typical multi-dpArray dp question. In this question, we could also use 2-D array for left, right, height but
+    # 1-D takes less space
 # explanation from: https://discuss.leetcode.com/topic/6650/share-my-dp-solution
 
 class Solution(object):
     def maximalRectangle(self, matrix):
-
+        """
+        :type matrix: List[List[str]]
+        :rtype: int
+        """
         if not matrix or not matrix[0]:
             return 0
 
         m, n = len(matrix), len(matrix[0])
-        # instead of using 2-D arrays, using 1-D to save space
+        # left[j] stores the left most index k that all left[k:j + 1] is 1
         left = [0] * n
+        # right[j] stores the right most index k that all right[j:k + 1] is 1
         right = [n] * n
         height = [0] * n
-        maxarea = 0
-
+        
+        maxArea = 0
         for i in xrange(m):
-            currleft, currright = 0, n
-            # update the left, based on the previous and current row
+            currLeft, currRight = 0, n
             for j in xrange(n):
                 if matrix[i][j] == '1':
-                    left[j] = max(left[j], currleft)
+                    # 1. not making left[j] directly = currLeft because currLeft only means the leftmost consecutive 1
+                        # and the corresponding height[currLeft] is very possibly different
+                    # 2. the previous left[j] represents that with the previous height[i], how left we can go
+                    # 3. the currLeft only records for the current row
+                    left[j] = max(left[j], currLeft)
                 else:
-                    currleft = j + 1    # make it the next j
-                    left[j] = 0    # make it zero so the max operator can work
-            # update the right
-            for j in xrange(n - 1, -1, -1):  # "for j in xrange(n)" don't work here
+                    currLeft = j + 1
+                    # reset it 0 is for the next big for loop (i + 1)
+                    # this won't affect the area calculation because the corresponding
+                    # height[j] will be 0
+                    left[j] = 0
+
+            for j in xrange(n - 1, -1, -1):
                 if matrix[i][j] == '1':
-                    right[j] = min(right[j], currright)
+                    right[j] = min(right[j], currRight)
                 else:
-                    currright = j  # not j - 1, for the convenience to calculate right[j] - left[j]
-                    right[j] = n    # make it back to n so the min operator can work
-            # P.S. we don't have to worry about having wrong result of rectangle's area because when
-            #   matrix[i][j] == '0', the height[j] will be set 0
-            # update the height
+                    # notice that we make currRight = j instead of j - 1 to ease the area calculation
+                    currRight = j
+                    # reset it n is for the next big for loop (i + 1)
+                    right[j] = n
+
             for j in xrange(n):
                 if matrix[i][j] == '1':
-                    # based on the previous row's height[j], even if it's 0
-                    height[j] = height[j] + 1
+                    height[j] += 1
                 else:
                     height[j] = 0
-            # calculate the max area
+
             for j in xrange(n):
-                maxarea = max(maxarea, (right[j] - left[j]) * height[j])
+                # no need to do right[j] - left[j] "+ 1" because right[j] stores the index + 1
+                maxArea = max(maxArea, (right[j] - left[j]) * height[j])
 
-        return maxarea
+        return maxArea
 
 
 
-'''
-# Or simply reuse the code from lc84, faster in running but a bit more complicated to code
-#   and explain in real interview
+matrix = [
+  ["1","0","1","0","0"],
+  ["1","0","1","1","1"],
+  ["1","1","1","1","1"],
+  ["1","0","0","1","0"]
+]
+print Solution().maximalRectangle(matrix)
 
-class Solution(object):
-    def maximalRectangle(self, matrix):
-
-        if not matrix or not matrix[0]:
-            return 0
-
-        n = len(matrix[0])
-        heights = [0] * n
-        maxarea = 0
-
-        for row in matrix:
-            for j in xrange(n):
-                if row[j] == '1':
-                    heights[j] = heights[j] + 1
-                else:
-                    heights[j] = 0
-            currmaxarea = self.largestRectangleArea(heights)
-            maxarea = max(maxarea, currmaxarea)
-
-        return maxarea
-
-    def largestRectangleArea(self, heights):
-
-        if not heights:
-            return 0
-
-        n = len(heights)
-        i = 0
-        maxarea = 0
-        stack = []
-
-        while i < n:
-            if not stack or heights[i] >= heights[stack[-1]]:
-                stack.append(i)
-                i += 1
-            else:
-                theindexofminheight = stack.pop()
-                h = heights[theindexofminheight]
-                currarea = 0
-                if stack:
-                    currarea = h * (i - 1 - stack[-1])
-                else:
-                    currarea = h * i
-                maxarea = max(maxarea, currarea)
-
-        while stack:
-            theindexofminheight = stack.pop()
-            h = heights[theindexofminheight]
-            currarea = 0
-            if stack:
-                currarea = h * (n - 1 - stack[-1])
-            else:
-                currarea = h * n
-            maxarea = max(maxarea, currarea)
-
-        return maxarea
-'''
