@@ -5,7 +5,7 @@ For each topic/special data structure, the typical use cases are summaized here
 * O(logN) time for update and getPrefixSum for an array
 * count in an array, the numbers smaller/bigger than a number on its left/right. 
 * Example question: 
-    * count of smaller/bigger numbers on the left/right: [lc315: count of smaller numbers after self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/)
+    * count of smaller/bigger numbers on the left/right: [lc315: count of smaller numbers after self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/), [lc493: Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)
     * typical prefix sum: [lc327: count of range sum](https://leetcode.com/problems/count-of-range-sum/)
 
 ##### Dynamic Programming

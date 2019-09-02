@@ -21,7 +21,7 @@ class Solution(object):
         n = len(nums)
 
         # BIT is non-0 index based array because we need to perform bit operation on index
-        ranks = {num: rank + 1 for rank, num in enumerate(sorted(nums))}
+        ranks = {num: rank + 1 for rank, num in enumerate(sorted(set(nums)))}
         bit = [0] * (n + 1)
 
         res = deque()
