@@ -1,8 +1,6 @@
 
-"""
-O(n^2) time & space. palindrome can only grow from palindromes. Ultimately the most basic palindrome forms from
-1 char or r chars
-"""
+# For Manacher algorithm O(N) solution, see: https://leetcode.com/problems/longest-palindromic-substring/discuss/3337/Manacher-algorithm-in-Python-O(n)
+# Following is O(N^2) solution
 
 class Solution(object):
     def longestPalindrome(self, s):
@@ -14,38 +12,36 @@ class Solution(object):
             return ''
 
         n = len(s)
-        # dp[i][j] means whether s[i: j + 1] is a palindrome
-        dp = [[0 for j in xrange(n)] for i in xrange(n)]
+        dp = [[False for j in xrange(n)] for i in xrange(n)]
+
         for i in xrange(n):
-            dp[i][i] = 1
+            dp[i][i] = True
+        for i in xrange(n - 1):
+            if s[i] == s[i + 1]:
+                dp[i][i + 1] = True
 
-        # deal with situation like 'aa', 'bb'
-        for i in xrange(1, n):
-            if s[i] == s[i - 1]:
-                dp[i - 1][i] = 1
-
-        # then all palingdromes can grow from 1 char or 2 chars
-        # the new palinfromes found from this point will be at least 3 chars long
-        for i in xrange(2, n):
-            for j in xrange(1, i):
-                if dp[j][i - 1] == 1 and s[j - 1] == s[i]:
-                    dp[j - 1][i] = 1
+        # i is the left index, j is right index
+        # at this point, any new palindromes will be at least 3 chars long
+        for j in xrange(2, n):
+            for i in xrange(j - 2, -1, -1):
+                if dp[i + 1][j - 1] == True and s[i] == s[j]:
+                    dp[i][j] = True
 
         maxLen = 0
-        ans = [0, 0]
+        l, r = 0, 0
         for i in xrange(n):
             for j in xrange(i, n):
-                if dp[i][j] == 1 and j - i > maxLen:
-                    ans = [i, j]
-                    maxLen = j - i
+                if dp[i][j] and j - i + 1 > maxLen:
+                    maxLen = j - i + 1
+                    l, r = i, j
 
-        return s[ans[0]: ans[1] + 1]
+        return s[l: r + 1]
 
 
 
-Sol = Solution()
-s = "bb"
-print Sol.longestPalindrome(s)
+print Solution().longestPalindrome("abcba")
+print Solution().longestPalindrome("abccba")
+print Solution().longestPalindrome("abceba")
 
 
 
