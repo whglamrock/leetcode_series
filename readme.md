@@ -14,6 +14,8 @@ Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same
     * [lc10: regular expression matching](https://leetcode.com/problems/regular-expression-matching/)
     * [lc97: Interleaving String](https://leetcode.com/problems/interleaving-string/)
     * [lc188: best time to sell stock with k transactions](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
+    * [lc72: Edit Distance](https://leetcode.com/problems/edit-distance/)
+    * 
 * Multiple dp array is involved:
     * [lc85: Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
     
