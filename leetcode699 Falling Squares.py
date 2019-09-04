@@ -7,7 +7,9 @@ class Interval:
 
 
 
-# O(N^2) naive solution but it should work in real interviews (but we also need to explain the segment tree idea).
+# O(N^2) naive solution but it should work in real interviews, given that
+    # we also need to explain the segment tree idea.
+# The hard part for strictly O(NlogN) segment solution is to keep is height balanced
 
 class Solution(object):
     def fallingSquares(self, positions):
@@ -21,7 +23,7 @@ class Solution(object):
         intervals = []
         ans = []
         currMaxHeight = 0
-        
+
         for left, width in positions:
             height = width
             for interval in intervals:
