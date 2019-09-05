@@ -22,6 +22,11 @@ class Solution(object):
             # previous char is ')', then we need to check the longest length before previous ')' 's corresponding '('.
             elif i >= 2 and s[i - 2] == ')' and dp[i - 1]:
                 prevLen = dp[i - 1]
+                # let the longest valid parentheses the ends with s[i - 2] be A, so the longest streak that ends
+                    # with s[i - 1] must something like '( A )'. It's impossible that a single ')' along with
+                    # part of A can form a valid streak.
+                # Thus, the longest valid streak ends with s[i - 1] is either 0, or len(A) + 2 + len(B), considering
+                    # the s = 'xxx B ( A )' where B is longest valid streak that ends right before the '('
                 if i - prevLen - 2 >= 0 and s[i - prevLen - 2] == '(':
                     # the 2 is for s[i - 1] and matching '(', also don't forget about dp[i - prevLen - 2]
                     dp[i] = dp[i - 1] + dp[i - prevLen - 2] + 2

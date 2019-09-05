@@ -16,16 +16,13 @@ class Solution(object):
             elif not stack:
                 return False
             else:
-                lastchar = stack.pop()
-                if dic[lastchar] != char:
+                if dic[stack.pop()] != char:
                     return False
 
         return len(stack) == 0
 
 
 
-s = '(){[()]}()[]{}{[()]}{[()]}{}{}('
-Sol = Solution()
-print Sol.isValid(s)
+print Solution().isValid('(){[()]}()[]{}{[()]}{[()]}{}{}(')
 
 
