@@ -20,4 +20,6 @@ Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same
     * [lc85: Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
     
 
-
+##### Merge Sort
+Merge sort usually should not be needed, but it is needed the question is likely to a hard one.
+* [lc327: Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/)
