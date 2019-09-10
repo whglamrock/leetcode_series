@@ -1,48 +1,37 @@
 
 class Solution(object):
     def wordBreak(self, s, wordDict):
+        """
+        :type s: str
+        :type wordDict: List[str]
+        :rtype: List[str]
+        """
+        return self.dfs(s, wordDict, {})
 
-        # the dfs returns all possible combination of s
-        def dfs(s, wordDict, dic):
-            # to avoid TLE. Because multiple feasible combinations of words can fors s.
-            # e.g., is 's' = 'abc' is the prefix of s = 'abcdef',
-            # wordDict = {'a', 'b', 'c', 'ab', 'bc', 'abc', 'def'}, the 's' = 'abc' has many ways to
-            # be formed, then we don;t need to the below for loop too many times.
-            if s in dic:
-                return dic[s]
+    # use substringToWordBreak as a memo/backtracking to store the work break for visited substrings, which largely
+        # saves time for tricky case like "aaaa...", ["a", 'aa', "aaa", ...]
+    def dfs(self, s, wordDict, substringToWordBreak):
 
-            res = []
-            # the bottom case of dfs, when recursion goes after the last char of s
-            if len(s) == 0:
-                res.append(s)
-                return res
+        if s in substringToWordBreak:
+            return substringToWordBreak[s]
 
-            for word in wordDict:
-                if s.startswith(word):
-                    # the sublist stores all possible combinations of s[len(word):]
-                    # e.g., if s[len(word):] == 'abcbc', wordDict = {'ab', 'abc', 'cbc', 'bc'}
-                    # then the sublist = ['ab cbc', 'abc bc']
-                    sublist = dfs(s[len(word):], wordDict, dic)
-                    # there is only one possible case when a sub equals to '':
-                    # that is when sublist = ['']
-                    for sub in sublist:
-                        if sub:
-                            res.append(word + ' ' + sub)
-                        else:
-                            res.append(word)
+        # base case when all words in this recursion path are in wordDict
+        if len(s) == 0:
+            return ['']
 
-            # the res stores all possible combinations of s;
-            # the dic doesn't contain key ''.
-            # the dic is filled from s's back to s's head (the key in dic is s's suffix)
-            dic[s] = res
-            return res
+        res = []
+        for word in wordDict:   # wordDict has no duplicates
+            if s.startswith(word):
+                wordBreakForSuffix = self.dfs(s[len(word):], wordDict, substringToWordBreak)
+                for item in wordBreakForSuffix:
+                    # item can be ''
+                    res.append((word + ' ' + item).strip())
 
-        return dfs(s, wordDict, {})
+        substringToWordBreak[s] = res
+        return res
 
 
 
-# try print word, sublist, dic in every for loop to see the execution
-Sol = Solution()
-s = "catsanddog"
-wordDict = {"cat","cats","and","sand","dog", "an", "ddog"}
-print Sol.wordBreak(s, wordDict)
+print Solution().wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog", "an", "ddog"])
+print Solution().wordBreak("pineapplepenapple", ["apple", "pen", "applepen", "pine", "pineapple"])
+print Solution().wordBreak("aaaaaaaa", ["a", 'aa', "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa"])

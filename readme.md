@@ -23,3 +23,8 @@ Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same
 ##### Merge Sort
 Merge sort usually should not be needed, but it is needed the question is likely to a hard one.
 * [lc327: Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/)
+
+
+##### Backtracking
+Some questions with backtracking tag sometimes can be solved in top-down DFS way. E.g., [lc140: Word Break II](https://leetcode.com/problems/word-break-ii/)
+
