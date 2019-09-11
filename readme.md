@@ -28,3 +28,6 @@ Merge sort usually should not be needed, but it is needed the question is likely
 ##### Backtracking
 Some questions with backtracking tag sometimes can be solved in top-down DFS way. E.g., [lc140: Word Break II](https://leetcode.com/problems/word-break-ii/)
 
+
+##### Binary Search
+Usually the while loop condition, initial range, how we move the index are two triplets: `l, r = 0, n & while l < r & r = m` or `l, r = 0, n - 1 & while l <= r & r = m - 1`. There are some special cases, e.g., [lc4: Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)

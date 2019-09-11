@@ -20,16 +20,19 @@ class Solution(object):
 
         # 1) we concatenate nums1[:i] & nums2[:j] to be left half and nums1[i:] & nums2[j:] to be right half
         # 2) the "l == r" condition considers the cases when m == 0, i == 0, i == m
+        # 3) we won't fall into infinite loop condition when l == i == r and l > 0. Because when l == r and l > 0,
+            # l must have gone through "l = i + 1" (i.e., previous "nums1[i] < nums2[j - 1]" <=>
+            # nums1[i - 1] < nums2[j], which conflicts with the condition that nums1[i - 1] > nums2[j])
         while l <= r:
             i = (l + r) / 2
             # remember this index trick that makes sure when the total length is odd number,
-              # we always make the  left half has 1 more number
+              # we can make the left half have 1 more number
             j = (m + n + 1) / 2 - i
 
-            # i is to small
+            # i is too small / j is too big
             if j > 0 and i < m and nums2[j - 1] > nums1[i]:
                 l = i + 1
-            # j is to small / i is too big
+            # j is too small / i is too big
             elif i > 0 and j < n and nums1[i - 1] > nums2[j]:
                 r = i   # because initially we set the r = m
             # when i is correct + corner cases i.e. there is no need to move i
