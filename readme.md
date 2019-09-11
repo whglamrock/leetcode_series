@@ -8,6 +8,7 @@ For each topic/special data structure, the typical use cases are summaized here
     * count of smaller/bigger numbers on the left/right: [lc315: count of smaller numbers after self](https://leetcode.com/problems/count-of-smaller-numbers-after-self/), [lc493: Reverse Pairs](https://leetcode.com/problems/reverse-pairs/)
     * typical prefix sum: [lc327: count of range sum](https://leetcode.com/problems/count-of-range-sum/)
 
+
 ##### Dynamic Programming
 Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same as what the question is asking for. In some case, we may need multiple dp array to track the previous state, depending on what the question is asking for.
 * Typical one 2-D dp array question:
@@ -31,3 +32,12 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 
 ##### Binary Search
 Usually the while loop condition, initial range, how we move the index are two triplets: `l, r = 0, n & while l < r & r = m` or `l, r = 0, n - 1 & while l <= r & r = m - 1`. There are some special cases, e.g., [lc4: Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+
+
+##### Topology Sort
+
+
+##### Union Find
+
+
+##### Graph

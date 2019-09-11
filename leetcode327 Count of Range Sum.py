@@ -30,7 +30,7 @@ class Solution(object):
             # when ranges are completely in either left or right half
             count = mergeSort(l, m) + mergeSort(m, r)
 
-            # when range[0] in left hald, rangr[1] in right half
+            # when range[0] in left half, range[1] in right half
             i, j = m, m
             for left in prefixSum[l:m]:
                 while i < r and prefixSum[i] - left < lower:
