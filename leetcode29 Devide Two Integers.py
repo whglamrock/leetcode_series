@@ -1,19 +1,21 @@
 
-'''
-Binary Shift trick, in our case, we take (32,5) as an example
-'''
-# the dividend goes through: big while(1)32->27->17;big while(2)17->12->2;
-# in every number after the "->" in the above line represent the new dividend after a little while.
-# go through the entire loop to understand the algorithm.
+# Binary search solution: O(logN) where N == dividend / divisor.
+# P.S.: We have to use Binary Manipulation to avoid "*"
 
 class Solution:
     def divide(self, dividend, divisor):
-        
-        positive = (dividend < 0) is (divisor < 0)
+
+        if divisor == 0:
+            return
+        if dividend == 0:
+            return 0
+
+        positive = (dividend > 0 and divisor > 0) or (dividend < 0 and divisor < 0)
         dividend, divisor = abs(dividend), abs(divisor)
         res = 0
+
         while dividend >= divisor:
-            temp, i = divisor, 1 # in each big while, the temp has been reassigned the fixed divisor value.
+            temp, i = divisor, 1
             while dividend >= temp:
                 dividend -= temp
                 res += i
@@ -26,8 +28,10 @@ class Solution:
 
 
 
-Sol = Solution()
-print Sol.divide(32,5)
+# Taking (32, 5) as an example, the dividend goes through:
+# 1) big while(1): 32 -> 27 -> 17;
+# 2) big while(2): 17 -> 12 -> 2;
+print Solution().divide(32, 5)
 
 
 
