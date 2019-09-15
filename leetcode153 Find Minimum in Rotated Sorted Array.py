@@ -22,7 +22,8 @@ class Solution(object):
                 l = m + 1
             # in this case, m is still candidate index
             else:
-                # consider when in next loop the search range becomes 1, the first if condition will satisfy
+                # the only time r == m causes infinite loop is when search range is 1,
+                    # which ic covered by first if condition
                 r = m
 
 

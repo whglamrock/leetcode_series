@@ -31,8 +31,8 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 
 
 ##### Binary Search
-Usually the while loop condition, initial range, how we move the index are two triplets: `l, r = 0, n & while l < r & r = m` or `l, r = 0, n - 1 & while l <= r & r = m - 1`. There are some special cases, e.g., [lc4: Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
-
+* Usually the while loop condition, initial range, how we move the index are two triplets: `l, r = 0, n & while l < r & r = m` or `l, r = 0, n - 1 & while l <= r & r = m - 1`. There are some special cases, e.g., [lc4: Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+* Classic Binary search question with east to fall trap: [lc33: Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 ##### Topology Sort
 
