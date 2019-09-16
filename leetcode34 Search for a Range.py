@@ -1,64 +1,64 @@
 
-# Idea: find the target value first, then search the start in left area, the end in right area.
+# Idea: find the target value first, then search the start/last in the left/right half
 
 class Solution(object):
     def searchRange(self, nums, target):
-        l, r = 0, len(nums)-1
-        index = None
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        if not nums:
+            return [-1, -1]
+        position = self.findTarget(nums, target)
+        if position == -1:
+            return [-1, -1]
+
+        # print position
+        first, last = position, position
+
+        # find the first appearance
+        l, r = 0, position
         while l <= r:
-            mid = (l+r)/2
-            if nums[mid] == target:
-                index = mid
+            if l == r and nums[l] == target:
+                first = l
                 break
-            elif nums[mid] > target:
-                r = mid-1
+            m = (l + r) / 2
+            if nums[m] < target:
+                l = m + 1
+            # else then nums[m] must == target
             else:
-                l = mid+1
+                r = m
 
-        if index == None:
-            return [-1,-1]
-
-        l1, r1 = 0, index
-        l2, r2 = index, len(nums)-1
-        start, end = None, None
-        while l1 <= r1:
-            mid = (l1+r1)/2
-            if nums[mid] == target:
-                if mid-1 >= 0:
-                    r1 = mid-1
-                else:
-                    start = mid
-                    break
+        # find the last appearance
+        l, r = position, len(nums) - 1
+        while l <= r:
+            if l == r and nums[l] == target:
+                last = l
+                break
+            # we wanna make sure that when r = l + 1, the m = r to avoid infinite while loop; also this way we can still always keep [l, r] valid range inclusive
+            m = (l + r + 1) / 2
+            if nums[m] > target:
+                r = m - 1
+            # else then nums[m] must == target
             else:
-                if mid+1 < len(nums) and nums[mid+1] == target:
-                    start = mid+1
-                    break
-                else:
-                    l1 = mid+1
+                l = m
 
-        while l2 <= r2:
-            mid = (l2+r2)/2
-            if nums[mid] == target:
-                if mid+1 < len(nums):
-                    l2 = mid+1
-                else:
-                    end = mid
-                    break
+        return [first, last]
+
+    def findTarget(self, nums, target):
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            m = (l + r) / 2
+            if nums[m] == target:
+                return m
+            elif nums[m] < target:
+                l = m + 1
             else:
-                if mid-1 >= 0 and nums[mid-1] == target:
-                    end = mid-1
-                    break
-                else:
-                    r2 = mid-1
+                r = m - 1
 
-        if start != None and end != None:
-            return [start, end]
-        else:
-            return [index, index]
+        return -1
 
 
 
-Sol = Solution()
-nums = [2,2]
-target = 2
-print Sol.searchRange(nums, target)
+print Solution().searchRange([2, 2], 2)
