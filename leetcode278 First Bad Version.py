@@ -1,12 +1,9 @@
 
-# define the isBadVersion(num) as an 'API'...
+# make it simple for testing purpose
 
 def isBadVersion(num):
+    return num > 11
 
-    if num <= 11:  # however, the bound for num could be any number besides 11.
-        return False
-    else:
-        return True
 
 
 class Solution(object):
@@ -16,18 +13,17 @@ class Solution(object):
         l, r = 1, n
 
         while l < r:
-            mid = l + (r - l) / 2
+            m = l + (r - l) / 2
             # all versions after this are bad
-            if isBadVersion(mid):
-                r = mid
+            if isBadVersion(m):
+                r = m
             else:
-                l = mid + 1
+                l = m + 1
 
         return l
 
 
 
-Sol = Solution()
-print Sol.firstBadVersion(13)
+print Solution().firstBadVersion(13)
         
 

@@ -13,7 +13,7 @@ class ListNode(object):
 class Solution(object):
     def hasCycle(self, head):
 
-        slow = fast = head
+        slow, fast = head, head
         while fast and fast.next:
             fast = fast.next.next # fast move two nodes
             slow = slow.next # slow move one node

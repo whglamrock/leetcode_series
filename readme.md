@@ -33,7 +33,10 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 ##### Binary Search
 * Usually the while loop condition, initial range, how we move the index are two triplets: `l, r = 0, n & while l < r & r = m` or `l, r = 0, n - 1 & while l <= r & r = m - 1`. There are some special cases, e.g., [lc4: Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 * Classic Binary search question with east to fall trap: [lc33: Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
-* Non-typical question where we don't know both left & right boundaries: [lc 29: Divide Two Integers](https://leetcode.com/problems/divide-two-integers/submissions/)
+* Non-typical question where we don't search in a range: [lc 29: Divide Two Integers](https://leetcode.com/problems/divide-two-integers/submissions/)
+* The sorted list is formed in a very un-straightforward way (not original nums or prefix sum):
+    * [lc300: Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
+    
 
 ##### Topology Sort
 
@@ -42,3 +45,7 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 
 
 ##### Graph
+
+##### Two pointers
+* Most classic fast & slow 2 pointer question: [lc141: Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/), follow-up: [lc142: Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
+* A typical question that shares the fast & slow 2 pointer idea: [lc 287: Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/)

@@ -3,9 +3,9 @@
 
 class ListNode(object):
     def __init__(self, x):
-
         self.val = x
         self.next = None
+
 
 
 # no extra space solution. idea came from: https://discuss.leetcode.com/topic/43858/python-o-n-no-extra-space-with-mathematical-explanation
@@ -13,21 +13,21 @@ class ListNode(object):
 class Solution(object):
     def detectCycle(self, head):
 
-        slow = fast = head  # remember this define method
+        if not head:
+            return None
 
-        while fast is not None:
+        slow, fast = head, head
+
+        while fast != None:
             fast = fast.next
-            if (not fast):
+            if not fast:
                 return None
             fast = fast.next
             slow = slow.next
             if slow == fast:
                 break
 
-        if (not fast):
-            return None
-
-        slow = head    # see explanantion below
+        slow = head    # see explanation below
         while slow != fast:
             slow = slow.next
             fast = fast.next
