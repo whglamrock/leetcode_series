@@ -1,5 +1,6 @@
 
 # O(n * w^2) solution. No need to use dp to calculate if the prefix/suffix is palindrome (no time improvement)
+    # because you would still end up using a 2D array, causing O(w^2) time complexity
 
 class Solution(object):
     def palindromePairs(self, words):
