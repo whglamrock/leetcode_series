@@ -16,19 +16,20 @@ class Solution(object):
         if not nums or len(nums) == 1:
             return -1
 
-        slow = nums[0]
-        fast = nums[nums[0]]
+        slow, fast = nums[0], nums[0]
 
-        while slow != fast:
+        while True:
             slow = nums[slow]
             fast = nums[fast]
             fast = nums[fast]
+            if slow == fast:
+                break
 
         # refer to lc142 to see floyd's algorithm.
-        fast = 0
+        slow = nums[0]
         while slow != fast:
-            fast = nums[fast]
             slow = nums[slow]
+            fast = nums[fast]
 
         return slow
 
