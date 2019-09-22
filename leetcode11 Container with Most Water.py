@@ -1,34 +1,33 @@
 
-'''
-    Two pointers are set: i starts from 0, j starts from len(height)-1; let's say height[i] < height[j]).
-    Should we move i or j?
-    -- if j, no matter what height[j-1] is, the new area will be less than the previsou one.
-    -- if i, when height[i+1] <= height[i], area decrease ; but if height[i+1] > height[i], the area
-       could increase
-'''
+# O(N) two pointer solution
+# At some point assume we have height[i] < height[j]); if we decrease the right index, all new areas will smaller
+    # the one formed by  height[i] & height[j]. But increasing height[i] we can possibly find better solution
 
 class Solution(object):
     def maxArea(self, height):
+        """
+        :type height: List[int]
+        :rtype: int
+        """
+        if not height:
+            return 0
 
-        i = 0
-        j = len(height)-1
-        area = min(height[i],height[j])*(j-i)
+        area = 0
+        i, j = 0, len(height) - 1
 
         while i < j:
-            if height[i] <= height[j]:
+            newArea = min(height[i], height[j]) * (j - i)
+            area = max(area, newArea)
+            if height[i] < height[j]:
                 i += 1
             else:
                 j -= 1
-            if min(height[i],height[j])*(j-i) > area:
-                    area = min(height[i],height[j])*(j-i)
 
         return area
 
 
 
-a = [1,2,3,12,1,2,14,8]
-Sol = Solution()
-print Sol.maxArea(a)
+print Solution().maxArea([1, 2, 3, 12, 1, 2, 14, 8])
 
 
 

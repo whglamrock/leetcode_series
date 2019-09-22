@@ -48,4 +48,4 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 
 ##### Two pointers
 * Most classic fast & slow 2 pointer question: [lc141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/), follow-up: [lc142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)
-* A typical question that shares the fast & slow 2 pointer idea: [lc 287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/); for this one, the O(1) extra space requirement will make it a hard question
+* A typical question that shares the fast & slow 2 pointer idea: [lc 287. Find the Duplicate Number](https://leetcode.com/problems/find-the-duplicate-number/); for this one, the O(1) extra space requirement will make it a hard question because you have to think of using the value -> index mapping to form a linked list

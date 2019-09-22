@@ -1,53 +1,77 @@
 
-# The key is to avoid duplicates without using hashset.
+from collections import deque
+
+# In real interview, it's hard to remember the "reverse string" solution. So it's OK to give the following solution
 
 class Solution(object):
     def removeInvalidParentheses(self, s):
+        """
+        :type s: str
+        :rtype: List[str]
+        """
+        if s == None:
+            return []
+        if s == '':
+            return ['']
 
-        self.ans = []
-        self.remove(s, 0, 0, ['(', ')'])
-        return self.ans
+        queue = deque()
+        queue.append(s)
+        visited = set()
+        ans = []
 
-    # on the left of lasti (excluding lasti) are valid parentheses
-    def remove(self, s, lasti, lastj, par):
+        while queue:
+            string = queue.popleft()
+            if self.isValid(string):
+                # we only need to "remove minimum number of invalid parentheses"
+                if not ans or (ans and len(ans[0]) == len(string)):
+                    ans.append(string)
+                continue
 
+            # generate all possible combinations
+            for i in xrange(len(string)):
+                if string[i] not in '()':
+                    continue
+                newString = string[:i] + string[i + 1:]
+                if newString not in visited:
+                    queue.append(newString)
+                    visited.add(newString)
+
+        return ans
+
+    def isValid(self, s):
+        i, n = 0, len(s)
         count = 0
-        # P.S., the start index of i is lasti, not lasti + 1
-        for i in xrange(lasti, len(s)):
-
-            if s[i] == par[0]:
+        while i < n:
+            if s[i] not in '()':
+                i += 1
+                continue
+            if s[i] == '(':
                 count += 1
-            elif s[i] == par[1]:
+            elif s[i] == ')':
                 count -= 1
-            if count >= 0: continue
+            if count < 0:
+                return False
+            i += 1
 
-            # j can be i, because s[i] also needs to be removed
-            for j in xrange(lastj, i + 1):
-                # only need to remove one parentheses from consecutive ones
-                if s[j] == par[1] and (j == lastj or s[j] != s[j - 1]):
-                    # after removing one char from s, the new 's' and s[i] will become valid again
-                    self.remove(s[:j] + s[j + 1:], i, j, par)
-
-            # no need to keep this recursion running
-            return
-
-        # at this point, no invalid s[i] is found in this direction
-        reverseds = s[::-1]
-
-        # this recursion is from left to right
-        if par[0] == '(':
-            self.remove(reverseds, 0, 0, [')', '('])
-        # this recursion is from "right to left" (i.e., scan the reversestring from left to right),
-        #   and we scan the string in both direction, so it's valid
-        else:
-            self.ans.append(reverseds)
+        return count == 0
 
 
 
-Sol = Solution()
-s = "(a)()())"
-print Sol.removeInvalidParentheses(s)
+print Solution().removeInvalidParentheses("(a)()())")
 
+
+
+# But to get strong hire, you would probably need to give out the solution or at least idea without using set to check,
+    # see: https://leetcode.com/problems/remove-invalid-parentheses/discuss/75027/Easy-Short-Concise-and-Fast-Java-DFS-3-ms-solution
+# notice why last_i and last_j are both used and what they are used for:
+    # 1) last_i records the last valid position after removal, so in the next recursion, we can avoid
+    # counting '(' and ')' from the start of the string;
+    # 2) last_j records the last removal position, so the new removal position has to start from it
+# For consecutive ')'s, ONLY remove the FIRST one
+# E.g., using '()()()) ())' as example to run the solution in the above link to understand why we need both last_i & last_j are
+
+# P.S. another important theory is: when the first extra ')' occurs, we can remove any of the previous ')' to make
+    # the whole prefix valid
 
 
 

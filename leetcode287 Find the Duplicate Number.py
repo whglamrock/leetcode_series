@@ -16,8 +16,7 @@ class Solution(object):
         if not nums or len(nums) == 1:
             return -1
 
-        slow, fast = nums[0], nums[0]
-
+        slow, fast = 0, 0
         while True:
             slow = nums[slow]
             fast = nums[fast]
@@ -26,7 +25,7 @@ class Solution(object):
                 break
 
         # refer to lc142 to see floyd's algorithm.
-        slow = nums[0]
+        slow = 0
         while slow != fast:
             slow = nums[slow]
             fast = nums[fast]
