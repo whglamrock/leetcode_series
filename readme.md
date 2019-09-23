@@ -18,12 +18,12 @@ Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same
     * [lc72. Edit Distance](https://leetcode.com/problems/edit-distance/)
     * 
 * Multiple dp array is involved:
-    * [lc85: Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
+    * [lc85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
     
 
 ##### Merge Sort
 Merge sort usually should not be needed, but it is needed the question is likely to a hard one.
-* [lc327: Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/)
+* [lc327. Count of Range Sum](https://leetcode.com/problems/count-of-range-sum/)
 
 
 ##### Backtracking
@@ -39,12 +39,17 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 * In most cases we would always make m = (l + r) / 2 but there's also situation when we make m = (l + r + 1) / 2: [lc34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/)
 
 ##### Topology Sort
+* Textbook toposort questions: [lc269. Alien Dictionary](https://leetcode.com/problems/alien-dictionary/), [lc207. Course Schedule](https://leetcode.com/problems/course-schedule/), [lc210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) 
 
 
 ##### Union Find
 
 
 ##### Graph
+some of the questions under this topic are actually covered by topology sort & union find. so only list few typical ones here
+* For Euler path algorithm: [lc332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
+* "union find alike" graph question: [lc399. Evaluate Division](https://leetcode.com/problems/evaluate-division/)
+
 
 ##### Two pointers
 * Most classic fast & slow 2 pointer question: [lc141. Linked List Cycle](https://leetcode.com/problems/linked-list-cycle/), follow-up: [lc142. Linked List Cycle II](https://leetcode.com/problems/linked-list-cycle-ii/)

@@ -41,6 +41,7 @@ class Solution(object):
             for greaterChar in less[char]:
                 greater[greaterChar].discard(char)
                 if not greater[greaterChar]:
+                    # deleting this key is for checking circle in the end
                     del greater[greaterChar]
                     q.append(greaterChar)
 

@@ -27,4 +27,4 @@ class Solution(object):
 
 
 
-print Solution().commonChars(A = ["bella","label","roller"])
+print Solution().commonChars(A = ["bella","val","roller"])
