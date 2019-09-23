@@ -1,4 +1,6 @@
 
+from collections import defaultdict
+
 # Important Euler path theory: http://www.ctl.ua.edu/math103/euler/howcanwe.htm
 # Euler Path search algorithm: http://stackoverflow.com/questions/17467228/looking-for-algorithm-finding-euler-path
 
@@ -13,9 +15,8 @@
 #   ... (since in the above path, no vertex has more destinations, so after few more checks),
 #   JFK* -> A* -> C* -> D* -> B* -> C* -> JFK* -> D* -> A*.
 
-# An delicate recursive solution, O(n) space; except the sort part, the rest takes O(n) time.
+# O(n) time. Note that the problem guarantees that This is a directed graph with euler path existing for sure
 
-from collections import defaultdict
 class Solution(object):
     def findItinerary(self, tickets):
 
@@ -27,12 +28,16 @@ class Solution(object):
             trips[a].append(b)
 
         ans = []
-        def visit(airport):
-            while trips[airport]:
-                visit(trips[airport].pop())
-            ans.append(airport)
+        stack = ['JFK']
 
-        visit('JFK')
+        # P.S. the euler path for sure exists for this problem
+        while stack:
+            # start from a random point to form a "segment" that's definitely part of the euler path
+            while trips[stack[-1]]:
+                stack.append(trips[stack[-1]].pop())
+            # at this point stack[-1] is the vertex that doesn't unvisited vertex to proceed
+            ans.append(stack.pop())
+
         return ans[::-1]
 
 
