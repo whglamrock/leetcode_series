@@ -1,34 +1,38 @@
 
-# O(N) running time/space solution
+# O(N) running time/space solution.
+# See idea explanation: https://leetcode.com/problems/minimum-height-trees/discuss/76055/Share-some-thoughts
 
-import collections
+from collections import defaultdict
+
 class Solution(object):
     def findMinHeightTrees(self, n, edges):
+        """
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: List[int]
+        """
+        if n == 0:
+            return []
+        if n == 1:
+            return [0]
 
-        if n == 1: return [0]
-        neighbors = collections.defaultdict(list)
-        degrees = collections.defaultdict(int)
-        for u, v in edges:
-            neighbors[u].append(v)
-            neighbors[v].append(u)
-            degrees[u] += 1
-            degrees[v] += 1
+        graph = defaultdict(set)
+        for i, j in edges:
+            graph[i].add(j)
+            graph[j].add(i)
 
-        # First find the leaves
-        preLevel, unvisited = [], set(range(n))
-        for i in range(n):
-            if degrees[i] == 1: preLevel.append(i)
+        leaves = [i for i in xrange(n) if len(graph[i]) == 1]
 
-        while len(unvisited) > 2:
-            thisLevel = []
-            for u in preLevel:
-                unvisited.remove(u)
-                for v in neighbors[u]:
-                    if v in unvisited:
-                        degrees[v] -= 1
-                        if degrees[v] == 1: thisLevel.append(v)
-            preLevel = thisLevel
+        # the number of MHT roots is either 1 or 2, no matter how many longest paths exist
+        while n > 2:
+            n -= len(leaves)
+            newLeaves = []
+            for i in leaves:
+                for j in graph[i]:
+                    graph[j].discard(i)
+                    if len(graph[j]) == 1:
+                        newLeaves.append(j)
+                del graph[i]
+            leaves = newLeaves
 
-        return preLevel
-
-# try few test cases to understand the workflow of above code.
+        return leaves
