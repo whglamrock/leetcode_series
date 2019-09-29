@@ -3,35 +3,34 @@
 
 class Solution(object):
     def validWordAbbreviation(self, word, abbr):
-
-        if (not abbr): return False
+        """
+        :type word: str
+        :type abbr: str
+        :rtype: bool
+        """
+        if not word:
+            return not abbr
 
         i, j = 0, 0
-        num = []
         while i < len(word) and j < len(abbr):
-            #print i, j
             if word[i] == abbr[j]:
                 i += 1
                 j += 1
-            else:
-                if '0' <= abbr[j] <= '9':
-                    while j < len(abbr) and '0' <= abbr[j] <= '9':
-                        num.append(abbr[j])
-                        j += 1
-                    if num[0] == '0':
-                        return False
-                    num = ''.join(num)
-                    proceed = int(num)
-                    i += proceed
-                    num = []
-                else:
-                    return False
+                continue
+
+            # abbr[j] == '0' is a really stupid test case
+            if not abbr[j].isdigit() or abbr[j] == '0':
+                return False
+
+            num = []
+            while j < len(abbr) and abbr[j].isdigit():
+                num.append(abbr[j])
+                j += 1
+            num = int(''.join(num))
+            i += num
 
         return i == len(word) and j == len(abbr)
 
 
 
-word = "internationalization"
-abbr = "i12iz4n"
-Sol = Solution()
-print Sol.validWordAbbreviation(word, abbr)
+print Solution().validWordAbbreviation("internationalization", "i12iz4n")
