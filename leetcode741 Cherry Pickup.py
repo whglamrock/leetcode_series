@@ -2,6 +2,8 @@
 # A hard level question. It's impractical to use the DP approach because we have to store the state of whole grid in
     # each loop. A recursive DFS solution is easier and more practical for interview
 
+# Time complexity is O(N^4). It's hard to understand at first but the total combination of (x1, y1, ,x2, y2) is N^4
+
 class Solution(object):
     def cherryPickup(self, grid):
         """
