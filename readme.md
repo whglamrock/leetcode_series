@@ -56,6 +56,7 @@ some of the questions under this topic are actually covered by topology sort & u
 most of the DFS questions can also be solved with BFS
 * Textbook question that must be remembered and also be used as template: [lc200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
 * Questions that can also be solved with union find: [lc947. Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/), [lc924. Minimize Malware Spread](https://leetcode.com/problems/minimize-malware-spread/)
+* A "DP alike" question but more practical to be solved with DFS: [lc741. Cherry Pickup](https://leetcode.com/problems/cherry-pickup/)
 
 
 #### Greedy
