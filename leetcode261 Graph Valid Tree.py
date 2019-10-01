@@ -13,6 +13,7 @@ class Solution(object):
         if not edges:
             return n <= 1
 
+        # the path compression will make sure if two nodes are in the same union, the find() will output the same parent
         def find(x):
             if parent[x] != x:
                 parent[x] = find(parent[x])

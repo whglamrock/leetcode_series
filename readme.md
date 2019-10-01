@@ -43,12 +43,23 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 
 
 ##### Union Find
+* A typical question that is best/easiest to be solved with union find: [lc261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)
 
 
 ##### Graph
 some of the questions under this topic are actually covered by topology sort & union find. so only list few typical ones here
 * For Euler path algorithm: [lc332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
 * "union find alike" graph question: [lc399. Evaluate Division](https://leetcode.com/problems/evaluate-division/)
+
+
+#### DFS/BFS
+most of the DFS questions can also be solved with BFS
+* Textbook question that must be remembered and also be used as template: [lc200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
+* Questions that can also be solved with union find: [lc947. Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/), [lc924. Minimize Malware Spread](https://leetcode.com/problems/minimize-malware-spread/)
+
+
+#### Greedy
+* A hard, graph related greedy question that needs solid proof: [lc765. Couples Holding Hands](https://leetcode.com/problems/couples-holding-hands/)
 
 
 ##### Two pointers
