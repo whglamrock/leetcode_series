@@ -29,7 +29,5 @@ class Solution(object):
                             if dic[key] == previd:
                                 dic[key] = currid
 
-        ansset = set()
-        for value in dic.values():
-            ansset.add(value)
-        return len(ansset)
+        ansSet = set(dic.values())
+        return len(ansSet)
