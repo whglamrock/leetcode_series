@@ -1,33 +1,53 @@
 
-# remember the typical union find solution
+from collections import deque
+
+# no need to use union find. DFS solution can achieve O(N^2) time complexity
 
 class Solution(object):
     def findCircleNum(self, M):
-
-        if not M or not M[0]:
+        """
+        :type M: List[List[int]]
+        :rtype: int
+        """
+        if not M:
             return 0
 
-        dic = {}
-        unionid = 0
-        n = len(M)
-        for i in xrange(n):
-            for j in xrange(i, n):
+        ans = 0
+        for i in xrange(len(M)):
+            for j in xrange(len(M)):
                 if M[i][j] == 1:
-                    if i not in dic and j not in dic:
-                        dic[i] = unionid
-                        dic[j] = unionid
-                        unionid += 1
-                    elif i in dic and j not in dic:
-                        dic[j] = dic[i]
-                    elif j in dic and i not in dic:
-                        dic[i] = dic[j]
-                    else:
-                        previd = dic[i]
-                        currid = dic[j]
-                        if previd == currid: continue
-                        for key in dic:
-                            if dic[key] == previd:
-                                dic[key] = currid
+                    ans += 1
+                    M[i][j] = 0
+                    self.dfs(i, j, M)
 
-        ansSet = set(dic.values())
-        return len(ansSet)
+        return ans
+
+    def dfs(self, i, j, M):
+        queue = deque()
+        queue.append((i, j))
+        visitedRows = set()
+        visitedCols = set()
+        while queue:
+            x, y = queue.popleft()
+            if x not in visitedRows:
+                for y1 in xrange(len(M)):
+                    if M[x][y1] == 1:
+                        queue.append((x, y1))
+                        M[x][y1] = 0
+            if y not in visitedCols:
+                for x1 in xrange(len(M)):
+                    if M[x1][y] == 1:
+                        queue.append((x1, y))
+                        M[x1][y] = 0
+            visitedRows.add(x)
+            visitedCols.add(y)
+
+
+
+print Solution().findCircleNum([
+    [1,1,0],
+    [1,1,0],
+    [0,0,1]
+])
+
+
