@@ -44,7 +44,7 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 
 ##### Union Find
 * A textbook unionFind question that includes detecting circle in a graph: [lc684. Redundant Connection](https://leetcode.com/problems/redundant-connection/)
-* A typical question that is best/easiest to be solved with union find: [lc261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)
+* A typical question that is best/easiest to be solved with union find: [lc261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/). Follow up: [lc685. Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii/), which needs some tricky pre-processing before we can use union find.
 
 
 ##### Graph
@@ -53,14 +53,14 @@ some of the questions under this topic are actually covered by topology sort & u
 * "union find alike" graph question: [lc399. Evaluate Division](https://leetcode.com/problems/evaluate-division/)
 
 
-#### DFS/BFS
+##### DFS/BFS
 most of the DFS questions can also be solved with BFS
 * Textbook question that must be remembered and also be used as template: [lc200. Number of Islands](https://leetcode.com/problems/number-of-islands/)
 * Questions that can also be solved with union find: [lc947. Most Stones Removed with Same Row or Column](https://leetcode.com/problems/most-stones-removed-with-same-row-or-column/), [lc924. Minimize Malware Spread](https://leetcode.com/problems/minimize-malware-spread/)
 * A "DP alike" question but more practical to be solved with DFS: [lc741. Cherry Pickup](https://leetcode.com/problems/cherry-pickup/)
 
 
-#### Greedy
+##### Greedy
 * A hard, graph related greedy question that needs solid proof: [lc765. Couples Holding Hands](https://leetcode.com/problems/couples-holding-hands/)
 
 
