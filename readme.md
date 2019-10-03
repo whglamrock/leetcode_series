@@ -43,6 +43,7 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 
 
 ##### Union Find
+* A textbook unionFind question that includes detecting circle in a graph: [lc684. Redundant Connection](https://leetcode.com/problems/redundant-connection/)
 * A typical question that is best/easiest to be solved with union find: [lc261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/)
 
 
