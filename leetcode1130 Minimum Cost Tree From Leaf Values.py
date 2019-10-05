@@ -1,5 +1,6 @@
 
-# keep in mind that the arr is the IN-ORDER traversal so we cannot sort it.
+# keep in mind that the arr is the IN-ORDER traversal so we cannot sort it. The O(n) solution makes it a hard question
+
 # see explanation from: https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/discuss/339959/One-Pass-O(N)-Time-and-Space
     # basically the question can be re-defined as: removing a[i] comes with a cost a[i] * min(a[i - 1], a[i + 1]), we
     # need to get the total cost and minimize it.

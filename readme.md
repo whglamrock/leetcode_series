@@ -19,7 +19,8 @@ Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same
     * 
 * Multiple dp array is involved:
     * [lc85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
-    
+* A very special question where the only idea needs us to starts from final state (top-down instead of bottom-up): [lc174. Dungeon Game](https://leetcode.com/problems/dungeon-game/)
+
 
 ##### Merge Sort
 Merge sort usually should not be needed, but it is needed the question is likely to a hard one.
@@ -62,6 +63,7 @@ most of the DFS questions can also be solved with BFS
 
 ##### Greedy
 * A hard, graph related greedy question that needs solid proof: [lc765. Couples Holding Hands](https://leetcode.com/problems/couples-holding-hands/)
+* The greedy idea is not very obvious and the solution thought isn't easy to explain: [lc1130. Minimum Cost Tree From Leaf Values](https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/)
 
 
 ##### Two pointers
