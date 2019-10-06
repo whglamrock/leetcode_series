@@ -8,54 +8,37 @@ class ListNode(object):
         self.next = None
 
 
+
+# should have been an easy question
+
 class Solution(object):
     def addTwoNumbers(self, l1, l2):
+        """
+        :type l1: ListNode
+        :type l2: ListNode
+        :rtype: ListNode
+        """
+        num1 = self.convertListToNum(l1)
+        num2 = self.convertListToNum(l2)
+        num = str(num1 + num2)[::-1]
+        ans = None
+        prev = None
+        for digit in num:
+            node = ListNode(int(digit))
+            if prev:
+                prev.next = node
+            prev = node
+            if not ans:
+                ans = prev
 
-        if not l1 or not l2:
-            return None
+        return ans
 
-        num1 = ''
-        num2 = ''
-        while l1:
-            num1 += str(l1.val)
-            l1 = l1.next
-        while l2:
-            num2 += str(l2.val)
-            l2 = l2.next
-        num1 = num1[::-1]
-        num2 = num2[::-1]
-
-        num = int(num1) + int(num2)
-        res = ListNode(0)
-        if num == 0: return res
-        temp = res
-        while num:
-            newnode = ListNode(num % 10)
-            num /= 10
-            temp.next = newnode
-            temp = temp.next
-
-        return res.next
-
-
-
-a = ListNode(2)
-b = ListNode(4)
-c = ListNode(3)
-a.next = b
-b.next = c
-
-d = ListNode(5)
-e = ListNode(6)
-f = ListNode(4)
-d.next = e
-e.next = f
-
-Sol = Solution()
-g = Sol.addTwoNumbers(a,d)
-print g.val
-print g.next.val
-print g.next.next.val
+    def convertListToNum(self, head):
+        num = []
+        while head:
+            num.append(str(head.val))
+            head = head.next
+        return int(''.join(num[::-1]))
 
 
 

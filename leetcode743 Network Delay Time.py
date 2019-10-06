@@ -2,6 +2,8 @@
 from collections import defaultdict
 from heapq import *
 
+# classic Djikstra algorithm
+
 class Solution(object):
     def networkDelayTime(self, times, N, K):
         """
@@ -28,6 +30,7 @@ class Solution(object):
                 for child in nodeToNeighborToTime[node]:
                     heappush(q, (nodeToNeighborToTime[node][child] + lastTime, child))
 
+        # the graph can be disconnected
         return max(nodeToTime.values()) if len(nodeToTime) == N else -1
 
 
