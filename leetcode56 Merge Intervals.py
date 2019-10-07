@@ -12,7 +12,6 @@ class Solution(object):
 
         intervals.sort()
         stack = []
-        ans = []
         for interval in intervals:
             if not stack:
                 stack.append(interval)
@@ -21,14 +20,9 @@ class Solution(object):
                     lastInterval = stack.pop()
                     stack.append([lastInterval[0], max(interval[1], lastInterval[1])])
                 else:
-                    ans.append(stack.pop())
                     stack.append(interval)
 
-        if stack:
-            for interval in stack:
-                ans.append(interval)
-
-        return ans
+        return stack
 
 
 

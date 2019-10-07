@@ -27,27 +27,28 @@ class Solution(object):
                     board[i][j] = 0
 
     def calculateStatus(self, board, i, j):
+        m, n = len(board), len(board[0])
         count = 0
-        if self.inRange(board, i - 1, j - 1) and self.isCurrentlyAlive(board, i - 1, j - 1):
+        if i - 1 >= 0 and j - 1 >= 0 and self.isCurrentlyAlive(board, i - 1, j - 1):
             count += 1
-        if self.inRange(board, i - 1, j ) and self.isCurrentlyAlive(board, i - 1, j):
+        if i - 1 >= 0 and self.isCurrentlyAlive(board, i - 1, j):
             count += 1
-        if self.inRange(board, i - 1, j + 1) and self.isCurrentlyAlive(board, i - 1, j + 1):
+        if i - 1 >= 0 and j + 1 < n and self.isCurrentlyAlive(board, i - 1, j + 1):
             count += 1
-        if self.inRange(board, i, j - 1) and self.isCurrentlyAlive(board, i, j - 1):
+        if j - 1 >= 0 and self.isCurrentlyAlive(board, i, j - 1):
             count += 1
-        if self.inRange(board, i, j + 1) and self.isCurrentlyAlive(board, i, j + 1):
+        if j + 1 < n and self.isCurrentlyAlive(board, i, j + 1):
             count += 1
-        if self.inRange(board, i + 1, j - 1) and self.isCurrentlyAlive(board, i + 1, j - 1):
+        if i + 1 < m and j - 1 >= 0 and self.isCurrentlyAlive(board, i + 1, j - 1):
             count += 1
-        if self.inRange(board, i + 1, j) and self.isCurrentlyAlive(board, i + 1, j):
+        if i + 1 < m and self.isCurrentlyAlive(board, i + 1, j):
             count += 1
-        if self.inRange(board, i + 1, j + 1) and self.isCurrentlyAlive(board, i + 1, j + 1):
+        if i + 1 < m and j + 1 < n and self.isCurrentlyAlive(board, i + 1, j + 1):
             count += 1
 
         if board[i][j] == 1:
             # currently alive, next alive
-            if count / 2 == 1:
+            if count == 2 or count == 3:
                 return 12
             # currently alive, next dead
             else:
@@ -67,9 +68,6 @@ class Solution(object):
 
     def willBeAlive(self, board, i, j):
         return board[i][j] == 9 or board[i][j] == 12
-
-    def inRange(self, board, i, j):
-        return 0 <= i < len(board) and 0<= j < len(board[0])
 
 
 

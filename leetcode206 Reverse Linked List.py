@@ -46,7 +46,8 @@ class Solution:
         new_head = self.reverseList(head.next)
         next_node = head.next    #        head -> next_node 
         next_node.next = head    #        head <- next_node 
-        head.next = None         # [x] <- head <- next_node 
+        head.next = None         # [None] <- head <- next_node 
+        
         return new_head
 '''
 
