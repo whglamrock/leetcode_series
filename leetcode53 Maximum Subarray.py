@@ -1,18 +1,33 @@
 
-class Solution:
-    def maxSubArray(self, A):
-        if not A:
+from collections import deque
+
+class Solution(object):
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
             return 0
 
-        curSum = maxSum = A[0]
-        for num in A[1:]:
-            curSum = max(num, curSum + num)  # cursum means the maximum sum of subarray that ends with
-            # current element
-            maxSum = max(maxSum, curSum)  # mark the ever existent maximum sum
+        ans = max(nums)  # P.S.: nums = [-2, -1]
+        q = deque()
+        currSum = 0
 
-        return maxSum
+        # the strategy is the sliding window won't start with a negative number
+            # so we need initial ans = max(nums) to prepare for the case where all nums are negative
+        for num in nums:
+            q.append(num)
+            currSum += num
+            while currSum < 0 and q:
+                currSum -= q.popleft()
+            if q:
+                ans = max(ans, currSum)
+
+        return ans
 
 
-nums = [-2,-1,-1,-1,7,4,-3,-4,-5,5]
+
+nums = [-2, -1, -1, -1, 7, 4, -3, -4, -5, 5]
 Sol = Solution()
 print Sol.maxSubArray(nums)
