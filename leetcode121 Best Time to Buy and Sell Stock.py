@@ -8,18 +8,16 @@ class Solution(object):
             return 0
 
         ans = 0
-        minprice = prices[0]
+        minPrice = 2147483647
         for price in prices:
-            minprice = min(minprice, price)
+            minprice = min(minPrice, price)
             ans = max(ans, price - minprice)
 
         return ans
 
 
 
-a = [2,6,1,4,9]
-Sol = Solution()
-print Sol.maxProfit(a)
+print Solution().maxProfit([2, 6, 1, 4, 9])
 
 
 

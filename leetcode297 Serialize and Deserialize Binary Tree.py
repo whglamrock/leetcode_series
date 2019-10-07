@@ -12,6 +12,8 @@ class TreeNode(object):
 
 from collections import deque
 
+# it's natural to think of level order traversal idea
+
 class Codec:
     def serialize(self, root):
         """Encodes a tree to a single string.
