@@ -1,6 +1,7 @@
 
-# the simplest one pass solution.
-# comparing the nums[mid] with nums[l] to divide the condition is easier than comparing nums[m] & target
+# the simplest one pass O(logN) solution.
+# P.S. comparing the nums[m] with nums[l] to divide the condition is easier than comparing nums[m] & target
+    # We need to notice that after a few loops the whole nums[l:r + 1] can be monotonically increasing
 
 class Solution(object):
     def search(self, nums, target):
@@ -34,49 +35,4 @@ class Solution(object):
 
 
 
-nums = [4, 5, 6, 7, 3]
-target = 3
-Sol = Solution()
-print Sol.search(nums, target)
-
-
-
-'''
-# upper bound being n solution, still O(logN)
-
-class Solution(object):
-    def search(self, nums, target):
-    
-        if not nums:
-            return -1
-        
-        l, r = 0, len(nums)
-        while l < r:
-            m = l + (r - l) / 2
-            if nums[m] == target:
-                return m
-            # means it's ascending from l to m
-            elif nums[l] <= nums[m]:
-                if target > nums[m]:
-                    l = m + 1
-                # target < nums[m]
-                else:
-                    if target < nums[l]:
-                        l = m + 1
-                    else:
-                        r = m
-            # means it's ascending from m to r
-            else:
-                if target < nums[m]:
-                    r = m
-                # target > nums[m]
-                else:
-                    if target < nums[l]:
-                        l = m + 1
-                    else:
-                        r = m
-        
-        return -1  
-'''
-
-
+print Solution().search([4, 5, 6, 7, 3], 3)
