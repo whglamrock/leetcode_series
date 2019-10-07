@@ -1,7 +1,5 @@
 
-'''
-idea came from: https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn))-solution-with-explanation
-'''
+# see idea: https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn))-solution-with-explanation
 
 class Solution(object):
     def findMedianSortedArrays(self, nums1, nums2):
@@ -35,11 +33,11 @@ class Solution(object):
             # j is too small / i is too big
             elif i > 0 and j < n and nums1[i - 1] > nums2[j]:
                 r = i   # because initially we set the r = m
-            # when i is correct + corner cases i.e. there is no need to move i
+            # when i is correct + corner cases(i.e. there is no need to move i)
             else:
                 if i == 0:  # no number in nums1 exist in the left half
                     max_of_left = nums2[j - 1]
-                elif j == 0:
+                elif j == 0:  # i = (m + n + 1) / 2, no number in nums2 exist in the left half
                     max_of_left = nums1[i - 1]
                 else:
                     max_of_left = max(nums2[j - 1], nums1[i - 1])

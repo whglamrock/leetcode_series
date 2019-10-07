@@ -1,5 +1,7 @@
 
 # For Manacher algorithm O(N) solution, see: https://leetcode.com/problems/longest-palindromic-substring/discuss/3337/Manacher-algorithm-in-Python-O(n)
+    # In real interview, we only need to mention about the Manacher algorithm.
+    # It will be really stupid if a company actually requires O(N) solution
 # Following is O(N^2) solution. P.S.: notice the direction of j, i indices' iterations in dp!
 
 class Solution(object):
