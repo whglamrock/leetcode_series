@@ -19,7 +19,7 @@ class Solution(object):
                 if dic[stack.pop()] != char:
                     return False
 
-        return len(stack) == 0
+        return not stack
 
 
 

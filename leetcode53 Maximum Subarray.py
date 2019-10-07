@@ -10,12 +10,12 @@ class Solution(object):
         if not nums:
             return 0
 
-        ans = max(nums)  # P.S.: nums = [-2, -1]
+        ans = max(nums)  # P.S.: consider case when nums = [-2, -1]
         q = deque()
         currSum = 0
 
-        # the strategy is the sliding window won't start with a negative number
-            # so we need initial ans = max(nums) to prepare for the case where all nums are negative
+        # the strategy is that the sliding window won't start with a negative number;
+            # so we need the initial ans = max(nums) to deal with the case where all nums < 0
         for num in nums:
             q.append(num)
             currSum += num
