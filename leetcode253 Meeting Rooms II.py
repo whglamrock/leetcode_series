@@ -1,72 +1,34 @@
 
 from heapq import *
 
-# Definition for an interval.
-
-class Interval(object):
-
-    def __init__(self, s=0, e=0):
-        self.start = s
-        self.end = e
-
-
-# straightforward PriorityQueue Solution. the pq stores the end times
+# it's natural to think of a priorityQueue solution.
 
 class Solution(object):
     def minMeetingRooms(self, intervals):
+        """
+        :type intervals: List[List[int]]
+        :rtype: int
+        """
+        if not intervals:
+            return 0
 
-        intervals.sort(key = lambda x: x.start)
-        pq = []
-        numofrooms = 0
+        # sort the array first
+        intervals.sort()
+        q = []
+        heapify(q)
 
-        # pq stores the end time
-        for interval in intervals:
-            while pq and pq[0] <= interval.start:
-                heappop(pq)
-            heappush(pq, interval.end)
-            numofrooms = max(numofrooms, len(pq))
+        ans = 0
+        for i, j in intervals:
+            # in priorityQueue we wanna sort by end time
+            heappush(q, [j, (i, j)])
+            # in real interview we need to confirm whether it should be '<=' or '<'
+            while q and q[0][0] <= i:
+                heappop(q)
+            ans = max(ans, len(q))
 
-        return numofrooms
-
-
-
-intervals = [Interval(0, 30), Interval(5, 10), Interval(15, 20)]
-Sol = Solution()
-print Sol.minMeetingRooms(intervals)
+        return ans
 
 
 
-'''
-# see explanation from: https://discuss.leetcode.com/topic/20912/my-python-solution-with-explanation
-
-class Solution(object):
-    def minMeetingRooms(self, intervals):
-
-        starts = []
-        ends = []
-
-        for interval in intervals:
-            s, e = interval.start, interval.end
-            starts.append(s)
-            ends.append(e)
-
-        starts.sort()
-        ends.sort()
-
-        numofroom = 0
-        # notice the use of available
-        available = 0
-        s, e = 0, 0
-        while s < len(starts):
-            if starts[s] < ends[e]:
-                if not available:
-                    numofroom += 1
-                else:
-                    available -= 1
-                s += 1
-            else:
-                available += 1
-                e += 1
-
-        return numofroom
-'''
+print Solution().minMeetingRooms([[13, 15], [1, 13]])
+print Solution().minMeetingRooms([[0, 30], [5, 10], [15, 20]])
