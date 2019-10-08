@@ -12,7 +12,7 @@ class Solution(object):
         if not intervals:
             return 0
 
-        # sort the array first
+        # sort the array by start time first
         intervals.sort()
         q = []
         heapify(q)
@@ -20,9 +20,9 @@ class Solution(object):
         ans = 0
         for i, j in intervals:
             # in priorityQueue we wanna sort by end time
-            heappush(q, [j, (i, j)])
+            heappush(q, j)
             # in real interview we need to confirm whether it should be '<=' or '<'
-            while q and q[0][0] <= i:
+            while q and q[0] <= i:
                 heappop(q)
             ans = max(ans, len(q))
 

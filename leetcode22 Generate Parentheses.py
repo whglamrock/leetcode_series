@@ -1,29 +1,30 @@
 
 class Solution(object):
     def generateParenthesis(self, n):
-
-        if not n:
+        """
+        :type n: int
+        :rtype: List[str]
+        """
+        if n == 0:
             return []
-        left, right, ans = n, n, []
-        self.dfs(left,right, ans, "")
 
+        ans = []
+        self.dfs(n, n, ans, '')
         return ans
 
-    def dfs(self, left, right, ans, string):
-
-        if left==right==0:
-            ans.append(string)
-            #return (this return can be saved)
+    def dfs(self, left, right, ans, curr):
+        if left == 0 and right == 0:
+            ans.append(curr)
+            return
         if left:
-            self.dfs(left-1, right, ans, string + "(")
-        if right and right>left:
-            self.dfs(left, right-1, ans, string + ")")
+            self.dfs(left - 1, right, ans, curr + '(')
+        if right > left:
+            self.dfs(left, right - 1, ans, curr + ')')
 
 
 
-n = 4
-Sol = Solution()
-print Sol.generateParenthesis(n)
+print Solution().generateParenthesis(4)
+print Solution().generateParenthesis(3)
 
 
 
