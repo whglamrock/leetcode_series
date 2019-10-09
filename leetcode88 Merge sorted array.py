@@ -17,18 +17,12 @@ class Solution(object):
             nums1[n - 1] = nums2[n - 1]
             n -= 1
 
-        #return nums1   # stupid leetcode asks for returning nothing
 
 
-
-a = [0,0,0,0,0,]
-b = [1,2,3,4,5]
-m = 0
-n = 5
-c = Solution()
-d = c.merge(a, m, b, n)
-print d
-
-
-
+nums1 = [0, 0, 0, 0, 0]
+Solution().merge(nums1, 0, [1, 2, 3, 4, 5], 5)
+print nums1
+nums1 = [2, 3, 6, 0, 0, 0, 0, 0]
+Solution().merge(nums1, 3, [1, 2, 3, 4, 5], 5)
+print nums1
 

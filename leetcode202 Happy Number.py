@@ -1,30 +1,31 @@
 
-'''
-Unhappy numbers will enter into a infinite loop; happy numbers will end up with 1 as the sum of digit squares.
-'''
+# this isn't really an easy level question.
+    # 1) we need to do quite amount of calculation to find out the unhappySet cycle;
+    # 2) we need to explain that the newly calculated number is getting smaller and smaller;
+    # 3) once the number becomes 2 digit, it will either go into the unhappy cycle or finally get to 1
 
 class Solution(object):
     def isHappy(self, n):
-
-        unhappylist = [4, 16, 37, 58, 89, 145, 42, 20] #unhappy cycle(see problem description about "loop")
-        if n in unhappylist:
-            return False
-        else:
-            current = n
-            while (current not in unhappylist) and current != 1:
-                digits= []
-                while current > 0:
-                    digits.append(current%10)
-                    current = (current-(current%10))/10
-                for item in digits:
-                    current += item*item
-            if current in unhappylist:
+        """
+        :type n: int
+        :rtype: bool
+        """
+        unhappySet = {89, 145, 42, 20, 4, 16, 37, 58, 89}
+        while n != 1:
+            n = self.calculateNext(n)
+            if n in unhappySet:
                 return False
-            else:
-                return True
+
+        return True
+
+    def calculateNext(self, n):
+        digits = []
+        for digit in str(n):
+            digits.append(int(digit) * int(digit))
+        return sum(digits)
 
 
 
-Sol = Solution()
-print Sol.isHappy(19)
+print Solution().isHappy(19)
+print Solution().isHappy(8821242)
 

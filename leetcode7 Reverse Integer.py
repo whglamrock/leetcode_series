@@ -1,20 +1,23 @@
 
-# too easy. no explanation
-# but be aware of all edge cases to avoid overflow
+# pay attention that we should only return 0 when ans (not original x) overflows
 
 class Solution(object):
     def reverse(self, x):
-
-        if abs(x) >= 2147483647:
+        """
+        :type x: int
+        :rtype: int
+        """
+        if x == 0:
             return 0
 
-        result = 0
-        pos_x = abs(x)
-        while pos_x:
-            result = result * 10 + pos_x % 10
-            pos_x /= 10
+        positive = x > 0
+        x = abs(x)
 
-        if result >= 2147483647:
-            return 0
+        ans = 0
+        while x:
+            ans = ans * 10 + (x % 10)
+            x /= 10
 
-        return result if x >= 0 else -result
+        if not positive:
+            ans = -ans
+        return ans if -2147483648 <= ans <= 2147483647 else 0

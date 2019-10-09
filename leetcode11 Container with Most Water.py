@@ -1,7 +1,7 @@
 
-# O(N) two pointer solution
-# At some point assume we have height[i] < height[j]); if we decrease the right index, all new areas will smaller
-    # the one formed by  height[i] & height[j]. But increasing height[i] we can possibly find better solution
+# O(N) two pointer solution:
+    # 1) we try different bottom length;
+    # 2) with each bottom length we use 2 pointers to find the highest height[i] & height[j]
 
 class Solution(object):
     def maxArea(self, height):
