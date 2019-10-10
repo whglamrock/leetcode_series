@@ -4,23 +4,21 @@ class Solution(object):
 
         if not digits: return []
 
-        mapping = {'1': [], '2': ['a', 'b', 'c'], '3': ['d', 'e', 'f'], '4': ['g', 'h', 'i'], '5': ['j', 'k', 'l'], '6': ['m', 'n', 'o'], '7': ['p', 'q', 'r', 's'], '8': ['t', 'u', 'v'], '9': ['w', 'x', 'y', 'z']}
+        mapping = {'2': ['a', 'b', 'c'], '3': ['d', 'e', 'f'], '4': ['g', 'h', 'i'], '5': ['j', 'k', 'l'], '6': ['m', 'n', 'o'], '7': ['p', 'q', 'r', 's'], '8': ['t', 'u', 'v'], '9': ['w', 'x', 'y', 'z']}
 
-        ans = ['']
+        curr = ['']
         for digit in digits:
-            new = []
-            for combi in ans:
+            next = []
+            for item in curr:
                 for letter in mapping[digit]:
-                    new.append(combi + letter)
-            if new: ans = new
+                    next.append(item + letter)
+            curr = next
 
-        return ans
+        return curr
 
 
 
-digits = '237'
-Sol = Solution()
-print Sol.letterCombinations(digits)
+print Solution().letterCombinations('237')
 
 
 

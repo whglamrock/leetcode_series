@@ -6,16 +6,15 @@ class Solution(object):
 
         if not wordList:
             return 0  # according to the problem definition
-        # it's told by the definition that beginWord != endWord
 
         wordList = set(wordList)
         letters = "abcdefghijklmnopqrstuvwxyz"
-        todo = {beginWord}
+        curr = {beginWord}
 
         length = 2
-        while todo:
+        while curr:
             next = set()
-            for word in todo:
+            for word in curr:
                 for i in xrange(len(word)):
                     for char in letters:
                         newWord = word[:i] + char + word[i + 1:]
@@ -24,15 +23,11 @@ class Solution(object):
                                 return length
                             next.add(newWord)
                             wordList.discard(newWord)  # this word is visited
-            todo = next
+            curr = next
             length += 1
 
-        return 0 # the above BFS already tried out all possibilities
+        return 0
 
 
 
-beginWord = "hit"
-endWord = "cog"
-wordList = ["hot","dot","dog","lot","log","cog"]
-Sol = Solution()
-print Sol.ladderLength(beginWord, endWord, wordList)
+print Solution().ladderLength("hit", "cog", ["hot","dot","dog","lot","log","cog"])

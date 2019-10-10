@@ -1,29 +1,41 @@
 
 from heapq import *
 
-class MedianFinder:
+class MedianFinder(object):
     def __init__(self):
-
-        self.small, self.big = [], []
+        """
+        initialize your data structure here.
+        """
+        self.smaller, self.bigger = [], []
+        heapify(self.smaller)
+        heapify(self.bigger)
 
     def addNum(self, num):
+        """
+        :type num: int
+        :rtype: None
+        """
+        # must do this step to keep both heap updated
+        heappush(self.bigger, num)
+        heappush(self.smaller, -heappop(self.bigger))
 
-        heappush(self.big, num)
-        heappush(self.small, -heappop(self.big))
-        if len(self.small) > len(self.big):
-            heappush(self.big, -heappop(self.small))
+        # always make sure len(bigger) == len(smaller) or len(bigger) = len(smaller) + 1
+        while len(self.smaller) > len(self.bigger):
+            heappush(self.bigger, -heappop(self.smaller))
 
     def findMedian(self):
-
-        if len(self.big) == len(self.small):
-            # remember how to write the float division. use '2.0', instead of float(a)/float(b)
-            return ((-self.small[0]) + self.big[0]) / 2.0
+        """
+        :rtype: float
+        """
+        if len(self.smaller) == len(self.bigger):
+            # remember how to write the float division; use '2.0' directly instead of float(a) / float(b)
+            return (-self.smaller[0] + self.bigger[0]) / 2.0
         else:
-            return float(self.big[0])
+            return float(self.bigger[0])
 
 
 
 # Your MedianFinder object will be instantiated and called as such:
-# mf = MedianFinder()
-# mf.addNum(1)
-# mf.findMedian()
+# obj = MedianFinder()
+# obj.addNum(num)
+# param_2 = obj.findMedian()

@@ -1,38 +1,34 @@
 
+# the hard part is using constant space
+
 class Solution(object):
     def firstMissingPositive(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
         if not nums:
             return 1
 
-        k = self.partition(nums) + 1
-        # to deal with case like [1, 2, 0] when the first missing positive integer is bigger than all positive interfers
-        firstMissingIndex = k
-
-        for i in xrange(k):
-            tmp = abs(nums[i])
-            if tmp <= k:  # use <= because we need tmp - 1
-                # make nums[tmp - 1] negative to indicate tmp exists
-                nums[tmp - 1] = -abs(nums[tmp - 1])  # not directly -nums[tmp - 1] because numbs can contain duplicates
-
-        for i in xrange(k):
-            if nums[i] > 0:  # indicates integer i + 1 doesn't exist
-                firstMissingIndex = i
-                break
-
-        return firstMissingIndex + 1
-
-    # put negative integers to the right of the nums array
-    def partition(self, nums):
+        nums.append(0)
         n = len(nums)
-        q = -1
-        # q actually records the index of un-swapped negative integers
-        for i in xrange(n):
-            if nums[i] > 0:
-                q += 1
-                self.swap(nums, q, i)
-        return q
 
-    def swap(self, nums, i, j):
-        temp = nums[i]
-        nums[i] = nums[j]
-        nums[j] = temp
+        # delete those useless numbers since they are not candidates
+        for i in xrange(n):
+            if nums[i] < 0 or nums[i] >= n:
+                nums[i] = 0
+
+        # use index as the hash key to count each number's frequency
+        for i in xrange(n):
+            # nums[i] may have been "+n"'ed a lot of times, so "%n" is to get the original value
+            nums[nums[i] % n] += n
+
+        for i in xrange(1, n):
+            if nums[i] < n:
+                return i
+
+        return n
+
+
+
+print Solution().firstMissingPositive([-2, 3, 7, 8, 9, 11, 12])

@@ -1,54 +1,61 @@
 
-# O(N^2) classic dp solution.
+# DP solution, not necessarily O(N^2) because s[j:i] substring takes time to build.
+# In real interview, it will be impressive to mention the Trie solution and its potential improvements/tradeOff
 
 class Solution(object):
     def wordBreak(self, s, wordDict):
+        """
+        :type s: str
+        :type wordDict: List[str]
+        :rtype: bool
+        """
+        if not wordDict:
+            return False
 
-        # only need to check the wordDict because s is non-empty
-        if not wordDict: return False
-
-        dp = [0] * (len(s) + 1)
-        dp[0] = 1
         wordDict = set(wordDict)
+        n = len(s)
+        # dp[i] means whether s[:i] can be constructed by words in wordDict
+        dp = [False] * (n + 1)
+        dp[0] = True
 
-        for i in xrange(len(s) + 1):
+        for i in xrange(1, n + 1):
             for j in xrange(i):
-                if dp[j] == 1 and s[j:i] in wordDict:
-                    dp[i] = 1
-                # once we know s[:i] is breakable, we don't need other sub-solutions
-                if dp[i] == 1: break
+                if dp[j] and s[j:i] in wordDict:
+                    dp[i] = True
+                    break
 
-        return dp[-1] == 1
+        return dp[-1]
 
 
 
 '''
-# DFS with memoization solution:
+# DFS with memoization solution. 
+# May be faster than the DP idea because it will return True when it finds any valid work break
 
 class Solution(object):
     def wordBreak(self, s, wordDict):
 
         if not wordDict:
-            return False    # because s is non-empty
-
-        wordDict = set(wordDict)
-        self.memo = {}
-
-        def dfs(substring, wordDict):
-
-            if not substring:
-                return True
-            if substring in self.memo:
-                return self.memo[substring]
-            for i in xrange(1, len(substring) + 1):
-                if substring[:i] in wordDict:
-                    if dfs(substring[i:], wordDict):
-                        return True
-                    else:
-                        self.memo[substring[i:]] = False
-
-            self.memo[substring] = False
             return False
-
-        return dfs(s, wordDict)
+        
+        wordDict = set(wordDict)
+        return self.dfs(s, wordDict, {})
+        
+    def dfs(self, subString, wordDict, memo):
+        if not subString:
+            return True
+        if subString in memo:
+            return memo[subString]
+        
+        for i in xrange(1, len(subString) + 1):
+            if subString[:i] in wordDict:
+                newSubString = subString[i:]
+                if self.dfs(newSubString, wordDict, memo):
+                    memo[newSubString] = True
+                    return True
+                else:
+                    memo[newSubString] = False
+        
+        memo[subString] = False
+        return False
 '''

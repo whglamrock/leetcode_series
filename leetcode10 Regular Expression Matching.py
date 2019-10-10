@@ -19,8 +19,8 @@ class Solution(object):
         dp = [[False for j in xrange(n + 1)] for i in xrange(m + 1)]
         dp[0][0] = True
 
-        # see if p[:j] matches s[:0]. Also to deal with case like s = "aab", p = "c*a*b" so it has an initial state
-            # to populate from.
+        # see if p[:j] matches s[:0]. Also to deal with case like s = "aab", p = "c*a*b"
+            # so it has an initial state to populate from.
         # note that we can use a step of 2 to iterate through p
         for j in xrange(2, n + 1, 2):
             if p[j - 1] == '*':
@@ -38,7 +38,7 @@ class Solution(object):
                     if j >= 2:
                         # offset the previous char
                         dp[i][j] |= dp[i][j - 2]
-                        # use '*' to proceed 1 more char in s while p pointer stays put
+                        # use '*' to proceed 1 more char in s
                         if p[j - 2] == '.' or p[j - 2] == s[i - 1]:
                             dp[i][j] |= dp[i - 1][j]
 
