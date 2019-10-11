@@ -1,10 +1,10 @@
 
-# I don't know what's the point of this question?
+# what's the fucking point of this question?
 
 class Solution(object):
     def fizzBuzz(self, n):
 
-        if (not n):
+        if not n:
             return []
 
         ans = []

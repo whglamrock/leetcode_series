@@ -1,19 +1,23 @@
 
+# only dp can achieve O(N) time complexity. We can optimize to O(1) space but not necessary here
+
 class Solution(object):
     def climbStairs(self, n):
+        """
+        :type n: int
+        :rtype: int
+        """
+        dp = [0] * (n + 1)
+        dp[0] = 1
 
-        total = 0
-        for i in range(n/2+1):
-            increase = 1
-            if i != 0:
-                for j in range(i):
-                    increase = increase * (n-j-i)/(j+1)
-            total += increase
+        for i in xrange(1, n + 1):
+            dp[i] = dp[i - 1]
+            if i >= 2:
+                dp[i] += dp[i - 2]
 
-        return total
+        return dp[-1]
 
 
 
-a = Solution()
-b = a.climbStairs(6)
-print b
+print Solution().climbStairs(7)
+print Solution().climbStairs(19)
