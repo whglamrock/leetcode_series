@@ -1,11 +1,10 @@
 
-# The idea of using trie is to 'save' the space. Trie in worst case takes O(26^M) space, where M
-    # is the length of longest word.
-
-# Using a hashset to keep the words takes O(M*N) space where the M is the average length of word
-    # and the N is number of words.
-
 from collections import defaultdict
+
+# The idea of using trie is to 'save' the space and enable prefix search.
+    # Trie in worst case takes O(26^M) space, where M is the length of longest word.
+# Using a set to keep the words takes O(len(words) * avg(len(words[i]))) space
+    # and can't prevent invalid DFS because it can't do prefix match search.
 
 class TrieNode:
     def __init__(self):
@@ -44,9 +43,9 @@ class Solution(object):
 
         m, n = len(board), len(board[0])
         # we do check here instead of right above the dfs, because we need to consider
-        # corner case like: [["a"]], ["a"], in which case if we check boundary right
-        # before next dfs we won't be able to reach it (but we need to reach the next
-        # dfs to trigger the "curr.isWord")
+            # corner case like: [["a"]], ["a"], in which case if we check boundary right
+            # before next dfs we won't be able to reach it (but we need to reach the next
+            # dfs to trigger the "curr.isWord")
         if i < 0 or i >= m or j < 0 or j >= n:
             return
         if board[i][j] not in curr.children:

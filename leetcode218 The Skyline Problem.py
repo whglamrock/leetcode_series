@@ -1,11 +1,11 @@
 
 from heapq import *
 
+# The idea is for every x coordinate, we try to get a tallest height;
+    #  if the height != previous height, add to the skyline list
 # two pointers: one pointer iterate through all the x coordinates; another iterate through the buildings
     # to push into live pq or pop.
-# then naturally the second index would be used with a while loop
-
-# thw following solution is O(NlogN) where N = len(buildings)
+# the following solution is O(NlogN) where N = len(buildings)
 
 class Solution(object):
     def getSkyline(self, buildings):
@@ -24,8 +24,7 @@ class Solution(object):
 
         live = []
         heapify(live)
-
-        sky = [[-1, 0]]  # the first used as a "dummy head"
+        sky = [[-1, 0]]  # [-1, 0] is to help with "sky[-1][1] != h"
         i, n = 0, len(buildings)
 
         for pos in positions:
@@ -34,7 +33,10 @@ class Solution(object):
                 # need it to compare with pos to pop out the dead ones
                 heappush(live, [-buildings[i][2], buildings[i][1]])
                 i += 1
-            # we only care about the tallest building
+                # even if there are probably some vertical lines that are already dead we don't pop them here.
+                    # since we only care about the tallest.
+                # P.S. also it has to be "<=" because there is no flat line in skyline.
+                    # i.e., we take the shorter point if the taller one is the right side of a building
             while live and live[0][1] <= pos:
                 heappop(live)
             # get the current height and add it to live
@@ -46,5 +48,4 @@ class Solution(object):
 
 
 
-buildings = [[2, 9, 10], [3, 7, 15], [5, 12, 12,], [15, 20, 10,], [19, 24, 8]]
-print Solution().getSkyline(buildings)
+print Solution().getSkyline([[2, 9, 10], [3, 7, 15], [5, 12, 12,], [15, 20, 10,], [19, 24, 8]])

@@ -6,7 +6,7 @@ import random
     # will only run constant number of times
 
 # in real interview, run edge cases like [1, 2], [2, 1], [99, 99, 1], [1, 99, 99]
-# and a normal test case like [3,2,1,5,6,4]
+    # and a normal test case like [3,2,1,5,6,4]
 
 class Solution(object):
     def findKthLargest(self, nums, k):
@@ -48,9 +48,8 @@ class Solution(object):
             while j > l and nums[j] > nums[l]:
                 j -= 1
             # for case like [99, 99], j can just stay put and i moves all the way to r
-            if i >= j:
-                break
-            self.exchange(nums, i, j)
+            if i < j:
+                self.exchange(nums, i, j)
 
         self.exchange(nums, j, l)
         return j

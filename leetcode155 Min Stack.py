@@ -1,9 +1,7 @@
 
-'''
-Every element in the stack stores a tuple(in "list" structure) that contains the newly pushed x and current min.
-If newly pushed x is still more that current min, the newly added tuple will store the new "x" and old min;
-Otherwise, it will store "[x,x]". Thus, the last tuple[1] will always be the current min.
-'''
+# The idea is also appending the currMin along with the new value. This way we can achieve O(1) with getMin().
+# Because the minStack can only "pop" not remove a specific value,
+    # when we pop the last element the previous min becomes the current min
 
 class MinStack(object):
 
@@ -14,12 +12,12 @@ class MinStack(object):
     def push(self, x):
 
         if (not self.q):
-            self.q.append([x,x])
+            self.q.append([x, x])
         else:
             if x < self.getMin():
-                self.q.append([x,x])
+                self.q.append([x, x])
             else:
-                self.q.append([x,self.q[-1][1]])
+                self.q.append([x, self.q[-1][1]])
 
     def pop(self):
 
