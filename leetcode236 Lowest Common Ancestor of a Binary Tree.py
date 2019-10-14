@@ -3,14 +3,41 @@
 
 class TreeNode(object):
     def __init__(self, x):
-
         self.val = x
         self.left = None
         self.right = None
 
 
+
+# it's more realistic to think of this recursive solution in real interview
+
+class Solution(object):
+    def lowestCommonAncestor(self, root, p, q):
+        """
+        :type root: TreeNode
+        :type p: TreeNode
+        :type q: TreeNode
+        :rtype: TreeNode
+        """
+        # we only need to look for one of them because p, q are guaranteed both in the tree
+        if root == p or root == q:
+            return root
+
+        # if p, q both not in leftAns the most inner recursion will hit condition "root.left == None"
+        leftAns = self.lowestCommonAncestor(root.left, p, q) if root.left else None
+        rightAns = self.lowestCommonAncestor(root.right, p, q) if root.right else None
+
+        if leftAns and rightAns:
+            return root
+        elif leftAns:
+            return leftAns
+        else:
+            return rightAns
+
+
+
+'''
 # iterative solution
-# we always assume the p and q in the tree
 
 class Solution(object):
     def lowestCommonAncestor(self, root, p, q):
@@ -18,7 +45,6 @@ class Solution(object):
         if not root:
             return
 
-        # in Python the key could be a self-defined class and hashcode will be calculated too
         parent = {root: None}
         # using stack to traverse the tree (right subtree first DFS)
         stack = [root]
@@ -45,27 +71,4 @@ class Solution(object):
             q = parent[q]
 
         return q
-
-
-
-'''
-# a clean solution:
-
-class Solution(object):
-
-    # this function actually the node that equals to (one of p and q)
-    def lowestCommonAncestor(self, root, p, q):
-
-        # we assume the p and q will always be in the tree
-        if root == p or root == q:
-            return root
-        leftans = self.lowestCommonAncestor(root.left, p, q) if root.left else None
-        rightans = self.lowestCommonAncestor(root.right, p, q) if root.right else None
-
-        if leftans and rightans:
-            return root
-        elif leftans:
-            return leftans
-        else:
-            return rightans
 '''

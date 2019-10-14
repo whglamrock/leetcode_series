@@ -1,25 +1,30 @@
 
 # elegant iterative solution, perfectly using the backtracking idea
+# sorting is easier for us to avoid deduping, also it doesn't increase time complexity
 
 class Solution(object):
     def subsets(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[List[int]]
+        """
+        if not nums:
+            return [[]]
 
-        res = [[]]
+        ans = [[]]
         nums.sort()
 
         for num in nums:
-            # in this way, the "bound for for loop is changed" error won't occur
-            res += [item + [num] for item in res]
-            # or simply do, next = deepcopy(res), for item in res: next.append(item + [num]), res = next
+            newSubsets = []
+            for item in ans:
+                newSubsets.append(item + [num])
+            ans += newSubsets
 
-        return res
+        return ans
 
 
 
-nums = [1,2,3,4]
-Sol = Solution()
-ans = Sol.subsets(nums)
-print ans
+print Solution().subsets([1, 2, 3, 4])
 
 
 

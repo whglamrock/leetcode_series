@@ -14,6 +14,7 @@ class Solution(object):
         for c in s:
             if c != ' ':
                 q.append(c)
+        # add this extra '+' is to trigger the last calculation
         q.append('+')
 
         stack = []
@@ -47,4 +48,5 @@ class Solution(object):
 
 
 
-print Solution().calculate(s="3 + 2* 2")
+print Solution().calculate("3 + 2* 2")
+print Solution().calculate("-4 + 2* 2 - 4/ 3 + 3/1 * 2/1")
