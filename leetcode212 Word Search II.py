@@ -51,7 +51,7 @@ class Solution(object):
         if board[i][j] not in curr.children:
             return
 
-        # way easier to keep a visited list
+        # mark the char unavailable in this dfs, to avoid using a visited set
         tmp = board[i][j]
         board[i][j] = '#'
 

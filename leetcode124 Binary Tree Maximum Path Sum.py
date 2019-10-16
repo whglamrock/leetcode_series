@@ -7,7 +7,7 @@ class TreeNode(object):
 
 
 
-# the key is to use dfs to get the max path sum that ends with node i
+# the key is to think of returning maxToNode instead of directly maxPathSum when doing DFS
 
 class Solution(object):
     def maxPathSum(self, root):
