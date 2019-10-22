@@ -39,7 +39,7 @@ class Solution(object):
         # in each loop, we compare the whole s with the partial p until the last loop
         #   the i for loop goes through the s
         for char in p:
-            if char != '*':  # then totally inherit the previous status that whether s[:i - 1] mathers p[:char])
+            if char != '*':  # then totally inherit the previous status that whether s[:i - 1] matches p[:char])
                 for i in xrange(n, 0, -1):
                     # dp[i] means whether s[:i] matches the partial p
                     dp[i] = dp[i - 1] and (s[i - 1] == char or char == '?')
@@ -60,13 +60,7 @@ class Solution(object):
 
 
 
-s = "abcd"
-p = "a*"
-s1 = 'ac'
-p1 = 'ac*'
-Sol = Solution()
-
-print Sol.isMatch(s, p)
-print Sol.isMatch(s1, p1)
+print Solution().isMatch('abcd', 'a*')
+print Solution().isMatch('ac', 'ac*')
 
 

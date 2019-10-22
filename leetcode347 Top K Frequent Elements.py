@@ -1,37 +1,33 @@
 
-# use each frequency as a 'bucket', within which stores the corresponding elements.
-# retrieve them one by one from the maximum, with k -= 1 every time.
+from collections import defaultdict, Counter
+
+# O(N) bucket sort solution, because the countToNums.keys() <= N numToCount.keys() <= N
 
 class Solution(object):
     def topKFrequent(self, nums, k):
+        """
+        :type nums: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        numToCount = Counter(nums)
+        countToNums = defaultdict(list)
+        for num in numToCount:
+            countToNums[numToCount[num]].append(num)
 
-        dick = {}
-        maximum = 0
-        for num in nums:
-            if num not in dick:
-                dick[num] = 1
-            else:
-                dick[num] += 1
-            if dick[num] > maximum:
-                maximum = dick[num]
+        count = max(countToNums.keys())
+        ans = []
 
-        frequency = [[] for i in xrange(maximum+1)]
-        for item in dick:
-            frequency[dick[item]].append(item)
-
-        res = []
-        for i in xrange(len(frequency)-1,-1,-1):
-            if frequency[i]:
-                for item in frequency[i]:
-                    res.append(item)
+        while k:
+            if count in countToNums:
+                for num in countToNums[count]:
                     k -= 1
+                    ans.append(num)
                     if k == 0:
-                        return res
+                        return ans
+            count -= 1
 
 
 
-k = 4
-nums = [1,1,4,6,7,14,5,1,2,6,8,9,1,8,8,8,10,1,1,2,1,1,1,2,1,2,2,1,1,]
-Sol = Solution()
-print Sol.topKFrequent(nums,k)
+print Solution().topKFrequent([1, 1, 1, 2, 2, 3], 2)
 
