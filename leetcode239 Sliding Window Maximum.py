@@ -1,22 +1,29 @@
 
-# O(N) solution because every element will at most
-# be put into and popped out once, respectively.
-
 from collections import deque
+
+# O(N) solution is very hard to think of. The idea is keep a decreasing queue
+
 class Solution(object):
     def maxSlidingWindow(self, nums, k):
 
-        queue = deque()
+        window = deque()
         ans = []
-        # the size of queue within k;
-        # the distance between the indices of the first and last element within k
+
         for i, num in enumerate(nums):
-            while queue and queue[0] < i - k + 1:
-                queue.popleft()
-            while queue and nums[queue[-1]] < num:
-                queue.pop()
-            queue.append(i)
+            # remove the elements out of the window
+            while window and window[0] < i - k + 1:
+                window.popleft()
+            # the window is a decreasing queue because we don't care about the smaller elements in between
+            while window and nums[window[-1]] <= num:
+                window.pop()
+            # add the current element to window
+            window.append(i)
+            # add max of window to ans
             if i >= k - 1:
-                ans.append(nums[queue[0]])
+                ans.append(nums[window[0]])
 
         return ans
+
+
+
+print Solution().maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3)
