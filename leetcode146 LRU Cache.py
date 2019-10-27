@@ -105,7 +105,7 @@ Sol.put(5, 314)
 from collections import OrderedDict
 
 # the insert/pop item from OrderedDict is O(1)
-# P.S. remember all O(1) hashtable operations are theoretical
+# P.S. remember all O(1) HashTable operations are theoretical
 
 class LRUCache(object):
 
@@ -129,7 +129,7 @@ class LRUCache(object):
         if key in self.cache:
             del self.cache[key]  # it will remove the node from the doubly-linked list as well
         self.cache[key] = value
-        if len(self.cache) > self.cap:  # the len operation takes O(1)
+        if len(self.cache) > self.cap:
             self.cache.popitem(last = False)
 '''
 
