@@ -1,47 +1,52 @@
 
 # see explanation from: http://www.geeksforgeeks.org/largest-rectangle-under-histogram/
 
+# The idea is:
+    # 1) Use every height[i] as the shortest height and find the left & right index.
+    # 2) to easily find the left index, we keep an increasing stack; for every popped height[j], the left index
+        # is stack[-1] and the right index is i (both left & right index are exclusive).
+    # 3) currArea = height[j] * (i - stack[-1] - 1).
+    # 4) for corner case, we can consider -1, n as two outer indices and their heights to be 0
+
 class Solution(object):
     def largestRectangleArea(self, heights):
-
+        """
+        :type heights: List[int]
+        :rtype: int
+        """
         if not heights:
             return 0
 
-        # ensure the heights in stack are in sorted order
-        stack = []
-        maxarea = 0
-        i = 0
         n = len(heights)
+        i = 0
+        stack = []
+        maxArea = 0
 
         while i < n:
-            # applies to the case when heights[i] == 0
-            if not stack or heights[stack[-1]] <= heights[i]:
+            if not stack or heights[i] > heights[stack[-1]]:
                 stack.append(i)
                 i += 1
-            # when theindexofminheight != i - 1, all bars between them are guaranteed no shorter than theindexofminheight
             else:
-                # get the index of bar that's used as the height of the rec (shortest among current bars)
-                theindexofminheight = stack.pop()
-                currarea = 0
-                # the right bound of the rectangle is i - 1, the left bound is stack[-1] + 1
+                # at this point heights[j] is taller than heights[i] and heights[stack[-1]]
+                j = stack.pop()
                 if stack:
-                    # theindexofminheight doesn't necessarily == the current stack[-1] + 1,
-                    #   just like when theindexofminheight != i - 1, but all bars between them
-                    #   are guaranteed no shorter than theindexofminheight
-                    currarea = heights[theindexofminheight] * (i - stack[-1] - 1)
-                # in this case, the left bound is 0, no bars from 0 to theindexofminheight are taller
+                    currArea = heights[j] * (i - stack[-1] - 1)
                 else:
-                    currarea = heights[theindexofminheight] * i
-                maxarea = max(maxarea, currarea)
+                    # means heights[j] is currently the shortest in heights[:i]
+                    currArea = heights[j] * i
+                maxArea = max(maxArea, currArea)
 
-        # likewise
         while stack:
-            theindexofminheight = stack.pop()
-            currarea = 0
+            j = stack.pop()
             if stack:
-                currarea = heights[theindexofminheight] * (n - stack[-1] - 1)
+                currArea = heights[j] * (n - stack[-1] - 1)
             else:
-                currarea = heights[theindexofminheight] * n
-            maxarea = max(maxarea, currarea)
+                # heights[j] is the shortest of all heights
+                currArea = heights[j] * n
+            maxArea = max(maxArea, currArea)
 
-        return maxarea
+        return maxArea
+
+
+
+print Solution().largestRectangleArea([2, 1, 5, 6, 2, 3])

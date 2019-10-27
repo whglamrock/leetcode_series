@@ -3,54 +3,57 @@
 
 class ListNode(object):
     def __init__(self, x):
-
         self.val = x
         self.next = None
 
 
+
+# the idea is use 2 pointers to represent the odd and even list, then connect the odd tail with even head
+
 class Solution(object):
     def oddEvenList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if not head:
+            return None
 
-        if (not head) or (not head.next) or (not head.next.next):
-            return head
+        oddDummy, evenDummy = ListNode(None), ListNode(None)
+        odd, even = oddDummy, evenDummy
+        curr = head
 
-        even = head.next
-        odd = even.next
-        mark = head
+        while curr:
+            odd.next = curr
+            if not curr.next:
+                # don't forget about this step because the position of odd is very important for
+                    # connecting the odd list and even list
+                odd = odd.next
+                break
+            even.next = curr.next
 
-        while odd and even: # set 2 pointers (one odd, one even)
-            even.next = odd.next
-            odd.next = mark.next
-            mark.next = odd
+            # disconnect the node at even position
+            nextNode = curr.next
+            curr.next = nextNode.next
+            nextNode.next = None
 
-            mark = mark.next
+            odd = odd.next
             even = even.next
-            if (not even): break
-            odd = even.next
-        # after each while loop, the off number will be ripped off and there are two
-        # consecutive even numbers.
+            curr = curr.next
 
-        return head
+        odd.next = evenDummy.next
+        return head  # can also return oddDummy.next
 
 
 
-a = ListNode(1)
-b = ListNode(2)
-c = ListNode(3)
-d = ListNode(4)
-e = ListNode(5)
-f = ListNode(6)
-#g = ListNode(7)
+head = ListNode(None)
+node = head
+for i in xrange(1, 8):
+    node.next = ListNode(i)
+    node = node.next
+head = head.next
 
-a.next = b
-b.next = c
-c.next = d
-d.next = e
-e.next = f
-#f.next = g
-
-Sol = Solution()
-value = Sol.oddEvenList(a)
-while value:
-    print value.val
-    value = value.next
+curr = Solution().oddEvenList(head)
+while curr:
+    print curr.val
+    curr = curr.next
