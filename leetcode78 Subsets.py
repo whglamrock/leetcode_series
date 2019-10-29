@@ -1,6 +1,5 @@
 
-# elegant iterative solution, perfectly using the backtracking idea
-# sorting is easier for us to avoid deduping, also it doesn't increase time complexity
+# Elegant backtracking idea. No need to sort as all the numbers are distinct
 
 class Solution(object):
     def subsets(self, nums):
@@ -12,7 +11,7 @@ class Solution(object):
             return [[]]
 
         ans = [[]]
-        nums.sort()
+        # no need to sort the numbers
 
         for num in nums:
             newSubsets = []
@@ -24,12 +23,12 @@ class Solution(object):
 
 
 
-print Solution().subsets([1, 2, 3, 4])
+print Solution().subsets([2, 1, 4, 3, 5])
 
 
 
 '''
-# classic recursive DFS solution
+# recursive DFS solution
 
 class Solution(object):
     def subsets(self, nums):

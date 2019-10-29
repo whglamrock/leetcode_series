@@ -1,6 +1,6 @@
 
-# real one-pass solution. The for + underneath while loop combination is not really "one-pass"
-# three way partitioning, see explanation: https://discuss.leetcode.com/topic/26181/ac-python-in-place-one-pass-solution-o-n-time-o-1-space-no-swap-no-count
+# Real one-pass solution; the for + underneath while loop combination isn't really "one-pass".
+# See 3-way partitioning: https://discuss.leetcode.com/topic/26181/ac-python-in-place-one-pass-solution-o-n-time-o-1-space-no-swap-no-count
 
 class Solution(object):
     def sortColors(self, nums):
@@ -9,13 +9,13 @@ class Solution(object):
             return []
 
         i = j = 0   # the k will be the moving pointer
-        # we keep [0, i), [i, j), [j, k) three separate parts that store the 0, 1, 2 respectively
+        # we keep [0, i], (i, j], (j, k] three separate parts that store the 0, 1, 2 respectively
+        # [0, k] keeps growing as k moves forward and [0. k] is sorted(nums[:k + 1])
 
         for k in xrange(len(nums)):
+            # at this point we can always make sure k >= j >= i
             val = nums[k]
             nums[k] = 2
-            # the i and j before the "+= 1" are the end indices of 0s and 1s,
-            #   so we know where to put the new val when nums[k] != 2
             if val < 2:    # when val == 0, both i and j need to += 1, so we do j += 1 first
                 nums[j] = 1
                 j += 1

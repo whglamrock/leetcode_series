@@ -8,49 +8,55 @@ class ListNode(object):
         self.next = None
 
 
+
+# O(1) space solution has to modify the original linkedList.
+    # If interviewer asks for O(1) space, it's a > medium question
+
 class Solution(object):
     def isPalindrome(self, head):
-
-        if (not head) or (not head.next):
+        """
+        :type head: ListNode
+        :rtype: bool
+        """
+        if not head:
+            return True
+        if not head.next:
             return True
 
-        def reverseList(root):
-            tail = root
-            while tail.next:
-                tail = tail.next
-
-            curr = root
-            prev = ListNode(None)
-            prev.next = curr
-            while curr != tail:
-                if curr == root:
-                    prev.next = curr.next
-                    tail.next = curr
-                    curr.next = None
-                    curr = prev.next
-                else:
-                    prev.next = curr.next
-                    curr.next = tail.next
-                    tail.next = curr
-                    curr = prev.next
-
-            return tail
+        # tail will be the head of the reversed second half
+        tail = head
+        while tail.next:
+            tail = tail.next
 
         slow, fast = head, head
-
+        # the while condition will always make sure slow points to:
+            # 1) middle point of the list if there are odd number of nodes
+            # 2) last node of the first half if there are even number of nodes
         while fast.next and fast.next.next:
             slow = slow.next
             fast = fast.next.next
 
-        slow.next = reverseList(slow.next)
-        slow = slow.next
+        headOfSecondHalf = slow.next
+        slow.next = None
+        self.reverseLinkedList(headOfSecondHalf)
 
-        while head and slow:
-            if head.val != slow.val:
+        while head and tail:
+            if head.val != tail.val:
                 return False
-            head, slow = head.next, slow.next
+            head = head.next
+            tail = tail.next
 
         return True
+
+    def reverseLinkedList(self, head):
+        if not head.next:
+            return head
+
+        nextNode = head.next
+        head.next = None
+        reversedTail = self.reverseLinkedList(nextNode)
+        reversedTail.next = head
+        return head
 
 
 
@@ -67,8 +73,7 @@ c.next = d
 d.next = e
 e.next = f
 
-Sol = Solution()
-print(Sol.isPalindrome(a))
+print Solution().isPalindrome(a)
 
 
 

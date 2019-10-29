@@ -1,4 +1,6 @@
 
+# notice how we deal with when n % 2 != 0
+
 class Solution(object):
     def myPow(self, x, n):
         """
@@ -11,8 +13,6 @@ class Solution(object):
         else:
             return self.fastPow(x, n)
 
-    # use recursion to do the binary scale down job
-    # we assume n is positive right here
     def fastPow(self, x, n):
         if n == 0:
             return 1
@@ -23,13 +23,10 @@ class Solution(object):
         if n % 2 == 0:
             return half * half
         else:
-            # note that we still consider this extra 'x *' step as idempotent, so overall time complexity is logN
             return x * half * half
 
 
 
-Sol = Solution()
-x = 1.00012
-n = 1024
-print Sol.myPow(x, n)
+print Solution().myPow(1.00012, 1024)
+print Solution().myPow(3.2, 10)
 

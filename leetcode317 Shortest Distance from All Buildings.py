@@ -1,56 +1,60 @@
 
-# the idea: 1) do BFS starting from every building;
-#           2) after all BFSes, grid[i][j] == len(buildings) means this cell can access all buildings
+# the idea:
+    # 1) do BFS starting from every building;
+    # 2) after all BFSes, grid[i][j] == len(buildings) means this cell can access all buildings
 
 from collections import deque
 
 class Solution(object):
     def shortestDistance(self, grid):
-
-        if not grid or len(grid[0]) == 0:
+        """
+        :type grid: List[List[int]]
+        :rtype: int
+        """
+        if not grid and not grid[0]:
             return 0
-        self.grid = grid
+
         m, n = len(grid), len(grid[0])
         buildings = []
-
         for i in xrange(m):
             for j in xrange(n):
                 if grid[i][j] == 1:
                     buildings.append((i, j, 0))
-                # put them negative so we can use the trick for BFS
-                grid[i][j] = -grid[i][j]    # available cells (zeroes) won't be affected
+                # this is for the trick later in bfs
+                grid[i][j] = -grid[i][j]
 
-        # the element of dist is the distance sum from once position to all buildings
-        self.dist = [[0 for j in xrange(n)] for i in xrange(m)]
-        self.dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        dirs = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+        distances = [[0 for j in xrange(n)] for i in xrange(m)]
 
         for k in xrange(len(buildings)):
-            self.bfs(buildings[k], k, m, n)
-        shortestdist = -1
+            self.bfs(grid, buildings[k], k, distances, dirs)
 
+        shortestDist = -1
         for i in xrange(m):
             for j in xrange(n):
-                if self.grid[i][j] == len(buildings):
-                    if shortestdist == -1:
-                        shortestdist = self.dist[i][j]
+                # this point is reachable to all buildings
+                if grid[i][j] == len(buildings):
+                    if shortestDist == -1:
+                        shortestDist = distances[i][j]
                     else:
-                        shortestdist = min(shortestdist, self.dist[i][j])
+                        shortestDist = min(shortestDist, distances[i][j])
 
-        return shortestdist
+        return shortestDist
 
-    # root is the position of building
-    def bfs(self, root, k, m, n):
+    def bfs(self, grid, root, k, distances, dirs):
+        m, n = len(grid), len(grid[0])
+        queue = deque()
+        queue.append(root)
 
-        q = deque()
-        q.append(root)
-        while q:
-            row, col, currdist = q.popleft()
-            # once grid[row][col] is walked on, the path is for sure the shortest and the corresponding
-            #   shortest distance from building k to this point is confirmed, and "self.grid[r][c] == k"
-            #   makes sure this cell will only be walked on once from a specific building
-            self.dist[row][col] += currdist
-            for x, y in self.dirs:
-                r, c = row + x, col + y
-                if 0 <= r < m and 0 <= c < n and self.grid[r][c] == k:
-                    self.grid[r][c] = k + 1
-                    q.append((r, c, currdist + 1))
+        while queue:
+            i, j, dist = queue.popleft()
+            # we are doing BFS, so once i, j has been reached it's for sure the shortest distance;
+            # Also setting "grid[i][j] == k + 1" makes we don't double visit
+            distances[i][j] += dist
+            for h, v in dirs:
+                x, y = i + h, j + v
+                # grid[x][y] == k means it's reachable till last building
+                if 0 <= x < m and 0 <= y < n and grid[x][y] == k:
+                    queue.append((x, y, dist + 1))
+                    # remember to update the grid[i][j] here
+                    grid[x][y] = k + 1

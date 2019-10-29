@@ -1,5 +1,5 @@
 
-# note: the lenth of word is guaranteed smaller than maxWidth
+# note: the length of word is guaranteed smaller than maxWidth
 # P.S., remember the robin logic operation code:
 #   for i in xrange(maxWidth - numofletters):
 #       currline[i % (len(currline) - 1 or 1)] += ' '

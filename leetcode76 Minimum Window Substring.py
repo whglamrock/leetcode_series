@@ -1,43 +1,46 @@
 
-# remember the idea of 'missing' and 'need'
-# edge case: t doesn't exist in s
-
-from collections import Counter
+from collections import Counter, defaultdict
 
 class Solution(object):
     def minWindow(self, s, t):
-
+        """
+        :type s: str
+        :type t: str
+        :rtype: str
+        """
         if not s or not t:
             return ''
 
+        # tCount is used for comparing with sWindow
+        tCount = Counter(t)
+        # the need & missing are to achieve O(1) time for checking if we have a valid window
+        need = Counter(t)
+        missing = len(t)
+
+        # left & right index for the ans
+        I, J = 0, 0
+        # the left index of the s window
         i = 0
-        I = J = 0
-        need, missing = Counter(t), len(t)
+        window = defaultdict(int)
 
-        # valid window = s[i:j + 1])
         for j, char in enumerate(s):
-
-            # the need dict just tracks what we need/miss; need[char] > 0 only possible for char in t
-            if need[char] > 0:
-                # once miss reached 0, we don't increase it any more. i.e., the window stays valid
+            # see if we have found 1 more char we are missing
+            if char in need and need[char] > 0:
                 missing -= 1
+                need[char] -= 1
 
-            # any char with need[char] < 0 is a redundant char
-            need[char] -= 1
+            # track the count of chars in the current window
+            window[char] += 1
 
-            # window is valid at this point
+            # don't do anything unless missing == 0;
+                # missing == 0 also makes sure i != j because t is not empty at this point
             if missing == 0:
-                # the first condition -- "i < j" is enough, because the "t is empty" scenario has been ruled out
-                #   i <= j is also okay, though
-                while i < j and need[s[i]] < 0:
-                    need[s[i]] += 1
+                while i < j and (s[i] not in tCount or window[s[i]] > tCount[s[i]]):
+                    window[s[i]] -= 1
                     i += 1
+                if J == 0 or J - I >= j + 1 - i:
+                    I, J = i, j + 1
 
-                if J == 0 or (j + 1) - i < J - I:
-                    # note that we set J = j + 1 here to ease dealing with corner case where t not in s
-                    J, I = j + 1, i
-
-        # covers the corner case where t not in s
         return s[I:J]
 
 

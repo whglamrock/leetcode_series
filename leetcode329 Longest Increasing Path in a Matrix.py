@@ -1,8 +1,9 @@
 
-# worst case O(V^2) solution, where V is number of vertex (V = m * n); but in reality it's better than V^2
+# O(M * N) DFS + memoization solution, which is the most practical to be given in real interview.
+# P.S. Graph theory way can achieve O(V^2) (O(V^2) for building the graph and O(V) for DFS)
+    # but is more complicated and error-prune.
 
 class Solution(object):
-
     def longestIncreasingPath(self, matrix):
         """
         :type matrix: List[List[int]]
@@ -11,48 +12,35 @@ class Solution(object):
         if not matrix or not matrix[0]:
             return 0
 
-        m, n = len(matrix), len(matrix[0])
-        memo = set()
-
-        for i in xrange(m):
-            for j in xrange(n):
-                if self.isLocalMinimum(matrix, i, j):
-                    memo.add((i, j))
-
         ans = 0
-        while memo:
-            ans += 1
-            nextMemo = set()
-            for i, j in memo:
-                nextIncreasing = self.findNextIncreasingPoints(matrix, i, j)
-                nextMemo |= nextIncreasing
-            memo = nextMemo
+        memo = {}
+        for i in xrange(len(matrix)):
+            for j in xrange(len(matrix[0])):
+                longest = self.dfs(matrix, i, j, memo)
+                ans = max(ans, longest)
 
         return ans
 
-    def isLocalMinimum(self, matrix, i, j):
-        if i - 1 >= 0 and matrix[i - 1][j] < matrix[i][j]:
-            return False
-        if i + 1 < len(matrix) and matrix[i + 1][j] < matrix[i][j]:
-            return False
-        if j - 1 >= 0 and matrix[i][j - 1] < matrix[i][j]:
-            return False
-        if j + 1 < len(matrix[0]) and matrix[i][j + 1] < matrix[i][j]:
-            return False
-        return True
+    def dfs(self, matrix, i, j, memo):
+        if (i, j) in memo:
+            return memo[(i, j)]
 
-    def findNextIncreasingPoints(self, matrix, i, j):
-        nextIncreasing = set()
+        up = 0
         if i - 1 >= 0 and matrix[i - 1][j] > matrix[i][j]:
-            nextIncreasing.add((i - 1, j))
+            up = self.dfs(matrix, i - 1, j, memo)
+        down = 0
         if i + 1 < len(matrix) and matrix[i + 1][j] > matrix[i][j]:
-            nextIncreasing.add((i + 1, j))
+            down = self.dfs(matrix, i + 1, j, memo)
+        left = 0
         if j - 1 >= 0 and matrix[i][j - 1] > matrix[i][j]:
-            nextIncreasing.add((i, j - 1))
+            left = self.dfs(matrix, i, j - 1, memo)
+        right = 0
         if j + 1 < len(matrix[0]) and matrix[i][j + 1] > matrix[i][j]:
-            nextIncreasing.add((i, j + 1))
+            right = self.dfs(matrix, i, j + 1, memo)
 
-        return nextIncreasing
+        res = 1 + max(up, down, left, right)
+        memo[(i, j)] = res
+        return res
 
 
 
@@ -76,28 +64,3 @@ print Solution().longestIncreasingPath([
   [2,2,2],
   [2,0,1]
 ])
-
-
-
-'''
-class Solution(object):
-    def longestIncreasingPath(self, matrix):
-
-        if not matrix or not matrix[0]:
-            return 0
-
-        m, n = len(matrix), len(matrix[0])
-        dp = [[0 for j in xrange(n)] for i in xrange(m)]
-
-        def dfs(i, j):
-            if not dp[i][j]:
-                val = matrix[i][j]
-                dp[i][j] = 1 + max(
-                    dfs(i - 1, j) if (i > 0 and matrix[i - 1][j] > val) else 0,
-                    dfs(i + 1, j) if (i < m - 1 and matrix[i + 1][j] > val) else 0,
-                    dfs(i, j - 1) if (j > 0 and matrix[i][j - 1] > val) else 0,
-                    dfs(i, j + 1) if (j < n - 1 and matrix[i][j + 1] > val) else 0)
-            return dp[i][j]
-
-        return max(dfs(x, y) for x in xrange(m) for y in xrange(n))
-'''

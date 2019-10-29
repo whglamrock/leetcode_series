@@ -1,7 +1,6 @@
 
-# try to solve this problem in one-dimensional number axis!
-# for every hard question, we need to unmask the knowledge behind it and transfer it
-# into normal, common math/algorithm question.
+# The idea is we need to place the meeting point between/on the median point of the x & y coordinates.
+    # it isn't hard to prove that is the optimal meeting point
 
 class Solution(object):
     def minTotalDistance(self, grid):
@@ -9,6 +8,8 @@ class Solution(object):
         if (not grid) or (not grid[0]):
             return 0
 
+        # Because we are looping through the whole grid, row & col lists are sorted
+        # Each row/col can have multiple people but it's fine because we use median (not avg) as best meeting point
         row, col = [], []
         for i in xrange(len(grid)):
             for j in xrange(len(grid[0])):
@@ -20,15 +21,12 @@ class Solution(object):
                 if grid[i][j] == 1:
                     col.append(j)
 
-        # we take the median because we don't need to worry about the duplicates in grid
-        # grid[i][j] = 1 means for only 1 person, even there are more than one people on
-        # the same spot, distance will only calculated once.
-        midrow = row[len(row) / 2]
-        midcol = col[len(col) / 2]
+        midRow = row[len(row) / 2]
+        midCol = col[len(col) / 2]
         ans = 0
         for y in row:
-            ans += abs(y - midrow)
+            ans += abs(y - midRow)
         for x in col:
-            ans += abs(x - midcol)
+            ans += abs(x - midCol)
 
         return ans
