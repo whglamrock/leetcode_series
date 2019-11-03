@@ -2,7 +2,7 @@
 from collections import defaultdict
 
 # build a prefix to words mapping. because each word has the same length, we try with every word as
-# the first line of the output.
+    # the first line of the output.
 # when we add word, we calculate the prefix (the prefix ends with the letter at diagnol of the output matrix)
 
 class Solution(object):

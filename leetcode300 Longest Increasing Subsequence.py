@@ -4,31 +4,37 @@
 
 class Solution(object):
     def lengthOfLIS(self, nums):
-
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
         if not nums:
             return 0
 
         n = len(nums)
+        # tail[i] is the smallest tail for LIS of length i + 1
         tail = [0] * n
         size = 0
 
         for num in nums:
-            # we only search in [0, size) because we wanna potentially grow length
+            # we only need to search in [0, size] because nums[size:] are all 0
             l, r = 0, size
-
-            # we are actually looking for inserting position for num;
-                # i.e., look for tail[l - 1] < num and override tail[l]
+            # look for insert position for num. i.e., find the last number < num
             while l < r:
-                m = l + (r - l) / 2
+                m = (l + r) / 2
+                # then for sure m is not the position we want to insert num on
                 if tail[m] < num:
                     l = m + 1
+                # 1) nums[m] == num: it doesn't matter whether we insert num here
+                # 2) nums[m] > num: it's possible we will insert here so keep m within our search range
                 else:
                     r = m
 
-            # insert the num
+            # when all existing tails are < num, l == size and tail[l] == 0
+                # l won't ever go index out of range because size <= index of num
+            # otherwise override tail[l]
             tail[l] = num
-            # all existing tails are all < num so we can grow the size by 1
-            if size == l:
+            if l == size:
                 size += 1
 
         return size
@@ -36,3 +42,29 @@ class Solution(object):
 
 
 print Solution().lengthOfLIS([10, 9, 2, 5, 1, 7, 101, 18])
+
+
+
+'''
+# a naive O(N^2) solution
+
+class Solution(object):
+    def lengthOfLIS(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if not nums:
+            return 0
+        
+        n = len(nums)
+        tail = [1] * n
+        
+        for i in xrange(1, n):
+            num = nums[i]
+            for j in xrange(i):
+                if nums[j] < nums[i]:
+                    tail[i] = max(tail[j] + 1 , tail[i])
+        
+        return max(tail)
+'''

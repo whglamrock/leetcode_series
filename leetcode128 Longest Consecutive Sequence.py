@@ -1,3 +1,4 @@
+
 class Solution(object):
     def longestConsecutive(self, nums):
         """
@@ -7,24 +8,25 @@ class Solution(object):
         if not nums:
             return 0
 
-        numSet = set(nums)
-        maxLen = 0
+        numsSet = set(nums)
+        longest = 1
 
         for num in nums:
-            if num not in numSet:
+            if num not in numsSet:
                 continue
+            numsSet.discard(num)
 
             l, r = num - 1, num + 1
-            while l in numSet:
-                numSet.discard(l)
+            while l in numsSet:
+                numsSet.discard(l)
                 l -= 1
-            while r in numSet:
-                numSet.discard(r)
+            while r in numsSet:
+                numsSet.discard(r)
                 r += 1
 
-            maxLen = max(maxLen, r - l - 1)
+            longest = max(longest, r - l - 1)
 
-        return maxLen
+        return longest
 
 
 

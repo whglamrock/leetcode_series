@@ -1,5 +1,7 @@
 
-# O(M * N) DFS + memoization solution, which is the most practical to be given in real interview.
+# O(M * N) DFS + memoization solution because each (i, j) will be only visited once.
+    # This is the most practical to be given in real interview.
+
 # P.S. Graph theory way can achieve O(V^2) (O(V^2) for building the graph and O(V) for DFS)
     # but is more complicated and error-prune.
 
@@ -25,17 +27,16 @@ class Solution(object):
         if (i, j) in memo:
             return memo[(i, j)]
 
-        up = 0
-        if i - 1 >= 0 and matrix[i - 1][j] > matrix[i][j]:
+        up, down, left, right = 0, 0, 0, 0
+        num = matrix[i][j]
+
+        if i - 1 >= 0 and matrix[i - 1][j] > num:
             up = self.dfs(matrix, i - 1, j, memo)
-        down = 0
-        if i + 1 < len(matrix) and matrix[i + 1][j] > matrix[i][j]:
+        if i + 1 < len(matrix) and matrix[i + 1][j] > num:
             down = self.dfs(matrix, i + 1, j, memo)
-        left = 0
-        if j - 1 >= 0 and matrix[i][j - 1] > matrix[i][j]:
+        if j - 1 >= 0 and matrix[i][j - 1] > num:
             left = self.dfs(matrix, i, j - 1, memo)
-        right = 0
-        if j + 1 < len(matrix[0]) and matrix[i][j + 1] > matrix[i][j]:
+        if j + 1 < len(matrix[0]) and matrix[i][j + 1] > num:
             right = self.dfs(matrix, i, j + 1, memo)
 
         res = 1 + max(up, down, left, right)

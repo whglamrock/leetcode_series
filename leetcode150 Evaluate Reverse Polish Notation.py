@@ -3,33 +3,36 @@
 
 class Solution(object):
     def evalRPN(self, tokens):
-
+        """
+        :type tokens: List[str]
+        :rtype: int
+        """
         operands = '+-*/'
         stack = []
-        i = 0
 
-        while i < len(tokens):
-            if tokens[i] not in operands:
-                stack.append(int(tokens[i]))
-            else:
+        for token in tokens:
+            if token in operands:
+                # pay attention to the order of assigning num1 & num2, it matters for division
                 num2 = stack.pop()
                 num1 = stack.pop()
-                if tokens[i] == '+':
+                if token == '+':
                     stack.append(num1 + num2)
-                elif tokens[i] == '-':
+                elif token == '-':
                     stack.append(num1 - num2)
-                elif tokens[i] == '*':
+                elif token == '*':
                     stack.append(num1 * num2)
                 else:
-                    flag = 1
-                    if (num1 * num2) < 0:
-                        flag = -1
-                    num1, num2 = abs(num1), abs(num2)
-                    stack.append(flag * (num1 / num2))    # for stupid test case like 6/(-132).
+                    # important! remember to check corner case like: 6 / (-132)
                     # in python, it returns -1. but in java, it returns 0.
-            i += 1
+                    sign = 1
+                    if num1 * num2 < 0:
+                        sign = -1
+                    num1, num2 = abs(num1), abs(num2)
+                    stack.append(sign * (num1 / num2))
+            else:
+                stack.append(int(token))
 
-        return stack.pop()
+        return stack[0]
 
 
 

@@ -1,4 +1,9 @@
 
+# it's easiest to think of DFS & memoization:
+    # step1: define what DFS function should return
+    # step2: define what is the key & value of the memo (ideally the value should be in the same type as DFS return)
+    # step3: so we know what we should return as base case
+
 class Solution(object):
     def wordBreak(self, s, wordDict):
         """
@@ -8,26 +13,22 @@ class Solution(object):
         """
         return self.dfs(s, wordDict, {})
 
-    # use substringToWordBreak as a memo/backtracking to store the work break for visited substrings, which largely
-        # saves time for tricky case like "aaaa...", ["a", 'aa', "aaa", ...]
-    def dfs(self, s, wordDict, substringToWordBreak):
-
-        if s in substringToWordBreak:
-            return substringToWordBreak[s]
-
-        # base case when all words in this recursion path are in wordDict
-        if len(s) == 0:
+    def dfs(self, s, wordDict, stringToWordBreak):
+        if not s:
             return ['']
 
+        if s in stringToWordBreak:
+            return stringToWordBreak[s]
+
         res = []
-        for word in wordDict:   # wordDict has no duplicates
+        for word in wordDict:
             if s.startswith(word):
-                wordBreakForSuffix = self.dfs(s[len(word):], wordDict, substringToWordBreak)
-                for item in wordBreakForSuffix:
-                    # item can be ''
+                wordBreakOfSuffix = self.dfs(s[len(word):], wordDict, stringToWordBreak)
+                for item in wordBreakOfSuffix:
+                    # don't forget to strip() in case item == ''
                     res.append((word + ' ' + item).strip())
 
-        substringToWordBreak[s] = res
+        stringToWordBreak[s] = res
         return res
 
 
