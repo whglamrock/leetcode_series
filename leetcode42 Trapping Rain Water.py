@@ -10,30 +10,22 @@ class Solution(object):
         :type height: List[int]
         :rtype: int
         """
-        if not height or len(height) <= 2:
+        if not height:
             return 0
 
         stack = []
-        accum = 0
         ans = 0
-        for i in xrange(len(height)):
-            if not stack:
-                stack.append([i, height[i]])
-            elif stack[-1][-1] == height[i]:
-                stack.pop()
-                stack.append([i, height[i]])
-            elif stack[-1][-1] > height[i]:
-                stack.append([i, height[i]])
-            else:
-                while stack and stack[-1][-1] < height[i]:
-                    j, lastHeight = stack.pop()
-                    if not stack:
-                        break
-                    accum += (min(height[i], stack[-1][-1]) - lastHeight) * (i - stack[-1][0] - 1)
 
-                ans += accum
-                accum = 0
-                stack.append([i, height[i]])
+        for i, h in enumerate(height):
+            if not stack or h < stack[-1][1]:
+                stack.append([i, h])
+                continue
+            while stack and h >= stack[-1][1]:
+                lastH = stack.pop()[1]
+                if stack:
+                    heightDiff = min(h, stack[-1][1]) - lastH
+                    ans += heightDiff * (i - stack[-1][0] - 1)
+            stack.append([i, h])
 
         return ans
 
