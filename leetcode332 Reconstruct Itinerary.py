@@ -15,15 +15,19 @@ from collections import defaultdict
 #   ... (since in the above path, no vertex has more destinations, so after few more checks),
 #   JFK* -> A* -> C* -> D* -> B* -> C* -> JFK* -> D* -> A*.
 
-# O(n) time. Note that the problem guarantees that This is a directed graph with euler path existing for sure
+# O(n) time. Note that the problem guarantees that this is a directed graph with euler path existing for sure
 
 class Solution(object):
     def findItinerary(self, tickets):
 
-        trips = defaultdict(list)
-        # sort in lexicographic order
+        if not tickets:
+            return []
+
+        # sort in reverse-lexicographic order so the destination of one origin will be sorted in reverse order
         tickets.sort()
         tickets.reverse()
+
+        trips = defaultdict(list)
         for a, b in tickets:
             trips[a].append(b)
 
@@ -35,7 +39,7 @@ class Solution(object):
             # start from a random point to form a "segment" that's definitely part of the euler path
             while trips[stack[-1]]:
                 stack.append(trips[stack[-1]].pop())
-            # at this point stack[-1] is the vertex that doesn't unvisited vertex to proceed
+            # at this point stack[-1] is the vertex that doesn't have unvisited vertex to proceed
             ans.append(stack.pop())
 
         return ans[::-1]
