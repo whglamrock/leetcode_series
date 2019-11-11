@@ -20,6 +20,7 @@ Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same
 * Multiple dp array is involved:
     * [lc85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
 * A very special question where the only idea needs us to starts from final state (top-down instead of bottom-up): [lc174. Dungeon Game](https://leetcode.com/problems/dungeon-game/)
+* When you don't necessarily need a dp array, but multiple state variables: [lc309. Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/), [lc714. Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
 
 
 ##### Merge Sort

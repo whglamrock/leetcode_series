@@ -10,8 +10,8 @@ class Solution(object):
         ans = 0
         minPrice = 2147483647
         for price in prices:
-            minprice = min(minPrice, price)
-            ans = max(ans, price - minprice)
+            minPrice = min(minPrice, price)
+            ans = max(ans, price - minPrice)
 
         return ans
 

@@ -1,5 +1,5 @@
 
-# idea: set all zeroes to minus one; use accumulated presum
+# The key is to remember to set the 0 to -1 and use preSum. Otherwise solely using dp without hashMap won't work
 
 class Solution(object):
     def findMaxLength(self, nums):
@@ -11,15 +11,19 @@ class Solution(object):
             if nums[i] == 0:
                 nums[i] = -1
 
-        maxlength = 0
-        presum = 0
-        dic = {0: -1}
+        maxLen = 0
+        preSum = 0
+        preSumToIndex = {0: -1}
 
         for i, num in enumerate(nums):
-            presum += num
-            if presum in dic:
-                maxlength = max(maxlength, i - dic[presum])
+            preSum += num
+            if preSum in preSumToIndex:
+                maxLen = max(maxLen, i - preSumToIndex[preSum])
             else:
-                dic[presum] = i
+                preSumToIndex[preSum] = i
 
-        return maxlength
+        return maxLen
+
+
+
+print Solution().findMaxLength([0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0])

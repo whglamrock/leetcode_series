@@ -6,36 +6,35 @@ class Solution(object):
         :type prices: List[int]
         :rtype: int
         """
-        if not prices or len(prices) == 0:
+        if not prices or len(prices) < 2:
             return 0
 
-        maxProf = 0
         n = len(prices)
 
         # stupid leetcode will give corner case where k >> n
         if k >= n - 1:
-            for i in xrange(n - 1):
-                if prices[i + 1] > prices[i]:
-                    maxProf += prices[i + 1] - prices[i]
-            return maxProf
+            maxProfix = 0
+            for i in xrange(1, n):
+                if prices[i] > prices[i - 1]:
+                    maxProfix += prices[i] - prices[i - 1]
+            return maxProfix
 
-        # dp[i][j] means maxProfit using i transcations until prices[j]
-            # i.e., if we are going to use the ith transactions at prices[j], we sell at j
+        # use k + 1 instead of k is for easy reference of dp[i - 1][j]
+        # dp[i][j] means with i transactions the maxProfit we can get at j (we don't have to sell at j
+            # or before j we may have used up i transactions)
         dp = [[0 for j in xrange(n)] for i in xrange(k + 1)]
 
         for i in xrange(1, k + 1):
-            # remember at this point we already used i - 1 transactions so we have the maxProfix until each j
             tmpMax = dp[i - 1][0] - prices[0]
             for j in xrange(1, n):
-                # consider we sell at j or not
-                dp[i][j] = max(dp[i][j - 1], prices[j] + tmpMax)
-
-                # tmpMax is the max of (maxProfix using i - 1 transactions until j, and buy prices[j])
+                # consider we sell at j or (we can't do anything we using up i transactions at j - 1)
+                dp[i][j] = max(dp[i][j - 1], tmpMax + prices[j])
+                # tmpMax is the max of (maxProfit using i - 1 transactions until j, and buy prices[j])
                     # among all previous j's
+                # this step can also be placed above the dp[i][j] update
                 tmpMax = max(tmpMax, dp[i - 1][j] - prices[j])
-                maxProf = max(maxProf, dp[i][j])
 
-        return maxProf
+        return dp[-1][-1]
 
 
 

@@ -65,41 +65,34 @@ class Solution(object):
 
 
 
-Sol = Solution()
-print Sol.strStr('aabaaabaaac','aabaaac')
+print Solution().strStr('aabaaabaaac','aabaaac')
 
 
 
 '''
 # Rude solution with o(mn) time complexity
-# In real interview, ask the interviewer if the haystack/needle can be None or "", and corresponding
-# return values
+# In real interview, ask the interviewer if the haystack/needle can be None or "", and corresponding return values
+
 class Solution(object):
     def strStr(self, haystack, needle):
-
-        if (not needle):
+        """
+        :type haystack: str
+        :type needle: str
+        :rtype: int
+        """
+        if not needle:
             return 0
-
-        if (not haystack):
+        if not haystack:
             return -1
-
         if len(haystack) < len(needle):
             return -1
-
-        i = 0
-        while i < len(haystack):
-            if haystack[i] == needle[0]:
-                j = 1
-                while i + j < len(haystack) and j < len(needle):
-                    if haystack[i + j] != needle[j]:
-                        break
-                    j += 1
-                if j == len(needle):
-                    return i
-                if i + j == len(haystack):
-                    break
-            i += 1
-
+        
+        for i, char in enumerate(haystack):
+            if char != needle[0]:
+                continue
+            if haystack[i:i + len(needle)] == needle:
+                return i
+        
         return -1
 '''
 

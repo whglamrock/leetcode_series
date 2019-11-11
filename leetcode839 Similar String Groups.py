@@ -15,6 +15,7 @@ class Solution(object):
 
         A = list(set(A))
         wordToSimilars = defaultdict(set)
+
         for i in xrange(len(A)):
             word1 = A[i]
             for j in xrange(len(A)):

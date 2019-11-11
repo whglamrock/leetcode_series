@@ -24,16 +24,16 @@ class Solution(object):
         ranks = {num: rank + 1 for rank, num in enumerate(sorted(set(nums)))}
         bit = [0] * (n + 1)
 
-        res = deque()
+        ans = []
         for num in nums[::-1]:
             # we want the sum of counts of lower rank numbers and
                 # at this point only the numbers on the right of num were added to BIT
             # we need smaller numbers so use rank - 1 (BIT "prefix sum" is inclusive)
             count = self.queryBIT(bit, ranks[num] - 1)
-            res.appendleft(count)
+            ans.append(count)
             self.updateBIT(bit, ranks[num])
 
-        return res
+        return ans[::-1]
 
     # no diff in input here because we always add 1
     def updateBIT(self, bit, i):
