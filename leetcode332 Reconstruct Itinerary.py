@@ -42,7 +42,5 @@ class Solution(object):
 
 
 
-tickets = [["JFK","A"],["A","C"],["C","D"],["D","A"],["JFK","D"],["D","B"],["B","C"],["C","JFK"]]
-Sol = Solution()
-print Sol.findItinerary(tickets)
+print Solution().findItinerary([["JFK","A"],["A","C"],["C","D"],["D","A"],["JFK","D"],["D","B"],["B","C"],["C","JFK"]])
 

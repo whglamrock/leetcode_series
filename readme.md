@@ -34,14 +34,16 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 
 ##### Binary Search
 * Usually the while loop condition, initial range, how we move the index are two triplets: `l, r = 0, n & while l < r & r = m` or `l, r = 0, n - 1 & while l <= r & r = m - 1`. There are some special cases, e.g., [lc4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
-* Classic Binary search question with east to fall trap: [lc33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+* Classic Binary search question with easy to fall trap: [lc33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 * Non-typical question where we don't search in a range: [lc29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers/submissions/)
 * The sorted list is formed in a very un-straightforward way (not original nums or prefix sum):
     * [lc300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 * In most cases we would always make m = (l + r) / 2 but there's also situation when we make m = (l + r + 1) / 2: [lc34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/)
+* An untypical binary question where searched range is not sorted and using prefixSum won't work: [lc162. Find Peak Element](https://leetcode.com/problems/find-peak-element/)
+
 
 ##### Topology Sort
-* Textbook toposort questions: [lc269. Alien Dictionary](https://leetcode.com/problems/alien-dictionary/), [lc207. Course Schedule](https://leetcode.com/problems/course-schedule/), [lc210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) 
+* Textbook topology sort questions: [lc269. Alien Dictionary](https://leetcode.com/problems/alien-dictionary/), [lc207. Course Schedule](https://leetcode.com/problems/course-schedule/), [lc210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) 
 
 
 ##### Union Find
