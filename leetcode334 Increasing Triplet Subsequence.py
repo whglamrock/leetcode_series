@@ -21,7 +21,7 @@ class Solution(object):
 
         smallest, secondSmallest = 2147483647, 2147483647
         for num in nums:
-            if num > smallest and num > secondSmallest:
+            if num > secondSmallest:
                 return True
             # not "<"  because we need to deal with duplicates. e.g., [1, 1, 1, 1, 1], [1, 1, -2, 6]
             # since don't allow smallest == secondSmallest, when we found duplicates we must update smallest
@@ -41,13 +41,11 @@ print Solution().increasingTriplet([1, 1, 1, 1])
 
 
 '''
-O(n) space solution. Should also work in real interview
+# O(n) space solution. Should also work in real interview
+
 class Solution(object):
     def increasingTriplet(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
+
         if not nums or len(nums) < 3:
             return False
         
