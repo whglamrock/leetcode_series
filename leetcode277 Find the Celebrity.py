@@ -31,7 +31,7 @@ class Solution(object):
                 return -1
 
         # then at this point, x don't know anyone in the party
-        #   at last we needa make sure everybody else knows him
+        #   at last we need to make sure everybody else knows him
         #   P.S.: try test case --"0 doesn't know 1, 1 doesn't know 0"
         for j in xrange(n):
             if not knows(j, x):

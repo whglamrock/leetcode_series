@@ -51,10 +51,8 @@ class Solution(object):
             if subString[:i] in wordDict:
                 newSubString = subString[i:]
                 if self.dfs(newSubString, wordDict, memo):
-                    memo[newSubString] = True
+                    memo[subString] = True
                     return True
-                else:
-                    memo[newSubString] = False
         
         memo[subString] = False
         return False

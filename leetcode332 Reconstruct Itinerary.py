@@ -15,7 +15,8 @@ from collections import defaultdict
 #   ... (since in the above path, no vertex has more destinations, so after few more checks),
 #   JFK* -> A* -> C* -> D* -> B* -> C* -> JFK* -> D* -> A*.
 
-# O(n) time. Note that the problem guarantees that this is a directed graph with euler path existing for sure
+# O(n) time. Note that the problem guarantees that this is a directed graph and there exists an euler path;
+    # It's also guaranteed that the euler path starts from 'JFK' (P.S.: in interview it's important to ask this!)
 
 class Solution(object):
     def findItinerary(self, tickets):

@@ -22,6 +22,7 @@ class Solution(object):
 nums1 = [0, 0, 0, 0, 0]
 Solution().merge(nums1, 0, [1, 2, 3, 4, 5], 5)
 print nums1
+
 nums1 = [2, 3, 6, 0, 0, 0, 0, 0]
 Solution().merge(nums1, 3, [1, 2, 3, 4, 5], 5)
 print nums1

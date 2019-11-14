@@ -55,7 +55,7 @@ class Solution(object):
         
         numToIndex = {}
         for i, num in enumerate(nums):
-            # for duplicte numbers we only need the last index
+            # for duplicate numbers we only need the last index
             numToIndex[num] = i
         
         ans = set()

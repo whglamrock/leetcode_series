@@ -1,5 +1,5 @@
 
-# it's easy to think of sliding window idea. the only tricky point is to remember to
+# it's easy to think of sliding window idea. P.S.: the only tricky point is to remember to
     # compare the l with the previous l. e.g., "abba"
 
 class Solution(object):
@@ -11,23 +11,20 @@ class Solution(object):
         if not s:
             return 0
 
-        l, r = 0, 0
-        ans = 0
+        l = 0
+        maxLen = 0
         letterToIndex = {}
 
-        for i, char in enumerate(s):
-            if char not in letterToIndex:
-                r = i
-            else:
-                # don't forget to compare with the previous l
-                l = max(l, letterToIndex[char] + 1)
-                r = i
+        for i, c in enumerate(s):
+            if c in letterToIndex:
+                j = letterToIndex[c]
+                # important!, don't forget to compare l with j + 1
+                l = max(l, j + 1)
+            letterToIndex[c] = i
+            maxLen = max(maxLen, i - l + 1)
+            # print l, i
 
-            # print l, r
-            letterToIndex[char] = i
-            ans = max(r - l + 1, ans)
-
-        return ans
+        return maxLen
 
 
 

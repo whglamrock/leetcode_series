@@ -3,7 +3,7 @@
 
 from collections import deque
 
-# a memorizable solution from practice:
+# a memorize-able solution from practice
 
 class Solution(object):
 
@@ -18,7 +18,7 @@ class Solution(object):
         :rtype: The number of characters read (int)
         """
 
-        # step 1: pop out all neccessary chars from q
+        # step 1: pop out all necessary chars from q
         i = 0
         while n and self.q:
             buf[i] = self.q.popleft()
@@ -28,11 +28,11 @@ class Solution(object):
         # step 2: read all chars to the deque
         oldn = n    # to mark how many chars we will need to pop from the q in the next step
         while n > 0:
-            cnm = [''] * 4
-            l = read4(cnm)
+            buf = [''] * 4
+            l = read4(buf)
             if l == 0: break
-            # we can safely use extend: e.g., if there only are 3 chars read, cnm would be like ['a', 'b', 'c']
-            self.q.extend(cnm)
+            # we can safely use extend: e.g., if there only are 3 chars read, buf would be like ['a', 'b', 'c']
+            self.q.extend(buf)
             n -= l
 
         # step 3: oldn tells us how many chars we are still in short of

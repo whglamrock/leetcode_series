@@ -1,6 +1,4 @@
 
-from collections import deque
-
 class Solution(object):
     def maxSubArray(self, nums):
         """
@@ -10,19 +8,18 @@ class Solution(object):
         if not nums:
             return 0
 
-        ans = max(nums)  # P.S.: consider case when nums = [-2, -1]
-        q = deque()
-        currSum = 0
-
-        # the strategy is that the sliding window won't start with a negative number;
-            # so we need the initial ans = max(nums) to deal with the case where all nums < 0
+        prefixSums = []
         for num in nums:
-            q.append(num)
-            currSum += num
-            while currSum < 0 and q:
-                currSum -= q.popleft()
-            if q:
-                ans = max(ans, currSum)
+            if not prefixSums:
+                prefixSums.append(num)
+            else:
+                prefixSums.append(num + prefixSums[-1])
+
+        ans = -2147483648
+        minPrefixSum = 0
+        for prefixSum in prefixSums:
+            ans = max(ans, prefixSum - minPrefixSum)
+            minPrefixSum = min(minPrefixSum, prefixSum)
 
         return ans
 

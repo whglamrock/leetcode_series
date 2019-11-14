@@ -21,17 +21,14 @@ class Solution(object):
         num1 = self.convertListToNum(l1)
         num2 = self.convertListToNum(l2)
         num = str(num1 + num2)[::-1]
-        ans = None
-        prev = None
-        for digit in num:
-            node = ListNode(int(digit))
-            if prev:
-                prev.next = node
-            prev = node
-            if not ans:
-                ans = prev
 
-        return ans
+        dummy = ListNode(None)
+        curr = dummy
+        for digit in num:
+            curr.next = ListNode(int(digit))
+            curr = curr.next
+
+        return dummy.next
 
     def convertListToNum(self, head):
         num = []

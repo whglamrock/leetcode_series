@@ -34,7 +34,7 @@ class Solution(object):
 
     # the quick sort idea: partition the array. find/make an index j that
     # all nums[:j] <= nums[j] and all nums[j + 1:] > nums[j]. Note that
-    # nums[:j]/nums[j + 1:] can contain 0 numbers
+    # nums[:j] / nums[j + 1:] can contain 0 numbers
     def partition(self, nums, l, r):
         i, j = l, r
         # we assume we are gonna pick nums[l] as the pivot so we compare with nums[l]

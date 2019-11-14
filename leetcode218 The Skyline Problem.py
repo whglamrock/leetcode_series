@@ -28,17 +28,20 @@ class Solution(object):
         i, n = 0, len(buildings)
 
         for pos in positions:
+            # note that buildings is sorted already
             while i < n and buildings[i][0] <= pos:
                 # we need the right edge not left one because we will
                 # need it to compare with pos to pop out the dead ones
                 heappush(live, [-buildings[i][2], buildings[i][1]])
                 i += 1
-                # even if there are probably some vertical lines that are already dead we don't pop them here.
-                    # since we only care about the tallest.
-                # P.S. also it has to be "<=" because there is no flat line in skyline.
-                    # i.e., we take the shorter point if the taller one is the right side of a building
+
+            # even if there are probably some vertical lines that are already dead we don't pop them here.
+                # since we only care about the tallest.
+            # P.S. also it has to be "<=" because there is no flat line in skyline.
+                # i.e., we take the shorter point if the taller one is the right side of a building
             while live and live[0][1] <= pos:
                 heappop(live)
+
             # get the current height and add it to live
             h = -live[0][0] if live else 0
             if sky[-1][1] != h:

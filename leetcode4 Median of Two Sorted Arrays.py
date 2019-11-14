@@ -15,6 +15,7 @@ class Solution(object):
             nums1, nums2 = nums2, nums1
 
         l, r = 0, m
+
         # 1) we concatenate nums1[:i] & nums2[:j] to be left half and nums1[i:] & nums2[j:] to be right half
         # 2) the "l == r" condition considers the cases when m == 0, i == 0, i == m
         # 3) we won't fall into infinite loop condition when l == i == r and l > 0. Because when l == r and l > 0,
@@ -27,6 +28,7 @@ class Solution(object):
             # remember this index trick that makes sure when the total length is odd number,
               # we can make the left half have 1 more number
             j = (m + n + 1) / 2 - i
+
             # i too small
             if j > 0 and i < m and nums1[i] < nums2[j - 1]:
                 l = i + 1
@@ -34,7 +36,7 @@ class Solution(object):
             elif i > 0 and j < n and nums1[i - 1] > nums2[j]:
                 # not r = i - 1 because initially we set the r = m
                 r = i
-                # corner cases + we find the median
+            # corner cases + we find the median
             else:
                 # the whole nums1 is in right part
                 if i == 0:

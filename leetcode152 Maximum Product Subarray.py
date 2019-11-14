@@ -7,11 +7,15 @@ class Solution(object):
 
         maximum, minimum = nums[0], nums[0]
         res = nums[0]
+
         for i in xrange(1, len(nums)):
             if nums[i] < 0:
                 maximum, minimum = minimum, maximum
+
+            # because all nums[i] are integers, the absolute value will keep increasing unless hitting 0
             maximum = max(nums[i] * maximum, nums[i])
             minimum = min(nums[i] * minimum, nums[i])
+
             res = max(maximum, res)
 
         return res

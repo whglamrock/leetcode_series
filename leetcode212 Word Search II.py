@@ -30,6 +30,9 @@ class Solution(object):
                 curr = curr.children[c]
             curr.isWord = True
 
+        # the reason we use set here is we will trigger the line "if curr.isWord: self.ans.add(path)"
+            # 4 times, as we rely on line "if i < 0 or i >= m or j < 0 or j >= n:" to filter out the
+            # index out of range case
         self.ans = set()
         for i in xrange(len(board)):
             for j in xrange(len(board[0])):
@@ -61,3 +64,14 @@ class Solution(object):
         self.dfs(i, j + 1, curr.children[tmp], board, path + tmp)
 
         board[i][j] = tmp
+
+
+
+print Solution().findWords(
+[
+  ['o','a','a','n'],
+  ['e','t','a','e'],
+  ['i','h','k','r'],
+  ['i','f','l','v']
+],
+["oath","pea","eat","rain"])

@@ -1,6 +1,8 @@
 
+# This is not really an easy level question
+
 # see Sieve of Eratosthenes: https://www.youtube.com/watch?v=eKp56OLhoQs
-# time complexity O(n/2 + n/3 + n/5 + n/7 + n/11 + ...) = O(nlog(logn)).
+# time complexity O(n/2 + n/3 + n/5 + n/7 + n/11 + ...) = O(N * log(logN)).
 
 class Solution(object):
     def countPrimes(self, n):

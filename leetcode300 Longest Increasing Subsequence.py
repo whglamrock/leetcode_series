@@ -1,5 +1,5 @@
 
-# O(nlogn) solution. P.S., if running time of O(nlog) is required, it's a hard question
+# O(N * logN) solution. P.S., if running time of O(N * logN) is required, it's a hard question
 # see explanation: https://discuss.leetcode.com/topic/28738/java-python-binary-search-o-nlogn-time-with-explanation
 
 class Solution(object):

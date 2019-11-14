@@ -3,7 +3,7 @@
 
 class Solution(object):
     def twoSum(self, nums, target):
-        if nums is None or not nums:
+        if not nums:
             return []
 
         valueToIndex = {}
