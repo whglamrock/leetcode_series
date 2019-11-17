@@ -21,9 +21,10 @@ class Solution(object):
                 # 1) we can completely just not use coins[i - 1]
                 dp[i][j] = dp[i - 1][j]
                 # 2) we must use coins[i - 1], then j - coins[i - 1] must >= 0
-                    # not using dp[i - 1][j - coins[i - 1]] because we can use unlimited number of coins[i - 1]
+                    # dp[i][j - coins[i - 1]] means after we've considered first i coins,
+                    # the number of ways to make up j - coins[i - 1]
                 if j - coins[i - 1] >= 0:
-                    # if we use dp[i - 1][j - coins[i - 1]], consider coins = [1, 2, 5] & amount == 5:
+                    # if we use dp[i - 1][j - coins[i - 1]], consider when coins = [1, 2, 5] & amount == 5:
                         # because dp[0] = [1, 0, 0, 0, 0, 0], when we need to calculate dp[1][4]
                         # the dp[1 - 1][4 - 1] = 0 we will get wrong result for dp[1][4]
                     dp[i][j] += dp[i][j - coins[i - 1]]
