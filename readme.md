@@ -16,7 +16,7 @@ Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same
     * [lc97. Interleaving String](https://leetcode.com/problems/interleaving-string/)
     * [lc188. best time to sell stock with k transactions](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-iv/)
     * [lc72. Edit Distance](https://leetcode.com/problems/edit-distance/)
-    * 
+    * classic knapsack problem: [lc518. Coin Change 2](https://leetcode.com/problems/coin-change-2/), notice how we use `dp[i][j]`'s definition to avoid duplicates of combination
 * Multiple dp array is involved:
     * [lc85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
 * A very special question where the only idea needs us to starts from final state (top-down instead of bottom-up): [lc174. Dungeon Game](https://leetcode.com/problems/dungeon-game/)
