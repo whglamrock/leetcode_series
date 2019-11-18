@@ -21,7 +21,8 @@ class Solution(object):
 
         # use k + 1 instead of k is for easy reference of dp[i - 1][j]
         # dp[i][j] means with i transactions the maxProfit we can get at j (we don't have to sell at j
-            # or before j we may have used up i transactions)
+            # and it's possible that we have used up i transactions before j)
+        # Most importantly, since dp[i][j] means the maxProfit, at that point we must have no stock in hand
         dp = [[0 for j in xrange(n)] for i in xrange(k + 1)]
 
         for i in xrange(1, k + 1):

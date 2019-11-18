@@ -1,41 +1,34 @@
 
-# Definition for an interval.
+# The intervals is sorted and non-overlapping
+# binary search O(N) solution because insert item takes O(N) anyways
 
-class Interval(object):
-    def __init__(self, s=0, e=0):
-
-        self.start = s
-        self.end = e
-
-
-# the intervals is sorted and non-overlapping
-# The following solution is O(n), and idea is to find the insertion position and do potential merge
-#   However, we can use binary search to find the position, but insertion/deepcopy both takes O(n).
-#   If the intervals is a linkedlist, then there is no way to do binary search. So we can only do O(n)
+from bisect import bisect_left, bisect_right
 
 class Solution(object):
     def insert(self, intervals, newInterval):
-
+        """
+        :type intervals: List[List[int]]
+        :type newInterval: List[int]
+        :rtype: List[List[int]]
+        """
         if not intervals:
             return [newInterval]
 
-        s, e = newInterval.start, newInterval.end
-        i = 0
-        res = []
+        flattenedIntervals = []
+        for interval in intervals:
+            flattenedIntervals.append(interval[0])
+            flattenedIntervals.append(interval[1])
 
-        while i < len(intervals):
-            # potential overlapping
-            if s <= intervals[i].end:
-                # the newInterval comes completely before intervals[i], no overlapping
-                if e < intervals[i].start:
-                    break
-                # overlapping found
-                s, e = min(s, intervals[i].start), max(e, intervals[i].end)
-            else:
-                res.append(intervals[i])
-            i += 1
+        i = bisect_left(flattenedIntervals, newInterval[0])
+        j = bisect_right(flattenedIntervals, newInterval[1])
+        flattenedIntervals[i:j] = [newInterval[0]] * (i % 2 == 0) + [newInterval[1]] * (j % 2 == 0)
 
-        res.append(Interval(s, e))
-        res.extend(intervals[i:])
+        intervals = []
+        for i in xrange(0, len(flattenedIntervals) - 1, 2):
+            intervals.append([flattenedIntervals[i], flattenedIntervals[i + 1]])
 
-        return res
+        return intervals
+
+
+
+print Solution().insert([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8])

@@ -1,6 +1,48 @@
 
-# the thought is pretty much like DFS
-# the Hashmap dic stores the steps can be taken from each stone (key is stone, value is a set)
+# DFS & memoization solution
+
+class Solution(object):
+    def canCross(self, stones):
+        """
+        :type stones: List[int]
+        :rtype: bool
+        """
+        # stones list will have at least 2 stones
+        if stones[1] != 1:
+            return False
+
+        return self.dfs(stones[1], 1, stones[-1], set(stones), set())
+
+    def dfs(self, currStone, lastStep, destination, stonesSet, memo):
+
+        if (currStone, lastStep) in memo:
+            return False
+        if currStone not in stonesSet or currStone == 0:
+            return False
+
+        if currStone == destination:
+            return True
+
+        steps = [lastStep, lastStep + 1]
+        if lastStep - 1 > 0:
+            steps.append(lastStep - 1)
+
+        for step in steps:
+            if self.dfs(currStone + step, step, destination, stonesSet, memo):
+                return True
+
+        memo.add((currStone, lastStep))
+        return False
+
+
+
+print Solution().canCross([0, 1, 2, 4, 5, 6, 7, 9, 10, 11, 13])
+print Solution().canCross([0, 1, 2, 3, 4, 8, 9, 11])
+
+
+
+'''
+# an interesting hashmap solution. A little bit slower than DFS + Memo solution
 
 class Solution(object):
     def canCross(self, stones):
@@ -26,52 +68,5 @@ class Solution(object):
                 if step - 1 > 0:
                     dic[reach].add(step - 1)
 
-        return False
-
-
-
-Sol = Solution()
-stones = [0, 1, 2, 4, 5, 6, 7, 9, 10, 11, 13]
-print Sol.canCross(stones)
-
-
-
-'''
-# DFS solution
-
-class Solution(object):
-    def canCross(self, stones):
-
-        if not stones or len(stones) < 1 or stones[1] != 1: return False
-
-        self.stoneset = set(stones)
-        self.destination = stones[-1]
-        # store dead ends; each dead end is with a specific currstone and laststep
-        self.check = set()
-
-        return self.helper(1, 1)
-
-    def helper(self, laststep, currstone):
-
-        # memo check
-        if (currstone, laststep) in self.check:
-            return False
-
-        # corner case check
-        if currstone not in self.stoneset or currstone == 0:
-            return False
-
-        if currstone == self.destination:
-            return True
-
-        candidates = [laststep, laststep + 1]
-        if laststep - 1 > 0:
-            candidates.append(laststep - 1)
-        for candidate in candidates:
-            if candidate + currstone in self.stoneset:
-                if self.helper(candidate, currstone + candidate):
-                    return True
-
-        self.check.add((currstone, laststep))
         return False
 '''

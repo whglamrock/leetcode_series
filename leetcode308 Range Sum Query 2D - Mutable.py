@@ -6,18 +6,30 @@
 
 class NumMatrix(object):
 
-    # leetcode does give bullshit corner case when matrix == [[]]
     def __init__(self, matrix):
         """
         :type matrix: List[List[int]]
         """
         self.matrix = matrix
         self.bits = []
+        # leetcode does give bullshit corner case when matrix == [[]]
         if matrix:
             for i in xrange(len(matrix)):
                 # covers the corner case when matrix[i] is empty
                 bit = self.buildBIT(matrix[i])
                 self.bits.append(bit)
+
+    def buildBIT(self, nums):
+        n = len(nums)
+        bit = [0] * (n + 1)
+
+        for i, num in enumerate(nums):
+            j = i + 1
+            while j <= n:
+                bit[j] += num
+                j += j & (-j)
+
+        return bit
 
     def update(self, row, col, val):
         """
@@ -28,7 +40,7 @@ class NumMatrix(object):
         """
         diff = val - self.matrix[row][col]
         self.matrix[row][col] = val
-        self.updateBIT(self.bits[row], col, diff)
+        self.updateBIT(row, col, diff)
 
     def sumRegion(self, row1, col1, row2, col2):
         """
@@ -40,38 +52,25 @@ class NumMatrix(object):
         """
         ans = 0
         for i in xrange(row1, row2 + 1):
-            ans += self.queryBIT(self.bits[i], col2) - self.queryBIT(self.bits[i], col1 - 1)
+            ans += self.queryBIT(i, col2) - self.queryBIT(i, col1 - 1)
+
         return ans
 
-    def buildBIT(self, nums):
-        n = len(nums)
-        bit = [0 for _ in xrange(n + 1)]
-
-        for i in xrange(n):
-            j = i + 1
-            while j <= n:
-                bit[j] += nums[i]
-                j += j & (-j)
-
-        return bit
-
-    # in bit the i should be i + 1
-    def queryBIT(self, bit, i):
-        # get the prefix sum
-        i += 1
+    # remember to do "j += 1"
+    def queryBIT(self, i, j):
+        j += 1
         prefixSum = 0
-        while i > 0:
-            prefixSum += bit[i]
-            i -= i & (-i)
-
+        while j > 0:
+            prefixSum += self.bits[i][j]
+            j -= j & (-j)
         return prefixSum
 
-    # in bit the i should be i + 1
-    def updateBIT(self, bit, i, diff):
-        i += 1
-        while i < len(bit):
-            bit[i] += diff
-            i += i & (-i)
+    # remember to do "j += 1"
+    def updateBIT(self, i, j, diff):
+        j += 1
+        while j < len(self.bits[0]):
+            self.bits[i][j] += diff
+            j += j & (-j)
 
 
 

@@ -7,6 +7,7 @@ class Solution(object):
         preSum = 0
         preSumCount = defaultdict(int)
         ans = 0
+
         for num in nums:
             preSum += num
             if preSum == k:
@@ -19,5 +20,4 @@ class Solution(object):
 
 
 
-Sol = Solution()
-print Sol.subarraySum([0,0,0,0,0,0,0,0,0,0], 0)
+print Solution().subarraySum([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 0)

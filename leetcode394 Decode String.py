@@ -1,35 +1,48 @@
 
-# an elegant stack solution
-# we have to use list to preserve the char and join them afterwards because string
-# is immutable in python.
-
 class Solution(object):
     def decodeString(self, s):
+        """
+        :type s: str
+        :rtype: str
+        """
+        if not s:
+            return ''
 
-        stack = [[[], 1]]   # very important!
+        stack = []
         num = []
-        for ch in s:
-            if ch.isdigit():
-                num.append(ch)
-            elif ch == '[':
-                stack.append([[], int(''.join(num))])
+
+        for c in s:
+            if c.isdigit():
+                num.append(c)
+            elif c == '[':
+                stack.append(int(''.join(num)))
                 num = []
-            elif ch == ']':
-                string, k = stack.pop()
-                string = ''.join(string)
-                for i in xrange(k):
-                    stack[-1][0].append(string)
+                stack.append(c)
+            elif c == ']':
+                charArray = []
+                while stack and stack[-1] != '[':
+                    charArray.append(stack.pop())
+                charChunk = ''.join(charArray[::-1])
+
+                # pop the '['
+                stack.pop()
+
+                lastNum = stack.pop()
+                flattenedStr = []
+                for i in xrange(lastNum):
+                    flattenedStr.append(charChunk)
+                stack.append(''.join(flattenedStr))
             else:
-                stack[-1][0].append(ch)
-            #print stack
+                stack.append(c)
 
-        return ''.join(stack[0][0])
-
+        return ''.join(stack)
 
 
-s = '3[a2[c]]ef'
-Sol = Solution()
-print Sol.decodeString(s)
+
+print Solution().decodeString('3[a2[c]]ef')
+print Solution().decodeString('3[a]2[bc]')
+print Solution().decodeString('2[abc]3[cd]ef')
+
 
 
 
