@@ -1,5 +1,5 @@
 
-# DFS & memoization solution
+# Guaranteed O(N^2) DP solution
 
 class Solution(object):
     def canCross(self, stones):
@@ -7,6 +7,41 @@ class Solution(object):
         :type stones: List[int]
         :rtype: bool
         """
+        n = len(stones)
+        # the farthest step can only be n - 1, in which case the step length has to keep increasing
+        # dp[i][j] means at stones[i] whether we can jump step j
+        dp = [[False for j in xrange(n)] for i in xrange(n)]
+        dp[0][1] = True
+
+        for i in xrange(1, n):
+            for j in xrange(i):
+                lastStep = stones[i] - stones[j]
+                if lastStep <= 0 or lastStep >= n or not dp[j][lastStep]:
+                    continue
+                dp[i][lastStep] = True
+                if lastStep - 1 > 0:
+                    dp[i][lastStep - 1] = True
+                if lastStep + 1 < n:
+                    dp[i][lastStep + 1] = True
+
+        for j in xrange(n):
+            if dp[-1][j] == True:
+                return True
+        return False
+
+
+
+print Solution().canCross([0, 1, 2, 4, 5, 6, 7, 9, 10, 11, 13])
+print Solution().canCross([0, 1, 2, 3, 4, 8, 9, 11])
+
+
+
+'''
+# DFS & memoization solution, which actually runs much faster than dp
+
+class Solution(object):
+    def canCross(self, stones):
+
         # stones list will have at least 2 stones
         if stones[1] != 1:
             return False
@@ -32,41 +67,5 @@ class Solution(object):
                 return True
 
         memo.add((currStone, lastStep))
-        return False
-
-
-
-print Solution().canCross([0, 1, 2, 4, 5, 6, 7, 9, 10, 11, 13])
-print Solution().canCross([0, 1, 2, 3, 4, 8, 9, 11])
-
-
-
-'''
-# an interesting hashmap solution. A little bit slower than DFS + Memo solution
-
-class Solution(object):
-    def canCross(self, stones):
-
-        if not stones or len(stones) < 1 or stones[1] != 1:
-            return False
-
-        dic = {}
-        for stone in stones:
-            dic[stone] = set()
-        dic[0].add(1)
-
-        for i in xrange(len(stones) - 1):
-            stone = stones[i]
-            for step in dic[stone]:
-                reach = step + stone
-                if reach not in dic:
-                    continue
-                if reach == stones[-1]:
-                    return True
-                dic[reach].add(step)
-                dic[reach].add(step + 1)
-                if step - 1 > 0:
-                    dic[reach].add(step - 1)
-
         return False
 '''

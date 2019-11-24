@@ -1,44 +1,68 @@
 
-# note: the length of word is guaranteed smaller than maxWidth
-# P.S., remember the robin logic operation code:
-#   for i in xrange(maxWidth - numofletters):
-#       currline[i % (len(currline) - 1 or 1)] += ' '
+from collections import deque
+
+# this kind of question is stupid... but stupid interviewer may ask it
 
 class Solution(object):
     def fullJustify(self, words, maxWidth):
+        """
+        :type words: List[str]
+        :type maxWidth: int
+        :rtype: List[str]
+        """
 
-        # the "not words" corner case is also covered in the following
-        res = []
-        numofletters = 0
-        # the len(currline) is the current number of slots needed
-        currline = []
+        i = 0
+        ans = []
 
-        for word in words:
-            # the currline is from the last loop, and len(currline) == number of words in this line - 1
-            # the condition operator can't be '>='
-            if numofletters + len(word) + len(currline) > maxWidth:
-                for i in xrange(maxWidth - numofletters):
-                    # the currline has to minus one
-                    if len(currline) > 1:
-                        currline[i % (len(currline) - 1)] += ' '
-                    else:
-                        currline[0] += ' '
-                res.append(''.join(currline))
-                currline = []
-                numofletters = 0
-            currline.append(word)
-            numofletters += len(word)
+        while i < len(words):
+            # curr stores the words in the current line
+            curr = deque()
+            # numOfLetters counts the total number of non-empty chars in the current line
+            numOfLetters = 0
 
-        lastline = ' '.join(currline)
-        return res + [lastline + ' ' * (maxWidth - len(lastline))]
-        #return res + [' '.join(currline) + ' ' * (maxWidth - numofletters - len(currline) + 1)]
-        #return res + [' '.join(currline).ljust(maxWidth)]  # the magical "ljust"
+            # len(curr) == number of slots
+            while i < len(words) and numOfLetters + len(curr) + len(words[i]) <= maxWidth:
+                curr.append(words[i])
+                numOfLetters += len(words[i])
+                i += 1
+
+            numOfSpaces = maxWidth - numOfLetters
+            line = []
+
+            # assign number of spaces in each slot
+            if len(curr) > 1:
+                # j is the least number of consecutive spaces
+                j = numOfSpaces / (len(curr) - 1)
+                extraSpaces = numOfSpaces % (len(curr) - 1)
+                while curr:
+                    line.append(curr.popleft())
+                    if not curr:
+                        break
+                    line.append(' ' * j)
+                    if extraSpaces:
+                        line.append(' ')
+                        extraSpaces -= 1
+            else:
+                line.append(curr[0])
+                line.append(' ' * numOfSpaces)
+
+            ans.append(''.join(line))
+
+        if ans:
+            # if there are consecutive spaces in the string, string.split() will generate empty strings
+            lastLine = ans.pop().split(' ')
+            wordsInLastLine = deque([item for item in lastLine if item])
+
+            numOfLetters = sum(len(word) for word in wordsInLastLine)
+            numOfSpaces = maxWidth - numOfLetters
+
+            line = [' '.join(wordsInLastLine)]
+            numOfSpaces -= len(wordsInLastLine) - 1
+            line.append(' ' * numOfSpaces)
+            ans.append(''.join(line))
+
+        return ans
 
 
 
-Sol = Solution()
-words = ["This", "is", "an", "example", "of", "text", "justification."]
-ans = Sol.fullJustify(words, 15)
-for item in ans:
-    print item
-
+print Solution().fullJustify(["This", "is", "an", "example", "of", "text", "justification."], 16)

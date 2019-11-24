@@ -1,8 +1,8 @@
 
 from collections import defaultdict
 
-# typical Google type question, also asked by snapchat
-# O(K*NlogN) solution is good enough where K is avg(len(word)).
+# typical Google type question, also asked by Snap
+# O(K * N * log(N)) solution is good enough where K is avg(len(word)).
     # In real interview we can mention it's possible to use Trie to optimize to O(K * N)
 
 class Solution(object):
@@ -26,7 +26,7 @@ class Solution(object):
                 wordToAbbr[wordsWithSameAbbr[0]] = abbr
             else:
                 wordsWithSameAbbr.sort()
-                # except the last word, each word's prefix will be caculated twice
+                # except the last word, each word's prefix will be calculated twice
                 for i in xrange(len(wordsWithSameAbbr) - 1):
                     word1, word2 = wordsWithSameAbbr[i], wordsWithSameAbbr[i + 1]
                     j = self.getFirstDifferentIndex(word1, word2)
