@@ -19,11 +19,10 @@ class Solution(object):
             parent[find(x)] = find(y)
 
         n = len(edges)
-        parent = [i for i in xrange(n + 1)]
+        parent = range(n + 1)
         for i, j in edges:
             x = find(i)
             y = find(j)
             if x == y:
                 return [i, j]
             union(i, j)
-

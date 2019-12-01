@@ -1,5 +1,4 @@
 
-
 # see solid proof for optimality of greedy algorithm: https://leetcode.com/problems/couples-holding-hands/discuss/113369/Formal-proof-of-the-optimality-of-greedy-algorithm
 
 class Solution(object):

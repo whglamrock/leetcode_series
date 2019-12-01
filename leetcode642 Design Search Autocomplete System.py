@@ -14,7 +14,7 @@ class AutocompleteSystem(object):
 
     def __init__(self, sentences, times):
         self.root = TrieNode()
-        self.prefix = ""
+        self.prefix = []
         for s, count in zip(sentences, times):
             self.add(s, count)
 
@@ -28,13 +28,13 @@ class AutocompleteSystem(object):
 
         # even when the prefix exists in trie, we need to return []
         if c == "#":
-            self.add(self.prefix, 1)
-            # reset but don't clear the root, because we can multiple rounds of inputs (multiple "#"s)
-            self.prefix = ""
+            self.add(''.join(self.prefix), 1)
+            # reset but don't clear the root, because we can have multiple rounds of inputs (multiple "#"s)
+            self.prefix = []
             return []
 
         # locate the right place in trie
-        self.prefix += c
+        self.prefix.append(c)
         curr = self.root
         for char in self.prefix:
             # as long as the char != "#", we don't need to call add()

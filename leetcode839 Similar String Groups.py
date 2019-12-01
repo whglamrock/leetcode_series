@@ -3,6 +3,7 @@ from collections import deque, defaultdict
 
 # O(K * N^2) time complexity where N = len(A) and K = len(A[0])
 # This should be good enough in real interview but stupid leetcode somehow TLE
+# P.S., it's essential to remember to model this as an undirected graph
 
 class Solution(object):
     def numSimilarGroups(self, A):
@@ -17,42 +18,36 @@ class Solution(object):
         wordToSimilars = defaultdict(set)
 
         for i in xrange(len(A)):
-            word1 = A[i]
+            w1 = A[i]
             for j in xrange(len(A)):
                 if i == j:
                     continue
-                word2 = A[j]
-                if self.isSimilar(word1, word2):
-                    wordToSimilars[word1].add(word2)
-                    wordToSimilars[word2].add(word1)
-            # we need it because later if word not in wordToSimilars we don't do BFS
-            if word1 not in wordToSimilars:
-                wordToSimilars[word1] = set()
+                w2 = A[j]
+                if self.isSimilar(w1, w2):
+                    wordToSimilars[w1].add(w2)
+                    wordToSimilars[w2].add(w1)
 
-        ans = 0
-        # BFS
+        group = 0
+        visited = set()
         for word in A:
-            # this word has been BFS'ed to
-            if word not in wordToSimilars:
-                continue
-            self.bfs(word, wordToSimilars)
-            ans += 1
+            if word not in visited:
+                group += 1
+                self.bfs(word, wordToSimilars, visited)
 
-        return ans
+        return group
 
-    def bfs(self, startWord, wordToSimilars):
-        queue = deque()
-        queue.append(startWord)
-        while queue:
-            word = queue.popleft()
-            if word not in wordToSimilars:
+    def bfs(self, startWord, wordToSimilars, visited):
+        q = deque()
+        q.append(startWord)
+
+        while q:
+            word = q.popleft()
+            if word in visited:
                 continue
-            for similarWord in wordToSimilars[word]:
-                queue.append(similarWord)
-                wordToSimilars[similarWord].discard(word)
-                if not wordToSimilars[similarWord]:
-                    del wordToSimilars[similarWord]
-            del wordToSimilars[word]
+            visited.add(word)
+            for similar in wordToSimilars[word]:
+                if similar not in visited:
+                    q.append(similar)
 
     def isSimilar(self, word1, word2):
         diffCount = 0
@@ -105,32 +100,31 @@ class Solution {
         }
         
         int ans = 0;
+        Set<String> visited = new HashSet<>();
         for (String word : array) {
-            if (!wordToSimilars.containsKey(word)) {
-                continue;
+            if (!visited.contains(word)) {
+                bfs(word, wordToSimilars, visited);
+                ans++;
             }
-            bfs(word, wordToSimilars);
-            ans++;
         }
         
         return ans;
     }
     
-    public void bfs(String startWord, Map<String, Set<String>> wordToSimilars) {
+    public void bfs(String startWord, Map<String, Set<String>> wordToSimilars, Set<String> visited) {
         Queue<String> queue = new LinkedList<>();
         queue.add(startWord);
+        
         while (queue.size() > 0) {
             String word = queue.poll();
-            if (!wordToSimilars.containsKey(word)) {
+            if (visited.contains(word)) {
                 continue;
             }
+            visited.add(word);
             for (String similarWord : wordToSimilars.get(word)) {
-                queue.add(similarWord);
-                wordToSimilars.get(similarWord).remove(word);
-                if (wordToSimilars.get(similarWord).size() == 0) {
-                    wordToSimilars.remove(similarWord);
+                if (!visited.contains(similarWord)) {
+                    queue.add(similarWord);
                 }
-                wordToSimilars.remove(word);
             }
         }
     }

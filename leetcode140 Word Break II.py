@@ -13,22 +13,22 @@ class Solution(object):
         """
         return self.dfs(s, wordDict, {})
 
-    def dfs(self, s, wordDict, stringToWordBreak):
+    def dfs(self, s, wordDict, memo):
         if not s:
             return ['']
 
-        if s in stringToWordBreak:
-            return stringToWordBreak[s]
+        if s in memo:
+            return memo[s]
 
         res = []
         for word in wordDict:
             if s.startswith(word):
-                wordBreakOfSuffix = self.dfs(s[len(word):], wordDict, stringToWordBreak)
+                wordBreakOfSuffix = self.dfs(s[len(word):], wordDict, memo)
                 for item in wordBreakOfSuffix:
                     # don't forget to strip() in case item == ''
                     res.append((word + ' ' + item).strip())
 
-        stringToWordBreak[s] = res
+        memo[s] = res
         return res
 
 

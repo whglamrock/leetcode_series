@@ -25,6 +25,8 @@ class Solution(object):
             return []
 
         # sort in reverse-lexicographic order so the destination of one origin will be sorted in reverse order
+        # we wanna traverse the lexicographically smaller destinations first; this guarantees if it works, the
+            # path being output is lexicographically smallest
         tickets.sort()
         tickets.reverse()
 

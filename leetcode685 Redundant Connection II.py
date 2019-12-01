@@ -26,6 +26,7 @@ class Solution(object):
             if parent[j] == 0:
                 parent[j] = i
             else:
+                # cannot directly return [i, j] here because we don't know which one of candidate1/2 is redundant
                 candidate1 = [i, j]
                 candidate2 = [parent[j], j]
                 # "remove" this edge; then use union find to see if the graph becomes a valid tree
@@ -48,8 +49,8 @@ class Solution(object):
             x, y = find(i), find(j)
             # circle exists
             if x == y:
-                # if candidate2 != None then we removed an wrong edge;
-                # if candidate2 == None then there was no node with 2 parents so we just need to remove an edge in circle
+                # if candidate1/2 != None then we removed an wrong edge;
+                # if candidate1/2 == None then there was no node with 2 parents so we just need to remove an edge in circle
                 return candidate2 if candidate2 else [i, j]
             union(i, j)
 
