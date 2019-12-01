@@ -1,60 +1,47 @@
 
-# typical unionfind solution, strictly O(N) time/space
+from collections import defaultdict, deque
+
+# BFS O(N) solution, much easier to implement than UnionFind
 
 class Solution(object):
     def countComponents(self, n, edges):
+        """
+        :type n: int
+        :type edges: List[List[int]]
+        :rtype: int
+        """
+        graph = defaultdict(set)
+        for i, j in edges:
+            graph[i].add(j)
+            graph[j].add(i)
 
-        if not edges:
-            return n
+        numOfComponents = 0
+        visited = set()
+        for i in xrange(n):
+            if i not in visited:
+                numOfComponents += 1
+                self.bfs(i, graph, visited)
 
-        self.unionid = 0
-        uniondic = {}
-        dic = {}
+        return numOfComponents
 
-        def unionfind(a, b):
-            if a not in dic and b not in dic:
-                dic[a] = self.unionid
-                dic[b] = self.unionid
-                uniondic[self.unionid] = {a, b}
-                self.unionid += 1
-            elif a in dic and b not in dic:
-                id = dic[a]
-                dic[b] = id
-                uniondic[id].add(b)
-            elif b in dic and a not in dic:
-                id = dic[b]
-                dic[a] = id
-                uniondic[id].add(a)
-            else:
-                ida = dic[a]
-                idb = dic[b]
-                if ida == idb: return
-                # in the following process, every elment will be unioned at most once,
-                # so the time complexity is still O(N)
-                if len(uniondic[ida]) > len(uniondic[idb]):
-                    for item in uniondic[idb]:
-                        uniondic[ida].add(item)
-                        dic[item] = ida
-                    del uniondic[idb]
-                else:
-                    for item in uniondic[ida]:
-                        uniondic[idb].add(item)
-                        dic[item] = idb
-                    del uniondic[ida]
+    def bfs(self, start, graph, visited):
+        if start in visited:
+            return
 
-        for edge in edges:
-            a, b = edge
-            unionfind(a, b)
-
-        #print uniondic
-        return len(uniondic) + n - len(dic)
+        q = deque()
+        q.append(start)
+        while q:
+            i = q.popleft()
+            if i in visited:
+                continue
+            visited.add(i)
+            for j in graph[i]:
+                if j not in visited:
+                    q.append(j)
 
 
 
-Sol = Solution()
-n = 5
-edges = [[0, 1], [1, 2], [3, 4]]
-print Sol.countComponents(n, edges)
+print Solution().countComponents(5, [[0, 1], [1, 2], [3, 4]])
 
 
 

@@ -44,11 +44,13 @@ Some questions with backtracking tag sometimes can be solved in top-down DFS way
 
 ##### Topology Sort
 * Textbook topology sort questions: [lc269. Alien Dictionary](https://leetcode.com/problems/alien-dictionary/), [lc207. Course Schedule](https://leetcode.com/problems/course-schedule/), [lc210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) 
+* A hard versions: [lc1203. Sort Items by Groups Respecting Dependencies](https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/) where it's more convenient to use an additional "indegree" variable to store the node to degree mapping. "Degree" means how many direct children this node has  
 
 
 ##### Union Find
 * A textbook unionFind question that includes detecting circle in a graph: [lc684. Redundant Connection](https://leetcode.com/problems/redundant-connection/)
 * A typical question that is best/easiest to be solved with union find: [lc261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/). Follow up: [lc685. Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii/), which needs some tricky pre-processing before we can use union find.
+* [lc305. Number of Islands II](https://leetcode.com/problems/number-of-islands-ii/), the harder version which practically can only be solved by UnionFind
 
 
 ##### Graph

@@ -25,7 +25,7 @@ class Solution(object):
         q = deque()
         for char in charSet:
             # using the greater relationship to build the toposort queue but
-            # we use less to perform the toposort to detect invalid case
+                # we use less to perform the toposort to detect invalid case
             if char not in greater:
                 q.append(char)
 
@@ -63,11 +63,10 @@ class Solution(object):
 
 
 
-words = [
+print Solution().alienOrder([
   "wrt",
   "wrf",
   "er",
   "ett",
   "rftt"
-]
-print Solution().alienOrder(words)
+])
