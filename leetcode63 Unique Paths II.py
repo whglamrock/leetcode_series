@@ -4,7 +4,7 @@
 class Solution(object):
     def uniquePathsWithObstacles(self, obstacleGrid):
 
-        if (not obstacleGrid) or (not obstacleGrid[0]):
+        if not obstacleGrid or not obstacleGrid[0]:
             return 0
         if obstacleGrid[0][0] == 1:
             return 0

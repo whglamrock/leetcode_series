@@ -1,8 +1,7 @@
 
 from collections import defaultdict, deque
 
-# topological sort solution
-# idea from lc207
+# topological sort solution; idea from lc207
 
 class Solution(object):
     def findOrder(self, numCourses, prerequisites):

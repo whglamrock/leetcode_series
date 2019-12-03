@@ -19,8 +19,8 @@ class Solution(object):
             return res
 
         for i in xrange(s, e+1):
-            leftSubtrees = self.generateSubtrees(s, i-1)
-            rightSubtrees = self.generateSubtrees(i+1, e)
+            leftSubtrees = self.generateSubtrees(s, i - 1)
+            rightSubtrees = self.generateSubtrees(i + 1, e)
             for l in leftSubtrees:
                 for r in rightSubtrees:
                     root = TreeNode(i)

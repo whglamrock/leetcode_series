@@ -36,5 +36,5 @@ class Solution(object):
 
 print Solution().findDuplicate([3, 1, 2, 4, 4])
 
-# in real interview, if the O(1) extra space is needed, this becomes a hard level question (see lintcode 633)r
+# in real interview, if the O(1) extra space is needed, this becomes a hard level question (see lintcode 633)
 # An explanation that may be helpful: https://leetcode.com/problems/find-the-duplicate-number/discuss/72846/My-easy-understood-solution-with-O(n)-time-and-O(1)-space-without-modifying-the-array.-With-clear-explanation./75491

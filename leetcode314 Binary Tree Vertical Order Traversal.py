@@ -11,6 +11,7 @@ class TreeNode(object):
         self.right = None
 
 
+
 class Solution(object):
     def verticalOrder(self, root):
 
@@ -24,7 +25,7 @@ class Solution(object):
         todo.append((0, 0, root))
 
         # remember that we can't use a simple to do list and pop from right
-        #   because the level order traverse has to be from left to right
+            # because the level order traverse has to be from left to right
         while todo:
             next = deque()
             while todo:

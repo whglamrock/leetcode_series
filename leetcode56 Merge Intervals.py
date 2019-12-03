@@ -1,5 +1,5 @@
 
-# O(NlogN) solution by sorting.
+# O(N * log(N)) solution by sorting.
 
 class Solution(object):
     def merge(self, intervals):
