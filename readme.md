@@ -10,7 +10,7 @@ For each topic/special data structure, the typical use cases are summaized here
 
 
 ##### Dynamic Programming
-Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same as what the question is asking for. In some case, we may need multiple dp array to track the previous state, depending on what the question is asking for.
+Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same as what the question is asking for. In some case, we may need multiple dp array to track the previous state. 
 * Typical one 2-D dp array question:
     * [lc10. regular expression matching](https://leetcode.com/problems/regular-expression-matching/)
     * [lc97. Interleaving String](https://leetcode.com/problems/interleaving-string/)
@@ -19,7 +19,7 @@ Usually (or almost 95% of the case) what `dp[i][j]` means should be exactly same
     * classic knapsack problem: [lc518. Coin Change 2](https://leetcode.com/problems/coin-change-2/), notice how we use `dp[i][j]`'s definition to avoid duplicates of combination
 * Multiple dp array is involved:
     * [lc85. Maximal Rectangle](https://leetcode.com/problems/maximal-rectangle/)
-* A very special question where the only idea needs us to starts from final state (top-down instead of bottom-up): [lc174. Dungeon Game](https://leetcode.com/problems/dungeon-game/)
+* A very special question where the only idea needs us to starts from final state (top-down instead of bottom-up): [lc174. Dungeon Game](https://leetcode.com/problems/dungeon-game/); when you find it's hard to do bottom up, try the top down idea
 * When you don't necessarily need a dp array, but multiple state variables: [lc309. Best Time to Buy and Sell Stock with Cooldown](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/), [lc714. Best Time to Buy and Sell Stock with Transaction Fee](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-transaction-fee/)
 
 
@@ -29,22 +29,23 @@ Merge sort usually should not be needed, but it is needed the question is likely
 
 
 ##### Backtracking
-Some questions with backtracking tag sometimes can be solved in top-down DFS way. E.g., [lc140. Word Break II](https://leetcode.com/problems/word-break-ii/)
+* Some questions with backtracking tag sometimes can be solved in top-down DFS way. E.g., [lc140. Word Break II](https://leetcode.com/problems/word-break-ii/)
+* Textbook backtracking questions: [lc46. Permutations](https://leetcode.com/problems/permutations), [lc37. Sudoku Solver](https://leetcode.com/problems/sudoku-solver)
 
 
 ##### Binary Search
-* Usually the while loop condition, initial range, how we move the index are two triplets: `l, r = 0, n & while l < r & r = m` or `l, r = 0, n - 1 & while l <= r & r = m - 1`. There are some special cases, e.g., [lc4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
+* Usually the while loop condition, initial range, how we move the index are two combinations: `l, r = 0, n & while l < r & r = m & l = m + 1` or `l, r = 0, n - 1 & while l <= r & r = m - 1 & l = m + 1`. There are some special cases, e.g., [lc4. Median of Two Sorted Arrays](https://leetcode.com/problems/median-of-two-sorted-arrays/)
 * Classic Binary search question with easy to fall trap: [lc33. Search in Rotated Sorted Array](https://leetcode.com/problems/search-in-rotated-sorted-array/)
-* Non-typical question where we don't search in a range: [lc29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers/submissions/)
+* Atypical question where we don't search in a range: [lc29. Divide Two Integers](https://leetcode.com/problems/divide-two-integers/submissions/)
 * The sorted list is formed in a very un-straightforward way (not original nums or prefix sum):
     * [lc300. Longest Increasing Subsequence](https://leetcode.com/problems/longest-increasing-subsequence/)
 * In most cases we would always make m = (l + r) / 2 but there's also situation when we make m = (l + r + 1) / 2: [lc34. Find First and Last Position of Element in Sorted Array](https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/submissions/)
-* An untypical binary question where searched range is not sorted and using prefixSum won't work: [lc162. Find Peak Element](https://leetcode.com/problems/find-peak-element/)
+* An atypical binary question where searched range is not sorted and using prefixSum won't work: [lc162. Find Peak Element](https://leetcode.com/problems/find-peak-element/)
 
 
 ##### Topology Sort
 * Textbook topology sort questions: [lc269. Alien Dictionary](https://leetcode.com/problems/alien-dictionary/), [lc207. Course Schedule](https://leetcode.com/problems/course-schedule/), [lc210. Course Schedule II](https://leetcode.com/problems/course-schedule-ii/) 
-* A hard versions: [lc1203. Sort Items by Groups Respecting Dependencies](https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/) where it's more convenient to use an additional "indegree" variable to store the node to degree mapping. "Degree" means how many direct children this node has  
+* A hard version: [lc1203. Sort Items by Groups Respecting Dependencies](https://leetcode.com/problems/sort-items-by-groups-respecting-dependencies/) where it's more convenient to use an additional "indegree" variable to store the node to degree mapping. "Degree" means how many direct children this node has  
 
 
 ##### Union Find
