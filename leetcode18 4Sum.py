@@ -9,13 +9,13 @@ class Solution(object):
 
             # two pointers solve sorted 2-sum problem
             if N == 2:
-                l,r = 0,len(nums)-1
+                l, r = 0, len(nums)-1
                 while l < r:
                     s = nums[l] + nums[r]
                     if s == target:
                         results.append(result + [nums[l], nums[r]])
                         l += 1
-                        while l < r and nums[l] == nums[l-1]:
+                        while l < r and nums[l] == nums[l - 1]:
                             l += 1
                     elif s < target:
                         l += 1
@@ -23,9 +23,9 @@ class Solution(object):
                         r -= 1
             # recursively reduce N
             else:
-                for i in xrange(len(nums)-N+1):
+                for i in xrange(len(nums) - N + 1):
                     if i == 0 or (i > 0 and nums[i-1] != nums[i]):
-                        findNsum(nums[i+1:], target-nums[i], N-1, result+[nums[i]], results)
+                        findNsum(nums[i + 1:], target-nums[i], N - 1, result + [nums[i]], results)
                         # in the first round of the loop, for every nums[i], the goal becomes to find
                         # another N-1 items in nums that have a sum of target-nums[i], the results store
                         # the answers that needed to be returned; the result stores the elements to be
@@ -39,10 +39,10 @@ class Solution(object):
 
 
 
-s = [0,1,5,0,1,5,5,-4]
+s = [0, 1, 5, 0, 1, 5, 5, -4]
 target = 11
 Sol = Solution()
-print Sol.fourSum(s,target)
+print Sol.fourSum(s, target)
 
 
 
