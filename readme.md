@@ -49,6 +49,7 @@ Merge sort usually should not be needed, but it is needed the question is likely
 
 
 ##### Union Find
+Note that when we do path compression with the "find" method, the parent of a union will very likely change. So union find is not very appropriate, or more error prone to solving questions like "find number of disconnected parts in a disconnected graph". 
 * A textbook unionFind question that includes detecting circle in a graph: [lc684. Redundant Connection](https://leetcode.com/problems/redundant-connection/)
 * A typical question that is best/easiest to be solved with union find: [lc261. Graph Valid Tree](https://leetcode.com/problems/graph-valid-tree/). Follow up: [lc685. Redundant Connection II](https://leetcode.com/problems/redundant-connection-ii/), which needs some tricky pre-processing before we can use union find.
 * [lc305. Number of Islands II](https://leetcode.com/problems/number-of-islands-ii/), the harder version which practically can only be solved by UnionFind
