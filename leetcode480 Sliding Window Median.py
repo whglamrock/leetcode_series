@@ -17,13 +17,13 @@ class Solution(object):
         for i, num in enumerate(nums):
             # need to remove i - k. O(k) time
             if i >= k:
-                sizeOfSmaller = len(smaller)
+                size_of_smaller = len(smaller)
                 for smallerNum, index in smaller:
                     if index == i - k:
                         smaller.remove((smallerNum, index))
                         break
                 # the i - k was not in smaller
-                if sizeOfSmaller == len(smaller):
+                if size_of_smaller == len(smaller):
                     for biggerNum, index in bigger:
                         if index == i - k:
                             bigger.remove((biggerNum, index))
@@ -35,17 +35,17 @@ class Solution(object):
 
             # push num to the heaps. O(logK) time
             heappush(bigger, (num, i))
-            smallestOfBigger, j = heappop(bigger)
-            heappush(smaller, (-smallestOfBigger, j))
+            smallest_of_bigger, j = heappop(bigger)
+            heappush(smaller, (-smallest_of_bigger, j))
 
             # balance the size; we always make sure smaller's size is 1 more bigger or equal to bigger's size
             while len(bigger) > len(smaller):
-                smallestOfBigger, j = heappop(bigger)
-                heappush(smaller, (-smallestOfBigger, j))
+                smallest_of_bigger, j = heappop(bigger)
+                heappush(smaller, (-smallest_of_bigger, j))
             while len(smaller) > len(bigger) + 1:
-                biggestOfSmaller, j = heappop(smaller)
-                biggestOfSmaller = -biggestOfSmaller
-                heappush(bigger, (biggestOfSmaller, j))
+                biggest_of_smaller, j = heappop(smaller)
+                biggest_of_smaller = -biggest_of_smaller
+                heappush(bigger, (biggest_of_smaller, j))
 
             if i >= k - 1:
                 # get the median
@@ -74,7 +74,7 @@ public class Solution {
             }
         }
     );
-	
+
     public double[] medianSlidingWindow(int[] nums, int k) {
         int n = nums.length - k + 1;
         if (n <= 0) return new double[0];
