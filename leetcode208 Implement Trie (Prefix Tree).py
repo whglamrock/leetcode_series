@@ -1,12 +1,11 @@
-
 # Trie data structure demo: https://www.youtube.com/watch?v=AXjmTQ8LEoI
 
 from collections import defaultdict
 
+
 class TrieNode(object):
 
     def __init__(self):
-
         self.children = defaultdict(TrieNode)
         self.isword = False
 
@@ -43,8 +42,6 @@ class Trie(object):
             current = current.children[letter]
 
         return True
-
-
 
 # Your Trie object will be instantiated and called as such:
 # trie = Trie()
