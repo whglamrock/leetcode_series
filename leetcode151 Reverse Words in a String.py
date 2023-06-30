@@ -9,8 +9,7 @@ class Solution(object):
         return ' '.join(s.split()[::-1])
 
 
-
 Sol = Solution()
-print Sol.reverseWords('  fk  you  again  ')
+print(Sol.reverseWords('  suck  you  again  '))
 
 
