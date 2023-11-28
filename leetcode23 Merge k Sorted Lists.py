@@ -1,15 +1,13 @@
+from heapq import *
+
 
 # Definition for singly-linked list.
 
 class ListNode(object):
     def __init__(self, x):
-
         self.val = x
         self.next = None
 
-
-
-from heapq import *
 
 # O(N * logK) solution, where K is len(lists), N is the total number of nodes in all lists
 
@@ -45,7 +43,6 @@ class Solution(object):
         return dummy.next
 
 
-
 a = ListNode(0)
 b = ListNode(3)
 c = ListNode(5)
@@ -58,14 +55,7 @@ f = ListNode(4)
 d.next = e
 e.next = f
 
-root = Solution().mergeKLists([a,d])
+root = Solution().mergeKLists([a, d])
 while root:
-    print root.val
+    print(root.val)
     root = root.next
-
-
-
-
-
-
-
