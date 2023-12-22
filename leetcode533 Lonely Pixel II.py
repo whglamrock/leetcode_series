@@ -1,5 +1,5 @@
-
 from collections import defaultdict
+
 
 class Solution(object):
     def findBlackPixel(self, picture, N):
@@ -30,11 +30,9 @@ class Solution(object):
         return ans
 
 
-
 picture = [['W', 'B', 'W', 'B', 'B', 'W'],
            ['W', 'B', 'W', 'B', 'B', 'W'],
            ['W', 'B', 'W', 'B', 'B', 'W'],
            ['W', 'W', 'B', 'W', 'B', 'W']]
-Sol = Solution()
-print Sol.findBlackPixel(picture, 3)
-
+sol = Solution()
+print(sol.findBlackPixel(picture, 3))

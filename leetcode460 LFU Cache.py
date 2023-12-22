@@ -1,5 +1,5 @@
-
 from collections import OrderedDict
+
 
 # to really achieve O(1) time for both get & put
 
@@ -9,8 +9,9 @@ class Node:
         self.prev, self.next = None, None
         self.keys = OrderedDict()
 
+
 # using a dummy head and a dummy tail instead of solely initializing self.head = None can
-    # avoid all the key errors because we don't have to reset the head after adding a new node
+# avoid all the key errors because we don't have to reset the head after adding a new node
 
 class LFUCache(object):
     def __init__(self, capacity):
@@ -116,8 +117,6 @@ class LFUCache(object):
             if len(self.keyToVal) == self.cap:
                 self.popLeastFrequent()
             self.addNewKey(key, value)
-
-
 
 # Your LFUCache object will be instantiated and called as such:
 # obj = LFUCache(capacity)

@@ -5,7 +5,6 @@ from copy import deepcopy
 # the core idea is use a word -> distance map to make sure the distance is shortest for each visited word
 
 class Solution(object):
-
     def findLadders(self, beginWord, endWord, wordList):
 
         wordToNeighbors = {}
@@ -48,7 +47,7 @@ class Solution(object):
     def getNeighbors(self, wordSet, currWord):
         neighbors = []
         workBreak = list(currWord)
-        for i in xrange(len(currWord)):
+        for i in range(len(currWord)):
             for c in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
                       't', 'u', 'v', 'w', 'x', 'y', 'z']:
                 if c == currWord[i]:
@@ -74,10 +73,10 @@ class Solution(object):
 
 
 
-Sol = Solution()
+sol = Solution()
 beginWord = "hit"
 endWord = "cog"
 wordList = ["hot", "dot", "dog", "lot", "log", "cog"]
-print Sol.findLadders(beginWord, endWord, wordList)
+print(sol.findLadders(beginWord, endWord, wordList))
 
 
