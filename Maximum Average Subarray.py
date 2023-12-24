@@ -12,7 +12,7 @@ class Solution:
         for num in nums:
             l, r = min(l, num), max(r, num)
 
-        diff = [0 for _ in xrange(n + 1)]
+        diff = [0 for _ in range(n + 1)]
         diff[0] = 0
 
         while r - l > 10 ** -6:
@@ -22,7 +22,7 @@ class Solution:
             min_pre = 0
             check = False
 
-            for i in xrange(1, n + 1):
+            for i in range(1, n + 1):
                 # the diff[i] is the accumulated difference:
                 #   (sum of m elements - m * mid), which is invalid when i < k;
                 diff[i] = diff[i - 1] + nums[i - 1] - mid
@@ -34,7 +34,7 @@ class Solution:
                     #   before diff[i]
                     min_pre = min(min_pre, diff[i - k + 1])
 
-            # notice the exit condition and we need to calculate average
+            # notice the exit condition, and we need to calculate average
             #   we cannot set new boundary +1 or -1, or we could miss
             #   the answer
             if check:

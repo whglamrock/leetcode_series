@@ -1,12 +1,12 @@
-
 # O(N * logN) solution where N = len(edges).
 
-# For explanation, see: https://leetcode.com/problems/redundant-connection-ii/discuss/108045/C%2B%2BJava-Union-Find-with-explanation-O(n)
-# One important thing not hard to notice: if a node has 2 parents, one of the 2 edges has to be removed. Then solution
-    # will basically be divided into 2 conditions: such node exists or not. Either ways the circle exists because
-    # we have an extra edge. The tricky part is actually when there is a node with 2 parents, in which case we can't
-    # directly perform union find (we don't know which of the 2 parents we should put in the parent array). So we need
-    # to "remove" an edge to unblock union find/circle lookup, then we know whether we made the right move
+# For explanation, see: https://leetcode.com/problems/redundant-connection-ii/discuss/108045/C%2B%2BJava-Union-Find
+# -with-explanation-O(n) One important thing not hard to notice: if a node has 2 parents, one of the 2 edges has to
+# be removed. Then solution will basically be divided into 2 conditions: such node exists or not. Either ways the
+# circle exists because we have an extra edge. The tricky part is actually when there is a node with 2 parents,
+# in which case we can't directly perform union find (we don't know which of the 2 parents we should put in the
+# parent array). So we need to "remove" an edge to unblock union find/circle lookup, then we know whether we made the
+# right move
 
 class Solution(object):
     def findRedundantDirectedConnection(self, edges):
@@ -21,7 +21,7 @@ class Solution(object):
         candidate1, candidate2 = None, None
         parent = [0] * (n + 1)
 
-        for k in xrange(n):
+        for k in range(n):
             i, j = edges[k]
             if parent[j] == 0:
                 parent[j] = i
@@ -49,14 +49,13 @@ class Solution(object):
             x, y = find(i), find(j)
             # circle exists
             if x == y:
-                # if candidate1/2 != None then we removed an wrong edge;
-                # if candidate1/2 == None then there was no node with 2 parents so we just need to remove an edge in circle
+                # if candidate1/2 != None then we removed a wrong edge; if candidate1/2 == None then there was no
+                # node with 2 parents, so we just need to remove an edge in circle
                 return candidate2 if candidate2 else [i, j]
             union(i, j)
 
         return candidate1
 
 
-
-print Solution().findRedundantDirectedConnection([[1, 2], [2, 3], [3, 4], [4, 1], [1, 5]])
-print Solution().findRedundantDirectedConnection([[1, 2], [1, 3], [2, 3]])
+print(Solution().findRedundantDirectedConnection([[1, 2], [2, 3], [3, 4], [4, 1], [1, 5]]))
+print(Solution().findRedundantDirectedConnection([[1, 2], [1, 3], [2, 3]]))

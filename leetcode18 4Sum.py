@@ -1,4 +1,3 @@
-
 class Solution(object):
     def fourSum(self, nums, target):
 
@@ -9,7 +8,7 @@ class Solution(object):
 
             # two pointers solve sorted 2-sum problem
             if N == 2:
-                l, r = 0, len(nums)-1
+                l, r = 0, len(nums) - 1
                 while l < r:
                     s = nums[l] + nums[r]
                     if s == target:
@@ -23,9 +22,9 @@ class Solution(object):
                         r -= 1
             # recursively reduce N
             else:
-                for i in xrange(len(nums) - N + 1):
-                    if i == 0 or (i > 0 and nums[i-1] != nums[i]):
-                        findNsum(nums[i + 1:], target-nums[i], N - 1, result + [nums[i]], results)
+                for i in range(len(nums) - N + 1):
+                    if i == 0 or (i > 0 and nums[i - 1] != nums[i]):
+                        findNsum(nums[i + 1:], target - nums[i], N - 1, result + [nums[i]], results)
                         # in the first round of the loop, for every nums[i], the goal becomes to find
                         # another N-1 items in nums that have a sum of target-nums[i], the results store
                         # the answers that needed to be returned; the result stores the elements to be
@@ -38,13 +37,10 @@ class Solution(object):
         return results
 
 
-
 s = [0, 1, 5, 0, 1, 5, 5, -4]
 target = 11
 Sol = Solution()
-print Sol.fourSum(s, target)
-
-
+print(Sol.fourSum(s, target))
 
 '''
 class Solution(object):
@@ -56,8 +52,8 @@ class Solution(object):
         """
         res = []
         nums.sort()
-        for i in xrange(len(nums)-3):
-            for j in xrange(i+1, len(nums)-2):
+        for i in range(len(nums)-3):
+            for j in range(i+1, len(nums)-2):
                 #if i > 0 and nums[i] == nums[i-1] and j > 0 and nums[j] == nums[j-1]:
                     #continue
                 l, r = j+1, len(nums)-1
@@ -93,5 +89,3 @@ class Solution(object):
 
         return res
 '''
-
-

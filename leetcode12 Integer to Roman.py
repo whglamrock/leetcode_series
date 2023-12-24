@@ -1,5 +1,4 @@
-
-'''
+"""
 # (96ms solution)
 class Solution(object):
     def intToRoman(self, num):
@@ -10,11 +9,10 @@ class Solution(object):
         I = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
 
         return M[num/1000] + C[(num%1000)/100] + X[(num%100)/10] + I[num%10];
-'''
+"""
 
 
-
-# there are only gonna be 4 digits
+# there are only going to be 4 digits
 
 class Solution(object):
     def intToRoman(self, num):
@@ -37,7 +35,7 @@ class Solution(object):
         ans = []
         # deal with thousands
         if thousands > 0:
-            for i in xrange(thousands):
+            for i in range(thousands):
                 ans.append('M')
 
         # deal with hundreds:
@@ -46,12 +44,12 @@ class Solution(object):
         elif hundreds >= 5:
             ans.append('D')
             hundreds -= 5
-            for i in xrange(hundreds):
+            for i in range(hundreds):
                 ans.append('C')
         elif hundreds == 4:
             ans.append('CD')
         else:
-            for i in xrange(hundreds):
+            for i in range(hundreds):
                 ans.append('C')
 
         # deal with tens:
@@ -60,12 +58,12 @@ class Solution(object):
         elif tens >= 5:
             ans.append('L')
             tens -= 5
-            for i in xrange(tens):
+            for i in range(tens):
                 ans.append('X')
         elif tens == 4:
             ans.append('XL')
         else:
-            for i in xrange(tens):
+            for i in range(tens):
                 ans.append('X')
 
         # deal with singles
@@ -74,24 +72,12 @@ class Solution(object):
         elif singles >= 5:
             ans.append('V')
             singles -= 5
-            for i in xrange(singles):
+            for i in range(singles):
                 ans.append('I')
         elif singles == 4:
             ans.append('IV')
         else:
-            for i in xrange(singles):
+            for i in range(singles):
                 ans.append('I')
 
         return ''.join(ans)
-
-
-
-
-
-
-
-
-
-
-
-

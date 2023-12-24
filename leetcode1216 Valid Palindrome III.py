@@ -1,6 +1,15 @@
 
-class Solution:
-    def longestPalindromeSubseq(self, s: str) -> int:
+class Solution(object):
+    def isValidPalindrome(self, s, k):
+        """
+        :type s: str
+        :type k: int
+        :rtype: bool
+        """
+        lenOfLongestPalindromeSubsequence = self.longestPalindromeSubsequence(s)
+        return len(s) - lenOfLongestPalindromeSubsequence <= k
+
+    def longestPalindromeSubsequence(self, s):
         n = len(s)
         dp = [[0 for j in range(n)] for i in range(n)]
 
@@ -22,6 +31,5 @@ class Solution:
         return dp[0][-1]
 
 
-Sol = Solution()
-s = 'abasfba'
-print(Sol.longestPalindromeSubseq(s))
+print(Solution().isValidPalindrome(s="abcdeca", k=2))
+print(Solution().isValidPalindrome(s="abbababa", k=1))
