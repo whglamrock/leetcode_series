@@ -1,4 +1,3 @@
-
 # it's natural to think of orderedmap idea. No need for further explanation
 
 class Node:
@@ -7,8 +6,6 @@ class Node:
         self.val = val
         self.prev = None
         self.next = None
-
-
 
 class OrderedMap:
     def __init__(self):
@@ -62,7 +59,6 @@ class OrderedMap:
         self.remove(lastNode.key)
 
 
-
 class LRUCache(object):
     def __init__(self, capacity):
         """
@@ -90,16 +86,13 @@ class LRUCache(object):
             self.orderedMap.pop()
 
 
-
 Sol = LRUCache(2)
 Sol.put(2, 1241)
 Sol.put(3, 13)
 Sol.put(4, 124)
-print Sol.get(3)
-print Sol.get(2)
+print(Sol.get(3))
+print(Sol.get(2))
 Sol.put(5, 314)
-
-
 
 '''
 from collections import OrderedDict
@@ -132,4 +125,3 @@ class LRUCache(object):
         if len(self.cache) > self.cap:
             self.cache.popitem(last = False)
 '''
-
