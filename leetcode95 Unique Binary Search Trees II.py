@@ -1,7 +1,5 @@
-
 class TreeNode(object):
     def __init__(self, x):
-
         self.val = x
         self.left = None
         self.right = None
@@ -14,11 +12,11 @@ class Solution(object):
     def generateSubtrees(self, s, e):
 
         res = []
-        if s > e:   # when the recursion hits the bottom
+        if s > e:  # when the recursion hits the bottom
             res.append(None)
             return res
 
-        for i in xrange(s, e+1):
+        for i in range(s, e + 1):
             leftSubtrees = self.generateSubtrees(s, i - 1)
             rightSubtrees = self.generateSubtrees(i + 1, e)
             for l in leftSubtrees:
@@ -31,15 +29,13 @@ class Solution(object):
         return res
 
     def generateTrees(self, n):
-
         if n == 0:
             return []
 
         return self.generateSubtrees(1, n)
 
 
-
 Sol = Solution()
 ans = Sol.generateTrees(3)
 for item in ans:
-    print item.val
+    print(item.val)
