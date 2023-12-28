@@ -1,9 +1,6 @@
 
-# simple solution
-
 class Solution(object):
     def findComplement(self, num):
-
         i = 1
         # notice the condition here: "<=" instead of "<"
         while i <= num:
@@ -12,11 +9,8 @@ class Solution(object):
         return (i - 1) ^ num
 
 
-
 Sol = Solution()
-print Sol.findComplement(17)
-
-
+print(Sol.findComplement(17))
 
 '''
 # solution with extra spaced used
