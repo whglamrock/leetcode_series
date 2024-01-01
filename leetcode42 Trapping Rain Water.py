@@ -1,34 +1,23 @@
+from typing import List
 
-# It's natural to think of decreasing stack solution. The key is to avoid combining with previous bars
-# e.g., in test case [0, 1, 0, 2, (1, 0, 1), 3, 2, 1, 2, 1], we need to deal with the 3 bars within parentheses;
-    # we don't need to combine heights/add popped height back, because "min(height[i], stack[-1][-1]) - lastHeight"
-    # will prevent double adding trapped water
-
-class Solution(object):
-    def trap(self, height):
-        """
-        :type height: List[int]
-        :rtype: int
-        """
-        if not height:
-            return 0
-
+class Solution:
+    def trap(self, heights: List[int]) -> int:
         stack = []
-        ans = 0
-
-        for i, h in enumerate(height):
-            if not stack or h < stack[-1][1]:
-                stack.append([i, h])
-                continue
-            while stack and h >= stack[-1][1]:
-                lastH = stack.pop()[1]
+        area = 0
+        for i, height in enumerate(heights):
+            while stack and stack[-1][1] <= height:
+                j, previousHeight = stack.pop()
+                if previousHeight == height:
+                    stack.append([i, height])
+                    break
+                # previous height < height so j can be bottom
                 if stack:
-                    heightDiff = min(h, stack[-1][1]) - lastH
-                    ans += heightDiff * (i - stack[-1][0] - 1)
-            stack.append([i, h])
+                    area += (i - stack[-1][0] - 1) * (min(height, stack[-1][1]) - previousHeight)
+            stack.append([i, height])
 
-        return ans
-
+        return area
 
 
-print Solution().trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1])
+print(Solution().trap([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]))
+print(Solution().trap([4, 2, 0, 3, 2, 5]))
+print(Solution().trap([0, 1, 0, 3, 1, 0, 3, 4, 2, 1, 3, 1]))

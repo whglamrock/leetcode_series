@@ -15,16 +15,19 @@ class Solution:
 
     # the recursion has to take integer (not any node) as input in order to use cache
     @lru_cache(None)
-    def buildSubTree(self, count: int) -> List[Optional[TreeNode]]:
+    def buildSubTree(self, count: int) -> List[TreeNode]:
         if count == 1:
             return [TreeNode(0)]
-        output = []
-        for i in range((count - 1) // 2):
-            leftOutput = self.buildSubTree(i * 2 + 1)
-            # make sure to minus the extra one because we use it for the root
-            rightOutput = self.buildSubTree(count - (i * 2 + 1) - 1)
-            for j in range(len(leftOutput)):
-                for k in range(len(rightOutput)):
-                    output.append(TreeNode(val=0, left=leftOutput[j], right=rightOutput[k]))
 
-        return output
+        ans = []
+        for i in range(count // 2):
+            leftCount = i * 2 + 1
+            # root node uses 1 count
+            rightCount = count - 1 - leftCount
+            leftSubtrees = self.buildSubTree(leftCount)
+            rightSubtrees = self.buildSubTree(rightCount)
+            for leftSubtree in leftSubtrees:
+                for rightSubtree in rightSubtrees:
+                    ans.append(TreeNode(0, leftSubtree, rightSubtree))
+
+        return ans
