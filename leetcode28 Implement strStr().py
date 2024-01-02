@@ -27,7 +27,6 @@ class Solution(object):
                 j = pat[j - 1]
                 # we can't put j = 0 here either , try test case: "aabaaabaaac", "aabaaac".
 
-        #print pat
         return pat
 
     # return the index of matching point
@@ -64,9 +63,7 @@ class Solution(object):
         return -1
 
 
-
-print Solution().strStr('aabaaabaaac','aabaaac')
-
+print(Solution().strStr('aabaaabaaac','aabaaac'))
 
 
 '''

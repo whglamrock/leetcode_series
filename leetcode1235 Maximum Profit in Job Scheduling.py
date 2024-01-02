@@ -14,8 +14,13 @@ class Solution:
         dp = [0] * n
         dp[0] = jobs[0][2]
         for i in range(1, n):
-            indexOfJobWithEarlierEndTime = self.findMaxIndexEqualOrLessThanTarget(endTime, jobs[i][0], 0, i - 1)
-            dp[i] = max(jobs[i][2] + dp[indexOfJobWithEarlierEndTime], dp[i - 1])
+            maxIndexOfJobEarlier = self.findMaxIndexEqualOrLessThanTarget(endTime, jobs[i][0], 0, i - 1)
+            if maxIndexOfJobEarlier != -1:
+                dp[i] = max(jobs[i][2] + dp[maxIndexOfJobEarlier], dp[i - 1])
+            # can't even find any job earlier
+            else:
+                dp[i] = max(jobs[i][2], dp[i - 1])
+
         return dp[-1]
 
     def findMaxIndexEqualOrLessThanTarget(self, nums: List[int], target: int, l: int, r: int) -> int:
