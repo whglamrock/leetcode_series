@@ -1,41 +1,30 @@
+from functools import lru_cache
+from typing import List
 
-# dfs + memo. Dp idea is actually hard to implement and more error-prone in real interview
-# The total number of subproblems is N^2, but the time complexity is not O(N^2). We can use a count variable to count
-    # how many times the dfs method is invoked
+# Cached dfs solution: on surface it looks like O(2^N) time due to recursion, but it's actually O(N * N) with cache.
+# It == the number of nums' subsequence, which is n + (n - 1) + (n - 2) + ... + 2 + 1 == n * (n + 1) / 2.
+class Solution:
+    def __init__(self):
+        self.nums = []
 
-class Solution(object):
-    def PredictTheWinner(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: bool
-        """
-        if not nums:
-            return False
+    def predictTheWinner(self, nums: List[int]) -> bool:
+        self.nums = nums
+        return self.dfs(0, len(nums) - 1) >= sum(nums) / 2
 
-        n = len(nums)
-        bestScore = self.dfs(nums, 0, n - 1, {})
-
-        return 2 * bestScore >= sum(nums)
-
-    # dfs gets the max score a player can get from nums[i:j + 1]
-    def dfs(self, nums, i, j, memo):
-
-        if i > j:
+    # dfs gets the max score any player (1 or 2) can get from nums[l:r + 1]
+    @lru_cache(None)
+    def dfs(self, l: int, r: int) -> int:
+        if l > r:
             return 0
-        if (i, j) in memo:
-            return memo[(i, j)]
 
-        # nums[i + 1:j + 1] remains and the next player can choose nums[i + 1] or nums[j]
-        chooseLeft = nums[i] + min(self.dfs(nums, i + 2, j, memo), self.dfs(nums, i + 1, j - 1, memo))
-        # nums[i:j + 1] remains and the next player can choose nums[i] or nums[j - 1]
-        chooseRight = nums[j] + min(self.dfs(nums, i + 1, j - 1, memo), self.dfs(nums, i, j - 2, memo))
-
-        res = max(chooseLeft, chooseRight)
-        memo[(i, j)] = res
-
-        return res
+        # 1. Next player (assuming it's 2) needs to choose nums[l + 1], or nums[r] in the next round.
+        # 2. self.dfs(l + 2, r) ==> means nums[l + 1] is taken by player 2, so it's removed from player 1's score
+        # that he can get from the next + 1 round; same idea for self.dfs(l + 1, r - 1)
+        chooseLeft = self.nums[l] + min(self.dfs(l + 2, r), self.dfs(l + 1, r - 1))
+        # same idea
+        chooseRight = self.nums[r] + min(self.dfs(l + 1, r - 1), self.dfs(l, r - 2))
+        return max(chooseLeft, chooseRight)
 
 
-
-print Solution().PredictTheWinner([1, 5, 233, 7, 3])
-print Solution().PredictTheWinner([1, 5, 2])
+print(Solution().predictTheWinner([1, 5, 233, 7, 3]))
+print(Solution().predictTheWinner([1, 5, 2]))

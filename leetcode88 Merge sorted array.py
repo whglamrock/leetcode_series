@@ -1,22 +1,24 @@
-# O(m + n) time, O(1) space optimal solution
-# this question is so fucking stupid, and it shouldn't be an easy level because you have to be able to think
-# of filling the nums1 array backwards.
+from typing import List
 
-class Solution(object):
-    def merge(self, nums1, m, nums2, n):
-
-        # set each element from the biggest to smallest
-        while m and n:
-            if nums1[m - 1] <= nums2[n - 1]:
-                nums1[m + n - 1] = nums2[n - 1]
-                n -= 1
+# merge backwards to achieve O(1) space
+class Solution:
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        """
+        Do not return anything, modify nums1 in-place instead.
+        """
+        i = m - 1
+        j = n - 1
+        while i >= 0 and j >= 0:
+            if nums1[i] >= nums2[j]:
+                nums1[i + j + 1] = nums1[i]
+                i -= 1
             else:
-                nums1[m + n - 1] = nums1[m - 1]
-                m -= 1
+                nums1[i + j + 1] = nums2[j]
+                j -= 1
 
-        while n:
-            nums1[n - 1] = nums2[n - 1]
-            n -= 1
+        while j >= 0:
+            nums1[j] = nums2[j]
+            j -= 1
 
 
 nums1 = [0, 0, 0, 0, 0]

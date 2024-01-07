@@ -1,25 +1,16 @@
+from random import shuffle
+from typing import List
 
-import random
-
-# This idea came from: https://leetcode.com/problems/kth-largest-element-in-an-array/discuss/60294/Solution-explained
-# The idea is Quicksort, but takes only O(n) time complexity because it's mathematically proved the while loop
-    # will only run constant number of times
-
-# in real interview, run edge cases like [1, 2], [2, 1], [99, 99, 1], [1, 99, 99]
-    # and a normal test case like [3,2,1,5,6,4]
-
-class Solution(object):
-    def findKthLargest(self, nums, k):
-        """
-        :type nums: List[int]
-        :type k: int
-        :rtype: int
-        """
-        # make it become finding the k smallest num
+# partition the array so that nums[:k + 1] <= some pivot, and nums[k + 1:] > the pivot.
+# it's mathematically proven that the while loop only runs constant amount of time.
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        # find kth smallest
         k = len(nums) - k
-        random.shuffle(nums)
-
+        # help make time complexity close to O(n) based on mathematical research
+        shuffle(nums)
         l, r = 0, len(nums) - 1
+        # when l == r there is no need to further partition the array
         while l < r:
             j = self.partition(nums, l, r)
             if j == k:
@@ -29,39 +20,25 @@ class Solution(object):
             else:
                 r = j - 1
 
-        # can also return nums[l] because at this point l == r == k
         return nums[k]
 
-    # the quick sort idea: partition the array. find/make an index j that
-    # all nums[:j] <= nums[j] and all nums[j + 1:] > nums[j]. Note that
-    # nums[:j] / nums[j + 1:] can contain 0 numbers
-    def partition(self, nums, l, r):
+    # quick sort
+    def partition(self, nums: List[int], l: int, r: int) -> int:
         i, j = l, r
-        # we assume we are gonna pick nums[l] as the pivot so we compare with nums[l]
+
         while i < j:
-            # make sure after exchange all nums[i] <= the pivot.
-            # note that the condition for while loop can also be i <= r because when we exchange i, j it has to be
-                # i < j so using i <= r won't cause index out of range
             while i < r and nums[i] <= nums[l]:
                 i += 1
-            # make sure after exchange all nums[j] > the pivot
             while j > l and nums[j] > nums[l]:
                 j -= 1
-            # for case like [99, 99], j can just stay put and i moves all the way to r
             if i < j:
-                self.exchange(nums, i, j)
+                nums[i], nums[j] = nums[j], nums[i]
 
-        self.exchange(nums, j, l)
+        nums[l], nums[j] = nums[j], nums[l]
         return j
 
-    def exchange(self, nums, i, j):
-        tmp = nums[i]
-        nums[i] = nums[j]
-        nums[j] = tmp
 
-
-
-print Solution().findKthLargest(nums = [1, 1, 1, 2, 2, 3, 4, 6, 6, 7, 9], k = 5)
+print(Solution().findKthLargest(nums = [1, 1, 1, 2, 2, 3, 4, 6, 6, 7, 9], k = 5))
 
 
 

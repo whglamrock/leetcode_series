@@ -1,43 +1,29 @@
+from collections import deque
+from typing import Optional
 
-# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-class ListNode(object):
-    def __init__(self, x):
+class Solution:
+    def addTwoNumbers(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+        nums1, nums2 = deque(), deque()
+        while l1:
+            nums1.appendleft(str(l1.val))
+            l1 = l1.next
+        while l2:
+            nums2.appendleft(str(l2.val))
+            l2 = l2.next
 
-        self.val = x
-        self.next = None
+        num1 = int(''.join(nums1))
+        num2 = int(''.join(nums2))
+        num = str(num1 + num2)
+        head = ListNode(int(num[-1]))
+        prev = head
+        for i in range(len(num) - 2, -1, -1):
+            node = ListNode(int(num[i]))
+            prev.next = node
+            prev = node
 
-
-
-# should have been an easy question
-
-class Solution(object):
-    def addTwoNumbers(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        num1 = self.convertListToNum(l1)
-        num2 = self.convertListToNum(l2)
-        num = str(num1 + num2)[::-1]
-
-        dummy = ListNode(None)
-        curr = dummy
-        for digit in num:
-            curr.next = ListNode(int(digit))
-            curr = curr.next
-
-        return dummy.next
-
-    def convertListToNum(self, head):
-        num = []
-        while head:
-            num.append(str(head.val))
-            head = head.next
-        return int(''.join(num[::-1]))
-
-
-
-
-
+        return head
