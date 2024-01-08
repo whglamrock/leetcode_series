@@ -1,23 +1,11 @@
+class Solution:
+    def reverse(self, x: int) -> int:
+        isNegative = False
+        if x < 0:
+            x = -x
+            isNegative = True
+        reversedInt = int(str(x)[::-1])
+        if isNegative:
+            reversedInt = -reversedInt
 
-# pay attention that we should only return 0 when ans (not original x) overflows
-
-class Solution(object):
-    def reverse(self, x):
-        """
-        :type x: int
-        :rtype: int
-        """
-        if x == 0:
-            return 0
-
-        positive = x > 0
-        x = abs(x)
-
-        ans = 0
-        while x:
-            ans = ans * 10 + (x % 10)
-            x /= 10
-
-        if not positive:
-            ans = -ans
-        return ans if -2147483648 <= ans <= 2147483647 else 0
+        return reversedInt if -2147483648 <= reversedInt < 2147483647 else 0

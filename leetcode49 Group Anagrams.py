@@ -1,28 +1,26 @@
-
 from collections import Counter, defaultdict
+from typing import List
 
-class Solution(object):
-    def groupAnagrams(self, strs):
-        """
-        :type strs: List[str]
-        :rtype: List[List[str]]
-        """
-        keyToAnagrams = defaultdict(list)
-        for string in strs:
-            key = self.getAnagramKey(string)
-            keyToAnagrams[key].append(string)
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        charCountStrToWords = defaultdict(list)
+        for word in strs:
+            charCountStr = self.generateCharCountStr(word)
+            charCountStrToWords[charCountStr].append(word)
 
-        return list(keyToAnagrams.values())
+        ans = []
+        for charCountStr in charCountStrToWords:
+            ans.append(charCountStrToWords[charCountStr])
+        return ans
 
-    def getAnagramKey(self, string):
-        letterCount = Counter(string)
-        key = []
-        for letter in 'abcdefghijklmnopqrstuvwxyz':
-            if letter in letterCount:
-                key.append(letter + str(letterCount[letter]))
-
-        return ''.join(key)
-
+    def generateCharCountStr(self, word: str) -> str:
+        charCount = Counter(word)
+        ans = []
+        for char in 'abcdefghijklmnopqrstuvwxyz':
+            if char not in charCount:
+                continue
+            ans.append(char + str(charCount[char]))
+        return ''.join(ans)
 
 
-print Solution().groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"])
+print(Solution().groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))

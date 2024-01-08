@@ -22,9 +22,8 @@ class Solution(object):
             self.dfs(left, right - 1, ans, curr + ')')
 
 
-
-print Solution().generateParenthesis(4)
-print Solution().generateParenthesis(3)
+print(Solution().generateParenthesis(4))
+print(Solution().generateParenthesis(7))
 
 
 
