@@ -1,10 +1,7 @@
+from typing import List
 
 class Solution(object):
-    def maxSubArray(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
+    def maxSubArray(self, nums: List[int]) -> int:
         if not nums:
             return 0
 
@@ -24,7 +21,4 @@ class Solution(object):
         return ans
 
 
-
-nums = [-2, -1, -1, -1, 7, 4, -3, -4, -5, 5]
-Sol = Solution()
-print Sol.maxSubArray(nums)
+print(Solution().maxSubArray([-2, -1, -1, -1, 7, 4, -3, -4, -5, 5]))

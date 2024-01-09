@@ -1,24 +1,24 @@
+from typing import List
 
-class Solution(object):
-    def letterCombinations(self, digits):
+class Solution:
+    def letterCombinations(self, digits: str) -> List[str]:
+        if not digits:
+            return []
 
-        if not digits: return []
-
-        mapping = {'2': ['a', 'b', 'c'], '3': ['d', 'e', 'f'], '4': ['g', 'h', 'i'], '5': ['j', 'k', 'l'], '6': ['m', 'n', 'o'], '7': ['p', 'q', 'r', 's'], '8': ['t', 'u', 'v'], '9': ['w', 'x', 'y', 'z']}
-
-        curr = ['']
+        digitToLetters = {'2': 'abc', '3': 'def', '4': 'ghi', '5': 'jkl', '6': 'mno', '7': 'pqrs', '8': 'tuv', '9': 'wxyz'}
+        todo = ['']
         for digit in digits:
-            next = []
-            for item in curr:
-                for letter in mapping[digit]:
-                    next.append(item + letter)
-            curr = next
+            nextTodo = []
+            mappedChars = digitToLetters[digit]
+            for char in mappedChars:
+                for subStr in todo:
+                    nextTodo.append(subStr + char)
+            todo = nextTodo
 
-        return curr
+        return todo
 
 
-
-print Solution().letterCombinations('237')
+print(Solution().letterCombinations('237'))
 
 
 

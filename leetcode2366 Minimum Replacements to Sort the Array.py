@@ -1,5 +1,7 @@
 from typing import List
 
+# one tricky idea we have to think of is: to break down any number into smaller targets, the absolute fastest
+# approach will need (num // target or nm // target - 1) operations. Do not think in binary division direction!
 class Solution:
     def minimumReplacement(self, nums: List[int]) -> int:
         numOfOperations = 0
@@ -16,6 +18,8 @@ class Solution:
             if num % target == 0:
                 numOfOperations += num // target - 1
             else:
+                # small trick to build the new target: target = num // (num // target + 1)
+                # e.g., consider num = 10 and target = 4. The new target needs to be 3
                 numOfElements = num // target + 1
                 numOfOperations += num // target
                 target = num // numOfElements

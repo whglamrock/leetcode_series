@@ -1,23 +1,20 @@
-
 from collections import defaultdict
 
 class Solution(object):
     def subarraySum(self, nums, k):
-
-        preSum = 0
-        preSumCount = defaultdict(int)
+        prefixSum = 0
+        prefixSumToCount = defaultdict(int)
         ans = 0
 
         for num in nums:
-            preSum += num
-            if preSum == k:
+            prefixSum += num
+            if prefixSum == k:
                 ans += 1
-            if preSum - k in preSumCount:
-                ans += preSumCount[preSum - k]
-            preSumCount[preSum] += 1
+            if prefixSum - k in prefixSumToCount:
+                ans += prefixSumToCount[prefixSum - k]
+            prefixSumToCount[prefixSum] += 1
 
         return ans
 
 
-
-print Solution().subarraySum([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 0)
+print(Solution().subarraySum([0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 0))

@@ -1,33 +1,21 @@
+# Record the last occurrence (index) of each char. see: https://leetcode.com/problems/remove-duplicate-letters/solutions/1859515/python-o-n-beats-98-stack-detailed-explanation-simple/
+class Solution:
+    def removeDuplicateLetters(self, s: str) -> str:
+        charToLastIndex = {}
+        for i, char in enumerate(s):
+            charToLastIndex[char] = i
 
-# see explanation from: https://discuss.leetcode.com/topic/31413/easy-to-understand-iterative-java-solution
+        stack = []
+        visited = set()
+        for i, char in enumerate(s):
+            if char not in visited:
+                while stack and stack[-1] > char and charToLastIndex[stack[-1]] > i:
+                    visited.discard(stack.pop())
+                visited.add(char)
+                stack.append(char)
 
-class Solution(object):
-    def removeDuplicateLetters(self, s):
+        return ''.join(stack)
 
-        if (not s) or len(s) <= 1: return s
 
-        lastpo = {}
-        for i in xrange(len(s)):
-            lastpo[s[i]] = i
-
-        def findminlastpo(lastpo):
-            if (not lastpo):
-                return -1
-            minlastpo = 2147483647
-            for po in lastpo.values():
-                minlastpo = min(minlastpo, po)
-            return minlastpo
-
-        res = []
-        start = 0
-        for i in xrange(len(lastpo)):
-            minchar = '{'
-            end = findminlastpo(lastpo)
-            for j in xrange(start, end + 1):
-                if s[j] in lastpo and s[j] < minchar:
-                    minchar = s[j]
-                    start = j + 1
-            res.append(minchar)
-            del lastpo[minchar]
-
-        return ''.join(res)
+print(Solution().removeDuplicateLetters(s="cbacdcbc"))
+print(Solution().removeDuplicateLetters(s="bcabc"))
