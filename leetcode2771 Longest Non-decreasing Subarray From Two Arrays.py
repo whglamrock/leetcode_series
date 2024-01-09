@@ -1,10 +1,7 @@
-class Solution(object):
-    def maxNonDecreasingLength(self, nums1, nums2):
-        """
-        :type nums1: List[int]
-        :type nums2: List[int]
-        :rtype: int
-        """
+from typing import List
+
+class Solution:
+    def maxNonDecreasingLength(self, nums1: List[int], nums2: List[int]) -> int:
         n = len(nums1)
         maxLenNums1 = [1 for i in range(n)]
         maxLenNums2 = [1 for i in range(n)]
@@ -22,3 +19,8 @@ class Solution(object):
             ans = max(maxLenNums1[i], maxLenNums2[i], ans)
 
         return ans
+
+
+print(Solution().maxNonDecreasingLength(nums1=[2, 3, 1], nums2=[1, 2, 1]))
+print(Solution().maxNonDecreasingLength(nums1=[1, 3, 2, 1], nums2=[2, 2, 3, 4]))
+print(Solution().maxNonDecreasingLength(nums1=[1, 1], nums2=[2, 2]))

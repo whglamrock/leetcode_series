@@ -1,43 +1,33 @@
+from random import randint
+from typing import List
 
-import random
+class Solution:
 
-# python's random.randrange() excludes the upper bound but includes the lower bound
-
-class Solution(object):
-    def __init__(self, w):
-        """
-        :type w: List[int]
-        """
-        self.current = 0
-        self.accumToIndex = {}
-        self.accum = []
+    def __init__(self, w: List[int]):
+        self.curr = 0
+        self.prefixSum = []
         for i, num in enumerate(w):
-            self.current += num
-            self.accum.append(self.current)
-            self.accumToIndex[self.current] = i
+            self.curr += num
+            self.prefixSum.append(self.curr)
 
-    # binary search to find the first number >= the randomNum
-    def pickIndex(self):
-        """
-        :rtype: int
-        """
-        randomNum = random.randint(1, self.current)
-        l, r = 0, len(self.accum) - 1
+    def pickIndex(self) -> int:
+        randomInt = randint(1, self.curr)
+        return self.findIndexBiggerOrEqualThan(self.prefixSum, randomInt)
 
-        # bear in mind that the exit creterion is l == r
-        while l < r:
-            m = (l + r) / 2
-            if self.accum[m] == randomNum:
-                return self.accumToIndex[self.accum[m]]
-            # m is not candidate; when l == m this condition is impossinle
-            elif self.accum[m] < randomNum:
+    def findIndexBiggerOrEqualThan(self, nums: List[int], target: int):
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            if l == r:
+                return l
+            m = (l + r) // 2
+            if nums[m] == target:
+                return m
+            elif nums[m] < target:
                 l = m + 1
-            # m is still candidate
             else:
                 r = m
 
-        return self.accumToIndex[self.accum[l]]
-
+        return l
 
 
 # Your Solution object will be instantiated and called as such:

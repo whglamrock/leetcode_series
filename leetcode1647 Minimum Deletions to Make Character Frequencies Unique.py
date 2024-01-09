@@ -8,7 +8,7 @@ class Solution:
         ans = 0
         usedCounts = set()
 
-        for char, count in charCount.items():
+        for count in charCount.values():
             while count > 0 and count in usedCounts:
                 count -= 1
                 ans += 1

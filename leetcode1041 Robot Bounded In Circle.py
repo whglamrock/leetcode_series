@@ -1,22 +1,33 @@
-
-class Solution(object):
-    def isRobotBounded(self, instructions):
-        """
-        :type instructions: str
-        :rtype: bool
-        """
-        direction_to_length = {'north' : 0, 'south' : 0, 'west' : 0, 'east': 0}
-        direction = 'north'
-        left_order = {'north' : 'west', 'west' : 'south', 'south' : 'east', 'east': 'north'}
-        right_order = {'north' : 'east', 'east' : 'south', 'south' : 'west', 'west': 'north'}
-
-        for i in range(4):
-            for step in instructions:
-                if step == 'G':
-                    direction_to_length[direction] += 1
-                elif step == 'L':
-                    direction = left_order[direction]
+# if it doesn't go back to original position, the final direction cannot be north
+class Solution:
+    def isRobotBounded(self, instructions: str) -> bool:
+        angle = 0
+        direction = 'N'
+        nextDirectionWithLeftTurn = {'N': 'W', 'W': 'S', 'S': 'E', 'E': 'N'}
+        nextDirectionWithRightTurn = {'N': 'E', 'E': 'S', 'S': 'W', 'W': 'N'}
+        deltaX, deltaY = 0, 0
+        for char in instructions:
+            if char == 'G':
+                if direction == 'N':
+                    deltaY += 1
+                elif direction == 'S':
+                    deltaY -= 1
+                elif direction == 'E':
+                    deltaX += 1
                 else:
-                    direction = right_order[direction]
+                    deltaX -= 1
+            elif char == 'L':
+                angle -= 90
+                direction = nextDirectionWithLeftTurn[direction]
+            else:
+                angle += 90
+                direction = nextDirectionWithRightTurn[direction]
+        angle = abs(angle) % 360
 
-        return direction_to_length['north'] == direction_to_length['south'] and direction_to_length['west'] == direction_to_length['east']
+        return deltaX == deltaY == 0 or angle != 0
+
+
+print(Solution().isRobotBounded("GLRLLGLL"))
+print(Solution().isRobotBounded("GL"))
+print(Solution().isRobotBounded("GG"))
+print(Solution().isRobotBounded("GGLLGG"))

@@ -1,52 +1,36 @@
-
-from collections import deque
-
-class Solution(object):
-    def calculate(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        if not s:
-            return 0
-
-        q = deque()
-        for c in s:
-            if c != ' ':
-                q.append(c)
-        # add this extra '+' is to trigger the last calculation
-        q.append('+')
-
+class Solution:
+    def calculate(self, s: str) -> int:
+        curr = 0
         stack = []
-        num = 0
-        sign = '+'
-        while q:
-            c = q.popleft()
-            if c.isdigit():
-                num = num * 10 + int(c)
-            # we need to calculation at this point
+        operator = None
+        for i, char in enumerate(s):
+            if char == ' ':
+                continue
+            if char in '+-*/':
+                operator = char
             else:
-                # sign records the last sign
-                if sign == '+':
-                    stack.append(num)
-                elif sign == '-':
-                    stack.append(-num)
-                elif sign == '*':
-                    stack.append(stack.pop() * num)
-                else:
-                    lastNum = stack.pop()
-                    if lastNum < 0:
-                        lastNum = -lastNum
-                        stack.append(-(lastNum / num))
+                curr = curr * 10 + int(char)
+                # need to add number to stack
+                if i + 1 >= len(s) or not s[i + 1].isdigit():
+                    if operator == '+' or operator is None:
+                        stack.append(curr)
+                    elif operator == '-':
+                        stack.append(-curr)
+                    elif operator == '*':
+                        prevNum = stack.pop()
+                        stack.append(prevNum * curr)
                     else:
-                        stack.append(lastNum / num)
-
-                sign = c
-                num = 0
+                        prevNum = stack.pop()
+                        isNegative = prevNum < 0
+                        curr = abs(prevNum) // curr
+                        if isNegative:
+                            curr = -curr
+                        stack.append(curr)
+                    curr = 0
 
         return sum(stack)
 
 
-
-print Solution().calculate("3 + 2* 2")
-print Solution().calculate("-4 + 2* 2 - 4/ 3 + 3/1 * 2/1")
+print(Solution().calculate("3 + 2 * 2"))
+print(Solution().calculate("4 + 2 * 2 - 4 / 3 + 3 / 1 * 2 / 1"))
+print(Solution().calculate("3 + 2 * 2- 18 - 29 / 3"))
