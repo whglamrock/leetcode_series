@@ -1,8 +1,7 @@
 
 from collections import deque
 
-# O(N) solution is very hard to think of. The idea is keep a decreasing queue
-
+# O(N) decreasing queue/stack solution
 class Solution(object):
     def maxSlidingWindow(self, nums, k):
 
@@ -16,7 +15,7 @@ class Solution(object):
             # the window is a decreasing queue because we don't care about the smaller elements in between
             while window and nums[window[-1]] <= num:
                 window.pop()
-            # add the current element to window
+            # add the current index to window
             window.append(i)
             # add max of window to ans
             if i >= k - 1:
@@ -25,5 +24,4 @@ class Solution(object):
         return ans
 
 
-
-print Solution().maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3)
+print(Solution().maxSlidingWindow([1, 3, -1, -3, 5, 3, 6, 7], 3))

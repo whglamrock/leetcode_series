@@ -1,45 +1,32 @@
+from collections import defaultdict
+from typing import Optional, List
 
-from collections import defaultdict, deque
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-# Definition for a binary tree node.
+class Solution:
+    def verticalOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
 
-class TreeNode(object):
-    def __init__(self, x):
-
-        self.val = x
-        self.left = None
-        self.right = None
-
-
-
-class Solution(object):
-    def verticalOrder(self, root):
-
-        if not root: return []
-
-        dic = defaultdict(list)
-        mincol, maxcol = 0, 0
-        ans = []
-
-        todo = deque()
-        todo.append((0, 0, root))
-
-        # remember that we can't use a simple to do list and pop from right
-            # because the level order traverse has to be from left to right
+        colToNodes = defaultdict(list)
+        # use bfs to do level order traversal
+        todo = [(root, 0)]
         while todo:
-            next = deque()
-            while todo:
-                row, col, node = todo.popleft()
-                mincol = min(mincol, col)
-                maxcol = max(maxcol, col)
-                dic[col].append(node.val)
+            nextTodo = []
+            for node, col in todo:
+                colToNodes[col].append(node.val)
                 if node.left:
-                    next.append(((row + 1, col - 1, node.left)))
+                    nextTodo.append([node.left, col - 1])
                 if node.right:
-                    next.append(((row + 1, col + 1, node.right)))
-            todo = next
+                    nextTodo.append([node.right, col + 1])
+            todo = nextTodo
 
-        for col in xrange(mincol, maxcol + 1):
-            ans.append(dic[col])
-
+        minCol, maxCol = min(colToNodes.keys()), max(colToNodes.keys())
+        ans = []
+        for i in range(minCol, maxCol + 1):
+            ans.append(colToNodes[i])
         return ans

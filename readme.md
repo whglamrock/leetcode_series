@@ -56,10 +56,10 @@ Note that when we do path compression with the "find" method, the parent of a un
 
 
 ##### Graph
-some of the questions under this topic are actually covered by topology sort & union find. so only list few typical ones here
+some questions under this topic are actually covered by topology sort & union find. so only list few typical ones here
 * For Euler path algorithm: [lc332. Reconstruct Itinerary](https://leetcode.com/problems/reconstruct-itinerary/)
 * "union find alike" graph question: [lc399. Evaluate Division](https://leetcode.com/problems/evaluate-division/)
-* A typical Djikstra algorithm question solved with heapq: [lc743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
+* A typical Dijkstra algorithm question solved with heapq: [lc743. Network Delay Time](https://leetcode.com/problems/network-delay-time/)
 
 
 ##### DFS/BFS

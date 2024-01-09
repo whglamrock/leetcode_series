@@ -13,7 +13,7 @@ class Solution(object):
             original /= 10
             count += 1
 
-        for i in xrange(count/2):
+        for i in range(count // 2):
             if (x / pow(10, i)) % 10 != (x / pow(10, count - i - 1)) % 10:
                 return False
 

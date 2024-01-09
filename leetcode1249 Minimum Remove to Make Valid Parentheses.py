@@ -1,25 +1,16 @@
-class Solution(object):
-    def minRemoveToMakeValid(self, s):
-        """
-        :type s: str
-        :rtype: str
-        """
+
+class Solution:
+    def minRemoveToMakeValid(self, s: str) -> str:
         stack = []
-        invalidIndexes = set()
         for i, char in enumerate(s):
             if char not in '()':
                 continue
-            if char == '(':
-                stack.append([i, '('])
+            if char == ')' and stack and s[stack[-1]] == '(':
+                stack.pop()
             else:
-                if stack and stack[-1][1] == '(':
-                    stack.pop()
-                else:
-                    stack.append([i, ')'])
+                stack.append(i)
 
-        for i, char in stack:
-            invalidIndexes.add(i)
-
+        invalidIndexes = set(stack)
         ans = []
         for i, char in enumerate(s):
             if i not in invalidIndexes:
