@@ -45,7 +45,7 @@ e.right = i
 
 Sol = Solution()
 spot = Sol.lowestCommonAncestor(a, h, i)
-print spot.val
+print(spot.val)
 
 
 
