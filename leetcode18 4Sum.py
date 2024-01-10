@@ -1,91 +1,67 @@
-class Solution(object):
-    def fourSum(self, nums, target):
+from typing import List
 
-        def findNsum(nums, target, N, result, results):
+class Solution:
+    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
+        ans = []
+        self.findKSum(sorted(nums), target, 4, [], ans)
+        return ans
 
-            if len(nums) < N or N < 2 or target < nums[0] * N or target > nums[-1] * N:  # early termination
-                return
+    def findKSum(self, nums: List[int], target: int, k: int, curr: List[int], ans: List[List[int]]):
+        # it's assumed k will >= 2
+        if len(nums) < k or k < 2 or target < nums[0] * k or target > nums[-1] * k:
+            return
 
-            # two pointers solve sorted 2-sum problem
-            if N == 2:
-                l, r = 0, len(nums) - 1
-                while l < r:
-                    s = nums[l] + nums[r]
-                    if s == target:
-                        results.append(result + [nums[l], nums[r]])
+        if k == 2:
+            l, r = 0, len(nums) - 1
+            while l < r:
+                twoSum = nums[l] + nums[r]
+                if twoSum == target:
+                    ans.append(curr + [nums[l], nums[r]])
+                    while l + 1 < len(nums) and nums[l + 1] == nums[l]:
                         l += 1
-                        while l < r and nums[l] == nums[l - 1]:
-                            l += 1
-                    elif s < target:
+                    l += 1
+                elif twoSum < target:
+                    while l + 1 < len(nums) and nums[l + 1] == nums[l]:
                         l += 1
-                    else:
+                    l += 1
+                else:
+                    while r - 1 >= 0 and nums[r - 1] == nums[r]:
                         r -= 1
-            # recursively reduce N
-            else:
-                for i in range(len(nums) - N + 1):
-                    if i == 0 or (i > 0 and nums[i - 1] != nums[i]):
-                        findNsum(nums[i + 1:], target - nums[i], N - 1, result + [nums[i]], results)
-                        # in the first round of the loop, for every nums[i], the goal becomes to find
-                        # another N-1 items in nums that have a sum of target-nums[i], the results store
-                        # the answers that needed to be returned; the result stores the elements to be
-                        # based on (e.g. if we need 4sum that equal to 11, we've already had [-4,5], all we
-                        # need to do is to find other two items that have as sum of 10 and the [-4,5] is to
-                        # be based on in this seeking process.)
-
-        results = []
-        findNsum(sorted(nums), target, 4, [], results)
-        return results
+                    r -= 1
+        else:
+            for i in range(len(nums) - k + 1):
+                # avoid searching for the same numbers
+                if i == 0 or nums[i - 1] != nums[i]:
+                    self.findKSum(nums[i + 1:], target - nums[i], k - 1, curr + [nums[i]], ans)
 
 
-s = [0, 1, 5, 0, 1, 5, 5, -4]
-target = 11
-Sol = Solution()
-print(Sol.fourSum(s, target))
+print(Solution().fourSum([0, 1, 5, 0, 1, 5, 5, -4], 11))
+
 
 '''
-class Solution(object):
-    def fourSum(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: List[List[int]]
-        """
-        res = []
+# simple dfs solution that got TLE
+class Solution:
+    def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         nums.sort()
-        for i in range(len(nums)-3):
-            for j in range(i+1, len(nums)-2):
-                #if i > 0 and nums[i] == nums[i-1] and j > 0 and nums[j] == nums[j-1]:
-                    #continue
-                l, r = j+1, len(nums)-1
-                while l < r:
-                    s = nums[i] + nums[j] + nums[l] + nums[r]
-                    if s < target:
-                        l += 1
-                    elif s > target:
-                        r -= 1
-                    else:
-                        res.append([nums[i], nums[j], nums[l], nums[r]])
-                        while l < r and nums[l] == nums[l+1]:
-                            l += 1
-                        while l < r and nums[r] == nums[r-1]:
-                            r -= 1
-                        l += 1; r -= 1
-
-        def judge(ans1,ans2):
-            for k in range(4):
-                if ans1[k] != ans2[k]:
-                    return False
-            return True
-
-        x = 0
-        while x < len(res)-1:
-            y = x+1
-            while y < len(res):
-                if judge(res[x],res[y]) == True:
-                    del res[y]
-                    continue
-                y += 1
-            x += 1
-
-        return res
+        quadruplets = set()
+        self.dfs(4, nums, '', 0, 0, target, quadruplets)
+        ans = [] 
+        for encodedIndexStr in quadruplets:
+            indexesInStr = encodedIndexStr.split(',')
+            indexes = [int(item) for item in indexesInStr]
+            ans.append(indexes)
+        return ans
+    
+    def dfs(self, k: int, nums: List[int], curr: str, currSum: int, i: int, target: int, quadruplets: set):
+        if k == 0:
+            if currSum == target:
+                quadruplets.add(curr)
+            return
+        if i >= len(nums):
+            return
+        
+        # choose i
+        self.dfs(k - 1, nums, curr + ',' + str(nums[i]) if curr else str(nums[i]), currSum + nums[i], i + 1, target, quadruplets)
+        # not choose i
+        self.dfs(k, nums, curr, currSum, i + 1, target, quadruplets)
 '''
