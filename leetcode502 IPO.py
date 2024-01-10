@@ -1,36 +1,24 @@
-
-# For a specific W, after choosing the biggest available benefit, the W will increase.
-#   so no need to worry about better solutions.
-# Also, we need to pop the chosen benefit from our choices pool, so we need PriorityQueue
-
 from heapq import *
+from typing import List
 
-class Solution(object):
-    def findMaximizedCapital(self, k, W, Profits, Capital):
-
-        if not Profits or not Capital:
-            return 0
-
-        n = len(Profits)
-        benefits = sorted(zip(Profits, Capital), key = lambda x: x[1])
+# if we have capital w, among all projects cost < w we wanna pick the one with max profit
+class Solution:
+    def findMaximizedCapital(self, k: int, w: int, profits: List[int], capital: List[int]) -> int:
+        n = len(profits)
+        benefits = sorted(zip(profits, capital), key=lambda x: x[1])
         pq = []
 
         j = 0
-        for i in xrange(k):
-            while j < n:
-                if benefits[j][1] > W:
-                    break
+        for _ in range(k):
+            while j < n and benefits[j][1] <= w:
                 heappush(pq, -benefits[j][0])
                 j += 1
             if pq:
-                biggestbenefit = -heappop(pq)
-                W += biggestbenefit
+                w += -heappop(pq)
             else:
                 break
 
-        return W
+        return w
 
 
-
-Sol = Solution()
-print Sol.findMaximizedCapital(2, 0, [1, 2, 3], [0, 1, 1])
+print(Solution().findMaximizedCapital(2, 0, [1, 2, 3], [0, 1, 1]))
