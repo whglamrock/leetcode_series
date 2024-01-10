@@ -1,34 +1,25 @@
-
-class Solution(object):
-    def countAndSay(self, n):
-
-        if n <= 0:
-            return ''
+class Solution:
+    def countAndSay(self, n: int) -> str:
         if n == 1:
             return '1'
         if n == 2:
             return '11'
 
-        ans = '11'
-        for i in xrange(2, n):
-            newseq = ''
+        curr = '11'
+        for i in range(n - 2):
             count = 0
-            for j in xrange(len(ans)):
-                if j == 0 or (j > 0 and ans[j] == ans[j - 1]):
-                    count += 1
-                else:
-                    newseq += str(count) + ans[j - 1]
-                    count = 1
-            newseq += str(count) + ans[-1]
-            ans = newseq
+            nextStr = []
+            for j, char in enumerate(curr):
+                count += 1
+                if j + 1 >= len(curr) or curr[j + 1] != char:
+                    nextStr.append(str(count) + char)
+                    count = 0
+            curr = ''.join(nextStr)
 
-        return ans
-
+        return curr
 
 
-a = Solution()
-b = a.countAndSay(7)
-print b
+print(Solution().countAndSay(9))
 
 
 
