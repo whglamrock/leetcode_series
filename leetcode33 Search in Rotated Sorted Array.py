@@ -1,21 +1,13 @@
+from typing import List
 
 # the simplest one pass O(logN) solution.
 # P.S. comparing the nums[m] with nums[l] to divide the condition is easier than comparing nums[m] & target
-    # We need to notice that after a few loops the whole nums[l:r + 1] can be monotonically increasing
-
+# We need to notice that after a few loops the whole nums[l:r + 1] can be monotonically increasing
 class Solution(object):
-    def search(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
-        if not nums:
-            return -1
-
+    def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
         while l <= r:
-            m = (l + r) / 2
+            m = (l + r) // 2
             if nums[m] == target:
                 return m
             # instead of comparing nums[m] & target, we divide the condition by whether the left half is ascending
@@ -34,48 +26,57 @@ class Solution(object):
         return -1
 
 
-
-print Solution().search([4, 5, 6, 7, 3], 3)
-
+print(Solution().search([4, 5, 6, 7, 3], 3))
 
 
 '''
-# the "l < r while condition" solution 
-
-class Solution(object):
-    def search(self, nums, target):
-        """
-        :type nums: List[int]
-        :type target: int
-        :rtype: int
-        """
-        if not nums:
+# O(log(N)) find rotation pivot approach
+class Solution:
+    def search(self, nums: List[int], target: int) -> int:
+        if len(nums) == 1:
+            return 0 if nums[0] == target else -1
+        
+        indexOfPivot = self.findPivot(nums)
+        if indexOfPivot == -1:
+            return self.binarySearchTarget(nums, target, 0, len(nums) - 1)
+        indexInLeft = self.binarySearchTarget(nums, target, 0, indexOfPivot)
+        indexInRight = self.binarySearchTarget(nums, target, indexOfPivot + 1, len(nums) - 1)
+        if indexInLeft == indexInRight == -1:
             return -1
-        
-        l, r = 0, len(nums) - 1
-        while l < r:
-            m = (l + r) / 2
-            if nums[m] == target:
-                return m
-            # it means [l:r + 1] is monotonously increasing 
-            if nums[l] < nums[r]:
-                if nums[m] < target:
-                    l = m + 1
+        return max(indexInLeft, indexInRight)
+
+    def binarySearchTarget(self, nums: List[int], target: int, l: int, r: int) -> int:
+        while l <= r:
+            if l == r:
+                if nums[l] == target:
+                    return l
                 else:
-                    r = m - 1
-            # nums[l] > nums[r] because there is no duplicates
+                    return -1
+            m = (l + r) // 2
+            if nums[m] < target:
+                l = m + 1
             else:
-                # nums[l:m + 1] is monotonously increasing 
-                if nums[l] <= nums[m]:
-                    if nums[l] <= target < nums[m]:
-                        r = m - 1
-                    else:
-                        l = m + 1
-                else:
-                    if nums[m] < target <= nums[r]:
-                        l = m + 1
-                    else:
-                        r = m - 1
+                r = m
         
-        return l if nums[l] == target else -1
+        return -1
+        
+    def findPivot(self, nums: List[int]) -> int:
+        # the nums is sorted, no rotation
+        if nums[0] < nums[-1]:
+            return -1
+
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            if l == r:
+                if nums[l] > nums[l + 1]:
+                    return l
+                else:
+                    return -1
+            m = (l + r + 1) // 2
+            if nums[m] >= nums[l]:
+                l = m
+            else:
+                r = m - 1
+        
+        return l
 '''
