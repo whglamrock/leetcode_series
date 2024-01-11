@@ -1,21 +1,18 @@
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         window = {}
-        l, r = 0, 0
-        n = len(s)
-
-        maxLen = 0
-        while r < n:
-            if s[r] in window:
-                prevIndex = window[s[r]]
+        l = 0
+        ans = 0
+        for r, char in enumerate(s):
+            if char in window:
+                prevIndex = window[char]
                 while l <= prevIndex:
                     del window[s[l]]
                     l += 1
-            window[s[r]] = r
-            r += 1
-            maxLen = max(maxLen, len(window))
+            window[char] = r
+            ans = max(ans, r - l + 1)
 
-        return maxLen
+        return ans
 
 
 print(Solution().lengthOfLongestSubstring('abba'))
