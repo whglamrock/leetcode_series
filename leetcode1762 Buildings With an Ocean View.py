@@ -1,18 +1,15 @@
+from typing import List
 
-class Solution(object):
-    def findBuildings(self, heights):
-        """
-        :type heights: List[int]
-        :rtype: List[int]
-        """
-        ans = []
-        highest = -1
+class Solution:
+    def findBuildings(self, heights: List[int]) -> List[int]:
+        highestFromRight = 0
+        indexes = []
         for i in range(len(heights) - 1, -1, -1):
-            if heights[i] > highest:
-                ans.append(i)
-                highest = heights[i]
+            if heights[i] > highestFromRight:
+                indexes.append(i)
+                highestFromRight = heights[i]
 
-        return ans[::-1]
+        return indexes[::-1]
 
 
 print(Solution().findBuildings([4, 3, 2, 1]))
