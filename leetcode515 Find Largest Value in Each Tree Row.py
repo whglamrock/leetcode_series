@@ -1,37 +1,28 @@
+from typing import Optional, List
 
-from collections import deque
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-# Definition for a binary tree node.
-
-class TreeNode(object):
-    def __init__(self, x):
-
-        self.val = x
-        self.left = None
-        self.right = None
-
-
-class Solution(object):
-    def largestValues(self, root):
-
+class Solution:
+    def largestValues(self, root: Optional[TreeNode]) -> List[int]:
         if not root:
             return []
 
         ans = []
-        todo = deque()
-        todo.append(root)
-
+        todo = [root]
         while todo:
-            next = deque()
-            maxval = todo[0].val
-            while todo:
-                node = todo.popleft()
-                maxval = max(maxval, node.val)
+            nextTodo = []
+            maxOfRow = -2147483648
+            for node in todo:
+                maxOfRow = max(maxOfRow, node.val)
                 if node.left:
-                    next.append(node.left)
+                    nextTodo.append(node.left)
                 if node.right:
-                    next.append(node.right)
-            todo = next
-            ans.append(maxval)
+                    nextTodo.append(node.right)
+            ans.append(maxOfRow)
+            todo = nextTodo
 
         return ans
