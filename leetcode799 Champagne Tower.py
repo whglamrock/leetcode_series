@@ -2,9 +2,9 @@
 # this means when any cup in row i is full, it will start overflowing to row i + 1,
 # even when not all cups at row i are full
 class Solution:
-    def champagneTower(self, poured: int, query_row: int, query_glass: int) -> float:
+    def champagneTower(self, poured: int, queryRow: int, queryGlass: int) -> float:
         currRow = [poured]
-        for i in range(query_row + 1):
+        for i in range(queryRow + 1):
             # the currRow has i + 1 cups, and nextRow has i + 2
             nextRow = [0] * (i + 2)
             # only loop through the currRow
@@ -14,10 +14,10 @@ class Solution:
                     nextRow[j] += (currRow[j] - 1) / 2
                     nextRow[j + 1] += (currRow[j] - 1) / 2
                     currRow[j] = 1
-            if i < query_row:
+            if i < queryRow:
                 currRow = nextRow
 
-        return currRow[query_glass]
+        return currRow[queryGlass]
 
 
 print(Solution().champagneTower(25, 6, 1))

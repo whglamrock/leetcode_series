@@ -1,26 +1,21 @@
+from typing import List
 
-# O(n) time, O(1) space solution. Note: the output doesn't count as extra space
-# If the question asks for not using division, then use the following solution
-
-class Solution(object):
-    def productExceptSelf(self, nums):
-
+# Note: the output doesn't count as extra space. If the question asks for not using division, it's close to hard level
+class Solution:
+    def productExceptSelf(self, nums: List[int]) -> List[int]:
         n = len(nums)
-        res = [1] * n   # preset res[i] to 1, saving the "res[0] = 1" step
+        ans = [1] * n
+        for i in range(1, n):
+            ans[i] = ans[i - 1] * nums[i - 1]
 
-        # in first pass, make each element of res the product of its left elements (excluding self)
-        for i in xrange(1, n):
-            res[i] = res[i - 1] * nums[i - 1]
-        # e.g., the nums = [1, 2, 3, 4], then res = [1, 1, 2, 6]
+        suffixProduct = nums[-1]
+        for i in range(n - 2, -1, -1):
+            ans[i] *= suffixProduct
+            suffixProduct *= nums[i]
 
-        right = 1
-        # the second scan (also excluding self) has to start from the last element
-        for i in xrange(n - 1, -1, -1):
-            res[i] *= right
-            right *= nums[i]
-
-        return res
+        return ans
 
 
-
-print Solution().productExceptSelf([1, 2, 3, 0])
+print(Solution().productExceptSelf([1, 2, 3, 4]))
+print(Solution().productExceptSelf([1, 2, 3, 0]))
+print(Solution().productExceptSelf([-1, 1, 0, -3, 3]))
