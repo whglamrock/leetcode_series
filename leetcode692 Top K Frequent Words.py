@@ -34,10 +34,7 @@ class Solution(object):
         return ans[::-1]
 
 
-
-Sol = Solution()
-print Sol.topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 1)
-
+print(Solution().topKFrequent(["i", "love", "leetcode", "i", "love", "coding"], 1))
 
 
 '''
