@@ -1,44 +1,23 @@
+from typing import List
 
-# O(nlogn) solution.
-# My idea explanation: https://discuss.leetcode.com/topic/62048/easy-to-understand-python-solution
+# the description is pretty vague, see: https://leetcode.com/problems/line-reflection/solutions/202760/bad-problem-description-come-and-read-what-it-really-means/
+class Solution:
+    def isReflected(self, points: List[List[int]]) -> bool:
+        pointsSet = set()
+        for x, y in points:
+            pointsSet.add((x, y))
 
-class Solution(object):
-    def isReflected(self, points):
+        sumX = 0
+        for x, y in pointsSet:
+            sumX += x
 
-        if (not points):
-            return True
-
-        dick = {}
-        sumx = 0
-        lenwithoutdup = 0
-        for point in points:
-            if point[1] not in dick:
-                dick[point[1]] = {point[0]}
-                sumx += point[0]
-                lenwithoutdup += 1
-            else:
-                if point[0] not in dick[point[1]]:
-                    dick[point[1]].add(point[0])
-                    sumx += point[0]
-                    lenwithoutdup += 1
-
-        #print sumx, lenwithoutdup
-        avgx = float(sumx)/lenwithoutdup
-        for item in dick:
-            lst = list(dick[item])
-            lst.sort()
-            i, j = 0, len(lst)-1
-            while i <= j:
-                #print lst[i], avgx, lst[j]
-                if lst[i] - avgx != avgx - lst[j]:
-                    return False
-                i += 1
-                j -= 1
+        middleX = sumX / len(pointsSet)
+        for x, y in pointsSet:
+            reflectedX = int(2 * middleX - x)
+            if (reflectedX, y) not in pointsSet:
+                return False
 
         return True
 
 
-
-Sol = Solution()
-points = [[-16,1], [16,1], [16,1]]
-print Sol.isReflected(points)
+print(Solution().isReflected([[-16, 1], [16, 1], [16, 1]]))

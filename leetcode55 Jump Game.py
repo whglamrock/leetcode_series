@@ -1,15 +1,19 @@
+from typing import List
 
-# 'reach' is the farthest position to which nums[i] can jump
+class Solution:
+    def canJump(self, nums: List[int]) -> bool:
+        n = len(nums)
+        currFarthest = 0
 
-class Solution(object):
-    def canJump(self, nums):
+        for i, num in enumerate(nums):
+            if i > currFarthest:
+                continue
+            currFarthest = max(currFarthest, i + num)
+            if currFarthest >= len(nums) - 1:
+                return True
 
-        reach = 0
-        for i in xrange(len(nums)):
-            if reach >= i and i+nums[i] > reach:
-                reach = i+nums[i]
+        return False
 
-        return reach >= len(nums)-1
 
-# It doesn't matter what value nums[-1] stores, cuz it won't e used.
-# keep reading the question description until you can understand...it's confusing...
+print(Solution().canJump(nums=[2, 3, 1, 1, 4]))
+print(Solution().canJump(nums=[3, 2, 1, 0, 4]))

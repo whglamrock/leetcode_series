@@ -1,31 +1,24 @@
-
-# let's assume
-# the length of input array is n,
-# average length of Strings in nums is k,
-# Then, compare 2 strings will take O(k).
-# Sorting will take O(nlgn)
-# Appending to StringBuilder takes O(n).
-# So total Running Time will be O(nklgn) + O(n) = O(nklgn).
-# Running Space is obvious: O(n), depending on the python sort
-
-# key idea: for x, y in nums, compare string x+y and string y+x.
+from functools import cmp_to_key
+from typing import List
 
 class Solution:
-    def largestNumber(self, nums):
-
+    def largestNumber(self, nums: List[int]) -> str:
         nums = [str(x) for x in nums]
         # it means if y + x > x + y, then y should be the leading one
-        nums.sort(cmp = lambda x, y: cmp(y + x, x + y))   # different from 'cmp = lambda y, x: cmp(y + x, x + y)'
-        if nums[0] == '0':
-            while len(nums) > 1 and nums[0] == '0':
-                nums.pop(0)
+        nums.sort(key=cmp_to_key(self.compare))
+        while len(nums) > 1 and nums[0] == '0':
+            nums.pop(0)
 
         return ''.join(nums)
 
-# P.S.: remember how to write the cmp sort function! Also the key = lambda sort...
+    # e.g., [3, 35], [34, 35]. use string concatenation comparison
+    def compare(self, a: str, b: str) -> int:
+        if a + b > b + a:
+            return -1
+        elif a + b < b + a:
+            return 1
+        else:
+            return 0
 
 
-
-Sol = Solution()
-nums = [3, 30, 34, 5, 9]
-print Sol.largestNumber(nums)
+print(Solution().largestNumber(nums=[3, 30, 34, 5, 9]))

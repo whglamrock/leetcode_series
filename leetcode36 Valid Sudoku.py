@@ -1,43 +1,37 @@
+from collections import Counter
+from typing import List
 
-from collections import defaultdict
-
-class Solution(object):
-    def isValidSudoku(self, board):
-        """
-        :type board: List[List[str]]
-        :rtype: bool
-        """
-
-        for i in xrange(9):
-            numCount = {}
-            for num in xrange(1, 10):
-                count = board[i].count(str(num))
-                numCount[num] = count
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        for row in board:
+            numCount = Counter(row)
+            if '.' in numCount:
+                del numCount['.']
             if numCount and max(numCount.values()) > 1:
                 return False
 
-        for j in xrange(9):
-            numCount = defaultdict(int)
-            for i in xrange(9):
-                if board[i][j] == '.':
-                    continue
-                numCount[board[i][j]] += 1
-            if numCount and max(numCount.values()) > 1:
-                return False
+        for j in range(9):
+            numSet = set()
+            for i in range(9):
+                if board[i][j] != '.' and board[i][j] in numSet:
+                    return False
+                numSet.add(board[i][j])
 
-        for x in xrange(3):
-            for y in xrange(3):
-                numCount = defaultdict(int)
-                for i in xrange(3 * x, 3 * x + 3):
-                    for j in xrange(3 * y, 3 * y + 3):
-                        if board[i][j] == '.':
-                            continue
-                        numCount[board[i][j]] += 1
-                if numCount and max(numCount.values()) > 1:
+        indexPairs = [[0, 2], [3, 5], [6, 8]]
+        for indexPair1 in indexPairs:
+            for indexPair2 in indexPairs:
+                bottom, top, left, right = indexPair1[0], indexPair1[1], indexPair2[0], indexPair2[1]
+                if self.checkDuplicateInSubBoxes(board, top, bottom, left, right):
                     return False
 
         return True
 
-
-
-
+    def checkDuplicateInSubBoxes(self, board: List[List[str]], top: int, bottom: int, left: int, right: int) -> bool:
+        numSet = set()
+        for i in range(bottom, top + 1):
+            for j in range(left, right + 1):
+                if board[i][j] in numSet:
+                    return True
+                if board[i][j] != '.':
+                    numSet.add(board[i][j])
+        return False
