@@ -1,44 +1,53 @@
+from typing import List
 
-# Iterative backtracking
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        ans = []
+        self.dfs(nums, [], ans)
+        return ans
 
-class Solution(object):
-    def permute(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
+    def dfs(self, nums: List[int], curr: List[int], ans: List[List[int]]):
         if not nums:
-            return []
+            ans.append(curr)
+            return
 
-        curr = [[]]
-        for num in nums:
-            next = []
-            for permutation in curr:
-                for i in xrange(len(permutation) + 1):
-                    next.append(permutation[:i] + [num] + permutation[i:])
-            curr = next
-
-        return curr
+        for i in range(len(nums)):
+            self.dfs(nums[:i] + nums[i + 1:], curr + [nums[i]], ans)
 
 
-
-print Solution().permute([1, 2, 3])
-
+print(Solution().permute([1, 2, 3]))
 
 
 '''
-# recursive DFS
+from math import factorial
+from copy import deepcopy
+from typing import List
 
-class Solution(object):
-    def permute(self, nums):
-        res = []
-        self.dfs(nums, [], res)
-        return res
+# next permutation approach, but it's not optional due to suffix sorting
+class Solution:
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        n = len(nums)
+        ans = [deepcopy(nums)]
+        curr = nums
+        while len(ans) < factorial(n):
+            nextPermutation = self.findNextPermutation(curr)
+            ans.append(deepcopy(nextPermutation))
+            curr = nextPermutation
 
-    def dfs(self, nums, path, res):
-        if not nums:
-            res.append(path)
-            return
-        for i in xrange(len(nums)):
-            self.dfs(nums[:i] + nums[i + 1:], path + [nums[i]], res)
+        return ans
+
+    def findNextPermutation(self, nums: List[int]) -> List[int]:
+        j = -1
+        for i in range(len(nums) - 1, 0, -1):
+            if nums[i] > nums[i - 1]:
+                j = i - 1
+                break
+        # the nums are strictly decreasing
+        if j == -1:
+            return nums[::-1]
+        for k in range(len(nums) - 1, j, -1):
+            if nums[k] > nums[j]:
+                break
+        nums[k], nums[j] = nums[j], nums[k]
+        return nums[:j + 1] + sorted(nums[j + 1:])
 '''

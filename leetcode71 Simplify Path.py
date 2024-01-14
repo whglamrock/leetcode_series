@@ -1,56 +1,18 @@
 
-# O(n) running time/space solution
-# understand the unix style path: '..' means going above by one level; '.' means simply doing nothing
-# e.g., when the path is a/b/c, you type 'cd..' in cmd line, your current directory becomes a/b
-
-class Solution(object):
-    def simplifyPath(self, path):
-
-        path = path.split('/')
-        res = []
-
-        for item in path:
-            if not item or item == '.':
+class Solution:
+    def simplifyPath(self, path: str) -> str:
+        directories = path.split('/')
+        ans = []
+        for directory in directories:
+            if not directory or directory == '.':
                 continue
-            if item == '..':
-                if res:
-                    res.pop()
+            if directory == '..':
+                if ans:
+                    ans.pop()
             else:
-                res.append(item)
+                ans.append(directory)
 
-        return '/' + '/'.join(res)
-
-
-
-Sol = Solution()
-path = "/a/./b/../../c/"
-print Sol.simplifyPath(path)
+        return '/' + '/'.join(ans)
 
 
-
-'''
-# another solution:
-
-class Solution(object):
-    def simplifyPath(self, path):
-
-        paths = path.split('/')
-        places = []
-        for p in paths:
-            if p != '' and p != '.':
-                places.append(p)
-
-        #print places
-
-        stack = []
-        for p in places:
-            if p == '..':
-                if stack: stack.pop()
-            else:
-                stack.append(p)
-            #print stack
-
-        return '/'+'/'.join(stack)
-
-'''
-
+print(Solution().simplifyPath("/home/.../foo///blabla/../../or/.././../"))

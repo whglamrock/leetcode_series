@@ -1,42 +1,37 @@
-
-# The idea is also appending the currMin along with the new value. This way we can achieve O(1) with getMin().
-# Because the minStack can only "pop" not remove a specific value,
-    # when we pop the last element the previous min becomes the current min
-
-class MinStack(object):
-
+class MinStack:
     def __init__(self):
+        self.currMin = None
+        self.mins = []
+        self.stack = []
 
-        self.q = []
-
-    def push(self, x):
-
-        if (not self.q):
-            self.q.append([x, x])
+    def push(self, val: int) -> None:
+        if self.currMin is None:
+            self.currMin = val
         else:
-            if x < self.getMin():
-                self.q.append([x, x])
-            else:
-                self.q.append([x, self.q[-1][1]])
+            self.currMin = min(self.currMin, val)
+        self.stack.append(val)
+        self.mins.append(self.currMin)
 
-    def pop(self):
+    def pop(self) -> None:
+        if not self.stack:
+            return
+        self.stack.pop()
+        self.mins.pop()
+        if self.mins:
+            self.currMin = self.mins[-1]
+        else:
+            self.currMin = None
 
-        self.q.pop()
+    def top(self) -> int:
+        return self.stack[-1]
 
-    def top(self):
-
-        return self.q[-1][0]
-
-
-    def getMin(self):
-
-        return self.q[-1][1]
-
+    def getMin(self) -> int:
+        return self.currMin
 
 
 # Your MinStack object will be instantiated and called as such:
 # obj = MinStack()
-# obj.push(x)
+# obj.push(val)
 # obj.pop()
 # param_3 = obj.top()
 # param_4 = obj.getMin()
