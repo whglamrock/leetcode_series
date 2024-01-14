@@ -1,22 +1,26 @@
+from typing import List
 
-# Idea:
-    # f(0) = nums[0]
-    # f(1) = max(num[0], num[1])
-    # f(k) = max(f(k-2) + nums[k], f(k-1))
-# P.S.: O(n) space solution should also work, from which we can optimize to O(1) space tf interviewer asks for it
-
+# Use two pointers (take, skip) to achieve O(1) space is also doable but O(n) space solution is good enough
 class Solution:
-    def rob(self, nums):
+    def rob(self, nums: List[int]) -> int:
+        n = len(nums)
+        # dp1 stores the max money you can rob if you rob i
+        dp1 = [0] * n
+        # dp2 stores the max money you can rob if you don't rob i
+        dp2 = [0] * n
+        for i, num in enumerate(nums):
+            if i == 0:
+                dp1[i] = num
+                continue
+            # if you rob i, you must not rob i - 1
+            dp1[i] = dp2[i - 1] + num
+            dp2[i] = max(dp2[i - 1], dp1[i - 1])
 
-        last, now = 0, 0
-        for i in nums:
-            last, now = now, max(last + i, now)
-        return now
+        return max(dp1[-1], dp2[-1])
 
 
-
-print Solution().rob([2, 7, 1, 3, 9])
-print Solution().rob([1, 2, 3, 1])
+print(Solution().rob([2, 7, 1, 3, 9]))
+print(Solution().rob([1, 2, 3, 1]))
 
 
 
