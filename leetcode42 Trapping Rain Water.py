@@ -1,19 +1,16 @@
 from typing import List
 
 class Solution:
-    def trap(self, heights: List[int]) -> int:
+    def trap(self, height: List[int]) -> int:
         stack = []
         area = 0
-        for i, height in enumerate(heights):
-            while stack and stack[-1][1] <= height:
-                j, previousHeight = stack.pop()
-                if previousHeight == height:
-                    stack.append([i, height])
-                    break
-                # previous height < height so j can be bottom
+        for i, h in enumerate(height):
+            # when prevH == h we still pop because the area will increment 0
+            while stack and stack[-1][1] <= h:
+                prevI, prevH = stack.pop()
                 if stack:
-                    area += (i - stack[-1][0] - 1) * (min(height, stack[-1][1]) - previousHeight)
-            stack.append([i, height])
+                    area += (i - stack[-1][0] - 1) * (min(h, stack[-1][1]) - prevH)
+            stack.append([i, h])
 
         return area
 

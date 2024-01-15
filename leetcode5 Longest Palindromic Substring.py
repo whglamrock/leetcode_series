@@ -8,17 +8,17 @@ class Solution:
         n = len(s)
         # dp[i][j] means if s[i:j + 1] is palindrome
         dp = [[False for j in range(n)] for i in range(n)]
+        # prefill the dp array
         for i in range(n):
             dp[i][i] = True
-        for i in range(n - 1):
-            if s[i] == s[i + 1]:
+            if i + 1 < n and s[i] == s[i + 1]:
                 dp[i][i + 1] = True
 
         # j is the length
         for j in range(3, n + 1):
             # i is the starting index
             for i in range(n - j + 1):
-                if s[i] == s[i + j - 1] and dp[i + 1][i + j - 2] == True:
+                if s[i] == s[i + j - 1] and dp[i + 1][i + j - 2]:
                     dp[i][i + j - 1] = True
 
         maxLen = 1
