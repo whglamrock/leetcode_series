@@ -1,72 +1,64 @@
+from collections import defaultdict
+from typing import List, Dict
 
-from collections import defaultdict, deque
-
-# classic toposort solution O(m * n) solution where n is the avg length of word and m == len(words)
-
-# building both the less/greater relationship dictionary is the typical way. e.g., we need the less
-    # to perform "for greaterChar in less[char]"
-
-class Solution(object):
-    def alienOrder(self, words):
-        """
-        :type words: List[str]
-        :rtype: str
-        """
-        if not words:
+# the stupid leetcode added a new stupid test case like ['abc', 'ab'] should yield ''
+class Solution:
+    def alienOrder(self, words: List[str]) -> str:
+        if self.existsAnyInvalidRelationships(words):
             return ''
-        if len(words) == 1:
-            return words[0]
 
-        # build the less & greater relationship.
-        less, greater = self.buildRelationship(words)
+        greater, less = defaultdict(set), defaultdict(set)
+        self.buildRelationShip(words, greater, less)
 
-        # using q to conduct the topology sort.
-        charSet = set(''.join(words))
-        q = deque()
-        for char in charSet:
-            # using the greater relationship to build the toposort queue but
-                # we use less to perform the toposort to detect invalid case
-            if char not in greater:
-                q.append(char)
+        todo = set()
+        charSet = set()
+        for word in words:
+            for char in word:
+                charSet.add(char)
+                if char not in greater:
+                    todo.add(char)
 
         ans = []
-        # pop the vertex that don't have "children" first
-        while q:
-            char = q.popleft()
-            ans.append(char)
-            # skip the nodes that don't any "parents".
-                # this would be for the case for the last few while loops
-            if char not in less:
-                continue
-            for greaterChar in less[char]:
-                greater[greaterChar].discard(char)
-                if not greater[greaterChar]:
-                    # deleting this key is for checking circle in the end
-                    del greater[greaterChar]
-                    q.append(greaterChar)
+        while todo:
+            # only stores the chars not in greater at the moment
+            nextTodo = set()
+            for char in todo:
+                ans.append(char)
+                # means there are some chars bigger that this char
+                if char in less:
+                    greaterChars = less[char]
+                    for greaterChar in greaterChars:
+                        greater[greaterChar].discard(char)
+                        if not greater[greaterChar]:
+                            nextTodo.add(greaterChar)
+                            del greater[greaterChar]
+            todo = nextTodo
 
-        return ''.join(ans) if not greater else ''
+        return ''.join(ans) if len(ans) == len(charSet) else ''
 
-    # return a less list & greater list to build the relationship
-    def buildRelationship(self, words):
-        less, greater = defaultdict(set), defaultdict(set)
-        for i in xrange(len(words) - 1):
-            minLen = min(len(words[i]), len(words[i + 1]))
-            for j in xrange(minLen):
-                if words[i][j] == words[i + 1][j]:
+    # the whole fucking point of this method is to deal with stupid leetcode test cases like ['abc', 'ab']
+    def existsAnyInvalidRelationships(self, words: List[str]) -> bool:
+        for i in range(1, len(words)):
+            if len(words[i - 1]) > len(words[i]) and words[i - 1].startswith(words[i]):
+                return True
+        return False
+
+    def buildRelationShip(self, words: List[str], greater: Dict[str, set], less: Dict[str, set]):
+        for i in range(1, len(words)):
+            prevWord, word = words[i - 1], words[i]
+            for j in range(min(len(prevWord), len(word))):
+                if prevWord[j] == word[j]:
                     continue
-                less[words[i][j]].add(words[i + 1][j])
-                greater[words[i + 1][j]].add(words[i][j])
+                greater[word[j]].add(prevWord[j])
+                less[prevWord[j]].add(word[j])
+                # we only need to build relationship once in a pair of words
                 break
 
-        return less, greater
 
-
-
-print Solution().alienOrder([
-  "wrt",
-  "wrf",
-  "er",
-  "ett",
-  "rftt"
-])
+print(Solution().alienOrder([
+    "wrt",
+    "wrf",
+    "er",
+    "ett",
+    "rftt"
+]))
