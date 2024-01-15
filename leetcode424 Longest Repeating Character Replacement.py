@@ -18,8 +18,6 @@ class Solution:
             # will make s[l:r + 1] valid again, we don't move the left bound.
             if r - l + 1 - maxCount > k:
                 charCount[s[l]] -= 1
-                if charCount[s[l]] == 0:
-                    del charCount[s[l]]
                 l += 1
             maxLen = max(maxLen, r - l + 1)
 
