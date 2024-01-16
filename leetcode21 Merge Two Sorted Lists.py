@@ -1,83 +1,74 @@
+from typing import Optional, List
 
-# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
+class Solution:
+    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -> Optional[ListNode]:
+        if not list1:
+            return list2
+        if not list2:
+            return list1
 
+        # make sure list1's head is smaller
+        if list1.val > list2.val:
+            list1, list2 = list2, list1
 
-
-class Solution(object):
-    def mergeTwoLists(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        if not l1:
-            return l2
-        if not l2:
-            return l1
-
-        dummy = ListNode(None)
-        tmp = dummy
-
-        while l1 and l2:
-            if l1.val < l2.val:
-                tmp.next = l1
-                l1 = l1.next
+        head = list1
+        curr1, curr2 = list1, list2
+        prev1, prev2 = None, None
+        while curr1 and curr2:
+            # just move the pointer in list1
+            if curr1.val <= curr2.val:
+                prev1 = curr1
+                curr1 = curr1.next
+            # need to cut the node in list2 and put it in list1
             else:
-                tmp.next = l2
-                l2 = l2.next
-            tmp = tmp.next
+                # cut the node in list2
+                next2 = curr2.next
+                if prev2:
+                    prev2.next = next2
+                curr2.next = None
 
-        if l1:
-            tmp.next = l1
-        # l2 can be None and it's covered
-        else:
-            tmp.next = l2
+                # put curr2 before curr1
+                prev1.next = curr2
+                curr2.next = curr1
+                prev1 = curr2
+                curr2 = next2
 
-        return dummy.next
+        # we've done traversing list1 but not finished with list2
+        if curr2:
+            prev1.next = curr2
+
+        return head
 
 
+def buildList(nums: List[int]) -> Optional[ListNode]:
+    if not nums:
+        return None
+    head = ListNode(nums[0])
+    curr = head
+    for i in range(1, len(nums)):
+        node = ListNode(nums[i])
+        curr.next = node
+        curr = curr.next
 
-'''
-# the following solution actually makes a new list instead of connecting the original two. In real interview, we
-    # need to clearly ask what they want
-    
-class Solution(object):
-    def mergeTwoLists(self, l1, l2):
-        """
-        :type l1: ListNode
-        :type l2: ListNode
-        :rtype: ListNode
-        """
-        if not l1:
-            return l2
-        if not l2:
-            return l1
-        
-        dummy = ListNode(None)
-        tmp = dummy
-        
-        while l1 and l2:
-            if l1.val <= l2.val:
-                tmp.next = ListNode(l1.val)
-                l1 = l1.next
-            else:
-                tmp.next = ListNode(l2.val)
-                l2 = l2.next
-            tmp = tmp.next
-            
-        while l1:
-            tmp.next = ListNode(l1.val)
-            l1 = l1.next 
-            tmp = tmp.next
-        while l2:
-            tmp.next = ListNode(l2.val)
-            l2 = l2.next    
-            tmp = tmp.next
-        
-        return dummy.next
-'''
+    return head
+
+
+def traverseList(head: Optional[ListNode]):
+    if not head:
+        return
+    nums = []
+    curr = head
+    while curr:
+        nums.append(curr.val)
+        curr = curr.next
+    print(nums)
+
+
+list1 = buildList([1, 2, 3, 4])
+list2 = buildList([7, 8, 9, 10, 14])
+print(traverseList(Solution().mergeTwoLists(list1, list2)))

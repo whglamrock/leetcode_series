@@ -1,32 +1,27 @@
+from typing import List
 
-class Solution(object):
-    def generate(self, numRows):
-
-        if numRows == 0:
-            return []
+class Solution:
+    def generate(self, numRows: int) -> List[List[int]]:
         if numRows == 1:
             return [[1]]
         if numRows == 2:
-            return [[1],[1,1]]
+            return [[1], [1, 1]]
 
-        lst = [[]for k in range(numRows)]
-        lst[0] = [1]
-        lst[1] = [1,1]
+        ans = [[1], [1, 1]]
+        currRow = [1, 1]
+        for i in range(2, numRows):
+            nextRow = []
+            for j in range(i + 1):
+                if j == 0:
+                    nextRow.append(1)
+                elif j == i:
+                    nextRow.append(1)
+                else:
+                    nextRow.append(currRow[j] + currRow[j - 1])
+            ans.append(nextRow)
+            currRow = nextRow
 
-        for i in range(2,numRows):
-            lst[i].append(1)
-            for j in range(i-1):
-                lst[i].append(lst[i-1][j]+lst[i-1][j+1])
-            lst[i].append(1)
-
-        return lst
-
-
-
-a = Solution()
-b = a.generate(5)
-print b
+        return ans
 
 
-
-
+print(Solution().generate(11))
