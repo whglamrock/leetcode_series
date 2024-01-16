@@ -1,50 +1,40 @@
+from math import inf
+from collections import defaultdict, Counter
+from typing import Dict
 
-from collections import Counter, defaultdict
-
-class Solution(object):
-    def minWindow(self, s, t):
-        """
-        :type s: str
-        :type t: str
-        :rtype: str
-        """
-        if not s or not t:
-            return ''
-
-        # tCount is used for comparing with sWindow
-        tCount = Counter(t)
-        # the need & missing are to achieve O(1) time for checking if we have a valid window
-        need = Counter(t)
-        missing = len(t)
-
-        # left & right index for the ans
-        I, J = 0, 0
-        # the left index of the s window
-        i = 0
+class Solution:
+    def minWindow(self, s: str, t: str) -> str:
+        charCountOfT = Counter(t)
         window = defaultdict(int)
+        l = 0
+        minLen = 2147483647
+        start, end = -inf, inf
 
-        for j, char in enumerate(s):
-            # see if we have found 1 more char we are missing
-            if char in need and need[char] > 0:
-                missing -= 1
-                need[char] -= 1
-
-            # track the count of chars in the current window
+        for r, char in enumerate(s):
             window[char] += 1
+            while l <= r and (s[l] not in charCountOfT or window[s[l]] > charCountOfT[s[l]]):
+                window[s[l]] -= 1
+                if window[s[l]] == 0:
+                    del window[s[l]]
+                l += 1
 
-            # don't do anything unless missing == 0;
-                # missing == 0 also makes sure i != j because t is not empty at this point
-            if missing == 0:
-                while i < j and (s[i] not in tCount or window[s[i]] > tCount[s[i]]):
-                    window[s[i]] -= 1
-                    i += 1
-                if J == 0 or J - I >= j + 1 - i:
-                    I, J = i, j + 1
+            if self.areAllCharsIncluded(window, charCountOfT):
+                if minLen > r - l + 1:
+                    minLen = r - l + 1
+                    start, end = l, r
 
-        return s[I:J]
+        return s[start:end + 1] if minLen != 2147483647 else ''
+
+    # O(1) time because there are at most 52 chars
+    def areAllCharsIncluded(self, window: Dict[str, int], charCountOfT: Dict[str, int]) -> bool:
+        if len(window) < len(charCountOfT):
+            return False
+        for char in charCountOfT:
+            if char not in window or window[char] < charCountOfT[char]:
+                return False
+        return True
 
 
-
-print Solution().minWindow('abbdcecbgaaw', 'abc')
-print Solution().minWindow('ADOBECODEBANC', 'ABC')
-print Solution().minWindow('ADOBECODEBANC', 'ABCC')
+print(Solution().minWindow('abbdcecbgaaw', 'abc'))
+print(Solution().minWindow('ADOBECODEBANC', 'ABC'))
+print(Solution().minWindow('ADOBECODEBANC', 'ABCC'))
