@@ -1,32 +1,23 @@
+from typing import List
 
-'''
-O(n) time complexity; O(1) space complexity algorithm. This algorithm only works when majority exists.
-'''
-
-class Solution(object):
-    def majorityElement(self, nums):
-
+# O(1) space solution shouldn't be really required in real interview,
+# see Boyer–Moore majority vote algorithm: https://en.wikipedia.org/wiki/Boyer%E2%80%93Moore_majority_vote_algorithm
+class Solution:
+    def majorityElement(self, nums: List[int]) -> int:
         count = 0
+        majority = nums[0]
         for i in range(len(nums)):
-            if count == 0:     # when count hits 0, it means the total amount of all other different
-                majority = nums[i] # "elements" is same as the one of the previously dumped "majority"
-                count += 1 # So the "majority" needs to change
+            if count == 0:
+                majority = nums[i]
+                count += 1
                 continue
 
-            # After the majority changes, it is actually implementing the code in the rest of of "nums" list;
-            # The previous part is "dumped"
-            if majority != nums[i]: # at this moment, though the count-=1, the majority
-                count -= 1          # still remains same until count hits 0.
+            if majority != nums[i]:
+                count -= 1
             else:
                 count += 1
 
         return majority
 
 
-
-Sol = Solution()
-a = [1,2,2,1,2,1,2,1]
-print Sol.majorityElement(a)
-
-
-
+print(Solution().majorityElement([1, 2, 2, 1, 2, 1, 2, 1]))

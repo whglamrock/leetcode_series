@@ -1,33 +1,36 @@
+from typing import List
 
-# note the problem definition and all the conditions
-
-class Solution(object):
-    def ladderLength(self, beginWord, endWord, wordList):
-
-        if not wordList:
-            return 0  # according to the problem definition
-
+class Solution:
+    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
         wordList = set(wordList)
-        letters = "abcdefghijklmnopqrstuvwxyz"
-        curr = {beginWord}
+        if endWord not in wordList:
+            return 0
 
-        length = 2
-        while curr:
-            next = set()
-            for word in curr:
-                for i in xrange(len(word)):
-                    for char in letters:
-                        newWord = word[:i] + char + word[i + 1:]
-                        if newWord in wordList:
-                            if newWord == endWord:
-                                return length
-                            next.add(newWord)
-                            wordList.discard(newWord)  # this word is visited
-            curr = next
-            length += 1
+        todo = {beginWord}
+        lengthOfSequence = 1
+        while todo:
+            lengthOfSequence += 1
+            nextTodo = set()
+            for word in todo:
+                for i in range(len(word)):
+                    for adjacentWord in self.generateAdjacentWords(word, i):
+                        if adjacentWord == endWord:
+                            return lengthOfSequence
+                        if adjacentWord not in wordList:
+                            continue
+                        nextTodo.add(adjacentWord)
+                        wordList.discard(adjacentWord)
+            todo = nextTodo
 
         return 0
 
+    def generateAdjacentWords(self, word: str, i: int) -> List[str]:
+        words = []
+        for char in 'abcdefghijklmnopqrstuvwxyz':
+            if char == word[i]:
+                continue
+            words.append(word[:i] + char + word[i + 1:])
+        return words
 
 
-print Solution().ladderLength("hit", "cog", ["hot","dot","dog","lot","log","cog"])
+print(Solution().ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]))

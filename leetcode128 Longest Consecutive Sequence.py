@@ -1,37 +1,32 @@
+from typing import List
 
-class Solution(object):
-    def longestConsecutive(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: int
-        """
-        if not nums:
-            return 0
-
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        visited = set()
         numsSet = set(nums)
-        longest = 1
-
+        ans = 0
         for num in nums:
-            if num not in numsSet:
+            if num in visited:
                 continue
-            numsSet.discard(num)
 
-            l, r = num - 1, num + 1
-            while l in numsSet:
-                numsSet.discard(l)
-                l -= 1
-            while r in numsSet:
-                numsSet.discard(r)
-                r += 1
+            count = 0
+            tmp = num
+            # go smaller
+            while num in numsSet and num not in visited:
+                visited.add(num)
+                num -= 1
+                count += 1
 
-            longest = max(longest, r - l - 1)
+            num = tmp + 1
+            # go bigger
+            while num in numsSet and num not in visited:
+                visited.add(num)
+                num += 1
+                count += 1
 
-        return longest
+            ans = max(ans, count)
+
+        return ans
 
 
-
-print Solution().longestConsecutive([100, 1, 3, 4, 2, 6, 5, 8])
-
-
-
-
+print(Solution().longestConsecutive([100, 1, 3, 4, 2, 6, 5, 8]))

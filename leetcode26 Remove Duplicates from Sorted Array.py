@@ -1,18 +1,20 @@
+from typing import List
 
-class Solution(object):
-    def removeDuplicates(self, nums):
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        numsSet = set()
+        numsWithoutDup = []
+        for num in nums:
+            if num not in numsSet:
+                numsSet.add(num)
+                numsWithoutDup.append(num)
 
-        i = 0
-        while i+1<len(nums):
-            if nums[i] == nums[i+1]:
-                del nums[i]
-            else:
-                i += 1
+        for i in range(len(numsWithoutDup)):
+            nums[i] = numsWithoutDup[i]
 
-        return len(nums)
+        return len(numsWithoutDup)
 
 
-
-a = [1,1,1,1,1,2,2,2,3,4,6,7,9]
-objct = Solution()
-print objct.removeDuplicates(a)
+nums = [1, 1, 1, 2, 2, 3]
+print(Solution().removeDuplicates(nums))
+print(nums)

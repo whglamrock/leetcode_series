@@ -1,45 +1,31 @@
+from typing import Optional
 
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
+class Solution:
+    def __init__(self):
+        self.ans = -2147483648
 
-
-# the key is to think of returning maxToNode instead of directly maxPathSum when doing DFS
-
-class Solution(object):
-    def maxPathSum(self, root):
-        """
-        :type root: TreeNode
-        :rtype: int
-        """
-        self.maxSum = -2147483648
-        # each node stores the biggest sum that ends with it
+    def maxPathSum(self, root: Optional[TreeNode]) -> int:
         self.dfs(root)
-        return self.maxSum
+        return self.ans
 
-    def dfs(self, node):
-        maxToNode = node.val
-        maxLeft = 0
-        maxRight = 0
+    def dfs(self, root: Optional[TreeNode]):
+        if not root.left and not root.right:
+            self.ans = max(self.ans, root.val)
+            return root.val
 
-        if node.left:
-            maxLeft = self.dfs(node.left)
-        if node.right:
-            maxRight = self.dfs(node.right)
+        maxLeftSum = self.dfs(root.left) if root.left else 0
+        maxRightSum = self.dfs(root.right) if root.right else 0
+        # the path goes through the current root but doesn't go to root's parent
+        self.ans = max(self.ans, maxLeftSum + root.val + maxRightSum)
 
-        maxToNode = max(maxToNode,
-                        node.val + maxLeft,
-                        node.val + maxRight)
+        # the path goes up to current root's parent
+        maxSumFromRoot = root.val + max(maxLeftSum, maxRightSum, 0)
+        self.ans = max(self.ans, maxSumFromRoot)
 
-        self.maxSum = max(self.maxSum,
-                          node.val,
-                          maxLeft + node.val,
-                          maxRight + node.val,
-                          maxLeft + maxRight + node.val)
-
-        return maxToNode
-
-
+        return maxSumFromRoot

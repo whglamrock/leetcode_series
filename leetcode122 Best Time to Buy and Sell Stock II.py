@@ -1,21 +1,15 @@
+from typing import List
 
-# instruction is super unclear, actually you can sell/buy one stock within the same day without cooldown.
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
+        currMin = prices[0]
+        ans = 0
+        for i in range(1, len(prices)):
+            if prices[i] > currMin:
+                ans += prices[i] - currMin
+            currMin = prices[i]
 
-class Solution(object):
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
-        if not prices or len(prices) == 1:
-            return 0
-
-        profit = 0
-        for i in range(len(prices) - 1):
-            if prices[i + 1] > prices[i]:
-                profit += prices[i + 1] - prices[i]
-
-        return profit
+        return ans
 
 
 print(Solution().maxProfit([1, 4, 5, 2, 9, 16]))
