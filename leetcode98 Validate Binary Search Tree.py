@@ -1,29 +1,33 @@
+from typing import Optional
 
-# a DFS solution that's most realistic to be given in interview
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-class Solution(object):
-    def isValidBST(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
-        if not root:
-            return True
+class Solution:
+    def isValidBST(self, root: Optional[TreeNode]) -> bool:
+        minOfTree, maxOfTree, isValid = self.traverseBST(root)
+        return isValid
 
-        self.ans = True
-        self.dfs(root)
-        return self.ans
+    def traverseBST(self, root: Optional[TreeNode]) -> list:
+        if not root.left and not root.right:
+            return [root.val, root.val, True]
 
-    def dfs(self, root):
-        lo, hi = root.val, root.val
+        isValid = True
+        minOfTree, maxOfTree = root.val, root.val
         if root.left:
-            leftLo, leftHi = self.dfs(root.left)
-            lo, hi = min(lo, leftLo), max(hi, leftHi)
-            if not leftHi < root.val:
-                self.ans = False
+            minOfLeft, maxOfLeft, isLeftTreeValid = self.traverseBST(root.left)
+            if not isLeftTreeValid or maxOfLeft >= root.val:
+                isValid = False
+            minOfTree = min(minOfTree, minOfLeft)
+            maxOfTree = max(maxOfTree, maxOfLeft)
         if root.right:
-            rightLo, rightHi = self.dfs(root.right)
-            lo, hi = min(lo, rightLo), max(hi, rightHi)
-            if not rightLo > root.val:
-                self.ans = False
-        return lo, hi
+            minOfRight, maxOfRight, isRightTreeValid = self.traverseBST(root.right)
+            if not isRightTreeValid or minOfRight <= root.val:
+                isValid = False
+            minOfTree = min(minOfTree, minOfRight)
+            maxOfTree = max(maxOfTree, maxOfRight)
+
+        return [minOfTree, maxOfTree, isValid]

@@ -1,9 +1,7 @@
-
 # """
 # This is the interface that allows for creating nested lists.
 # You should not implement it, or speculate about its implementation
 # """
-
 class NestedInteger(object):
     def isInteger(self):
         """
@@ -26,9 +24,6 @@ class NestedInteger(object):
         """
 
 
-
-# use stack to modify the original nestedList
-
 class NestedIterator(object):
 
     def __init__(self, nestedList):
@@ -39,8 +34,8 @@ class NestedIterator(object):
             if item.isInteger():
                 self.lst.append(item.getInteger())
             else:
-                for subitem in item.getList():
-                    nestedList.append(subitem)
+                for subItem in item.getList():
+                    nestedList.append(subItem)
 
     def next(self):
 
@@ -51,7 +46,6 @@ class NestedIterator(object):
     def hasNext(self):
 
         return len(self.lst) != 0
-
 
 
 # Your NestedIterator object will be instantiated and called as such:
