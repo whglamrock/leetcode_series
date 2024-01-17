@@ -1,54 +1,40 @@
-
 from heapq import *
+from typing import List
 
-# The idea is for every x coordinate, we try to get a tallest height;
-    #  if the height != previous height, add to the skyline list
-# two pointers: one pointer iterate through all the x coordinates; another iterate through the buildings
-    # to push into live pq or pop.
-# the following solution is O(NlogN) where N = len(buildings)
-
-class Solution(object):
-    def getSkyline(self, buildings):
-        """
-        :type buildings: List[List[int]]
-        :rtype: List[List[int]]
-        """
-        if not buildings:
-            return []
-
-        positions = set()
+# 1) It's natural to use priority queue to store the height/right edge. The trickiest idea is how to use
+# pq to pop out the "dead" buildings as we scan edges from left to right, while also know the height
+# of the tallest buildings in priority queue.
+# 2) The most import gotcha is: you don't care about non tallest buildings even if they are dead because
+# the skyline is only formed by tallest live buildings. So the it's natural to use height as the key for pq.
+# 3) pq also stores the right edges. When popping out the pq, only check if pq[0]'s right edge is "dead" or not
+class Solution:
+    def getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:
+        sortedEdges = set()
         for l, r, h in buildings:
-            positions.add(l)
-            positions.add(r)
-        positions = sorted(positions)
+            sortedEdges.add(l)
+            sortedEdges.add(r)
+        sortedEdges = sorted(sortedEdges)
 
-        live = []
-        heapify(live)
-        sky = [[-1, 0]]  # [-1, 0] is to help with "sky[-1][1] != h"
-        i, n = 0, len(buildings)
-
-        for pos in positions:
-            # note that buildings is sorted already
-            while i < n and buildings[i][0] <= pos:
-                # we need the right edge not left one because we will
-                # need it to compare with pos to pop out the dead ones
-                heappush(live, [-buildings[i][2], buildings[i][1]])
+        # to deal with edge case when we wanna add the first skyline point
+        sky = [[-1, -1]]
+        pq = []
+        i = 0
+        for edge in sortedEdges:
+            # add all "live" buildings
+            while i < len(buildings) and buildings[i][0] <= edge:
+                heappush(pq, [-buildings[i][2], buildings[i][1]])
                 i += 1
 
-            # even if there are probably some vertical lines that are already dead we don't pop them here.
-                # since we only care about the tallest.
-            # P.S. also it has to be "<=" because there is no flat line in skyline.
-                # i.e., we take the shorter point if the taller one is the right side of a building
-            while live and live[0][1] <= pos:
-                heappop(live)
+            # only care about the tallest building. there might be some "dead"
+            # buildings with shorter height in pq but it's ok
+            while pq and pq[0][1] <= edge:
+                heappop(pq)
 
-            # get the current height and add it to live
-            h = -live[0][0] if live else 0
-            if sky[-1][1] != h:
-                sky.append([pos, h])
+            tallestAlive = -pq[0][0] if pq else 0
+            if sky[-1][1] != tallestAlive:
+                sky.append([edge, tallestAlive])
 
         return sky[1:]
 
 
-
-print Solution().getSkyline([[2, 9, 10], [3, 7, 15], [5, 12, 12,], [15, 20, 10,], [19, 24, 8]])
+print(Solution().getSkyline([[2, 9, 10], [3, 7, 15], [5, 12, 12, ], [15, 20, 10, ], [19, 24, 8]]))
