@@ -1,30 +1,21 @@
 from typing import List
 
-# redefine the question to a binary index tree question:
-# every number has a rank: the count of numbers smaller than ranks(4) = count of numbers at ranks(3)
-# + count of numbers at ranks(2) + count of numbers at ranks(1).
-# => this is essentially queryBIT(3).
-# Naturally we make ranks(i) = 1. If we do this in reverse order, we can get the answer
+# P.S. How negative numbers are saved in binary: https://courses.cs.washington.edu/courses/cse390b/21sp/readings/negative_binary.html
+# How binary is constructed/queried: https://www.hackerearth.com/practice/notes/binary-indexed-tree-or-fenwick-tree/
 class Solution(object):
     def countSmaller(self, nums: List[int]) -> List[int]:
-        n = len(nums)
-
         # BIT is non-0 index based array because we need to perform bit operation on index
         ranks = {num: rank + 1 for rank, num in enumerate(sorted(set(nums)))}
-        bit = [0] * (n + 1)
+        bit = [0] * (len(ranks) + 1)
 
         ans = []
         for num in nums[::-1]:
-            # we want the sum of counts of lower rank numbers and
-            # at this point only the numbers on the right of num were added to BIT
-            # we need smaller numbers so use rank - 1 (BIT "prefix sum" is inclusive)
             count = self.queryBIT(bit, ranks[num] - 1)
             ans.append(count)
             self.updateBIT(bit, ranks[num])
 
         return ans[::-1]
 
-    # no diff in input here because we always add 1
     def updateBIT(self, bit, i):
         while i < len(bit):
             bit[i] += 1

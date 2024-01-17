@@ -1,47 +1,49 @@
-
-# Definition for a binary tree node.
+from collections import deque
 
 class TreeNode(object):
     def __init__(self, x):
-
         self.val = x
         self.left = None
         self.right = None
 
 
-
-from collections import deque
-
-# it's natural to think of level order traversal idea
-
 class Codec:
     def serialize(self, root):
         """Encodes a tree to a single string.
+
         :type root: TreeNode
         :rtype: str
         """
         if not root:
             return ''
 
+        # level order traversal
         todo = [root]
-        ans = []
+        levelOrderTraversals = []
         while todo:
             nextTodo = []
             for node in todo:
-                if node.val != None:
-                    ans.append(str(node.val))
-                    if node.left:
-                        nextTodo.append(node.left)
-                    else:
-                        nextTodo.append(TreeNode(None))
-                    if node.right:
-                        nextTodo.append(node.right)
-                    else:
-                        nextTodo.append(TreeNode(None))
+                if node is None:
+                    levelOrderTraversals.append(None)
+                    continue
+                levelOrderTraversals.append(node.val)
+                if node.left:
+                    nextTodo.append(node.left)
                 else:
-                    ans.append("null")
+                    nextTodo.append(None)
+                if node.right:
+                    nextTodo.append(node.right)
+                else:
+                    nextTodo.append(None)
             todo = nextTodo
-
+        while levelOrderTraversals and levelOrderTraversals[-1] is None:
+            levelOrderTraversals.pop()
+        ans = []
+        for val in levelOrderTraversals:
+            if val is None:
+                ans.append('null')
+            else:
+                ans.append(str(val))
         return ','.join(ans)
 
     def deserialize(self, data):
@@ -54,29 +56,33 @@ class Codec:
             return None
 
         data = deque(data.split(','))
-        rootVal = data.popleft()
-        root = TreeNode(int(rootVal))
+        root = TreeNode(int(data.popleft()))
         todo = [root]
-
         while todo:
             nextTodo = []
             for node in todo:
-                leftVal = data.popleft()
-                if leftVal != 'null':
-                    leftChild = TreeNode(int(leftVal))
-                    node.left = leftChild
-                    nextTodo.append(leftChild)
-                rightVal = data.popleft()
-                if rightVal != 'null':
-                    rightChild = TreeNode(int(rightVal))
-                    node.right = rightChild
-                    nextTodo.append(rightChild)
+                # to deal with leaf node
+                if not data:
+                    break
+                nextVal = data.popleft()
+                if nextVal != 'null':
+                    leftNode = TreeNode(int(nextVal))
+                    node.left = leftNode
+                    nextTodo.append(leftNode)
+                # to deal with leaf node
+                if not data:
+                    break
+                nextVal = data.popleft()
+                if nextVal != 'null':
+                    rightNode = TreeNode(int(nextVal))
+                    node.right = rightNode
+                    nextTodo.append(rightNode)
             todo = nextTodo
 
         return root
 
 
-
 # Your Codec object will be instantiated and called as such:
-# codec = Codec()
-# codec.deserialize(codec.serialize(root))
+# ser = Codec()
+# deser = Codec()
+# ans = deser.deserialize(ser.serialize(root))

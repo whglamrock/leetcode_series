@@ -1,11 +1,7 @@
-
 # Binary Index Tree solution will be more impressive in real interview
-    # see how BIT is constructed in a clean way: https://www.hackerearth.com/zh/practice/data-structures/advanced-data-structures/fenwick-binary-indexed-trees/tutorial/
-
+# see how BIT is constructed in a clean way: https://www.hackerearth.com/practice/notes/binary-indexed-tree-or-fenwick-tree/
 # update: O(logN); sumRegion: O(M * logN)
-
 class NumMatrix(object):
-
     def __init__(self, matrix):
         """
         :type matrix: List[List[int]]
@@ -14,7 +10,7 @@ class NumMatrix(object):
         self.bits = []
         # leetcode does give bullshit corner case when matrix == [[]]
         if matrix:
-            for i in xrange(len(matrix)):
+            for i in range(len(matrix)):
                 # covers the corner case when matrix[i] is empty
                 bit = self.buildBIT(matrix[i])
                 self.bits.append(bit)
@@ -51,7 +47,7 @@ class NumMatrix(object):
         :rtype: int
         """
         ans = 0
-        for i in xrange(row1, row2 + 1):
+        for i in range(row1, row2 + 1):
             ans += self.queryBIT(i, col2) - self.queryBIT(i, col1 - 1)
 
         return ans
@@ -73,15 +69,12 @@ class NumMatrix(object):
             j += j & (-j)
 
 
-
 matrix = [[3, 0, 1, 4, 2], [5, 6, 3, 2, 1], [1, 2, 0, 1, 5], [4, 1, 0, 1, 7], [1, 0, 3, 0, 5]]
 Sol = NumMatrix(matrix)
 Sol.update(1, 0, 1)
-print Sol.sumRegion(2, 1, 4, 3)
+print(Sol.sumRegion(2, 1, 4, 3))
 Sol.update(3, 2, 2)
-print Sol.sumRegion(2, 1, 4, 3)
-
-
+print(Sol.sumRegion(2, 1, 4, 3))
 
 '''
 # O(n) solution for sum abd update function. Keep a accumulate sum matrix of each row
