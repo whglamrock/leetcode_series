@@ -1,55 +1,35 @@
+from typing import List
 
-# recursive DFS. No need to do iterative
-# In worst case, the time complexity is still exponential (but running time is much better
-    # since we de-dupe a lot of invalid cases).
-    # We can add a count global variable to see how many times the dfs function is invoked.
-
-class Solution(object):
-    def exist(self, board, word):
-        """
-        :type board: List[List[str]]
-        :type word: str
-        :rtype: bool
-        """
-        if not board or not board[0]:
-            return False
-
-        for i in xrange(len(board)):
-            for j in xrange(len(board[0])):
-                if self.dfs(board, i, j, 0, word):
+class Solution:
+    def exist(self, board: List[List[str]], word: str) -> bool:
+        for i in range(len(board)):
+            for j in range(len(board[0])):
+                if self.dfs(board, word, 0, i, j):
                     return True
-
         return False
 
-    def dfs(self, board, i, j, k, word):
-        if k == len(word):
-            return True
-        # out of range
-        if i < 0 or i >= len(board) or j < 0 or j >= len(board[0]):
+    def dfs(self, board: List[List[str]], word: str, index: int, i: int, j: int) -> bool:
+        if index == len(word) - 1:
+            return word[index] == board[i][j]
+        if word[index] != board[i][j]:
             return False
 
-        if board[i][j] != word[k]:
-            return False
-
+        # block the used element instead of using visited to save time & space
         tmp = board[i][j]
         board[i][j] = '#'
-        if self.dfs(board, i - 1, j, k + 1, word):
-            return True
-        if self.dfs(board, i + 1, j, k + 1, word):
-            return True
-        if self.dfs(board, i, j - 1, k + 1, word):
-            return True
-        if self.dfs(board, i, j + 1, k + 1, word):
-            return True
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+        ans = False
+        for deltaI, deltaJ in directions:
+            ii, jj = i + deltaI, j + deltaJ
+            if 0 <= ii < len(board) and 0 <= jj < len(board[0]):
+                ans |= self.dfs(board, word, index + 1, ii, jj)
 
         board[i][j] = tmp
-        return False
+        return ans
 
 
-
-print Solution().exist(
+print(Solution().exist(
     [['A', 'B', 'C', 'E'],
      ['S', 'F', 'C', 'S'],
      ['A', 'D', 'E', 'E']],
-    "SEE")
-
+    "SEE"))

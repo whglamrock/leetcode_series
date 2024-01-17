@@ -1,38 +1,30 @@
+from functools import lru_cache
+from typing import List
 
-# it's easiest to think of DFS & memoization:
-    # step1: define what DFS function should return
-    # step2: define what is the key & value of the memo (ideally the value should be in the same type as DFS return)
-    # step3: so we know what we should return as base case
+class Solution:
+    def __init__(self):
+        self.wordDict = set()
 
-class Solution(object):
-    def wordBreak(self, s, wordDict):
-        """
-        :type s: str
-        :type wordDict: List[str]
-        :rtype: List[str]
-        """
-        return self.dfs(s, wordDict, {})
+    def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
+        self.wordDict = set(wordDict)
+        return self.dfs(s)
 
-    def dfs(self, s, wordDict, memo):
+    @lru_cache(None)
+    def dfs(self, s: str) -> List[str]:
         if not s:
             return ['']
 
-        if s in memo:
-            return memo[s]
-
-        res = []
-        for word in wordDict:
+        ans = []
+        for word in self.wordDict:
             if s.startswith(word):
-                wordBreakOfSuffix = self.dfs(s[len(word):], wordDict, memo)
-                for item in wordBreakOfSuffix:
-                    # don't forget to strip() in case item == ''
-                    res.append((word + ' ' + item).strip())
+                workBreakOfSuffix = self.dfs(s[len(word):])
+                # workBreakOfSuffix could be empty if the suffix can't be broken down using wordDict
+                for wordBreakStr in workBreakOfSuffix:
+                    ans.append((word + ' ' + wordBreakStr).rstrip())
 
-        memo[s] = res
-        return res
-
+        return ans
 
 
-print Solution().wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog", "an", "ddog"])
-print Solution().wordBreak("pineapplepenapple", ["apple", "pen", "applepen", "pine", "pineapple"])
-print Solution().wordBreak("aaaaaaaa", ["a", 'aa', "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa"])
+print(Solution().wordBreak("catsanddog", ["cat", "cats", "and", "sand", "dog", "an", "ddog"]))
+print(Solution().wordBreak("pineapplepenapple", ["apple", "pen", "applepen", "pine", "pineapple"]))
+print(Solution().wordBreak("aaaaaaaa", ["a", 'aa', "aaa", "aaaa", "aaaaa", "aaaaaa", "aaaaaaa"]))
