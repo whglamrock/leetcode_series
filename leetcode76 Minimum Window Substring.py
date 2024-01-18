@@ -1,4 +1,3 @@
-from math import inf
 from collections import defaultdict, Counter
 from typing import Dict
 
@@ -7,28 +6,19 @@ class Solution:
         charCountOfT = Counter(t)
         window = defaultdict(int)
         l = 0
-        minLen = 2147483647
-        start, end = -inf, inf
-
+        start, end = None, None
         for r, char in enumerate(s):
             window[char] += 1
-            while l <= r and (s[l] not in charCountOfT or window[s[l]] > charCountOfT[s[l]]):
+            while l <= r and self.areAllCharsIncluded(window, charCountOfT):
+                if start is None or r - l + 1 < end - start + 1:
+                    start, end = l, r
                 window[s[l]] -= 1
-                if window[s[l]] == 0:
-                    del window[s[l]]
                 l += 1
 
-            if self.areAllCharsIncluded(window, charCountOfT):
-                if minLen > r - l + 1:
-                    minLen = r - l + 1
-                    start, end = l, r
+        return s[start:end + 1] if start is not None else ''
 
-        return s[start:end + 1] if minLen != 2147483647 else ''
-
-    # O(1) time because there are at most 52 chars
-    def areAllCharsIncluded(self, window: Dict[str, int], charCountOfT: Dict[str, int]) -> bool:
-        if len(window) < len(charCountOfT):
-            return False
+    # O(1) time because there are at most 52 letters
+    def areAllCharsIncluded(self, window: Dict[str, int], charCountOfT: Dict[str, int]):
         for char in charCountOfT:
             if char not in window or window[char] < charCountOfT[char]:
                 return False

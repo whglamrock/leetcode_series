@@ -1,19 +1,15 @@
-
-# O(nlogn) time complexity
-# the idea is to use binary search to cut the search range by half (logn search times);
-#   within each search, count how many elements <= the mid with O(n) time
-
+# O(N * log(N)) time, count how many elements less that mid
 class Solution(object):
     def kthSmallest(self, matrix, k):
 
         n = len(matrix)
         l, r = matrix[0][0], matrix[n - 1][n - 1]
 
-        while l < r:    # o(logn), when l == r, exit the while loop, l > r is impossible
+        while l < r:  # o(logN), when l == r, exit the while loop, l > r is impossible
             mid = l + (r - l) / 2
             cnt, j = 0, n - 1
             # o(n), because j at most goes from n-1 to 1 once. If matrix[i][j] always <= mid, j won't decrease.
-            for i in xrange(n):
+            for i in range(n):
                 while j >= 0 and matrix[i][j] > mid:
                     j -= 1
                 cnt += j + 1
@@ -30,18 +26,14 @@ class Solution(object):
         # mid is out potential target, we use 'r = mid' instead of 'r = mid-1'. However, when cnt < k, it is
         # definitely impossible for mid == kth smallest, so we use 'l = mid+1'.
 
-        return l    # return r is same
+        return l  # return r is same
 
 
-
-Sol = Solution()
-matrix = [
-    [1, 5, 19],
-    [10, 14, 18],
-    [13, 21, 31]
-]
-print Sol.kthSmallest(matrix,8)
-
+print(Solution().kthSmallest(
+    [[1, 5, 19],
+     [10, 14, 18],
+     [13, 21, 31]],
+    8))
 
 
 """
@@ -75,37 +67,3 @@ class Solution(object):
         thekth, (x, y) = heappop(q)
         return thekth
 """
-
-
-
-'''
-# another binary search solution, just different search direction in the while loop
-# notice why the inner for loop starts from last row
-
-class Solution(object):
-    def kthSmallest(self, matrix, k):
-
-        if not matrix or not matrix[0]:
-            return
-
-        n = len(matrix)
-        l, r = matrix[0][0], matrix[n - 1][n - 1]
-
-        while l < r:
-            mid = l + (r - l) / 2
-            count = 0
-            j = 0
-            # O(n). count the number of elements <= mid
-            for i in xrange(n - 1, -1, -1):
-                # when the condition is "<=", we needa move up to make sure
-                #   the next matrix[i][-1] is still <= mid when j reaches n.
-                while j < n and matrix[i][j] <= mid:
-                    j += 1
-                count += j
-            if count < k:   # then the mid is still the candidate
-                l = mid + 1
-            else:
-                r = mid
-
-        return l
-'''
