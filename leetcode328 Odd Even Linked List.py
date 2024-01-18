@@ -1,59 +1,35 @@
+from typing import Optional
 
-# Definition for singly-linked list.
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-
-
-# the idea is use 2 pointers to represent the odd and even list, then connect the odd tail with even head
-
-class Solution(object):
-    def oddEvenList(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
+class Solution:
+    def oddEvenList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head:
             return None
 
-        oddDummy, evenDummy = ListNode(None), ListNode(None)
+        oddDummy, evenDummy = ListNode(), ListNode()
+        # odd, even refer to the current tails of 2 separate linkedLists
         odd, even = oddDummy, evenDummy
         curr = head
 
+        # curr is always the odd node
         while curr:
             odd.next = curr
-            if not curr.next:
-                # don't forget about this step because the position of odd is very important for
-                    # connecting the odd list and even list
+            nextEven = curr.next
+            if not nextEven:
                 odd = odd.next
                 break
-            even.next = curr.next
 
-            # disconnect the node at even position
-            nextNode = curr.next
-            curr.next = nextNode.next
-            nextNode.next = None
+            even.next = nextEven
+            curr.next = None  # cut the connection between curr and curr's next even node
 
             odd = odd.next
-            even = even.next
-            curr = curr.next
+            even = nextEven
+            curr = even.next
+            even.next = None
 
         odd.next = evenDummy.next
-        return head  # can also return oddDummy.next
-
-
-
-head = ListNode(None)
-node = head
-for i in xrange(1, 8):
-    node.next = ListNode(i)
-    node = node.next
-head = head.next
-
-curr = Solution().oddEvenList(head)
-while curr:
-    print curr.val
-    curr = curr.next
+        return head

@@ -1,41 +1,23 @@
+from typing import Optional
 
-class Solution(object):
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-    def maxDepth(self, root):
+class Solution:
+    def __init__(self):
+        self.ans = None
 
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        self.ans = 0
+        self.traverse(root, 1)
+        return self.ans
+
+    def traverse(self, root: Optional[TreeNode], depth: int):
         if not root:
-            return 0
-        queue = [root]
-        ans = 0
-        while queue:
-            ans += 1
-            level = []
-            size = len(queue)
-            for i in range(size):
-                if queue[i].left != None:
-                    level.append(queue[i].left)
-                if queue[i].right != None:
-                    level.append(queue[i].right)
-            queue = level
-        return ans
-
-
-
-"""
-# recursive solution
-
-class Solution(object):
-    
-    def maxDepth(self, root):
-        self.length = 0
-        def traverse(node, pathLength):
-            if not node:
-                self.length = max(self.length, pathLength)
-                return
-            traverse(node.left, pathLength + 1)
-            traverse(node.right, pathLength + 1)
-        
-        traverse(root, 0)
-        return self.length
-"""
-
+            return
+        self.ans = max(self.ans, depth)
+        self.traverse(root.left, depth + 1)
+        self.traverse(root.right, depth + 1)
