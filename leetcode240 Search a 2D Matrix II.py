@@ -1,29 +1,24 @@
+from typing import List
 
-# when encountering a matrix like this, always start from the bottom left or upper right element
-
-class Solution(object):
-    def searchMatrix(self, matrix, target):
-
-        if not matrix or not matrix[0]:
-            return False
-
-        row = len(matrix) - 1
-        col = 0
-        while row >= 0 and col < len(matrix[0]):
-            if matrix[row][col] == target:
+# don't think about binary search if you wanna utilize the sorted row/column.
+# remember to start from bottom left or top right
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m, n = len(matrix), len(matrix[0])
+        i, j = m - 1, 0
+        while i >= 0 and j < n:
+            if matrix[i][j] == target:
                 return True
-            elif matrix[row][col] > target:
-                row -= 1
+            elif matrix[i][j] < target:
+                j += 1
             else:
-                col += 1
+                i -= 1
 
         return False
 
 
-
 '''
-# no-brainer binary solution:
- 
+# O(m * log(n)) solution
 class Solution(object):
     def searchMatrix(self, matrix, target):
         """

@@ -1,50 +1,34 @@
-
-from collections import deque
-
-class Solution(object):
-    def myAtoi(self, string):
-        """
-        :type string: str
-        :rtype: int
-        """
-        if not string:
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        if not s:
+            return 0
+        s = s.lstrip()
+        if not s:
             return 0
 
-        queue = deque()
+        isPositive = s[0] != '-'
+        if s[0] in '+-':
+            s = s[1:]
+
         i = 0
-
-        # find the first non whitespace char
-        while i < len(string) and string[i] == ' ':
-            i += 1
-        # if it's a sign, add to the queue
-        if i < len(string) and string[i] in '+-':
-            queue.append(string[i])
+        ans = []
+        while i < len(s) and s[i].isdigit():
+            ans.append(s[i])
             i += 1
 
-        # return 0 for the invalid case
-        if i >= len(string) or not string[i].isdigit():
+        if not ans:
             return 0
-
-        # add all the valid digits
-        while i < len(string) and string[i].isdigit():
-            queue.append(string[i])
-            i += 1
-
-        ans = 0
-        flag = 1
-        if queue[0] in '+-':
-            sign = queue.popleft()
-            if sign == '-':
-                flag = -1
-        while queue:
-            ans = ans * 10 + int(queue.popleft())
-        ans = flag * ans
-        return min(max(ans, -2147483648), 2147483647)
+        ans = int(''.join(ans))
+        if not isPositive:
+            ans = -ans
+        if ans < -2147483648:
+            return -2147483648
+        elif ans > 2147483647:
+            return 2147483647
+        return ans
 
 
-
-print Solution().myAtoi('   -42')
-print Solution().myAtoi('4193 with words')
-print Solution().myAtoi('words and 987')
-print Solution().myAtoi('-91283472332')
-
+print(Solution().myAtoi('   -42'))
+print(Solution().myAtoi('4193 with words'))
+print(Solution().myAtoi('words and 987'))
+print(Solution().myAtoi('-91283472332'))

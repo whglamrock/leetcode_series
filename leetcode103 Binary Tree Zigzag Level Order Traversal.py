@@ -1,31 +1,33 @@
+from typing import Optional, List
 
-class Solution(object):
-    def zigzagLevelOrder(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+
+class Solution:
+    def zigzagLevelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         if not root:
             return []
 
         ans = []
-        level = 0
-        curr = [root]
-
-        while curr:
-            next = []
-            levelTraversal = []
-            for node in curr:
-                levelTraversal.append(node.val)
+        todo = [root]
+        isReverse = True
+        while todo:
+            nextTodo = []
+            level = []
+            for node in todo:
+                level.append(node.val)
                 if node.left:
-                    next.append(node.left)
+                    nextTodo.append(node.left)
                 if node.right:
-                    next.append(node.right)
-            if level % 2 == 0:
-                ans.append(levelTraversal)
+                    nextTodo.append(node.right)
+            todo = nextTodo
+            if isReverse:
+                ans.append(level)
             else:
-                ans.append(levelTraversal[::-1])
-            level += 1
-            curr = next
+                ans.append(level[::-1])
+            isReverse = not isReverse
 
         return ans

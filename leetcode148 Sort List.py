@@ -1,21 +1,13 @@
+from typing import Optional
 
-# normally use merge sort. Get familiar with 'merge sort'!
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-
-
-# O(1) space solution is pretty challenging
-
+# O(1) space solution is pretty challenging. Get familiar with 'merge sort'!
 class Solution(object):
-    def sortList(self, head):
-        """
-        :type head: ListNode
-        :rtype: ListNode
-        """
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
         if not head or not head.next:
             return head
 
@@ -38,7 +30,7 @@ class Solution(object):
         sortedL2 = self.sortList(l2)
         return self.merge(sortedL1, sortedL2)
 
-    def merge(self, l1, l2):
+    def merge(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
         dummy = ListNode(None)
         tmp = dummy
 
@@ -69,14 +61,41 @@ class Solution(object):
         return dummy.next
 
 
-
-dummy = ListNode(None)
+dummy = ListNode()
 curr = dummy
 for i in range(10)[::-1]:
     curr.next = ListNode(i)
     curr = curr.next
 
-ans = Solution().sortList(dummy.next)
-while ans:
-    print ans.val
-    ans = ans.next
+node = Solution().sortList(dummy.next)
+vals = []
+while node:
+    vals.append(node.val)
+    node = node.next
+print(vals)
+
+
+'''
+# naive O(n) space solution
+class Solution:
+    def sortList(self, head: Optional[ListNode]) -> Optional[ListNode]:
+        indexToNode = {}
+        nums = []
+        curr = head
+        i = 0
+        while curr:
+            indexToNode[i] = curr
+            nums.append([curr.val, i])
+            curr = curr.next
+            i += 1
+        nums.sort()
+        
+        dummy = ListNode()
+        curr = dummy
+        for value, i in nums:
+            node = indexToNode[i]
+            curr.next = node
+            curr = node
+        curr.next = None
+        return dummy.next
+'''

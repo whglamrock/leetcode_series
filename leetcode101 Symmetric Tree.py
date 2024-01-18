@@ -1,26 +1,21 @@
+from typing import Optional
 
-class Solution(object):  #iterative solution
-    def isSymmetric(self, root):
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-        stack_for_tree1 = []
-        stack_for_tree2 = []
-        stack_for_tree1.append(root)
-        stack_for_tree2.append(root)
+class Solution:
+    def isSymmetric(self, root: Optional[TreeNode]) -> bool:
+        if not root.left:
+            return not root.right
+        return self.areSymmetric(root.left, root.right)
 
-        while stack_for_tree1 and stack_for_tree2:
-            p1 = stack_for_tree1.pop()
-            p2 = stack_for_tree2.pop()
-            if (p1== None and p2 != None) or (p2== None and p1 != None):
-                return False
-            if p1== None and p2 == None:
-                continue
-            if p1.val != p2.val:
-                return False
+    def areSymmetric(self, leftNode: Optional[TreeNode], rightNode: Optional[TreeNode]) -> bool:
+        if not leftNode or not rightNode:
+            return leftNode == rightNode
+        if leftNode.val != rightNode.val:
+            return False
 
-            stack_for_tree1.append(p1.left)
-            stack_for_tree1.append(p1.right)
-
-            stack_for_tree2.append(p2.right)
-            stack_for_tree2.append(p2.left)
-
-        return True
+        return self.areSymmetric(leftNode.left, rightNode.right) and self.areSymmetric(leftNode.right, rightNode.left)

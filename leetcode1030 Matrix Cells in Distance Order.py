@@ -15,8 +15,8 @@ class Solution(object):
 
         ans = [[r0, c0]]
         visited = set()
-        for dist in xrange(1, maxDist + 1):
-            for i in xrange(dist + 1):
+        for dist in range(1, maxDist + 1):
+            for i in range(dist + 1):
                 j = dist - i
                 if r0 - i >= 0 and c0 - j >= 0:
                     if (r0 - i, c0 - j) not in visited:
