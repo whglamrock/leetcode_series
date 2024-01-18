@@ -1,29 +1,10 @@
-
-'''
-class Solution(object):
-    def trailingZeroes(self, n):
-        return 0 if n < 5 else n/5 + self.trailingZeroes(n/5)
-'''
-# The above is the perfect recursive solution.
-# The algorithm can be found here: http://bookshadow.com/weblog/2014/12/30/leetcode-factorial-trailing-zeroes/
-
-class Solution(object):
-    def trailingZeroes(self, n):
-        """
-        :type n: int
-        :rtype: int
-        """
-        x = 5
-        ans = 0
-        while n >= x:
-            ans += n/x
-            x *= 5
-        return ans
+# idea: https://leetcode.com/problems/factorial-trailing-zeroes/solutions/52367/my-explanation-of-the-log-n-solution/
+# Taking 125 as an example, within 125, there are 125/5 = 25 numbers provide a factor of 5 (ends with 5). But those
+# numbers that are multiple of 25 will provide one extra 5 (i.e., 25, 50, 75, 100, 125) because for example
+# 50 = 5 * 5 * 2. Same idea for 125 = 5 * 5 * 5. So we can come up with the recursive solution
+class Solution:
+    def trailingZeroes(self, n: int) -> int:
+        return 0 if n < 5 else n // 5 + self.trailingZeroes(n // 5)
 
 
-
-Sol = Solution()
-a = 5
-print Sol.trailingZeroes(a)
-
-
+print(Solution().trailingZeroes(5))

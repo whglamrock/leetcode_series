@@ -1,6 +1,4 @@
-
 # idea coming from lc1096
-
 class Solution(object):
     def expand(self, S):
         """
@@ -39,7 +37,6 @@ class Solution(object):
         return sorted(stack[-1])
 
 
-
-print Solution().expand('{a,b}c{d,e}f')
-print Solution().expand('abcd')
-print Solution().expand('a{b,c}d')
+print(Solution().expand('{a,b}c{d,e}f'))
+print(Solution().expand('abcd'))
+print(Solution().expand('a{b,c}d'))
