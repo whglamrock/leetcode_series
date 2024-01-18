@@ -1,34 +1,25 @@
+from collections import defaultdict
 
-from collections import defaultdict, deque
-
-class Solution(object):
-    def lengthOfLongestSubstringKDistinct(self, s, k):
-        """
-        :type s: str
-        :type k: int
-        :rtype: int
-        """
-        if not s:
+class Solution:
+    def lengthOfLongestSubstringKDistinct(self, s: str, k: int) -> int:
+        if k == 0:
             return 0
 
-        letterToIndices = defaultdict(deque)
+        window = defaultdict(int)
         l = 0
-        maxLen = 0
-
-        for i, char in enumerate(s):
-            letterToIndices[char].append(i)
-            while len(letterToIndices) > k:
-                leftChar = s[l]
-                letterToIndices[leftChar].popleft()
-                if not letterToIndices[leftChar]:
-                    del letterToIndices[leftChar]
+        maxLen = 1
+        for r, char in enumerate(s):
+            window[char] += 1
+            while len(window) > k:
+                window[s[l]] -= 1
+                if not window[s[l]]:
+                    del window[s[l]]
                 l += 1
-            maxLen = max(maxLen, i - l + 1)
+            maxLen = max(r - l + 1, maxLen)
 
         return maxLen
 
 
-
-print Solution().lengthOfLongestSubstringKDistinct('eceba', 3)
-print Solution().lengthOfLongestSubstringKDistinct('eceba', 6)
-print Solution().lengthOfLongestSubstringKDistinct('aa', 1)
+print(Solution().lengthOfLongestSubstringKDistinct('eceba', 3))
+print(Solution().lengthOfLongestSubstringKDistinct('eceba', 6))
+print(Solution().lengthOfLongestSubstringKDistinct('aa', 1))

@@ -1,25 +1,20 @@
+from collections import defaultdict
+from typing import List
 
-class Solution(object):
-    def fourSumCount(self, A, B, C, D):
-
-        dicab, diccd = {}, {}
-        for a in A:
-            for b in B:
-                sumab = a + b
-                if sumab not in dicab:
-                    dicab[sumab] = 0
-                dicab[sumab] += 1
-
-        for c in C:
-            for d in D:
-                sumcd = c + d
-                if sumcd not in diccd:
-                    diccd[sumcd] = 0
-                diccd[sumcd] += 1
+class Solution:
+    def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
+        n = len(nums1)
+        twoSumCount1stAnd2nd = defaultdict(int)
+        for i in range(n):
+            for j in range(n):
+                twoSumCount1stAnd2nd[nums1[i] + nums2[j]] += 1
+        twoSumCount3rdAnd4th = defaultdict(int)
+        for i in range(n):
+            for j in range(n):
+                twoSumCount3rdAnd4th[nums3[i] + nums4[j]] += 1
 
         ans = 0
-        for sumab in dicab:
-            if -sumab in diccd:
-                ans += dicab[sumab] * diccd[-sumab]
-
+        for twoSum in twoSumCount1stAnd2nd:
+            if -twoSum in twoSumCount3rdAnd4th:
+                ans += twoSumCount1stAnd2nd[twoSum] * twoSumCount3rdAnd4th[-twoSum]
         return ans
