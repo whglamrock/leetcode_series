@@ -1,13 +1,6 @@
-
 # bear in mind the test cases like: 1 / 3, 1 / 6, 1 / 2, 2 / 1, etc.
-
 class Solution(object):
-    def fractionToDecimal(self, numerator, denominator):
-        """
-        :type numerator: int
-        :type denominator: int
-        :rtype: str
-        """
+    def fractionToDecimal(self, numerator: int, denominator: int) -> str:
         curr = []
         if numerator * denominator < 0:
             curr.append('-')
@@ -34,7 +27,7 @@ class Solution(object):
                 break
 
             # 1) add numerator to visited map here because each added digit n should correspond to the numerator;
-                # i.e, we wanna check if the same numerator occurs again
+            # i.e, we wanna check if the same numerator occurs again
             numeratorToIndex[numerator] = i
             # 2) do the division and add the digit to curr result
             n, numerator = numerator / denominator, numerator % denominator
@@ -44,7 +37,7 @@ class Solution(object):
             i += 1
             numerator *= 10
 
-        if j != None:
+        if j is not None:
             k = curr.index('.') + j
             repeatingPart = curr[k:]
             ans = curr[:k]
@@ -57,10 +50,9 @@ class Solution(object):
         return ''.join(ans)
 
 
-
-print Solution().fractionToDecimal(-5, 6)
-print Solution().fractionToDecimal(1, 6)
-print Solution().fractionToDecimal(1, 2)
-print Solution().fractionToDecimal(1, 3)
-print Solution().fractionToDecimal(2, 1)
-print Solution().fractionToDecimal(13, 7)
+print(Solution().fractionToDecimal(-5, 6))
+print(Solution().fractionToDecimal(1, 6))
+print(Solution().fractionToDecimal(1, 2))
+print(Solution().fractionToDecimal(1, 3))
+print(Solution().fractionToDecimal(2, 1))
+print(Solution().fractionToDecimal(13, 7))
