@@ -1,45 +1,56 @@
+from typing import List, Tuple
 
-# iterative O(n^2) solution
-
-class Solution(object):
-    def solve(self, board):
-
-        if len(board) == 0 or len(board[0]) == 0:
-            return
-
-        queue = []
-        for i in xrange(len(board)):
-            if board[i][0] == 'O':
-                queue.append((i,0))
-            if board[i][-1] == 'O':
-                queue.append((i,len(board[0])-1))
-        for j in xrange(1, len(board[0])-1):
-            if board[0][j] == 'O':
-                queue.append((0,j))
-            if board[-1][j] == 'O':
-                queue.append((len(board)-1,j))
-
-        while queue:
-            i, j = queue.pop()
-            board[i][j] = 'D'
-            if i > 0 and board[i-1][j] == 'O':
-                queue.append((i-1, j))
-            if j > 0 and board[i][j-1] == 'O':
-                queue.append((i, j-1))
-            if i < len(board)-1 and board[i+1][j] == 'O':
-                queue.append((i+1, j))
-            if j < len(board[0])-1 and board[i][j+1] == 'O':
-                queue.append((i, j+1))
-
-        for i in xrange(len(board)):
-            for j in xrange(len(board[0])):
+class Solution:
+    def solve(self, board: List[List[str]]) -> None:
+        """
+        Do not return anything, modify board in-place instead.
+        """
+        m, n = len(board), len(board[0])
+        for i in range(m):
+            for j in range(n):
                 if board[i][j] == 'O':
-                    board[i][j] = 'X'
-                elif board[i][j] == 'D':
-                    board[i][j] = 'O'
+                    connectedIndexes, anyEdgeCells = self.bfs(board, i, j)
+                    if not anyEdgeCells:
+                        self.modifyBoard(board, connectedIndexes)
+
+    # find all connected index pairs
+    def bfs(self, board: List[List[str]], i: int, j: int) -> Tuple[set, bool]:
+        todo = {(i, j)}
+        ans = set()
+        m, n = len(board), len(board[0])
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+        anyEdgeCells = False
+        while todo:
+            nextTodo = set()
+            for i, j in todo:
+                ans.add((i, j))
+                if i == m - 1 or j == n - 1 or i == 0 or j == 0:
+                    anyEdgeCells = True
+                for deltaI, deltaJ in directions:
+                    ii, jj = i + deltaI, j + deltaJ
+                    if 0 <= ii < m and 0 <= jj < n and (ii, jj) not in ans and board[ii][jj] == 'O':
+                        nextTodo.add((ii, jj))
+            todo = nextTodo
+
+        return ans, anyEdgeCells
+
+    def modifyBoard(self, board: List[List[str]], indexSet: set):
+        for i, j in indexSet:
+            board[i][j] = 'X'
 
 
-
-Sol = Solution()
-board = [["O"]]
-print Sol.solve(board)
+board = [
+    ["X", "O", "X"],
+    ["O", "X", "O"],
+    ["X", "O", "X"]]
+Solution().solve(board)
+for row in board:
+    print(row)
+board = [
+    ["X", "X", "X", "X"],
+    ["X", "O", "O", "X"],
+    ["X", "X", "O", "X"],
+    ["X", "O", "X", "X"]]
+Solution().solve(board)
+for row in board:
+    print(row)
