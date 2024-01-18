@@ -1,33 +1,27 @@
+from typing import List
 
-# idea from: https://discuss.leetcode.com/topic/6186/java-backtracking-solution
-# notice how this fucker write the backtracking. Always think efficiently using less space for bktrck.
+class Solution:
+    def partition(self, s: str) -> List[List[str]]:
+        ans = []
+        self.dfs(s, [], ans)
+        return ans
 
-class Solution(object):
-    def partition(self, s):
+    def dfs(self, s: str, curr: List[str], ans: List[List[str]]):
+        if not s:
+            ans.append(curr)
+            return
 
-        def check(string):
-            i, j = 0, len(string)-1
-            while i <= j:
-                if string[i] != string[j]:
-                    return False
-                else:
-                    i += 1
-                    j -= 1
-            return True
+        for i in range(1, len(s) + 1):
+            if self.isPalindrome(s[:i]):
+                self.dfs(s[i:], curr + [s[:i]], ans)
+        return ans
 
-        self.ans = []
-        def helper(i, cur):
-            if i == len(s):
-                self.ans.append(cur)
-            for j in xrange(i+1, len(s)+1):
-                if check(s[i:j]) == True:
-                    helper(j, cur+[s[i:j]])
-
-        helper(0, [])
-        return self.ans
+    def isPalindrome(self, s: str) -> bool:
+        n = len(s)
+        for i in range(n // 2):
+            if s[i] != s[n - 1 - i]:
+                return False
+        return True
 
 
-
-Sol = Solution()
-s = "ccaacabacb"
-print Sol.partition(s)
+print(Solution().partition("ccaacabacb"))

@@ -1,43 +1,38 @@
-
-# Remember to check the tricky corner cases, especially the "len(s) < len(p) - p.count('*')"
-# The hard part is for when '*' needs to match one more char in s
-
-class Solution(object):
-    def isMatch(self, s, p):
-        """
-        :type s: str
-        :type p: str
-        :rtype: bool
-        """
-        if s == None or p == None:
-            return False
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
         if not p:
-            return s == ''
-        if len(s) < len(p) - p.count('*'):
-            return False
+            return not s
 
         m, n = len(s), len(p)
-        dp = [[False for j in xrange(n + 1)] for i in xrange(m + 1)]
+        # dp[i][j] means whether s[:i] matches with p[:j]
+        dp = [[False for j in range(n + 1)] for i in range(m + 1)]
         dp[0][0] = True
-        for j in xrange(1, n + 1):
-            dp[0][j] = dp[0][j - 1] and p[j - 1] == '*'
+        # deal with the case where the prefix of p is all "*"s
+        for j in range(1, n + 1):
+            if p[j - 1] != '*':
+                break
+            for i in range(m + 1):
+                dp[i][j] = True
 
-        for i in xrange(1, m + 1):
-            for j in xrange(1, n + 1):
+        for i in range(1, m + 1):
+            for j in range(1, n + 1):
                 if s[i - 1] == p[j - 1] or p[j - 1] == '?':
                     dp[i][j] = dp[i - 1][j - 1]
                 elif p[j - 1] == '*':
-                    # dp[i][j - 1] is for when p[j - 1] matches zero char
-                    # dp[i - 1][j] is for when p[j - 1] needs to match one more char
-                    # even in case that p[j - 1] can match a lot of chars in s, if s[:i] matches
-                    # with p[:j], s[:i - 1] should p[:j]. so dp[i][j] can derive from dp[i - 1][j]
-                    dp[i][j] = dp[i][j - 1] or dp[i - 1][j]
+                    # * matches one more char
+                    dp[i][j] |= dp[i - 1][j]
+                    # * matches 0 char
+                    dp[i][j] |= dp[i][j - 1]
+                    # dp[i][j] |= dp[i - 1][j - 1] is not necessary because if dp[i - 1][j - 1] is true
+                    # dp[i - 1][j] is 100% true (* matches 0 char)
 
         return dp[-1][-1]
 
 
-
-print Solution().isMatch('adceb', '*a*b')
-print Solution().isMatch('acdcb', 'a*c?b')
-
-
+print(Solution().isMatch('adceb', '*a*b'))
+print(Solution().isMatch('acdcb', 'a*c?b'))
+print(Solution().isMatch("ho", "**ho"))
+print(Solution().isMatch("a", ""))
+print(Solution().isMatch("aa", "*"))
+print(Solution().isMatch("a", "aa"))
+print(Solution().isMatch("", "******"))
