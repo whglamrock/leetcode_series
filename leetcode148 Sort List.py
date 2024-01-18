@@ -11,10 +11,8 @@ class Solution(object):
         if not head or not head.next:
             return head
 
-        # note that we need a prev variable here because we need to split the list
-        # think about the case where this list only has 2 nodes: after the below while loop the slow
-            # pointer will point to the second node, then we won't be able to split the list
         prev, slow, fast = None, head, head
+        # this way the l1 will have one more node if the total number of nodes is odd number
         while fast and fast.next:
             prev = slow
             slow = slow.next
@@ -23,7 +21,6 @@ class Solution(object):
 
         l1 = head
         l2 = slow
-        # No need to check whether prev is None because the list has >= 2 nodes at this point
         prev.next = None
 
         sortedL1 = self.sortList(l1)
@@ -31,7 +28,7 @@ class Solution(object):
         return self.merge(sortedL1, sortedL2)
 
     def merge(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
-        dummy = ListNode(None)
+        dummy = ListNode()
         tmp = dummy
 
         while l1 and l2:
@@ -47,16 +44,14 @@ class Solution(object):
                 l2 = nextNode
             tmp = tmp.next
 
-        if l1:
-            while l1:
-                tmp.next = l1
-                l1 = l1.next
-                tmp = tmp.next
-        else:
-            while l2:
-                tmp.next = l2
-                l2 = l2.next
-                tmp = tmp.next
+        while l1:
+            tmp.next = l1
+            l1 = l1.next
+            tmp = tmp.next
+        while l2:
+            tmp.next = l2
+            l2 = l2.next
+            tmp = tmp.next
 
         return dummy.next
 

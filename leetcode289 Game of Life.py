@@ -1,10 +1,5 @@
 from typing import List
 
-# Very boring and senseless question from Google.
-# currently dead, next alive: 9
-# currently dead, next dead: 10
-# currently alive, next dead: 11
-# currently alive, next alive: 12
 class Solution(object):
     def gameOfLife(self, board: List[List[int]]) -> None:
         """
