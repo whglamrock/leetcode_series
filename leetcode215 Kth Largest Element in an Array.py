@@ -1,7 +1,6 @@
 from random import shuffle
 from typing import List
 
-
 # partition the array so that nums[:k + 1] <= some pivot, and nums[k + 1:] > the pivot.
 # it's mathematically proven that the while loop only runs constant amount of time.
 class Solution:
@@ -45,7 +44,7 @@ print(Solution().findKthLargest(nums=[1, 1, 1, 2, 2, 3, 4, 6, 6, 7, 9], k=5))
 
 
 '''
-# O(nlogn) solution:
+# O(N * log(N)) solution:
 class Solution(object):
     def findKthLargest(self, nums, k):
 
