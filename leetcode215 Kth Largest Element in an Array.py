@@ -30,7 +30,8 @@ class Solution:
         while i < j:
             while i < j and nums[i] <= nums[l]:
                 i += 1
-            # at this point i could be == j
+            # at this point i could be == j. we still wanna proceed because we wanna make sure
+            # after swapping nums[l] and nums[j], nums[j + 1:] will be strictly bigger than nums[j]
             while j >= i and nums[j] > nums[l]:
                 j -= 1
             if i < j:

@@ -3,37 +3,30 @@ from random import randint
 class RandomizedSet:
     def __init__(self):
         self.nums = []
-        self.valToIndex = {}
-        self.size = 0
+        self.numToIndex = {}
 
     def insert(self, val: int) -> bool:
-        if val not in self.valToIndex:
-            self.valToIndex[val] = self.size
-            if self.size == len(self.nums):
-                self.nums.append(val)
-            else:
-                self.nums[self.size] = val
-            self.size += 1
-            return True
-        else:
+        if val in self.numToIndex:
             return False
+        self.numToIndex[val] = len(self.nums)
+        self.nums.append(val)
+        return True
 
     def remove(self, val: int) -> bool:
-        if val not in self.valToIndex:
+        if val not in self.numToIndex:
             return False
-        else:
-            valToSwap = self.nums[self.size - 1]
-            index = self.valToIndex[val]
-            self.nums[index] = valToSwap
-            self.valToIndex[valToSwap] = index
-            # delete it at last because in some edge cases valToSwap == val
-            del self.valToIndex[val]
-            self.size -= 1
-            return True
+        indexOfVal = self.numToIndex[val]
+        lastNum = self.nums[-1]
+        self.nums[indexOfVal] = lastNum
+        self.nums.pop()
+        self.numToIndex[lastNum] = indexOfVal
+        # delete this at last because the val could be the last number
+        del self.numToIndex[val]
+
+        return True
 
     def getRandom(self) -> int:
-        randomInt = randint(0, self.size - 1)
-        return self.nums[randomInt]
+        return self.nums[randint(0, len(self.nums) - 1)]
 
 
 randomSet = RandomizedSet()
