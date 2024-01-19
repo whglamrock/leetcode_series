@@ -20,33 +20,32 @@ class Solution:
         i = 0
         j = 1
         while j < n:
-            while nums[j] < median and i < n:
+            while i < n and nums[j] < median:
                 nums[i], nums[j] = nums[j], nums[i]
                 i += 2
             j += 2
 
-        # step 2: make sure odd slots have bigger numbers:
+        # step 2 make sure odd slots have bigger numbers
         i = 0
         j = 1
         while i < n:
-            while nums[i] > median and j < n:
+            while j < n and nums[i] > median:
                 nums[i], nums[j] = nums[j], nums[i]
                 j += 2
             i += 2
 
-        # step 3: move all medians in the even indexes to the far right,
-        # so they can compare with bigger neighbors (the step 4 will move the smaller neighbors to the left)
+        # step 3 move all medians in the odd indexes to the far right
         i = 1
-        j = n // 2 * 2 - 1
+        j = n - 1 if n % 2 == 0 else n - 2
         while i < j:
-            while nums[i] == median and j > i:
+            while nums[i] == median and i < j:
                 nums[i], nums[j] = nums[j], nums[i]
                 j -= 2
             i += 2
 
-        # step 4: move all medians in the odd indexes to the far left
+        # step 4: move all medians in the even indexes to the far left
         i = 0
-        j = (n - 1) // 2 * 2
+        j = n - 1 if n % 2 != 0 else n - 2
         while i < j:
             while nums[j] == median and i < j:
                 nums[i], nums[j] = nums[j], nums[i]
@@ -57,15 +56,15 @@ class Solution:
         k = len(nums) - k
         shuffle(nums)
         l, r = 0, len(nums) - 1
+        # it's important to realize that nums[:l] < nums[l] < nums[r] <= nums[r + 1:] after partition
         while l < r:
             j = self.partitionArray(nums, l, r)
             if j == k:
                 return nums[k]
-            elif j < k:
+            if j < k:
                 l = j + 1
             else:
                 r = j - 1
-
         return nums[k]
 
     def partitionArray(self, nums: List[int], l: int, r: int) -> int:
@@ -73,7 +72,8 @@ class Solution:
         while i < j:
             while i < j and nums[i] <= nums[l]:
                 i += 1
-            # pay attention to the "j >= i" here
+            # pay attention to the "j >= i" here:
+            # because we need to return j and make sure all nums[j + 1:] strictly > nums[j]
             while j >= i and nums[j] > nums[l]:
                 j -= 1
             if i < j:
