@@ -1,27 +1,20 @@
+from collections import deque
+from typing import List
 
-class Vector2D(object):
+class Vector2D:
+    def __init__(self, vec: List[List[int]]):
+        self.nums = deque()
+        for vector in vec:
+            self.nums += vector
 
-    def __init__(self, vec2d):
+    def next(self) -> int:
+        return self.nums.popleft()
 
-        self.lst = []
-        if (not vec2d):
-            return
-        for i in xrange(len(vec2d)):
-            for j in xrange(len(vec2d[i])):
-                self.lst.append(vec2d[i][j])
-        self.lst.reverse()
-
-    def next(self):
-
-        if self.hasNext():
-            return self.lst.pop()
-
-    def hasNext(self):
-
-        return len(self.lst) != 0
-
+    def hasNext(self) -> bool:
+        return len(self.nums) > 0
 
 
 # Your Vector2D object will be instantiated and called as such:
-# i, v = Vector2D(vec2d), []
-# while i.hasNext(): v.append(i.next())
+# obj = Vector2D(vec)
+# param_1 = obj.next()
+# param_2 = obj.hasNext()
