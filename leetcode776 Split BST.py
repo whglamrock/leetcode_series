@@ -1,29 +1,24 @@
+from typing import Optional, List
 
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-
-# remember how the logic is formed
-# WUNAO use recursion and goes down the bottom level
-
-class Solution(object):
-    def splitBST(self, root, V):
-
+class Solution:
+    def splitBST(self, root: Optional[TreeNode], target: int) -> List[Optional[TreeNode]]:
         if not root:
             return [None, None]
-
-        l_res = self.splitBST(root.left, V)
-        r_res = self.splitBST(root.right, V)
-
-        # in this case, the left subTree won't be split because we don't do "root.left = XXX"
-        if root.val <= V:
-            root.right = r_res[0]
-            return [root, r_res[1]]
-        # likewise, the right subTree won't be split
+        if root.val == target:
+            rootOfBigger = root.right
+            root.right = None
+            return [root, rootOfBigger]
+        elif root.val < target:
+            rootOfSmallerInRightSubtree, rootOfBiggerInRightSubtree = self.splitBST(root.right, target)
+            root.right = rootOfSmallerInRightSubtree
+            return [root, rootOfBiggerInRightSubtree]
         else:
-            root.left = l_res[1]
-            return [l_res[0], root]
+            rootOfSmallerInLeftSubtree, rootOfBiggerInLeftSubtree = self.splitBST(root.left, target)
+            root.left = rootOfBiggerInLeftSubtree
+            return [rootOfSmallerInLeftSubtree, root]

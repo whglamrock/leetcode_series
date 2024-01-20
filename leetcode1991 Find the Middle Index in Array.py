@@ -1,8 +1,9 @@
-from typing import List
 from collections import deque
+from typing import List
 
+# same as lc724: Find Pivot Index
 class Solution:
-    def pivotIndex(self, nums: List[int]) -> int:
+    def findMiddleIndex(self, nums: List[int]) -> int:
         n = len(nums)
         prefixSum = [nums[0]]
         for i in range(1, n):
@@ -21,9 +22,3 @@ class Solution:
                 return i
 
         return -1
-
-
-print(Solution().pivotIndex(nums=[1, 7, 3, 6, 5, 6]))
-print(Solution().pivotIndex(nums=[1, 2, 3]))
-print(Solution().pivotIndex(nums=[2, 1, -1]))
-print(Solution().pivotIndex(nums=[4]))
