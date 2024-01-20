@@ -35,4 +35,3 @@ class Solution:
                 heappush(pq, [price + nextPrice, nextNode, numOfFlights + 1])
 
         return -1
-

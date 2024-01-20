@@ -1,37 +1,24 @@
+from typing import List, Tuple
 
-# practice more about the fucking binary search!
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        l, r = 0, len(matrix) * len(matrix[0]) - 1
 
-class Solution(object):
-    def searchMatrix(self, matrix, target):
-
-        def binarysearch(lst, target):
-            l, r = 0, len(lst)-1
-            while l<r:
-                mid = (l+r)/2
-                if lst[mid] == target:
-                    return True
-                elif lst[mid] < target:
-                    l = mid + 1
-                else:
-                    r = mid - 1
-                if l == r:
-                    if lst[r] == target:
-                        return True
-            if lst[0] == target or lst[-1] == target:
+        while l <= r:
+            m = (l + r) // 2
+            i, j = self.convertArrayIndexToMatrixIndex(m, len(matrix[0]))
+            if l == r:
+                return matrix[i][j] == target
+            if matrix[i][j] == target:
                 return True
+            elif matrix[i][j] < target:
+                l = m + 1
             else:
-                return False
+                r = m
 
-        i = 0
-        while i<len(matrix):
-            if matrix[i][0] == target:
-                return True
-            elif matrix[i][0]<target:
-                i += 1
-                if i == len(matrix):
-                    return binarysearch(matrix[i-1],target)
-            else:
-                if i == 0:
-                    return False
-                else:
-                    return binarysearch(matrix[i-1],target)
+        return False
+
+    def convertArrayIndexToMatrixIndex(self, arrayIndex: int, n: int) -> Tuple[int, int]:
+        i = arrayIndex // n
+        j = arrayIndex - i * n
+        return i, j
