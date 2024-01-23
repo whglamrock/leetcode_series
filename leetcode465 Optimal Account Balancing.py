@@ -1,54 +1,50 @@
 from collections import defaultdict
+from typing import List
 
-
-class Solution(object):
-    def minTransfers(self, transactions):
-        """
-        :type transactions: List[List[int]]
-        :rtype: int
-        """
-        if not transactions:
-            return 0
-
-        netBalance = defaultdict(int)
-        for x, y, z in transactions:
-            netBalance[x] -= z
-            netBalance[y] += z
+# python has some really weird behavior of (probably) lazy array element modification -> it's known that python
+# has some underlying lazy evaluation implementation.
+class Solution:
+    def minTransfers(self, transactions: List[List[int]]) -> int:
+        netBalances = defaultdict(int)
+        for i, j, amount in transactions:
+            netBalances[i] -= amount
+            netBalances[j] += amount
 
         debts = []
-        for debt in netBalance.values():
-            if debt != 0:
-                debts.append(debt)
+        for balance in netBalances.values():
+            if balance != 0:
+                debts.append(balance)
 
         return self.dfs(debts, 0, 0)
 
-    # backtracking
-    def dfs(self, debts, i, numTrans):
+    def dfs(self, debts: List[int], i: int, currTxns: int) -> int:
         while i < len(debts) and debts[i] == 0:
             i += 1
-        if i >= len(debts) - 1:
-            return numTrans
+        if i == len(debts):
+            return currTxns
+        # this way debts[i] won't be 0
 
-        minTrans = 2147483647
-
-        # the greedy condition where one transaction can eliminate 2 non-zero debts[i]'s
-        # P.S., we need to finish the whole for loop first before we look at non-optimal choices
+        minTxns = 2147483647
+        # try to find -debts[i] so one transaction can eliminate 2 persons
         for j in range(i + 1, len(debts)):
-            if debts[i] + debts[j] == 0:
+            if debts[j] + debts[i] == 0:
                 debts[j] = 0
-                minTrans = self.dfs(debts, i + 1, numTrans + 1)
+                minTxns = self.dfs(debts, i + 1, currTxns + 1)
+                # it's really weird we have to reset this before returning.
+                # if we don't reset if we will need deepcopy(debts) in the below for loop's recursion
                 debts[j] = -debts[i]
-                return minTrans
+                return minTxns
 
+        # we wanna eliminate debts[i] by transferring it to j and do dfs
         for j in range(i + 1, len(debts)):
-            # don't forget to check if debts[i], debts[j]'s signs are opposite
-            if debts[i] * debts[j] < 0:
+            if debts[j] * debts[i] < 0:
                 debts[j] += debts[i]
-                minTrans = min(minTrans, self.dfs(debts, i + 1, numTrans + 1))
+                # we would have to use deepcopy here if we don't reset debts[j] in above for loop
+                minTxns = min(minTxns, self.dfs(debts, i + 1, currTxns + 1))
                 debts[j] -= debts[i]
 
-        return minTrans
+        return minTxns
 
 
-print(Solution().minTransfers([[0, 1, 10], [2, 0, 5]]))
-print(Solution().minTransfers([[0, 1, 10], [1, 0, 1], [1, 2, 5], [2, 0, 5]]))
+# this is the test case for which not resetting the debts[j] will yield different result
+print(Solution().minTransfers([[0, 3, 2], [1, 4, 3], [2, 3, 2], [2, 4, 2]]))
