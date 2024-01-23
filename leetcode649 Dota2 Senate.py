@@ -11,8 +11,7 @@ class Solution:
                 dires.append(i)
 
         while radiants and dires:
-            radiantIndex = radiants.popleft()
-            direIndex = dires.popleft()
+            radiantIndex, direIndex = radiants.popleft(), dires.popleft()
             if radiantIndex < direIndex:
                 # because later on we need to compare who can announce victory
                 # or this appended radiant index can be banned by smaller dire index
