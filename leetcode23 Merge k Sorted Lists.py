@@ -1,61 +1,61 @@
 from heapq import *
+from typing import Optional, List
 
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
 
-# Definition for singly-linked list.
-
-class ListNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.next = None
-
-
-# O(N * logK) solution, where K is len(lists), N is the total number of nodes in all lists
-
-class Solution(object):
-    def mergeKLists(self, lists):
-        """
-        :type lists: List[ListNode]
-        :rtype: ListNode
-        """
-        if not lists:
-            return None
-
-        # use a dummy head to avoid checking "if not root: root = node" in the while loop
-        dummy = ListNode(None)
-        tmp = dummy
-
+class Solution:
+    def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         pq = []
-        heapify(pq)
-        # initialize the pq
-        for root in lists:
-            # leetcode does give the corner case like [[]]
-            if root:
-                heappush(pq, (root.val, root))
+        indexToCurrNode = {}
+        for i, head in enumerate(lists):
+            if head:
+                heappush(pq, [head.val, i])
+                indexToCurrNode[i] = head
 
+        dummy = ListNode()
+        curr = dummy
         while pq:
-            val, node = heappop(pq)
+            val, i = heappop(pq)
+            node = indexToCurrNode[i]
             if node.next:
-                heappush(pq, (node.next.val, node.next))
-            tmp.next = node
-            node.next = None
-            tmp = tmp.next
+                heappush(pq, [node.next.val, i])
+                indexToCurrNode[i] = node.next
+                node.next = None
+            else:
+                del indexToCurrNode[i]
+            curr.next = node
+            curr = curr.next
 
         return dummy.next
 
 
-a = ListNode(0)
-b = ListNode(3)
-c = ListNode(5)
-a.next = b
-b.next = c
+def buildList(nums: List[int]) -> Optional[ListNode]:
+    if not nums:
+        return None
+    head = ListNode(nums[0])
+    curr = head
+    for i in range(1, len(nums)):
+        node = ListNode(nums[i])
+        curr.next = node
+        curr = curr.next
 
-d = ListNode(1)
-e = ListNode(2)
-f = ListNode(4)
-d.next = e
-e.next = f
+    return head
 
-root = Solution().mergeKLists([a, d])
-while root:
-    print(root.val)
-    root = root.next
+def traverseList(head: Optional[ListNode]):
+    if not head:
+        return
+    nums = []
+    curr = head
+    while curr:
+        nums.append(curr.val)
+        curr = curr.next
+    print(nums)
+
+
+root1 = buildList([0, 3, 5])
+root2 = buildList([1, 6, 8])
+root3 = buildList([1, 2, 4])
+traverseList(Solution().mergeKLists([root1, root2, root3]))
