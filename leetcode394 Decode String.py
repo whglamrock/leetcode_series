@@ -16,6 +16,8 @@ class Solution:
                 i += 1
             elif s[i] == ']':
                 currStr = deque()
+                # P.S. in case like 3[a2[c]], there might be multiple  consecutive substrings
+                # so we need to pop all of them before checking if stack[-1] is an int
                 while stack and type(stack[-1]) == str:
                     currStr.appendleft(stack.pop())
                 currStr = ''.join(currStr)
@@ -24,11 +26,8 @@ class Solution:
                 stack.append(currStr)
                 i += 1
             else:
-                currStr = []
-                while i < len(s) and s[i] in letters:
-                    currStr.append(s[i])
-                    i += 1
-                stack.append(''.join(currStr))
+                stack.append(s[i])
+                i += 1
 
         return ''.join(stack)
 
