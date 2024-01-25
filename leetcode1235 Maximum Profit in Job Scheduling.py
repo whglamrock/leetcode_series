@@ -9,7 +9,7 @@ class Solution:
         jobs.sort(key=lambda x: x[1])
         endTime.sort()
 
-        # dp[i] stores the max profit that you can accumulate at endTIme[i]
+        # dp[i] stores the max profit that you can accumulate at endTime[i]
         # p.s. you don't necessarily have to take job[i]
         dp = [0] * n
         dp[0] = jobs[0][2]
