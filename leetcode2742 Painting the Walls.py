@@ -1,19 +1,24 @@
 from math import inf
 from typing import List
 
-# dp[i] means the min cost of painting i walls. See: https://leetcode.com/problems/painting-the-walls/solutions/3650707/java-c-python-7-lines-knapsack-dp/
+# dp[i][j] means after considered cost[:i], the minimum cost to paint j walls
 class Solution:
     def paintWalls(self, cost: List[int], time: List[int]) -> int:
         n = len(cost)
-        dp = [0] + [inf] * n
+        # dp[i][j] = inf means we won't be able to pain j walls with only considering cost[:i]
+        dp = [[inf for j in range(n + 1)] for i in range(n + 1)]
+        for i in range(n + 1):
+            dp[i][0] = 0
 
-        for i in range(n):
-            # the reason we fill dp backwards is because we need to avoid using cost[i] multiple times
-            for j in range(n, 0, -1):
-                dp[j] = min(dp[j], dp[max(j - time[i] - 1, 0)] + cost[i])
-            # print(dp)
+        for i in range(1, n + 1):
+            for j in range(1, n + 1):
+                notTake = dp[i - 1][j]
+                # if we take i, it buys time[i] amount of time when we can use free painter
+                # so total walls painted is time[i] + 1
+                take = dp[i - 1][max(j - time[i - 1] - 1, 0)] + cost[i - 1]
+                dp[i][j] = min(notTake, take)
 
-        return dp[n]
+        return dp[n][n]
 
 
 print(Solution().paintWalls([26, 53, 10, 24, 25, 20, 63, 51], [1, 1, 1, 1, 2, 2, 2, 1]))
