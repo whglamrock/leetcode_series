@@ -1,40 +1,26 @@
-
-# non stack dp solution is easier to think of in real interview
-
-class Solution(object):
-    def longestValidParentheses(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        if not s:
-            return 0
-
+# The most important for building the dp array: we need to realize the edge case where
+# C = B ( A ), then the length of C actually = len(A) + 2 + len(B).
+# P.S., for all parentheses problem, it's wrong to simply it into all new valid parenthesis comes from
+# previousValid + '()' or '(' + previousValid + ')'.
+class Solution:
+    def longestValidParentheses(self, s: str) -> int:
         n = len(s)
         dp = [0] * (n + 1)
 
-        for i in xrange(1, n + 1):
-            if s[i - 1] == '(':
+        for i in range(2, n + 1):
+            currChar = s[i - 1]
+            if currChar == '(':
                 continue
-            # previous char is '('
-            if i >= 2 and s[i - 2] == '(':
+            prevChar = s[i - 2]
+            if prevChar == '(':
                 dp[i] = dp[i - 2] + 2
-            # previous char is ')', then we need to check the longest length before previous ')' 's corresponding '('.
-            elif i >= 2 and s[i - 2] == ')' and dp[i - 1]:
+            elif prevChar == ')':
                 prevLen = dp[i - 1]
-                # let the longest valid parentheses the ends with s[i - 2] be A, so the longest streak that ends
-                    # with s[i - 1] must something like '( A )'. It's impossible that a single ')' along with
-                    # part of A can form a valid streak.
-                # Thus, the longest valid streak ends with s[i - 1] is either 0, or len(A) + 2 + len(B), considering
-                    # the s = 'xxx B ( A )' where B is longest valid streak that ends right before the '('
-                if i - prevLen - 2 >= 0 and s[i - prevLen - 2] == '(':
-                    # the 2 is for s[i - 1] and matching '(', also don't forget about dp[i - prevLen - 2]
-                    dp[i] = dp[i - 1] + dp[i - prevLen - 2] + 2
+                if prevLen > 0 and i - 1 - prevLen - 1 >= 0 and s[i - 1 - prevLen - 1] == '(':
+                    dp[i] = dp[i - 1] + 2 + dp[i - 1 - prevLen - 1]
 
         return max(dp)
 
 
-
-Sol = Solution()
-print Sol.longestValidParentheses(")()())")
-print Sol.longestValidParentheses("))()((()()()())")
+print(Solution().longestValidParentheses(")()())"))
+print(Solution().longestValidParentheses("))()((()()()())"))
