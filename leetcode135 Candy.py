@@ -1,19 +1,15 @@
+from typing import List
 
-class Solution(object):
-    def candy(self, ratings):
+class Solution:
+    def candy(self, ratings: List[int]) -> int:
+        n = len(ratings)
+        candies = [1] * n
 
-        if len(ratings) <= 1:
-            return 1
-
-        candies = [1 for i in xrange(len(ratings))]
-        # make sure from left to right fulfill requirements
-        for i in xrange(1, len(ratings)):
+        for i in range(1, n):
             if ratings[i] > ratings[i - 1]:
-                candies[i] = max(candies[i], candies[i - 1] + 1)
-
-        # make sure from right to left fulfill requirements
-        for i in xrange(len(ratings) - 1, 0, -1):
-            if ratings[i - 1] > ratings[i]:
-                candies[i - 1] = max(candies[i - 1], candies[i] + 1)
+                candies[i] = candies[i - 1] + 1
+        for i in range(n - 2, -1, -1):
+            if ratings[i] > ratings[i + 1]:
+                candies[i] = max(candies[i], candies[i + 1] + 1)
 
         return sum(candies)
