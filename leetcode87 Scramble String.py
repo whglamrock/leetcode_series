@@ -1,49 +1,35 @@
-
 from collections import defaultdict
+from functools import lru_cache
 
-# A really boring and meaningless question.
-# The only point of this question is to test whether we can think of the divide & conquer idea, then it's natural to
-    # write out the recursive solution
+# you should be able to observe that any possible scramble comes from s1's prefix matching s2's prefix
+# or s1's prefix match s2's suffix. Then we need to recursively check the the prefix/substring can be further scrambled.
+class Solution:
+    @lru_cache(None)
+    def isScramble(self, s1: str, s2: str) -> bool:
+        if len(s1) == 1:
+            return s1 == s2
 
-class Solution(object):
-    def isScramble(self, s1, s2):
-        """
-        :type s1: str
-        :type s2: str
-        :rtype: bool
-        """
-        if s1 == s2:
-            return True
+        # 2 prefix match
+        s1Counter, s2Counter = defaultdict(int), defaultdict(int)
+        possibleScramble = False
+        for i in range(len(s1) - 1):
+            s1Counter[s1[i]] += 1
+            s2Counter[s2[i]] += 1
+            if s1Counter == s2Counter:
+                possibleScramble |= self.isScramble(s1[:i + 1], s2[:i + 1]) and self.isScramble(s1[i + 1:], s2[i + 1:])
 
-        letterCount1, letterCount2 = defaultdict(int), defaultdict(int)
-        n = len(s1)
-        if n != len(s2):
-            return False
+        # prefix match suffix:
+        s1Counter, s2Counter = defaultdict(int), defaultdict(int)
+        for i in range(len(s1) - 1):
+            s1Counter[s1[i]] += 1
+            s2Counter[s2[len(s2) - i - 1]] += 1
+            if s1Counter == s2Counter:
+                possibleScramble |= self.isScramble(s1[:i + 1], s2[len(s2) - i - 1:]) \
+                                    and self.isScramble(s1[i + 1:], s2[:len(s2) - i - 1])
 
-        for i in xrange(n):
-            letterCount1[s1[i]] += 1
-            letterCount2[s2[i]] += 1
-        # guaranteed the s1/s2 only contains lowercase letters
-        for letter in s1:
-            if letterCount1[letter] != letterCount2[letter]:
-                return False
-
-        for i in xrange(1, n):
-            if self.isScramble(s1[:i], s2[:i]) and self.isScramble(s1[i:], s2[i:]):
-                return True
-            if self.isScramble(s1[:i], s2[n - i:n]) and self.isScramble(s1[i:], s2[:n - i]):
-                return True
-
-        return False
+        return possibleScramble
 
 
-
-print Solution().isScramble('great', 'rgeat')
-print Solution().isScramble('abcde', 'caebd')
-
-
-
-
-
-
-
+print(Solution().isScramble('great', 'rgeat'))
+print(Solution().isScramble('abcde', 'caebd'))
+print(Solution().isScramble("xstjzkfpkggnhjzkpfjoguxvkbuopi", "xbouipkvxugojfpkzjhnggkpfkzjts"))
