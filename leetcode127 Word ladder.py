@@ -13,23 +13,23 @@ class Solution:
             nextTodo = set()
             for word in todo:
                 for i in range(len(word)):
-                    for adjacentWord in self.generateAdjacentWords(word, i):
+                    for adjacentWord in self.generateAdjacentWords(word, i, wordList):
                         if adjacentWord == endWord:
                             return lengthOfSequence
-                        if adjacentWord not in wordList:
-                            continue
                         nextTodo.add(adjacentWord)
                         wordList.discard(adjacentWord)
             todo = nextTodo
 
         return 0
 
-    def generateAdjacentWords(self, word: str, i: int) -> List[str]:
+    def generateAdjacentWords(self, word: str, i: int, wordList: set) -> List[str]:
         words = []
         for char in 'abcdefghijklmnopqrstuvwxyz':
             if char == word[i]:
                 continue
-            words.append(word[:i] + char + word[i + 1:])
+            adjacentWord = word[:i] + char + word[i + 1:]
+            if adjacentWord in wordList:
+                words.append(adjacentWord)
         return words
 
 

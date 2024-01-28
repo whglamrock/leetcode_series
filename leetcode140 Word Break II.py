@@ -7,21 +7,19 @@ class Solution:
 
     def wordBreak(self, s: str, wordDict: List[str]) -> List[str]:
         self.wordDict = set(wordDict)
-        return self.dfs(s)
+        return self.dfs(s, 0)
 
     @lru_cache(None)
-    def dfs(self, s: str) -> List[str]:
-        if not s:
+    def dfs(self, s: str, i: int) -> List[str]:
+        if i == len(s):
             return ['']
 
         ans = []
-        for word in self.wordDict:
-            if s.startswith(word):
-                workBreakOfSuffix = self.dfs(s[len(word):])
-                # workBreakOfSuffix could be empty if the suffix can't be broken down using wordDict
-                for wordBreakStr in workBreakOfSuffix:
-                    ans.append((word + ' ' + wordBreakStr).rstrip())
-
+        for j in range(i, len(s)):
+            if s[i:j + 1] in self.wordDict:
+                wordBreaksOfSuffix = self.dfs(s, j + 1)
+                for wordBreakOfSuffix in wordBreaksOfSuffix:
+                    ans.append((s[i:j + 1] + ' ' + wordBreakOfSuffix).strip())
         return ans
 
 
