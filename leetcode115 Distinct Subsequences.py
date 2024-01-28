@@ -24,6 +24,7 @@ print(Solution().numDistinct("rabbbit", "rabbit"))
 
 
 '''
+# dfs + cache/memoization solution
 class Solution:
     def numDistinct(self, s: str, t: str) -> int:
         return self.dfs(s, t, 0, 0)

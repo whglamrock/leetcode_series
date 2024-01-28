@@ -1,63 +1,33 @@
+from typing import List
 
-from collections import deque
-
-# The dp idea for solving the more general version of this question (with k transactions, see lc 188)
-
-# O(N) time & space idea. In real interview this solution would be good enough.
-
-class Solution(object):
-    def maxProfit(self, prices):
-        """
-        :type prices: List[int]
-        :rtype: int
-        """
-        if not prices or len(prices) == 1:
-            return 0
+class Solution:
+    def maxProfit(self, prices: List[int]) -> int:
         n = len(prices)
 
-        # get a curr minimum from left to right
-        mins = []
-        currMin = 2147483647
-        for i in xrange(n):
-            currMin = min(currMin, prices[i])
-            mins.append(currMin)
+        # get the max profit from selling first stock
+        maxFirstProfit = [0] * n
+        minFromLeft = prices[0]
+        for i in range(1, n):
+            maxFirstProfit[i] = max(prices[i] - minFromLeft, maxFirstProfit[i - 1])
+            minFromLeft = min(minFromLeft, prices[i])
 
-        # get a curr maximum from right to left
-        maxs = deque()
-        currMax = -2147483648
-        for i in xrange(n - 1, -1, -1):
-            currMax = max(currMax, prices[i])
-            maxs.appendleft(currMax)
+        # iterate from right to left, get the maxProfit of buying at i
+        maxPriceFromRight = prices[-1]
+        maxSecondProfit = [0] * n
+        for i in range(n - 2, -1, -1):
+            maxSecondProfit[i] = max(maxSecondProfit[i + 1], maxPriceFromRight - prices[i])
+            maxPriceFromRight = max(maxPriceFromRight, prices[i])
 
-        # if we sell stock at day i, what's maxProfit if we buy it in any day earlier
-        maxProfitLeftToRight = []
-        for i in xrange(n):
-            maxProfitLeftToRight.append(prices[i] - mins[i])
-
-        # if we buy stock at day i, what's maxProfit if we sell in any day later
-        maxProfitRightToLeft = deque()
-        for i in xrange(n - 1, -1, -1):
-            maxProfitRightToLeft.appendleft(maxs[i] - prices[i])
-
-        # the maxProfit of buy 1 and sell 1 in days <= i
-        maxProfitInLeft = []
-        currMax = -2147483648
-        for i in xrange(n):
-            currMax = max(currMax, maxProfitLeftToRight[i])
-            maxProfitInLeft.append(currMax)
-
-        # the maxProfit of buy 1 and sell 1 in days >= i
-        maxProfitInRight = deque()
-        currMax = -2147483648
-        for i in xrange(n - 1, -1, -1):
-            currMax = max(currMax, maxProfitRightToLeft[i])
-            maxProfitInRight.appendleft(currMax)
-
-        return max([(maxProfitInLeft[i] + maxProfitInRight[i]) for i in xrange(n)])
+        ans = 0
+        for i in range(n):
+            if i == 0:
+                ans = max(ans, maxSecondProfit[i])
+            else:
+                ans = max(ans, maxFirstProfit[i - 1] + maxSecondProfit[i])
+        return ans
 
 
-
-print Solution().maxProfit([1, 4, 5, 2, 9, 16])
-print Solution().maxProfit([7, 1, 5, 3, 6, 4])
-print Solution().maxProfit([1, 2, 3, 4, 5])
-print Solution().maxProfit([7, 6, 4, 3, 1])
+print(Solution().maxProfit([1, 4, 5, 2, 9, 16]))
+print(Solution().maxProfit([7, 1, 5, 3, 6, 4]))
+print(Solution().maxProfit([1, 2, 3, 4, 5]))
+print(Solution().maxProfit([7, 6, 4, 3, 1]))
