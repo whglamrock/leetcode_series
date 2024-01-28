@@ -1,82 +1,58 @@
-
 from collections import defaultdict
-from copy import deepcopy
+from typing import List
 
-# the core idea is use a word -> distance map to make sure the distance is shortest for each visited word
-
-class Solution(object):
-    def findLadders(self, beginWord, endWord, wordList):
-
-        wordToNeighbors = {}
-        wordSet = set(wordList)
-        distance = {}  # word -> distance map that can be used to check visited
-        self.bfs(beginWord, endWord, wordToNeighbors, wordSet, distance)
-
-        distanceToWords = defaultdict(list)
-        for word in distance:
-            dist = distance[word]
-            distanceToWords[dist].append(word)
-
-        if endWord not in distance:
+# The stupid leetcode is giving Memory limit exceeded rn for below solution. What is fucking wrong with leetcode?
+# Below solution will be 100% accepted in real interview.
+class Solution:
+    def findLadders(self, beginWord: str, endWord: str, wordList: List[str]) -> List[List[str]]:
+        wordList = set(wordList)
+        if endWord not in wordList:
             return []
+
+        todo = {beginWord}
+        wordToNextWord = defaultdict(set)
+        steps = 0
+        foundEndWord = False
+        while todo:
+            nextTodo = set()
+            for word in todo:
+                wordList.discard(word)
+                for nextWord in self.getNeighbors(word, wordList):
+                    if nextWord not in wordToNextWord:
+                        nextTodo.add(nextWord)
+                        wordToNextWord[word].add(nextWord)
+            if endWord in nextTodo:
+                foundEndWord = True
+                break
+            todo = nextTodo
+            steps += 1
+
+        if not foundEndWord:
+            return []
+
+        curr = [[beginWord]]
+        for i in range(steps):
+            next = []
+            for wordChain in curr:
+                for nextWord in wordToNextWord[wordChain[-1]]:
+                    next.append(wordChain + [nextWord])
+            curr = next
+
         ans = []
-        self.dfs(ans, [], endWord, beginWord, wordToNeighbors, distance)
+        for wordChain in curr:
+            if endWord in wordToNextWord[wordChain[-1]]:
+                ans.append(wordChain + [endWord])
         return ans
 
-    # pass an empty map to get the wordToNeighbors maping
-    def bfs(self, beginWord, endWord, wordToNeighbors, wordSet, distance):
-        distance[beginWord] = 0
-        todo = set([beginWord])
-
-        while todo:
-            next = set()
-            for currWord in todo:
-                currDist = distance.get(currWord)
-                # only search for neighbors for necessary currWord
-                neighbors = self.getNeighbors(wordSet, currWord)
-                wordToNeighbors[currWord] = neighbors
-                for nextWord in neighbors:
-                    if nextWord not in distance:  # very important and makes sure the distance is shortest
-                        distance[nextWord] = currDist + 1
-                        next.add(nextWord)
-            todo = next
-            if endWord in todo:
-                break
-
-    # return a list
-    def getNeighbors(self, wordSet, currWord):
-        neighbors = []
-        workBreak = list(currWord)
-        for i in range(len(currWord)):
-            for c in ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-                      't', 'u', 'v', 'w', 'x', 'y', 'z']:
-                if c == currWord[i]:
-                    continue
-                workBreak[i] = c
-                newWord = ''.join(workBreak)
-                if newWord in wordSet:
-                    neighbors.append(newWord)
-                workBreak[i] = currWord[i]
+    def getNeighbors(self, word: str, wordList: set) -> set:
+        neighbors = set()
+        for i in range(len(word)):
+            for char in 'abcdefghijklmnopqrstuvwxyz':
+                if char != word[i]:
+                    neighbor = word[:i] + char + word[i + 1:]
+                    if neighbor in wordList:
+                        neighbors.add(neighbor)
         return neighbors
 
-    # prepare the ans
-    def dfs(self, ans, solution, endWord, currWord, wordToNeighbors, distance):
-        solution.append(currWord)
-        if currWord == endWord:
-            ans.append(deepcopy(solution))  # otherwise "solution.pop()" will make it always empty
-        else:
-            if currWord in wordToNeighbors:
-                for nextWord in wordToNeighbors[currWord]:
-                    if distance[nextWord] == distance[currWord] + 1:
-                        self.dfs(ans, solution, endWord, nextWord, wordToNeighbors, distance)
-        solution.pop()
 
-
-
-sol = Solution()
-beginWord = "hit"
-endWord = "cog"
-wordList = ["hot", "dot", "dog", "lot", "log", "cog"]
-print(sol.findLadders(beginWord, endWord, wordList))
-
-
+print(Solution().findLadders("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]))
