@@ -34,7 +34,9 @@ class Solution(object):
         if board[i][j] not in curr.children:
             return
 
-        # mark the char unavailable in this dfs, to avoid using a visited set
+        # 1) Mark the char unavailable in this dfs, to avoid using a visited set.
+        # 2) If you use a visited set, you will need to do visited.discard((i, j)), and in leetcode
+        # some edge cases don't work with python
         tmp = board[i][j]
         board[i][j] = '#'
 
@@ -46,6 +48,7 @@ class Solution(object):
         board[i][j] = tmp
 
 
+# note 2 overlapping words: "eat" and "eatei"
 print(Solution().findWords(
     [
         ['o', 'a', 'a', 'n'],
@@ -53,4 +56,16 @@ print(Solution().findWords(
         ['i', 'h', 'k', 'r'],
         ['i', 'f', 'l', 'v']
     ],
-    ["oath", "pea", "eat", "rain"]))
+    ["oath", "pea", "eat", "rain", "eatei"]))
+# this is the stupid leetcode test case where visited set doesn't work, even if you do visited.discard((i, j))
+print(Solution().findWords(
+    [["e", "e", "c", "d", "b", "b", "c", "b", "c", "d", "e"],
+     ["c", "e", "e", "a", "d", "d", "e", "c", "c", "c", "b"],
+     ["b", "e", "a", "c", "d", "a", "a", "b", "c", "d", "c"],
+     ["e", "d", "e", "d", "c", "c", "e", "b", "d", "e", "e"],
+     ["b", "b", "b", "a", "b", "d", "b", "b", "b", "a", "a"],
+     ["e", "e", "b", "e", "c", "c", "a", "b", "e", "e", "c"],
+     ["b", "a", "b", "c", "b", "d", "a", "d", "c", "d", "a"],
+     ["d", "b", "a", "e", "a", "c", "e", "a", "d", "e", "c"]],
+    ["aeceecbee"]
+))
