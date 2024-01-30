@@ -1,153 +1,42 @@
+from collections import deque
+from typing import Optional, List
 
-# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-class TreeNode(object):
+class Solution:
+    def __init__(self):
+        self.ans = deque()
 
-    def __init__(self, x):
+    def closestKValues(self, root: Optional[TreeNode], target: float, k: int) -> List[int]:
+        self.ans = deque()
+        self.findSmallerValues(root, target, k)
+        self.findBiggerValues(root, target, k)
+        return self.ans
 
-        self.val = x
-        self.left = None
-        self.right = None
-
-
-
-# in real interview, it's pretty hard to directly give out the O(logN) solution. The expectation would be write
-    # the O(N) solution bug free, but give out ~O(logN) idea
-
-# draw a BST on paper/board to understand why we keep 2 stacks of predecessors and successors, and how
-    # we can get next bigger and next smaller
-
-# It's not strictly O(logN) solution because getNextSuccessor & getNextPredecessor is not constant time,
-    # but it's strictly < O(N) because in the k while loop each node will only be append/pop from pred/succ once
-
-class Solution(object):
-    def closestKValues(self, root, target, k):
-        """
-        :type root: TreeNode
-        :type target: float
-        :type k: int
-        :rtype: List[int]
-        """
-        if not root:
-            return []
-
-        pred, succ = [], []
-        self.initializePred(root, target, pred)
-        self.initializeSucc(root, target, succ)
-
-        # To avoid overlapping, we need to pop out one; we could also cut 1 from pred
-        # It's BST so there won't be duplicate values. Thus we can use "is" check
-        if pred and succ and pred[-1] is succ[-1]:
-            self.getNextSuccessor(succ)
-
-        ans = []
-
-        while k:
-            if pred and succ:
-                diffToPred, diffToSucc = abs(target - pred[-1].val), abs(target - succ[-1].val)
-                if diffToPred > diffToSucc:
-                    ans.append(self.getNextSuccessor(succ))
-                else:
-                    ans.append(self.getNextPredecessor(pred))
-            elif not pred:
-                ans.append(self.getNextSuccessor(succ))
-            elif not succ:
-                ans.append(self.getNextPredecessor(pred))
-            k -= 1
-
-        return ans
-
-    # store the nodes that are <= target along the path
-    def initializePred(self, root, target, pred):
-        while root:
-            if root.val == target:
-                pred.append(root)
-                break
-            if root.val > target:
-                root = root.left
-            else:
-                pred.append(root)
-                root = root.right
-
-    # store the nodes that are >= target along the path
-    def initializeSucc(self, root, target, succ):
-        while root:
-            if root.val == target:
-                succ.append(root)
-                break
-            if root.val > target:
-                succ.append(root)
-                root = root.left
-            else:
-                root = root.right
-
-    # the time complexity of this depends on whether the BST is a balanced tree
-    def getNextPredecessor(self, pred):
-        curr = pred.pop()
-        res = curr.val
-        curr = curr.left
-        while curr:
-            pred.append(curr)
-            curr = curr.right
-        return res
-
-    # the time complexity of this depends on whether the BST is a balanced tree
-    def getNextSuccessor(self, succ):
-        curr = succ.pop()
-        res = curr.val
-        curr = curr.right
-        while curr:
-            succ.append(curr)
-            curr = curr.left
-        return res
-
-
-
-'''
-# easier to remember solution, but O(N)
-
-class Solution(object):
-    def closestKValues(self, root, target, k):
-
-        if not root:
-            return []
-
-        nums = []
-        self.inOrder(root, nums)
-        i, j = self.find2Pointers(nums, target)
-
-        ans = []
-        while k:
-            if i < 0:
-                ans.append(nums[j])
-                j += 1
-            elif j >= len(nums):
-                ans.append(nums[i])
-                i -= 1
-            # it's guaranteed that i < 0 and j >= len(nums) won't both happen because k <= total nodes
-            else:
-                diffToLeft = abs(target - nums[i])
-                diffToRight = abs(target - nums[j])
-                if diffToLeft < diffToRight:
-                    ans.append(nums[i])
-                    i -= 1
-                else:
-                    ans.append(nums[j])
-                    j += 1
-            k -= 1
-        
-        return ans
-                
-    def find2Pointers(self, nums, target):
-        i = 0
-        while i < len(nums) and nums[i] <= target:
-            i += 1
-        return i - 1, i
-        
-    def inOrder(self, root, traversal):
+    def findSmallerValues(self, root: Optional[TreeNode], target: float, k: int):
         if not root:
             return
-        self.inOrder(root.left, traversal)
-        traversal.append(root.val)
-        self.inOrder(root.right, traversal)
-'''
+        if root.val <= target:
+            # only in right subtree there could be smaller than target but closer than root values
+            self.findSmallerValues(root.right, target, k)
+            if len(self.ans) == k:
+                return
+            self.ans.appendleft(root.val)
+        self.findSmallerValues(root.left, target, k)
+
+    def findBiggerValues(self, root: Optional[TreeNode], target: float, k: int):
+        if not root:
+            return
+        if root.val > target:
+            self.findBiggerValues(root.left, target, k)
+            if len(self.ans) == k:
+                if target - self.ans[0] > root.val - target:
+                    self.ans.popleft()
+                else:
+                    return
+            self.ans.append(root.val)
+        self.findBiggerValues(root.right, target, k)

@@ -1,111 +1,94 @@
+from collections import deque
+from typing import List
 
-# The most important tip to remember is divide the number into triplets and use recursion with the helper funciton
+class Solution:
+    def __init__(self):
+        self.tens = {}
+        self.tenToTwenty = {}
+        self.lessThan10 = {}
 
-# Follow up question: https://leetcode.com/problems/integer-to-english-words/discuss/216295/Follow-up-on-this-question
-
-class Solution(object):
-    def numberToWords(self, num):
-        """
-        :type num: int
-        :rtype: str
-        """
-        if num == None:
-            return ''
+    def numberToWords(self, num: int) -> str:
         if num == 0:
             return 'Zero'
 
-        i = 0
-        ans = ''
+        self.lessThan10 = {1: 'One', 2: 'Two', 3: 'Three', 4: 'Four', 5: 'Five', 6: 'Six', 7: 'Seven', 8: 'Eight',
+                           9: 'Nine'}
+        self.tenToTwenty = {10: 'Ten', 11: 'Eleven', 12: 'Twelve', 13: 'Thirteen', 14: 'Fourteen', 15: 'Fifteen',
+                            16: 'Sixteen', 17: 'Seventeen', 18: 'Eighteen', 19: 'Nineteen'}
+        self.tens = {20: 'Twenty', 30: 'Thirty', 40: 'Forty', 50: 'Fifty', 60: 'Sixty', 70: 'Seventy', 80: 'Eighty',
+                     90: 'Ninety'}
+
+        digits = deque()
         while num:
-            # very important! To filter out the '000's.
-            if num % 1000 > 0:
-                ans = self.convertChunk(num % 1000) + self.THOUSANDS[i] + ' ' + ans
-            i += 1
-            num /= 1000
+            digits.appendleft(num % 10)
+            num //= 10
 
-        return ans.rstrip(' ')
+        englishWords = deque()
+        # get the first three digits
+        first3Digits = deque()
+        for i in range(min(3, len(digits))):
+            first3Digits.appendleft(digits.pop())
+        if first3Digits:
+            first3DigitStr = self.generateEnglishWordsFor3Digits(first3Digits)
+            if first3DigitStr:
+                englishWords.appendleft(first3DigitStr)
+        # get the 2nd three digits
+        if digits:
+            second3Digits = deque()
+            for i in range(min(3, len(digits))):
+                second3Digits.appendleft(digits.pop())
+            if second3Digits:
+                second3DigitStr = self.generateEnglishWordsFor3Digits(second3Digits)
+                if second3DigitStr:
+                    englishWords.appendleft(second3DigitStr + ' Thousand')
+        if digits:
+            third3Digits = deque()
+            for i in range(min(3, len(digits))):
+                third3Digits.appendleft(digits.pop())
+            if third3Digits:
+                third3DigitStr = self.generateEnglishWordsFor3Digits(third3Digits)
+                if third3DigitStr:
+                    englishWords.appendleft(third3DigitStr + ' Million')
+        if digits:
+            forth3Digits = deque()
+            for i in range(min(3, len(digits))):
+                forth3Digits.appendleft(digits.pop())
+            if forth3Digits:
+                englishWords.appendleft(self.generateEnglishWordsFor3Digits(forth3Digits) + ' Billion')
 
-    def convertChunk(self, num):
-        if num == 0:
-            return ''
-        elif num < 20:
-            return self.LESSTHAN20[num] + ' '
-        elif num < 100:
-            return self.TENS[num / 10] + ' ' + self.convertChunk(num % 10)
-        else:
-            return self.LESSTHAN20[num / 100] + ' Hundred ' + self.convertChunk(num % 100)
+        return ' '.join(englishWords).strip()
 
-    def __init__(self):
-        self.LESSTHAN20 = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven",
-                           "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
-        self.TENS = ["", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
-        # since the num can be at most 2147483647
-        self.THOUSANDS = ["", "Thousand", "Million", "Billion"]
-
-
-
-print Solution().numberToWords(1234567891)
-print Solution().numberToWords(1000000000)
-print Solution().numberToWords(1000120101)
-print Solution().numberToWords(10000)
-
-
-
-'''
-# for follow-up, need to rewrite the convertChunk function
-
-class Solution(object):
-    def numberToWords(self, num):
-        """
-        :type num: int
-        :rtype: str
-        """
-        if num == None:
-            return ''
-        if num == 0:
-            return 'Zero'
-
-        num = str(num)
-        i = 0
-        anspool = []
-        while i < len(num):
-            chunk = num[i:i + 3]
-            anspool.append(self.convertChunk(chunk))
-            i += 3
-
-        ans = ''
-        for i in range(len(anspool))[::-1]:
-            if anspool[i]:
-                ans = ans + anspool[i] + ' ' + self.THOUSANDS[i] + ' '
-
-        return ans.rstrip(' ')
-
-    # in this case the num is a string whose length is at most 3
-    # e.g., 421
-    def convertChunk(self, num):
-        if num == '0':
-            return ''
-        elif len(num) == 1:
-            return self.LESSTHAN20[int(num)]
-        elif len(num) == 2:
-            reverseNum = num[::-1]
-            if int(reverseNum) < 20:
-                return self.LESSTHAN20[int(reverseNum)]
+    def generateEnglishWordsFor3Digits(self, digits: List[int]) -> str:
+        englishWords = []
+        if len(digits) == 3:
+            if digits[0] == 0:
+                digits.popleft()
             else:
-                return self.TENS[int(num[1])] + ' ' + self.convertChunk(num[0])
-        # 3 digits
-        else:
-            if int(num[2]) > 0:
-                return self.LESSTHAN20[int(num[2])] + ' Hundred ' + self.convertChunk(num[:2])
+                englishWords.append(self.lessThan10[digits.popleft()] + ' Hundred')
+        if len(digits) == 2:
+            if digits[0] == 0:
+                digits.popleft()
+            elif digits[0] == 1:
+                englishWords.append(self.tenToTwenty[digits[0] * 10 + digits[1]])
+                digits = []
             else:
-                return self.convertChunk(num[:2])
+                englishWords.append(self.tens[digits.popleft() * 10])
+        if len(digits) == 1:
+            if digits[0] == 0:
+                digits.popleft()
+            else:
+                englishWords.append(self.lessThan10[digits.popleft()])
+
+        if not englishWords:
+            return ''
+        return ' '.join(englishWords).strip()
 
 
-    def __init__(self):
-        self.LESSTHAN20 = ["", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Eleven",
-                           "Twelve", "Thirteen", "Fourteen", "Fifteen", "Sixteen", "Seventeen", "Eighteen", "Nineteen"]
-        self.TENS = ["", "Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
-        # since the num can be at most 2147483647
-        self.THOUSANDS = ["", "Thousand", "Million", "Billion"]
-        
-'''
+print(Solution().numberToWords(1000000))
+print(Solution().numberToWords(401002))
+print(Solution().numberToWords(2147480040))
+print(Solution().numberToWords(2147483647))
+print(Solution().numberToWords(0))
+print(Solution().numberToWords(123))
+print(Solution().numberToWords(1234))
+print(Solution().numberToWords(1234567))
