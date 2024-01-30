@@ -9,30 +9,30 @@ from typing import List
 # 3) pq also stores the right edges. When popping out the pq, only check if pq[0]'s right edge is "dead" or not
 class Solution:
     def getSkyline(self, buildings: List[List[int]]) -> List[List[int]]:
-        sortedEdges = set()
+        verticalLines = set()
         for l, r, h in buildings:
-            sortedEdges.add(l)
-            sortedEdges.add(r)
-        sortedEdges = sorted(sortedEdges)
+            verticalLines.add(l)
+            verticalLines.add(r)
+        verticalLines = sorted(verticalLines)
 
         # to deal with edge case when we wanna add the first skyline point
         sky = [[-1, -1]]
         pq = []
         i = 0
-        for edge in sortedEdges:
+        for verticalLine in verticalLines:
             # add all "live" buildings
-            while i < len(buildings) and buildings[i][0] <= edge:
+            while i < len(buildings) and buildings[i][0] <= verticalLine:
                 heappush(pq, [-buildings[i][2], buildings[i][1]])
                 i += 1
 
             # only care about the tallest building. there might be some "dead"
             # buildings with shorter height in pq but it's ok
-            while pq and pq[0][1] <= edge:
+            while pq and pq[0][1] <= verticalLine:
                 heappop(pq)
 
             tallestAlive = -pq[0][0] if pq else 0
             if sky[-1][1] != tallestAlive:
-                sky.append([edge, tallestAlive])
+                sky.append([verticalLine, tallestAlive])
 
         return sky[1:]
 

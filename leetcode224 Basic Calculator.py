@@ -1,55 +1,45 @@
-
-from collections import deque
-
-class Solution(object):
-    def calculate(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        if not s:
-            return 0
-
-        q = deque()
-        for c in s:
-            if c != ' ':
-                q.append(c)
-        q.append('+')
-        return self.cal(q)
-
-    def cal(self, q):
-        sign = '+'
-        num = 0
+class Solution:
+    def calculate(self, s: str) -> int:
         stack = []
-        while q:
-            c = q.popleft()
-            if c == '(':
-                num = self.cal(q)
-            elif c.isdigit():
-                num = num * 10 + int(c)
-            # this is when we need to add the num to stack
-            else:
-                # the sign records the previous sign
-                if sign == '+':
-                    stack.append(num)
-                else:
+        i = 0
+        n = len(s)
+        operand = '+'
+        while i < n:
+            if s[i] == '-':
+                operand = '-'
+            elif s[i] == '+':
+                operand = '+'
+            elif s[i].isdigit():
+                num = int(s[i])
+                while i + 1 < n and s[i + 1].isdigit():
+                    num = num * 10 + int(s[i + 1])
+                    i += 1
+                if operand == '-':
                     stack.append(-num)
-                    # break to return the sum(stack) as the result of this sub
-                    # expression within a parenthesis pair
-                if c == ')':
-                    break
-                num = 0
-                sign = c
+                else:
+                    stack.append(num)
+            elif s[i] == '(':
+                if operand == '+':
+                    stack.append('(')
+                else:
+                    stack.append('-(')
+                operand = '+'
+            elif s[i] == ')':
+                sumOfChunk = 0
+                while stack[-1] not in ['(', '-(']:
+                    sumOfChunk += stack.pop()
+                if stack[-1] == '-(':
+                    stack.pop()
+                    stack.append(-sumOfChunk)
+                else:
+                    stack.pop()
+                    stack.append(sumOfChunk)
+
+            # ignore when s[i] == ' '
+            i += 1
 
         return sum(stack)
 
 
-
-sol = Solution()
-s = "(1+(4+5+2)-3)+(6+8)"
-print sol.calculate(s)
-
-
-
-
-
+print(Solution().calculate("(1+(4+5+2)-3)+(6+8)"))
+print(Solution().calculate("(1-(-4+5+2)-3)+(6+8)"))

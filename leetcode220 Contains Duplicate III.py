@@ -1,30 +1,30 @@
+from typing import List
 
-# O(N) solution. idea is bucket sort.
-# idea from: https://discuss.leetcode.com/topic/19991/o-n-python-using-buckets-with-explanation-10-lines
-
-class Solution(object):
-    def containsNearbyAlmostDuplicate(self, nums, k, t):
-
+class Solution:
+    def containsNearbyAlmostDuplicate(self, nums: List[int], indexDiff: int, valueDiff: int) -> bool:
         bucket = {}
         for i, num in enumerate(nums):
-            if t != 0:
-                bucketnum = num / t
-                offset = 1
+            if valueDiff != 0:
+                bucketIndex = num // valueDiff
+                leftIndex, rightIndex = bucketIndex - 1, bucketIndex + 1
             else:
-                bucketnum = num
-                offset = 0
+                bucketIndex = num
+                leftIndex, rightIndex = bucketIndex, bucketIndex
 
-            for j in xrange(bucketnum - offset, bucketnum + offset + 1):
-                if j in bucket and abs(bucket[j] - num) <= t:
+            # e.g., when num = 1 and valueDiff = 3, and 4 is in bucket[1], we need to not only check
+            # bucket[index] but also its left & right bucket
+            for j in range(leftIndex, rightIndex + 1):
+                if j in bucket and abs(bucket[j] - num) <= valueDiff:
                     return True
 
-            bucket[bucketnum] = num
-            # for nums[i], we always look for solution from previous k numbers(i-k ~ i).
-            if len(bucket) > k:
-                if t != 0:
-                    del bucket[nums[i - k] / t]    # because the key corresponding to nums[i-k] is (i-k)'s bucket num,
-                    # which is nums[i - k]/t
+            # 1) there are at most indexDiff buckets and each bucket stores only 1 number
+            # 2) we only care about the i - 1, i - 2, ...i - indexDiff 's corresponding buckets, no matter
+            # whether these buckets fall into the [leftIndex, rightIndex + 1] range
+            bucket[bucketIndex] = num
+            if len(bucket) > indexDiff:
+                if valueDiff != 0:
+                    del bucket[nums[i - indexDiff] // valueDiff]
                 else:
-                    del bucket[nums[i - k]]
+                    del bucket[nums[i - indexDiff]]
 
         return False
