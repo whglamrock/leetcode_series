@@ -1,45 +1,43 @@
+from typing import List
 
-# two things that you should notice:
-# 1): the multi-digit numbers in the expression should not start with zero
-# 2): we need to keep record of last added clause in case the next operator is '*'
-
-# It is inconvenient to use memoization in this question:
-#   considering the length of current num and leftResult as the key of memo, then different
-#   path with the same key could yield different final results because of the variation the last claus
-# There is no solution with memoization brought up in discuss
-
-class Solution(object):
-    def addOperators(self, num, target):
-
+class Solution:
+    def __init__(self):
         self.ans = []
-        for i in xrange(1, len(num) + 1):
-            # it is legal when num[:i] == '0', and the "i == 1" condition is for this
-            if i == 1 or (i > 1 and num[0] != '0'):
-                self.dfs(num[i:], int(num[:i]), num[:i], int(num[:i]), target)
+
+    def addOperators(self, num: str, target: int) -> List[str]:
+        self.ans = []
+        for i in range(1, len(num) + 1):
+            if i == 1 or num[0] != '0':
+                numStr = num[i:]
+                currExpression = num[:i]
+                currResult = int(currExpression)
+                lastNum = int(currExpression)
+                self.dfs(numStr, target, currExpression, currResult, lastNum)
 
         return self.ans
 
-    # lastClause is set for operator '*';
-    # also, there is no way to save the leftExpression to prune all afterward DFSes, because we always
-        # need to try out three operators
-    def dfs(self, num, leftResult, leftExpression, lastClause, target):
-
-        if not num:
-            if leftResult == target:
-                self.ans.append(leftExpression)
+    def dfs(self, numStr: str, target: int, currExpression: str, currResult: int, lastNum: int):
+        if not numStr:
+            if currResult == target:
+                self.ans.append(currExpression)
             return
 
-        # because the nextNum is num[:i], i starts from 1
-        for i in xrange(1, len(num) + 1):
-            val = int(num[:i])
-            nextNum = num[i:]
-            # we need to put the "whether starts with 0" check here instead of arbitrarily using
-            #   "if num[0] == '0': return " to end the recursion
-            if i == 1 or (i > 1 and num[0] != '0'):
-                self.dfs(nextNum, leftResult + val, leftExpression + '+' + str(val), val, target)
-                self.dfs(nextNum, leftResult - val, leftExpression + '-' + str(val), -val, target)
-                self.dfs(nextNum, leftResult - lastClause + lastClause * val, leftExpression + '*' + str(val), lastClause * val, target)
+        for i in range(1, len(numStr) + 1):
+            # we just need to make sure the currentNum doesn't start with 0
+            # the nextNumStr will be handled in next recursion
+            currNumStr = numStr[:i]
+            nextNumStr = numStr[i:]
+            if i == 1 or numStr[0] != '0':
+                self.dfs(nextNumStr, target, currExpression + '+' + currNumStr, currResult + int(currNumStr),
+                         int(currNumStr))
+                self.dfs(nextNumStr, target, currExpression + '-' + currNumStr, currResult - int(currNumStr),
+                         -int(currNumStr))
+                self.dfs(nextNumStr, target, currExpression + '*' + currNumStr,
+                         currResult - lastNum + int(currNumStr) * lastNum, int(currNumStr) * lastNum)
 
 
-
-print Solution().addOperators('105', 5)
+print(Solution().addOperators('105', 5))
+print(Solution().addOperators('00', 0))
+print(Solution().addOperators('232', 8))
+print(Solution().addOperators('123', 6))
+print(Solution().addOperators('3456237490', 9191))
