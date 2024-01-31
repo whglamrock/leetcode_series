@@ -1,84 +1,47 @@
-
 from collections import deque
+from typing import List
 
-# In real interview, it's hard to remember the "reverse string" solution. So it's OK to give the following solution
-
-class Solution(object):
-    def removeInvalidParentheses(self, s):
-        """
-        :type s: str
-        :rtype: List[str]
-        """
-        if s == None:
-            return []
-        if s == '':
-            return ['']
-
-        queue = deque()
-        queue.append(s)
-        visited = set()
+# Using a visited set to avoid TLE.
+# This solution, not optimal but practical to be thought of, should be accepted in real interview.
+class Solution:
+    def removeInvalidParentheses(self, s: str) -> List[str]:
+        queue = deque([s])
         ans = []
-
+        visited = set()
         while queue:
-            string = queue.popleft()
-            if self.isValid(string):
-                # we only need to "remove minimum number of invalid parentheses"
-                if not ans or (ans and len(ans[0]) == len(string)):
-                    ans.append(string)
-                continue
-
-            # generate all possible combinations
-            for i in xrange(len(string)):
-                if string[i] not in '()':
+            currStr = queue.popleft()
+            visited.add(currStr)
+            if self.isValid(currStr):
+                if not ans or len(ans[0]) == len(currStr):
+                    ans.append(currStr)
+            # generate all combinations
+            for i in range(len(currStr)):
+                if currStr[i] not in '()' or (i > 0 and currStr[i] == currStr[i - 1]):
                     continue
-                newString = string[:i] + string[i + 1:]
-                if newString not in visited:
-                    queue.append(newString)
-                    visited.add(newString)
+                newStr = currStr[:i] + currStr[i + 1:]
+                if newStr not in visited:
+                    queue.append(newStr)
+                    # pre-add it here instead of checking it when it's popleft'ed from queue to speed up
+                    visited.add(newStr)
 
-        return ans
+        return list(set(ans))
 
-    def isValid(self, s):
-        i, n = 0, len(s)
-        count = 0
-        while i < n:
-            if s[i] not in '()':
-                i += 1
+    def isValid(self, s: str) -> bool:
+        stack = []
+        for char in s:
+            if char not in '()':
                 continue
-            if s[i] == '(':
-                count += 1
-            elif s[i] == ')':
-                count -= 1
-            if count < 0:
-                return False
-            i += 1
-
-        return count == 0
-
+            if char == '(':
+                stack.append(char)
+            else:
+                if stack and stack[-1] == '(':
+                    stack.pop()
+                else:
+                    return False
+        return len(stack) == 0
 
 
-print Solution().removeInvalidParentheses("(a)()())")
-
-
-
-# But to get strong hire, you would probably need to give out the solution or at least idea without using set to check,
-    # see: https://leetcode.com/problems/remove-invalid-parentheses/discuss/75027/Easy-Short-Concise-and-Fast-Java-DFS-3-ms-solution
-# notice why last_i and last_j are both used and what they are used for:
-    # 1) last_i records the last valid position after removal, so in the next recursion, we can avoid
-    # counting '(' and ')' from the start of the string;
-    # 2) last_j records the last removal position, so the new removal position has to start from it
-# For consecutive ')'s, ONLY remove the FIRST one
-# E.g., using '()()()) ())' as example to run the solution in the above link to understand why we need both last_i & last_j are
-
-# P.S. another important theory is: when the first extra ')' occurs, we can remove any of the previous ')' to make
-    # the whole prefix valid
-
-
-
-
-
-
-
-
-
-
+print(Solution().removeInvalidParentheses("(a)()())"))
+print(Solution().removeInvalidParentheses(")()))(e)(()y("))
+print(Solution().removeInvalidParentheses(")("))
+print(Solution().removeInvalidParentheses("()())()"))
