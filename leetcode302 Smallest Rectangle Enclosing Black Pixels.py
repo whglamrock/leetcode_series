@@ -1,38 +1,97 @@
+from typing import List
 
-# pay attention to the detail of binary search: the boundary (len(image) not len(image) - 1),
-# the while condition(in this case, 'i < j' is more convenient).
-# the great use of "any" built-in function.
-# Most importantly, remember in this case searching if the '1' exists in a column takes
-# O(N) time, because for case like '000100101' we don't know which way to go with binary
-# search, we can't only scan the element one by one
-
-class Solution(object):
-    def minArea(self, image, x, y):
-
-        top = self.searchrows(image, 0, x, True)
-        # looks for the first row that contains '1'
-        bottom = self.searchrows(image, x + 1, len(image), False)
-        # looks for the first row that doesn't contain '1'
-        left = self.searchcols(image, 0, y, top, bottom, True)
-        right = self.searchcols(image, y + 1, len(image[0]), top, bottom, False)
-        return (bottom - top) * (right - left)
-
-    def searchrows(self, image, i, j, option):
-
-        while i < j:
-            m = i + (j - i) / 2
-            if ('1' in image[m]) == option:
-                j = m
+class Solution:
+    def minArea(self, image: List[List[str]], x: int, y: int) -> int:
+        # find the first row
+        firstRow = x
+        top, bottom = 0, x
+        while top <= bottom:
+            m = (top + bottom) // 2
+            if top == bottom:
+                firstRow = m
+                break
+            if '1' in image[m]:
+                bottom = m
             else:
-                i = m + 1
-        return i
-
-    def searchcols(self, image, i, j, top, bottom, option):
-
-        while i < j:
-            m = i + (j - i) / 2
-            if any(image[k][m] == '1' for k in xrange(top, bottom)) == option:
-                j = m
+                top = m + 1
+        # find the last row
+        lastRow = x
+        top, bottom = x, len(image) - 1
+        while top <= bottom:
+            m = (top + bottom + 1) // 2
+            if top == bottom:
+                lastRow = m
+                break
+            if '1' in image[m]:
+                top = m
             else:
-                i = m + 1
-        return i
+                bottom = m - 1
+
+        # find the first column
+        firstCol = y
+        left, right = 0, y
+        while left <= right:
+            m = (left + right) // 2
+            if left == right:
+                firstCol = m
+                break
+            is1InColumn = False
+            for i in range(len(image)):
+                if image[i][m] == '1':
+                    is1InColumn = True
+                    break
+            if is1InColumn:
+                right = m
+            else:
+                left = m + 1
+        # find the last column
+        lastCol = y
+        left, right = y, len(image[0]) - 1
+        while left <= right:
+            m = (left + right + 1) // 2
+            if left == right:
+                lastCol = m
+                break
+            is1InColumn = False
+            for i in range(len(image)):
+                if image[i][m] == '1':
+                    is1InColumn = True
+                    break
+            if is1InColumn:
+                left = m
+            else:
+                right = m - 1
+
+        return (lastRow - firstRow + 1) * (lastCol - firstCol + 1)
+
+
+'''
+# simple dfs solution
+class Solution:
+    def __init__(self):
+        self.maxY = 0
+        self.minY = 0
+        self.maxX = 0
+        self.minX = 0
+
+    def minArea(self, image: List[List[str]], x: int, y: int) -> int:
+        self.minX, self.maxX = 2147483647, -2147483648
+        self.minY, self.maxY = 2147483647, -2147483648
+        self.dfs(image, x, y)
+        # print(self.minX, self.maxX, self.minY, self.maxY)
+        return (self.maxX - self.minX + 1) * (self.maxY - self.minY + 1)
+
+    def dfs(self, image: List[List[str]], i: int, j: int):
+        image[i][j] = '0'
+        self.minX = min(self.minX, i)
+        self.maxX = max(self.maxX, i)
+        self.minY = min(self.minY, j)
+        self.maxY = max(self.maxY, j)
+
+        m, n = len(image), len(image[0])
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+        for deltaI, deltaJ in directions:
+            ii, jj = i + deltaI, j + deltaJ
+            if 0 <= ii < m and 0 <= jj < n and image[ii][jj] == '1':
+                self.dfs(image, ii, jj)
+'''
