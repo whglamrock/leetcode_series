@@ -12,12 +12,12 @@ class Solution:
             # dp[0][j] = 0 makes sure each song is played at least once.
             # things like dp[1][2], dp[2][3] will be 0. this means all dp[i][j]
             # where i < j will be 0.
-            for j in range(1, n + 1):
+            for j in range(1, min(n + 1, i + 1)):
                 dp[i][j] = (dp[i - 1][j - 1] * (n - (j - 1))) % mod
                 if j > k:
-                    # for a playlist of i - 1 songs with j different songs,
-                    # we need to generate the new playlist of i songs (choose one more song)
-                    # the last k songs in dp[i - 1][j] can't be chose.
+                    # for a playlist of i - 1 songs with j different songs, we need to generate the new
+                    # playlist of i songs (choose one more song). The last k songs in dp[i - 1][j] can't be chose,
+                    # and it's guaranteed that there are NO DUPLICATE songs in the last k songs of each playlist.
                     dp[i][j] = (dp[i][j] + dp[i - 1][j] * (j - k)) % mod
 
         return dp[-1][-1]
