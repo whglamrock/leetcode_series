@@ -1,25 +1,27 @@
+from typing import List
 
-# we burst from the last balloon
-
-class Solution(object):
-    def maxCoins(self, inums):
-
-        nums = [1] + inums + [1]
+# an extremely hard DP problem. The interview standards should be coming up with dfs + memoization. optimal O(N^3)
+# DP solution isn't a must. See explanation: https://leetcode.com/problems/burst-balloons/solutions/76228/share-some-analysis-and-explanations/
+class Solution:
+    def maxCoins(self, nums: List[int]) -> int:
+        nums = [1] + nums + [1]
         n = len(nums)
-        dp = [[0] * n for _ in xrange(n)]
+        # dp[i][j] means the max score by bursting balloons nums[i + 1:j]
+        dp = [[0 for j in range(n)] for i in range(n)]
 
-        # dp[left][right] means the score we get after burst from index left + 1 to index right - 1
-            # (0 <= left; left + k <= right < n)
-        # k is the length of range, k = 2 initially because the bottom case is we burst every triplet.
-        for k in xrange(2, n):
-            for left in xrange(0, n - k):
-                right = left + k
-                for i in xrange(left + 1, right):
-                    # it's nums[left] * nums[i] * nums[right] because we actually look at
-                        # that the nums[left], nums[i], nums[right] are adjacent to each other,
-                        # where nums[left + 1: i] and nums[i + 1: right] are already burst
-                        # and dp[left][i] & dp[i][right] are saved in the previous for loops.
-                    # the nums[left], nums[i], nums[right] are triplet that need to be burst in this round
-                    dp[left][right] = max(dp[left][right], nums[left] * nums[i] * nums[right] + dp[left][i] + dp[i][right])
+        # k is length of the range of [i:j]
+        for k in range(2, n):
+            for l in range(n - k):
+                r = l + k
+                # i loops through the balloons we are actually gonna burst
+                # when i == l + 1, dp[l + 1][l] actually means no balloon to burst as (l + 1) + 1 > l - 1
+                for i in range(l + 1, r):
+                    dp[l][r] = max(dp[l][r], nums[l] * nums[i] * nums[r] + dp[l][i] + dp[i][r])
 
         return dp[0][n - 1]
+
+
+print(Solution().maxCoins([2, 1, 9, 3, 6]))
+print(Solution().maxCoins([3, 1, 5, 8]))
+print(Solution().maxCoins([1, 5]))
+print(Solution().maxCoins([5]))

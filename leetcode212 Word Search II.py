@@ -35,7 +35,7 @@ class Solution(object):
             return
 
         # 1) Mark the char unavailable in this dfs, to avoid using a visited set.
-        # 2) If you use a visited set, you will need to do visited.discard((i, j)), and in leetcode
+        # 2) If you use a visited set, you will need to do visited.discard((i, j)), and even with that in leetcode
         # some edge cases don't work with python
         tmp = board[i][j]
         board[i][j] = '#'
