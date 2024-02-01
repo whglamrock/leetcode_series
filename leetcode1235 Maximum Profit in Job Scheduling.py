@@ -2,39 +2,38 @@ from typing import List
 
 class Solution:
     def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
-        n = len(startTime)
+        n = len(profit)
         jobs = []
         for i in range(n):
             jobs.append([startTime[i], endTime[i], profit[i]])
         jobs.sort(key=lambda x: x[1])
-        endTime.sort()
-
         # dp[i] stores the max profit that you can accumulate at endTime[i]
         # p.s. you don't necessarily have to take job[i]
         dp = [0] * n
         dp[0] = jobs[0][2]
+
         for i in range(1, n):
-            maxIndexOfJobEarlier = self.findMaxIndexEqualOrLessThanTarget(endTime, jobs[i][0], 0, i - 1)
-            if maxIndexOfJobEarlier != -1:
-                dp[i] = max(jobs[i][2] + dp[maxIndexOfJobEarlier], dp[i - 1])
-            # can't even find any job earlier
+            maxIndexOfEarlierJob = self.findMaxIndexSmallerOrEqual(jobs, jobs[i][0], i - 1)
+            if maxIndexOfEarlierJob == -1:
+                dp[i] = max(dp[i - 1], jobs[i][2])
             else:
-                dp[i] = max(jobs[i][2], dp[i - 1])
+                dp[i] = max(dp[i - 1], dp[maxIndexOfEarlierJob] + jobs[i][2])
 
         return dp[-1]
 
-    def findMaxIndexEqualOrLessThanTarget(self, nums: List[int], target: int, l: int, r: int) -> int:
+    def findMaxIndexSmallerOrEqual(self, jobs: List[List[int]], target: int, r: int) -> int:
+        l = 0
         while l <= r:
-            if l == r:
-                if nums[l] > target:
-                    return -1
-                else:
-                    return l
             m = (l + r + 1) // 2
-            if nums[m] > target:
-                r = m - 1
-            else:
+            if l == r:
+                if jobs[m][1] <= target:
+                    return m
+                else:
+                    return -1
+            if jobs[m][1] <= target:
                 l = m
+            else:
+                r = m - 1
 
         return -1
 

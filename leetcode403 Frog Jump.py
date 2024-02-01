@@ -1,71 +1,52 @@
+from collections import defaultdict
+from typing import List
 
-# Guaranteed O(N^2) DP solution
-
-class Solution(object):
-    def canCross(self, stones):
-        """
-        :type stones: List[int]
-        :rtype: bool
-        """
+# Guaranteed O(N ^ 2) DP solution
+class Solution:
+    def canCross(self, stones: List[int]) -> bool:
         n = len(stones)
-        # the farthest step can only be n - 1, in which case the step length has to keep increasing
-        # dp[i][j] means at stones[i] whether we can jump step j
-        dp = [[False for j in xrange(n)] for i in xrange(n)]
-        dp[0][1] = True
+        indexToPossibleJumps = defaultdict(set)
+        indexToPossibleJumps[0].add(1)
 
-        for i in xrange(1, n):
-            for j in xrange(i):
-                lastStep = stones[i] - stones[j]
-                if lastStep <= 0 or lastStep >= n or not dp[j][lastStep]:
-                    continue
-                dp[i][lastStep] = True
-                if lastStep - 1 > 0:
-                    dp[i][lastStep - 1] = True
-                if lastStep + 1 < n:
-                    dp[i][lastStep + 1] = True
-
-        for j in xrange(n):
-            if dp[-1][j] == True:
-                return True
-        return False
+        for i in range(1, n):
+            for j in range(i):
+                distance = stones[i] - stones[j]
+                if distance in indexToPossibleJumps[j]:
+                    indexToPossibleJumps[i].add(distance)
+                    indexToPossibleJumps[i].add(distance - 1)
+                    indexToPossibleJumps[i].add(distance + 1)
+        return n - 1 in indexToPossibleJumps
 
 
-
-print Solution().canCross([0, 1, 2, 4, 5, 6, 7, 9, 10, 11, 13])
-print Solution().canCross([0, 1, 2, 3, 4, 8, 9, 11])
-
+print(Solution().canCross([0, 1, 2, 4, 5, 6, 7, 9, 10, 11, 13]))
+print(Solution().canCross([0, 1, 2, 3, 4, 8, 9, 11]))
 
 
 '''
-# DFS & memoization solution, which actually runs much faster than dp
-
-class Solution(object):
-    def canCross(self, stones):
-
-        # stones list will have at least 2 stones
+# dfs + memoization
+class Solution:
+    def canCross(self, stones: List[int]) -> bool:
         if stones[1] != 1:
             return False
-
-        return self.dfs(stones[1], 1, stones[-1], set(stones), set())
-
-    def dfs(self, currStone, lastStep, destination, stonesSet, memo):
-
-        if (currStone, lastStep) in memo:
-            return False
-        if currStone not in stonesSet or currStone == 0:
-            return False
-
-        if currStone == destination:
+        self.stones = stones
+        self.stoneToIndex = {}
+        for i, stone in enumerate(stones):
+            self.stoneToIndex[stone] = i
+        
+        return self.dfs(1, 1)
+    
+    @lru_cache(None)
+    def dfs(self, prevJump: int, i: int) -> bool:
+        #print(prevJump, i)
+        if i == len(self.stones) - 1:
             return True
 
-        steps = [lastStep, lastStep + 1]
-        if lastStep - 1 > 0:
-            steps.append(lastStep - 1)
-
-        for step in steps:
-            if self.dfs(currStone + step, step, destination, stonesSet, memo):
-                return True
-
-        memo.add((currStone, lastStep))
-        return False
+        stone = self.stones[i]
+        canReachLastStone = False
+        for jump in range(max(prevJump - 1, 1), prevJump + 2):
+            if stone + jump in self.stoneToIndex:
+                nextIndex = self.stoneToIndex[stone + jump]
+                canReachLastStone |= self.dfs(jump, nextIndex)
+        
+        return canReachLastStone
 '''

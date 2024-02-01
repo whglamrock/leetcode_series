@@ -1,34 +1,34 @@
+from math import ceil
+from typing import List
 
-# O(N * log(N)) binary search solution
-
-class Solution(object):
-    def splitArray(self, nums, m):
-
-        # judge if we can divide array into m continuous subArrays that the sum of each <= mid.
-        def valid(mid):
-
-            count, curr = 0, 0
-            for num in nums:
-                curr += num
-                if curr > mid:
-                    count += 1
-                    # curr should not be set zero here, because we exclude num from this round of sum
-                    curr = num
-                    # it's False even when count == m because we excluded num from this round of sum
-                    if count >= m:
-                        return False
-
-            return True
-
-        l, r = max(nums), sum(nums)
-        while l < r:
-            mid = l + (r - l) / 2
-            # if mid is valid, then the optimal value <= this mid.
-            if valid(mid):
-                r = mid
-            # the optimal value can't be this mid
+class Solution:
+    def splitArray(self, nums: List[int], k: int) -> int:
+        prefixSums = []
+        for num in nums:
+            if not prefixSums:
+                prefixSums.append(num)
             else:
-                l = mid + 1
+                prefixSums.append(num + prefixSums[-1])
 
+        l, r = max(ceil(sum(nums) / k), max(nums)), sum(nums)
+        while l <= r:
+            m = (l + r) // 2
+            if l == r:
+                return m
+            if self.canSplitKArrays(prefixSums, m, k):
+                r = m
+            else:
+                l = m + 1
         return l
-        # or return r. Based on the exit condition of while loop, l can only == r.
+
+    def canSplitKArrays(self, prefixSums: List[int], sumLimit: int, k: int) -> bool:
+        splitArrays = []
+        i = 0
+        n = len(prefixSums)
+        while i < n:
+            prevPrefixSum = 0 if not splitArrays else splitArrays[-1]
+            while i + 1 < n and prefixSums[i + 1] - prevPrefixSum <= sumLimit:
+                i += 1
+            splitArrays.append(prefixSums[i])
+            i += 1
+        return len(splitArrays) <= k
