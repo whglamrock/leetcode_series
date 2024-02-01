@@ -1,60 +1,54 @@
 from collections import defaultdict
 from itertools import combinations
-from typing import List
+from typing import List, Dict
 
+# Overall O(N * 2 ^ N) time complexity where len(nums) == 2 * N
 class Solution:
     def minimumDifference(self, nums: List[int]) -> int:
         n = len(nums) // 2
         leftHalf, rightHalf = nums[:n], nums[n:]
-        leftPossibleSums, rightPossibleSums = self.buildPossibleSums(leftHalf), self.buildPossibleSums(rightHalf)
+        leftPossibleSums, rightPossibleSums = self.generateAllPossibleSums(leftHalf), self.generateAllPossibleSums(rightHalf)
 
-        # init the variable ans by choosing all numbers from the arbitrary left half to form the final left and vice versa.
-        ans = abs(sum(leftHalf) - sum(rightHalf))
+        minDiff = abs(sum(leftHalf) - sum(rightHalf))
         totalSum = sum(nums)
-        halfSum = totalSum // 2
-
-        # choose i numbers from the left half and n - i numbers from the right half
-        # i can be from 1 to n - 1
+        halfSum = totalSum / 2
+        # try to build array 1
         for i in range(1, n):
-            leftSums = leftPossibleSums[i]
-            rightSums = rightPossibleSums[n - i]
-            rightSums = sorted(rightSums)
-            for leftSum in leftSums:
-                target = halfSum - leftSum
-                j = self.findClosestIndex(rightSums, target)
-                diff = abs((leftSum + rightSums[j]) - (totalSum - leftSum - rightSums[j]))
-                ans = min(ans, diff)
+            leftSumsOfArray1 = leftPossibleSums[i]
+            rightSumsOfArray1 = sorted(rightPossibleSums[n - i])
+            for leftSum in leftSumsOfArray1:
+                rightSum = self.findClosestNum(rightSumsOfArray1, halfSum - leftSum)
+                sumOfArray1 = leftSum + rightSum
+                minDiff = min(minDiff, abs(2 * sumOfArray1 - totalSum))
 
-        return ans
+        return minDiff
 
-    def buildPossibleSums(sellf, nums: List[int]):
+    def generateAllPossibleSums(self, nums: List[int]) -> Dict[int, set]:
         possibleSums = defaultdict(set)
         for i in range(1, len(nums) + 1):
-            for combination in combinations(nums, i):
-                possibleSums[i].add(sum(combination))
+            for subset in combinations(nums, i):
+                possibleSums[i].add(sum(subset))
         return possibleSums
 
-    def findClosestIndex(self, nums: List[int], target: int) -> int:
+    def findClosestNum(self, nums: List[int], target: float) -> int:
         l, r = 0, len(nums) - 1
         while l <= r:
-            # in exit condition
-            if l == r:
-                if nums[l] == target:
-                    return l
-                if nums[l] > target and l > 0:
-                    return l if abs(nums[l] - target) <= abs(nums[l - 1] - target) else l - 1
-                if nums[l] < target and l + 1 < len(nums):
-                    return l if abs(nums[l] - target) <= abs(nums[l + 1] - target) else l + 1
-                return l
             m = (l + r) // 2
+            if l == r:
+                return nums[m]
             if nums[m] == target:
-                return m
-            if nums[m] < target:
+                return nums[m]
+            elif nums[m] < target:
                 l = m + 1
             else:
                 r = m
 
-        return l if l >= 0 else r
+        # exit condition is l == r
+        if l - 1 >= 0 and abs(nums[l - 1] - target) < abs(nums[l] - target):
+            return nums[l - 1]
+        if l + 1 < len(nums) and abs(nums[l + 1] - target) < abs(nums[l] - target):
+            return nums[l + 1]
+        return nums[l]
 
 
 print(Solution().minimumDifference(nums=[3, 9, 7, 3]))
@@ -87,5 +81,4 @@ class Solution:
 
         self.dfsSearchToFindAllPossibleSums(nums, i + 1, possibleSums, currSum, n, currSize)
         self.dfsSearchToFindAllPossibleSums(nums, i + 1, possibleSums, currSum + nums[i], n, currSize + 1)
-
 '''
