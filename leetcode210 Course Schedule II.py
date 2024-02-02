@@ -1,46 +1,40 @@
+from collections import defaultdict
+from typing import List
 
-from collections import defaultdict, deque
+class Solution:
+    def findOrder(self, numCourses: int, prerequisites: List[List[int]]) -> List[int]:
+        courseToPrerequisites, courseToDependents = defaultdict(set), defaultdict(set)
+        for i, j in prerequisites:
+            courseToPrerequisites[i].add(j)
+            courseToDependents[j].add(i)
 
-# topological sort solution; idea from lc207
-
-class Solution(object):
-    def findOrder(self, numCourses, prerequisites):
-        """
-        :type numCourses: int
-        :type prerequisites: List[List[int]]
-        :rtype: List[int]
-        """
-        less, greater = self.buildRelationship(prerequisites)
-
-        q = deque()
-        for i in xrange(numCourses):
-            if i not in greater:
-                q.append(i)
+        todo = set()
+        for i in range(numCourses):
+            if i not in courseToPrerequisites:
+                todo.add(i)
 
         ans = []
-        while q:
-            j = q.popleft()
-            ans.append(j)
-            # this means no course depends on j
-            if j not in less:
-                continue
-            for i in less[j]:
-                greater[i].discard(j)
-                if not greater[i]:
-                    del greater[i]
-                    q.append(i)
+        visited = set()
+        while todo:
+            nextTodo = set()
+            for course in todo:
+                ans.append(course)
+                visited.add(course)
+                if course not in courseToDependents:
+                    continue
+                for dependentCourse in courseToDependents[course]:
+                    if dependentCourse not in courseToPrerequisites:
+                        continue
+                    courseToPrerequisites[dependentCourse].discard(course)
+                    if not courseToPrerequisites[dependentCourse]:
+                        del courseToPrerequisites[dependentCourse]
+                        nextTodo.add(dependentCourse)
+                del courseToDependents[course]
+            todo = nextTodo
 
-        return ans if not greater else []
-
-    def buildRelationship(self, prerequisites):
-        less, greater = defaultdict(set), defaultdict(set)
-        # j is i's prerequisite
-        for i, j in prerequisites:
-            less[j].add(i)
-            greater[i].add(j)
-
-        return less, greater
+        return ans if len(ans) == numCourses else []
 
 
-
-print Solution().findOrder(4, [[1,0],[2,0],[3,1],[3,2]])
+print(Solution().findOrder(4, [[1, 0], [2, 0], [3, 1], [3, 2]]))
+print(Solution().findOrder(5, [[1, 0], [2, 0], [3, 1], [3, 2], [3, 4], [4, 2], [1, 2]]))
+print(Solution().findOrder(5, [[1, 0], [2, 0], [3, 1], [3, 2], [3, 4], [4, 2], [1, 2], [2, 4]]))
