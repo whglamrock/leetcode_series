@@ -15,6 +15,7 @@ class Solution:
 
         for char in s:
             prefixCharCount[char] += 1
+            # the idea is to count the number of good sequences that end with the current char
             for i in range(1, prefixCharCount[char] + 1):
                 ans += self.generateNumOfGoodSeqs(prefixCharCount, i, char)
                 ans %= mod
@@ -30,6 +31,7 @@ class Solution:
                 # the extra + 1 is for not choosing the char at all
                 ans *= self.numOfCombination(prefixCharCount[char], i) + 1
             else:
+                # have to choose the current char
                 ans *= self.numOfCombination(prefixCharCount[char] - 1, i - 1)
 
         return ans
