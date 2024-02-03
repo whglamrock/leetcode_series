@@ -33,12 +33,6 @@ class Solution:
 
     def findMatchingWord(self, s: str, i: int, words: List[str]) -> Optional[str]:
         for word in words:
-            isWordMatch = True
-            for j in range(len(word)):
-                if i + j >= len(s) or s[i + j] != word[j]:
-                    isWordMatch = False
-                    break
-            if isWordMatch:
+            if s.startswith(word, i):
                 return word
-
         return None
