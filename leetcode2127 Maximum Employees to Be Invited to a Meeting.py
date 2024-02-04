@@ -58,7 +58,6 @@ class Solution:
 
     # it's impossible that the other end of the arm is connected to another pair
     def findLenOfLongestArm(self, startPoint: int, nodeToAvoid: int, followers: Dict[int, List[int]]) -> int:
-
         maxLenOfArm = 0
         todo = {startPoint}
         while todo:
