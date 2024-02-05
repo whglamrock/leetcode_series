@@ -13,24 +13,18 @@ class Solution:
         if depthOfP < depthOfQ:
             p, q = q, p
             depthOfP, depthOfQ = depthOfQ, depthOfP
-        if depthOfQ == 0:
-            return q
-        # make p and q at the same depth
         while depthOfP > depthOfQ:
             p = p.parent
             depthOfP -= 1
 
-        if p == q:
-            return p
-
-        todo = [p, q]
-        while todo:
+        todo = {p, q}
+        while len(todo) > 1:
             nextTodo = set()
             for node in todo:
                 nextTodo.add(node.parent)
             todo = nextTodo
-            if len(todo) == 1:
-                return list(todo)[0]
+
+        return list(todo)[0]
 
     def findDepthOfNode(self, node: 'Node') -> int:
         depth = 0
@@ -38,6 +32,3 @@ class Solution:
             node = node.parent
             depth += 1
         return depth
-
-
-
