@@ -5,27 +5,24 @@ from typing import List
 # keep a decreasing queue and an increasing queue to store the min & max of the subarray
 class Solution:
     def longestSubarray(self, nums: List[int], limit: int) -> int:
-        increasingQueue, decreasingQueue = deque(), deque()
+        increasingStack, decreasingStack = deque(), deque()
         l = 0
-        ans = 1
+        ans = 0
         for r, num in enumerate(nums):
-            # add new number to the queue
-            while increasingQueue and num <= increasingQueue[-1][1]:
-                increasingQueue.pop()
-            increasingQueue.append([r, num])
-            while decreasingQueue and num >= decreasingQueue[-1][1]:
-                decreasingQueue.pop()
-            decreasingQueue.append([r, num])
-
-            # make sure the subArray's max diff <= limit
-            while increasingQueue and decreasingQueue and decreasingQueue[0][1] - increasingQueue[0][1] > limit:
+            while increasingStack and increasingStack[-1][1] > num:
+                increasingStack.pop()
+            while decreasingStack and decreasingStack[-1][1] < num:
+                decreasingStack.pop()
+            increasingStack.append([r, num])
+            decreasingStack.append([r, num])
+            while decreasingStack[0][1] - increasingStack[0][1] > limit:
                 l += 1
-                while increasingQueue[0][0] < l:
-                    increasingQueue.popleft()
-                while decreasingQueue[0][0] < l:
-                    decreasingQueue.popleft()
+                while increasingStack and increasingStack[0][0] < l:
+                    increasingStack.popleft()
+                while decreasingStack and decreasingStack[0][0] < l:
+                    decreasingStack.popleft()
 
-            ans = max(ans, r - l + 1)
+            ans = max(r - l + 1, ans)
 
         return ans
 
