@@ -30,6 +30,7 @@ class Solution:
                 possibleSums[i].add(sum(subset))
         return possibleSums
 
+    # find the smallest nums[i] >= target
     def findClosestNum(self, nums: List[int], target: float) -> int:
         l, r = 0, len(nums) - 1
         while l <= r:
@@ -46,8 +47,6 @@ class Solution:
         # exit condition is l == r
         if l - 1 >= 0 and abs(nums[l - 1] - target) < abs(nums[l] - target):
             return nums[l - 1]
-        if l + 1 < len(nums) and abs(nums[l + 1] - target) < abs(nums[l] - target):
-            return nums[l + 1]
         return nums[l]
 
 
@@ -57,7 +56,7 @@ print(Solution().minimumDifference(nums=[2, -1, 0, 4, -2, -9]))
 
 
 '''
-# cleaner O(2^(2*N)) solution which got TLE. The stupid leetcode is obviously looking for O(2^n) solution
+# cleaner O(2 ^ (2 * N)) solution which got TLE. The stupid leetcode is obviously looking for O(2 ^ n) solution
 class Solution:
     def minimumDifference(self, nums: List[int]) -> int:
         n = len(nums) // 2
