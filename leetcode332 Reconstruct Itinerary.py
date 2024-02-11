@@ -1,32 +1,47 @@
-
 from collections import defaultdict
+from copy import deepcopy
+from heapq import *
+from typing import List
 
-# Important Euler path theory: http://www.ctl.ua.edu/math103/euler/howcanwe.htm
+# 1) Optimal solution is using Euler Path algorithm (see code at the bottom) but it's not a must in real interview.
 # Euler Path search algorithm: http://stackoverflow.com/questions/17467228/looking-for-algorithm-finding-euler-path
+# 2) A naive priorityQueue + bfs solution should suffice in real interview.
+class Solution:
+    def findItinerary(self, tickets: List[List[str]]) -> List[str]:
+        srcToDestToCount = defaultdict(dict)
+        for src, dest in tickets:
+            if dest not in srcToDestToCount[src]:
+                srcToDestToCount[src][dest] = 1
+            else:
+                srcToDestToCount[src][dest] += 1
 
-# see solution explanation: https://discuss.leetcode.com/topic/36370/short-ruby-python-java-c
-# in the explanation, the process of retreat (build path backward) goes like (in following steps
-# the '*' means the vertex is confirmed, every '->' eliminates one edge from trips dictionary):
-#   JFK -> A -> C -> D -> A (stuck, A has no more destinations, so A will be the current last);
-#   JFK -> A -> C -> D -> A* (check if D has more destinations);
-#   JFK -> A -> C -> D -> B -> C -> JFK -> D -> A* (add another sub path inside again and again until
-#     D has no more destinations, and the order of path addition is in lexicographical order);
-#   JFK -> A -> C -> D -> B -> C -> JFK -> D* -> A*;
-#   ... (since in the above path, no vertex has more destinations, so after few more checks),
-#   JFK* -> A* -> C* -> D* -> B* -> C* -> JFK* -> D* -> A*.
+        pq = [[['JFK'], srcToDestToCount]]
+        while pq:
+            currPath, availableSrcToDestToCount = heappop(pq)
+            if len(currPath) == len(tickets) + 1:
+                return currPath
+            src = currPath[-1]
+            if src not in availableSrcToDestToCount:
+                continue
+            for dest in availableSrcToDestToCount[src]:
+                nextPath = deepcopy(currPath)
+                nextPath.append(dest)
+                nextSrcToDestToCount = deepcopy(availableSrcToDestToCount)
+                nextSrcToDestToCount[src][dest] -= 1
+                if not nextSrcToDestToCount[src][dest]:
+                    del nextSrcToDestToCount[src][dest]
+                heappush(pq, [nextPath, nextSrcToDestToCount])
 
-# O(n) time. Note that the problem guarantees that this is a directed graph and there exists an euler path;
-    # It's also guaranteed that the euler path starts from 'JFK' (P.S.: in interview it's important to ask this!)
+        return []
 
+
+print(Solution().findItinerary([["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], ["LHR", "SFO"]]))
+
+
+'''
+# optimal Euler path theory. It's not a must in real interview.
 class Solution(object):
     def findItinerary(self, tickets):
-
-        if not tickets:
-            return []
-
-        # sort in reverse-lexicographic order so the destination of one origin will be sorted in reverse order
-        # we wanna traverse the lexicographically smaller destinations first; this guarantees if it works, the
-            # path being output is lexicographically smallest
         tickets.sort()
         tickets.reverse()
 
@@ -39,15 +54,11 @@ class Solution(object):
 
         # P.S. the euler path for sure exists for this problem
         while stack:
-            # start from a random point to form a "segment" that's definitely part of the euler path
             while trips[stack[-1]]:
                 stack.append(trips[stack[-1]].pop())
-            # at this point stack[-1] is the vertex that doesn't have unvisited vertex to proceed
+                # print(stack)
             ans.append(stack.pop())
+            # print("curr path is: ", ans)
 
         return ans[::-1]
-
-
-
-print Solution().findItinerary([["JFK","A"],["A","C"],["C","D"],["D","A"],["JFK","D"],["D","B"],["B","C"],["C","JFK"]])
-
+'''

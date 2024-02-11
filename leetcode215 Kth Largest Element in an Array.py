@@ -3,6 +3,8 @@ from typing import List
 
 # partition the array so that nums[:k + 1] <= some pivot, and nums[k + 1:] > the pivot.
 # it's mathematically proven that the while loop only runs constant amount of time.
+# P.S.: the stupid leetcode is giving TLE for below solution in a really stupid test case. But it's definitely
+# acceptable in real interview.
 class Solution:
     def findKthLargest(self, nums: List[int], k: int) -> int:
         # find kth smallest
