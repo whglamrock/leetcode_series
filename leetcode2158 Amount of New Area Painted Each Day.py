@@ -1,6 +1,5 @@
 from typing import List
 
-
 # jump the number line solution. see: https://leetcode.com/problems/amount-of-new-area-painted-each-day/solutions/1751389/jump-line/
 # O(n + m) solution where m is the total length of all the paint areas
 class Solution:

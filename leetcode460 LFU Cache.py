@@ -1,78 +1,58 @@
 from collections import OrderedDict
 
-# to really achieve O(1) time for both get & put
+# You have to use OrderedDict if you wanna achieve O(1) for both get & put, in real interview.
 class Node:
-    def __init__(self, count):
+    def __init__(self, prev=None, next=None, count=None):
+        self.prev = prev
+        self.next = next
         self.count = count
-        self.prev, self.next = None, None
         self.keys = OrderedDict()
 
-# using a dummy head and a dummy tail instead of solely initializing self.head = None can
-# avoid all the key errors because we don't have to reset the head after adding a new node
-class LFUCache(object):
-    def __init__(self, capacity):
-        """
-        :type capacity: int
-        """
+class LFUCache:
+    def __init__(self, capacity: int):
+        self.head, self.tail = Node(), Node()
+        self.head.next, self.tail.prev = self.tail, self.head
         self.keyToVal = {}
         self.keyToNode = {}
-        self.head, self.tail = Node(0), Node(0)
-        self.head.next, self.tail.prev = self.tail, self.head
-        self.cap = capacity
+        self.capacity = capacity
 
-    # we assume when this method is called, the key is not in our cache
-    def addNewKey(self, key, val):
-        self.keyToVal[key] = val
-
-        currFirstNode = self.head.next
-        if currFirstNode.count == 1:
-            # add the key to the count == 1 node
-            currFirstNode.keys[key] = 0
-            # add the key to the keyNode map
-            self.keyToNode[key] = currFirstNode
-        else:
-            # create the node
-            newFirstNode = Node(1)
-            newFirstNode.keys[key] = 0
-            # add the key to the keyNode map
-            self.keyToNode[key] = newFirstNode
-            # add the node to the linkedList
-            newFirstNode.prev, newFirstNode.next = self.head, currFirstNode
-            self.head.next, currFirstNode.prev = newFirstNode, newFirstNode
-
-    # we assume when this method is called, the key is already in our cache
-    def increaseCount(self, key):
-        if key not in self.keyToVal:
-            return
-
+    # it's assumed that the key is in the cache when this method is called
+    def increaseCount(self, key: int):
         node = self.keyToNode[key]
-        # the key will point to a new node
         del node.keys[key]
         del self.keyToNode[key]
 
+        count = node.count
         nextNode = node.next
-        if nextNode.count == node.count + 1:
-            # add the key to count + 1's node
+        if nextNode.count == count + 1:
             nextNode.keys[key] = 0
-            # add the node to the key node map
             self.keyToNode[key] = nextNode
         else:
-            # create the new node
-            newNode = Node(node.count + 1)
+            newNode = Node(node, nextNode, count + 1)
             newNode.keys[key] = 0
-            # add the node to the key node map
             self.keyToNode[key] = newNode
-            # add the new node to the linkedList
-            newNode.prev, newNode.next = node, nextNode
             node.next, nextNode.prev = newNode, newNode
 
         if not node.keys:
             self.removeNode(node)
 
+    # it's assumed that the key is not in the cache when this method is called
+    def insertNewNode(self, key: int, val: int):
+        self.keyToVal[key] = val
+        firstNode = self.head.next
+
+        if firstNode.count != 1:
+            newNode = Node(self.head, firstNode, 1)
+            self.head.next, firstNode.prev = newNode, newNode
+            newNode.keys[key] = 0
+            self.keyToNode[key] = newNode
+        else:
+            firstNode.keys[key] = 0
+            self.keyToNode[key] = firstNode
+
     def popLeastFrequent(self):
         firstNode = self.head.next
-        # when there is no key to pop
-        if firstNode.count == 0:
+        if firstNode == self.tail:
             return
 
         key, val = firstNode.keys.popitem(last=False)
@@ -81,40 +61,32 @@ class LFUCache(object):
         del self.keyToVal[key]
         del self.keyToNode[key]
 
-    def removeNode(self, node):
+    def removeNode(self, node: Node):
         prevNode, nextNode = node.prev, node.next
         prevNode.next, nextNode.prev = nextNode, prevNode
         node.prev, node.next = None, None
 
-    def get(self, key):
-        """
-        :type key: int
-        :rtype: int
-        """
+    def get(self, key: int) -> int:
         if key not in self.keyToVal:
             return -1
+
         self.increaseCount(key)
         return self.keyToVal[key]
 
-    def put(self, key, value):
-        """
-        :type key: int
-        :type value: int
-        :rtype: None
-        """
-        if self.cap == 0:  # stupid leetcode did give this corner case
+    def put(self, key: int, value: int) -> None:
+        if self.capacity == 0:
             return
 
-        if key in self.keyToVal:
-            self.keyToVal[key] = value
-            self.increaseCount(key)
-        else:
-            # do this before adding the key in keyToVal/keyToNode
-            if len(self.keyToVal) == self.cap:
+        if key not in self.keyToVal:
+            if len(self.keyToVal) == self.capacity:
                 self.popLeastFrequent()
-            self.addNewKey(key, value)
+            self.insertNewNode(key, value)
+        else:
+            self.increaseCount(key)
+            self.keyToVal[key] = value
+
 
 # Your LFUCache object will be instantiated and called as such:
 # obj = LFUCache(capacity)
 # param_1 = obj.get(key)
-# obj.set(key,value)
+# obj.put(key,value)
