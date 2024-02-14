@@ -1,64 +1,77 @@
-
-from collections import deque
-
-class Solution(object):
-
-    def calculate(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
-        q = deque()
-        for char in s:
-            if char != ' ':
-                q.append(char)
-        # this is to trigger the "stack.append(num)" to avoid dropping the last number
-        q.append('+')
-        return self.cal(q)
-
-    def cal(self, q):
-        # set default sign for the "first" number
-        sign = '+'
-        num = 0
+class Solution:
+    def calculate(self, s: str) -> int:
         stack = []
-        while q:
-            c = q.popleft()
-            # in this case num is definitely 0
-            if c.isdigit():
-                num = 10 * num + int(c)
-            elif c == '(':
-                num = self.cal(q)
-            # only add the number to stack when it's sign or ')'
-            else:
-                # the sign is the previous sign
-                if sign == '+':
-                    stack.append(num)
-                elif sign == '-':
-                    stack.append(-num)
-                elif sign == '*':
-                    stack.append(stack.pop() * num)
-                else:
-                    lastNum = stack.pop()
-                    # in python -3 / 2 = -2 instead of -1
-                    if lastNum < 0:
-                        lastNum = -lastNum
-                        stack.append(-(lastNum / num))
+        i = 0
+        sign = '+'
+        while i < len(s):
+            if s[i].isdigit():
+                curr = 0
+                while i < len(s) and s[i].isdigit():
+                    curr = curr * 10 + int(s[i])
+                    i += 1
+                if stack and stack[-1] == '*':
+                    stack.pop()
+                    prevNum = stack.pop()
+                    stack.append(prevNum * curr)
+                elif stack and stack[-1] == '/':
+                    stack.pop()
+                    prevNum = stack.pop()
+                    # a '/' won't be followed by a non-negative number (i.e., curr > 0)
+                    # so we only need to check the sign of the previous number
+                    if prevNum > 0:
+                        stack.append(prevNum // curr)
                     else:
-                        stack.append(lastNum / num)
-                # means we are already in recursion, needs to return the result of this block instead of further popleft q
-                if c == ')':
-                    break
-                num = 0
-                sign = c
+                        prevNum = -prevNum
+                        stack.append(-(prevNum // curr))
+                else:
+                    if sign == '+':
+                        stack.append(curr)
+                    else:
+                        stack.append(-curr)
+            elif s[i] == '+':
+                sign = '+'
+                i += 1
+            elif s[i] == '-':
+                sign = '-'
+                i += 1
+            # reset the sign because '*/' must be followed by a non-negative number
+            elif s[i] in '*/':
+                sign = '+'
+                stack.append(s[i])
+                i += 1
+            elif s[i] == '(':
+                if sign == '+':
+                    stack.append('(')
+                else:
+                    stack.append('-(')
+                sign = '+'
+                i += 1
+            else:
+                chunkSum = 0
+                while stack[-1] not in ['(', '-(']:
+                    chunkSum += stack.pop()
+                openParenthesis = stack.pop()
+                if openParenthesis == '-(':
+                    chunkSum = -chunkSum
+
+                if stack and stack[-1] == '*':
+                    stack.pop()
+                    prevNum = stack.pop()
+                    stack.append(chunkSum * prevNum)
+                elif stack and stack[-1] == '/':
+                    stack.pop()
+                    prevNum = stack.pop()
+                    if prevNum * chunkSum < 0:
+                        stack.append(-(abs(prevNum) // abs(chunkSum)))
+                    else:
+                        stack.append(prevNum // chunkSum)
+                else:
+                    stack.append(chunkSum)
+                i += 1
 
         return sum(stack)
 
 
-
-print Solution().calculate(s="6-3 / 2")
-print Solution().calculate(s="(2+6* 3+5- (3*14/7+2)*5)+3")
-
-
-
-
-
+print(Solution().calculate("2*(5+5*2)/3-3/(6/2-8/4)"))
+print(Solution().calculate("5-3/2"))
+print(Solution().calculate("3/(2/1-4)"))
