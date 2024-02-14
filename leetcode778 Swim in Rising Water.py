@@ -2,7 +2,7 @@ from heapq import *
 from typing import List
 
 # dijkstra's algorithm make sure when (i, j) is first reached, it's always the shortest path.
-# O(n^2 * log(n^2)) time solution.
+# O(n ^ 2 * log(n ^ 2)) time solution.
 class Solution:
     def swimInWater(self, grid: List[List[int]]) -> int:
         n = len(grid)
