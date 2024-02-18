@@ -1,18 +1,16 @@
 from typing import List
 
-# wwe keep nums[l - 1] < nums[l] and nums[r + 1] < num[r], so [l:r + 1] is always the candidate area
-class Solution(object):
+# we keep nums[l - 1] < nums[l] and nums[r + 1] < num[r], so [l:r + 1] is always the candidate area
+class Solution:
     def findPeakElement(self, nums: List[int]) -> int:
         l, r = 0, len(nums) - 1
+        # we keep nums[l - 1] < nums[l] and nums[r] > nums[r + 1]
         while l < r:
             m = (l + r) // 2
-            # whenever l < r, mPlusOne will be in range [0:len(nums)]
-            mPlusOne = m + 1
-            if nums[m] > nums[mPlusOne]:
-                r = m
-            # nums[m] != nums[mPlusOne] according to the problem definition
+            if nums[m] < nums[m + 1]:
+                l = m + 1
             else:
-                l = mPlusOne
+                r = m
 
         return l
 
