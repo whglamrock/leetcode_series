@@ -1,3 +1,4 @@
+
 # A naive O(N ^ 2) solution gets TLE in the stupid leetcode but should be acceptable in real interview (unless any
 # motherfucking stupid interviewer asks for O(M * N) DP solution).
 # Below solution optimize the start index but in worst case scenario is still O(N ^ 2) time.
