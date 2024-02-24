@@ -2,7 +2,7 @@ from collections import deque
 from typing import List
 
 class Solution:
-    def addBoldTag(self, s: str, words: List[str]) -> str:
+    def boldWords(self, words: List[str], s: str) -> str:
         words = set(words)
         matchedIndexes = deque()
         matchedLeft, matchedRight = None, None
