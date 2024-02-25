@@ -3,10 +3,7 @@ from typing import List
 class Solution:
     def jobScheduling(self, startTime: List[int], endTime: List[int], profit: List[int]) -> int:
         n = len(profit)
-        jobs = []
-        for i in range(n):
-            jobs.append([startTime[i], endTime[i], profit[i]])
-        jobs.sort(key=lambda x: x[1])
+        jobs = sorted(list(zip(startTime, endTime, profit)), key=lambda x: x[1])
         # dp[i] stores the max profit that you can accumulate at endTime[i]
         # p.s. you don't necessarily have to take job[i]
         dp = [0] * n
