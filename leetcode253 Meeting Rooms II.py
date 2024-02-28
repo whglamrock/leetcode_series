@@ -3,13 +3,22 @@ from typing import List
 
 class Solution:
     def minMeetingRooms(self, intervals: List[List[int]]) -> int:
-        roomsNeeded = 0
         intervals.sort()
-        pq = []
+        times = set()
         for start, end in intervals:
-            while pq and pq[0] <= start:
+            times.add(start)
+            times.add(end)
+        times = sorted(times)
+
+        pq = []
+        i = 0
+        roomsNeeded = 0
+        for time in times:
+            while pq and pq[0] <= time:
                 heappop(pq)
-            heappush(pq, end)
+            while i < len(intervals) and intervals[i][0] <= time:
+                heappush(pq, intervals[i][1])
+                i += 1
             roomsNeeded = max(roomsNeeded, len(pq))
 
         return roomsNeeded
