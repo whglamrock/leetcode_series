@@ -1,6 +1,7 @@
 from heapq import *
 from typing import List
 
+# O(m * n * log(m * n)) time, O(m * n) space
 class Solution:
     def maximumMinimumPath(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
