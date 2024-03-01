@@ -2,7 +2,6 @@ from random import randint
 from typing import List
 
 class Solution:
-
     def __init__(self, w: List[int]):
         self.curr = 0
         self.prefixSum = []
@@ -20,9 +19,7 @@ class Solution:
             if l == r:
                 return l
             m = (l + r) // 2
-            if nums[m] == target:
-                return m
-            elif nums[m] < target:
+            if nums[m] < target:
                 l = m + 1
             else:
                 r = m
