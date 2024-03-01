@@ -1,57 +1,30 @@
+from typing import List
 
-class Solution(object):
-    def shortestPathBinaryMatrix(self, grid):
-        """
-        :type grid: List[List[int]]
-        :rtype: int
-        """
-        if grid[0][0] == 1 or grid[-1][-1] == 1:
+class Solution:
+    def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
+        if grid[0][0] == 1:
             return -1
 
-        return self.bfs(grid, 0, 0)
-
-    def bfs(self, grid, x, y):
-        todo = set()
-        todo.add((x, y))
-        path = 0
-        n = len(grid)
-
+        m, n = len(grid), len(grid[0])
+        todo = {(0, 0)}
+        dist = 0
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]]
+        visited = set()
         while todo:
-
-            next_todo = set()
+            nextTodo = set()
             for i, j in todo:
-                if i == j == n - 1:
-                    return path + 1
-                grid[i][j] = 2
-
-                if i - 1 >= 0 and grid[i - 1][j] == 0:
-                    next_todo.add((i - 1, j))
-                    grid[i - 1][j] = 2
-                if i + 1 < n and grid[i + 1][j] == 0:
-                    next_todo.add((i + 1, j))
-                    grid[i + 1][j] = 2
-                if j - 1 >= 0 and grid[i][j - 1] == 0:
-                    next_todo.add((i, j - 1))
-                    grid[i][j - 1] = 2
-                if j + 1 < n and grid[i][j + 1] == 0:
-                    next_todo.add((i, j + 1))
-                    grid[i][j + 1] = 2
-                if i - 1 >= 0 and j - 1 >= 0 and grid[i - 1][j - 1] == 0:
-                    next_todo.add((i - 1, j - 1))
-                    grid[i - 1][j - 1] = 2
-                if i - 1 >= 0 and j + 1 < n and grid[i - 1][j + 1] == 0:
-                    next_todo.add((i - 1, j + 1))
-                    grid[i - 1][j + 1] = 2
-                if i + 1 < n and j - 1 >= 0 and grid[i + 1][j - 1] == 0:
-                    next_todo.add((i + 1, j - 1))
-                    grid[i + 1][j - 1] = 2
-                if i + 1 < n and j + 1 < n and grid[i + 1][j + 1] == 0:
-                    next_todo.add((i + 1, j + 1))
-                    grid[i + 1][j + 1] = 2
-
-            path += 1
-            todo = next_todo
+                if i == m - 1 and j == n - 1:
+                    return dist + 1
+                if (i, j) in visited:
+                    continue
+                visited.add((i, j))
+                for deltaI, deltaJ in directions:
+                    ii, jj = i + deltaI, j + deltaJ
+                    if ii < 0 or ii >= m or jj < 0 or jj >= n:
+                        continue
+                    if (ii, jj) not in visited and grid[ii][jj] == 0:
+                        nextTodo.add((ii, jj))
+            todo = nextTodo
+            dist += 1
 
         return -1
-
-
