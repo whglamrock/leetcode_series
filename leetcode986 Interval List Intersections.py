@@ -1,40 +1,23 @@
+from typing import List
 
-# write the calculateIntersection method first, then the logic will be pretty clear
-# note that interval1, interval1 cannot be empty
-
-class Solution(object):
-    def intervalIntersection(self, A, B):
-        """
-        :type A: List[List[int]]
-        :type B: List[List[int]]
-        :rtype: List[List[int]]
-        """
-        edges = []
-        i, j = 0, 0
-        m, n = len(A), len(B)
-
+class Solution:
+    def intervalIntersection(self, firstList: List[List[int]], secondList: List[List[int]]) -> List[List[int]]:
+        i, j, m, n = 0, 0, len(firstList), len(secondList)
+        ans = []
         while i < m and j < n:
-            intersection = self.calculateIntersection(A[i], B[j])
-            if intersection:
-                edges.append(intersection)
-            # we proceed for the smaller interval to make sure we don't miss intersections
-            if A[i][1] < B[j][1]:
+            if firstList[i][1] < secondList[j][0]:
                 i += 1
-            else:   # when A[i][1] == B[j][1], it doesn't matter which one of [A, B] proceeds
+            elif secondList[j][1] < firstList[i][0]:
                 j += 1
+            # intersection
+            else:
+                ans.append([max(firstList[i][0], secondList[j][0]), min(firstList[i][1], secondList[j][1])])
+                if firstList[i][1] <= secondList[j][1]:
+                    i += 1
+                else:
+                    j += 1
 
-        return edges
-
-    def calculateIntersection(self, interval1, interval2):
-        if interval1[1] < interval2[0] or interval2[1] < interval1[0]:
-            return []
-        if interval1[1] == interval2[0]:
-            return [interval1[1], interval1[1]]
-        if interval2[1] == interval1[0]:
-            return [interval2[1], interval2[1]]
-        positions = sorted(interval1 + interval2)
-        return [positions[1], positions[2]]
+        return ans
 
 
-
-print Solution().intervalIntersection(A=[[0,2],[5,10],[13,23],[24,25]], B=[[1,5],[8,12],[15,24],[25,26]])
+print(Solution().intervalIntersection([[0, 2], [5, 10], [13, 23], [24, 25]], [[1, 5], [8, 12], [15, 24], [25, 26]]))
