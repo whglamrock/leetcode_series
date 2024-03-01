@@ -51,10 +51,10 @@ class NumOfOperations:
     # return the sum of nums[:i]
     def accumulationSum(self, nums):
         numsSum = []
-        accumSum = 0
+        accumulatedSum = 0
         for num in nums:
-            accumSum += num
-            numsSum.append(accumSum)
+            accumulatedSum += num
+            numsSum.append(accumulatedSum)
 
         return numsSum
 
