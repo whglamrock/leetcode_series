@@ -1,32 +1,43 @@
-# Definition for a Node.
 class Node(object):
     def __init__(self, val=None, next=None):
         self.val = val
         self.next = next
 
-
-class Solution(object):
-    def insert(self, head, insertVal):
-        node = Node(insertVal)
+class Solution:
+    def insert(self, head: 'Optional[Node]', insertVal: int) -> 'Node':
         if not head:
-            node.next = node
-            return node
+            newNode = Node(insertVal)
+            newNode.next = newNode
+            return newNode
 
-        prev, curr = head, head.next
-
-        while prev.next != head:
-            # Case1: 1 <- Node(2) <- 3
-            if prev.val <= node.val <= curr.val:
+        # find the smallestNode
+        minNode = head
+        minNodePrev = None
+        while minNode.next.val >= minNode.val:
+            minNodePrev = minNode
+            minNode = minNode.next
+            if minNode == head:
                 break
 
-            # Case2: 3 -> 1, 3 -> Node(4) -> 1, 3 -> Node(0) -> 1
-            if prev.val > curr.val and (node.val > prev.val or node.val < curr.val):
+        if minNode.next.val < minNode.val:
+            minNodePrev = minNode
+            minNode = minNode.next
+
+        # find the first node >= insertVal
+        curr = minNode
+        prev = None
+        while curr.val < insertVal:
+            prev = curr
+            curr = curr.next
+            if curr == minNode:
                 break
 
-            prev, curr = prev.next, curr.next
-
-        node.next = curr
-        prev.next = node
+        newNode = Node(insertVal, curr)
+        # prev = none means insertVal <= all values, then curr's prev is minNodePrev
+        if not prev:
+            minNodePrev.next = newNode
+        else:
+            prev.next = newNode
 
         return head
 
