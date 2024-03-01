@@ -1,50 +1,59 @@
-from collections import defaultdict, Counter, deque
+from collections import Counter, defaultdict
+from copy import deepcopy
+from typing import List, Dict
 
-
-class Solution(object):
-    def minStickers(self, stickers, target):
-        """
-        :type stickers: List[str]
-        :type target: str
-        :rtype: int
-        """
-        targetCounter = Counter(target)
-        letterToStickerCounterList = defaultdict(list)
+class Solution:
+    def minStickers(self, stickers: List[str], target: str) -> int:
+        letterToStickerCounters = defaultdict(list)
         for sticker in stickers:
             stickerCounter = Counter(sticker)
             for char in sticker:
-                letterToStickerCounterList[char].append(stickerCounter)
+                letterToStickerCounters[char].append(stickerCounter)
 
-        return self.bfs(targetCounter, letterToStickerCounterList)
+        return self.bfs(letterToStickerCounters, target)
 
-    def counterToStr(self, counter):
-        return ''.join([k * v for k, v in counter.items()])
+    def serializeCharCount(self, stickerCounter: Dict[str, int]) -> str:
+        serializedStrs = []
+        for char in sorted(stickerCounter.keys()):
+            serializedStrs.append(char + str(stickerCounter[char]))
+        return ','.join(serializedStrs)
 
-    def bfs(self, targetCounter, letterToStickerCounterList):
-        queue = deque([(targetCounter, 0)])
+    def deserializeToCharCount(self, serializedCharCount: str) -> Dict[str, int]:
+        tokens = serializedCharCount.split(',')
+        charCount = {}
+        for token in tokens:
+            charCount[token[0]] = int(token[1:])
+        return charCount
+
+    def bfs(self, letterToStickerCounters: Dict[str, list], target: str) -> int:
+        todo = {self.serializeCharCount(Counter(target))}
         visited = set()
+        step = 0
+        while todo:
+            nextTodo = set()
+            for serializedCharCount in todo:
+                if not serializedCharCount:
+                    return step
+                if serializedCharCount in visited:
+                    continue
+                visited.add(serializedCharCount)
+                currCharCount = self.deserializeToCharCount(serializedCharCount)
+                for char in currCharCount:
+                    if char not in letterToStickerCounters:
+                        continue
+                    for stickerCounter in letterToStickerCounters[char]:
+                        nextCharCount = deepcopy(currCharCount)
+                        # try to match as many chars as possible using one sticker
+                        for stickerChar in stickerCounter:
+                            if stickerChar not in nextCharCount:
+                                continue
+                            nextCharCount[stickerChar] -= stickerCounter[stickerChar]
+                            if nextCharCount[stickerChar] <= 0:
+                                del nextCharCount[stickerChar]
+                        nextTodo.add(self.serializeCharCount(nextCharCount))
 
-        while queue:
-            currTargetCounter, step = queue.popleft()
-            if not currTargetCounter:
-                return step
-
-            currTargetStr = self.counterToStr(currTargetCounter)
-            if currTargetStr in visited:
-                continue
-            visited.add(currTargetStr)
-
-            # try to satisfy one letter at a time
-            randomLetter = list(currTargetCounter.keys())[0]
-            for stickerCounter in letterToStickerCounterList[randomLetter]:
-                curr_copy = currTargetCounter.copy()
-                # when do bfs, deduct other letters as well
-                for letter in stickerCounter.keys():
-                    curr_copy[letter] -= stickerCounter[letter]
-                    # this also includes the case where the sticker's letter is not in the current target
-                    if curr_copy[letter] <= 0:
-                        del curr_copy[letter]
-                queue.append((curr_copy, step + 1))
+            todo = nextTodo
+            step += 1
 
         return -1
 
