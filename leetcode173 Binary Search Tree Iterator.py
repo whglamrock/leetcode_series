@@ -1,67 +1,34 @@
+from typing import Optional
 
-# The idea of the __init__ function of class BSTIterator came from 230 Kth Smallest Element in a BST
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-class TreeNode(object):
-    def __init__(self, x):
+class BSTIterator:
+    def __init__(self, root: Optional[TreeNode]):
+        self.vals = []
+        self.dfs(root)
+        self.currIndex = 0
 
-        self.val = x
-        self.left = None
-        self.right = None
+    def dfs(self, root: Optional[TreeNode]):
+        if root.left:
+            self.dfs(root.left)
+        self.vals.append(root.val)
+        if root.right:
+            self.dfs(root.right)
 
+    def next(self) -> int:
+        val = self.vals[self.currIndex]
+        self.currIndex += 1
+        return val
 
-class BSTIterator(object):
-    def __init__(self, root):
-
-        self.traversal = []
-        stack = []
-
-        # remember the classic way of iterative in-order traverse
-        while root or stack:
-            while root:
-                stack.append(root)
-                root = root.left
-            root = stack.pop()
-            self.traversal.append(root.val)
-            root = root.right
-        self.traversal.reverse()
-
-    def hasNext(self):
-
-        return len(self.traversal) != 0
-
-    def next(self):
-
-        return self.traversal.pop()  # no need to check if traverse empty, see how iterator is called
+    def hasNext(self) -> bool:
+        return self.currIndex < len(self.vals)
 
 
-
-# Your BSTIterator will be called like this:
-# i, v = BSTIterator(root), []
-# while i.hasNext(): v.append(i.next())
-
-
-
-'''
-# recursive way of traverse
-
-class BSTIterator(object):
-    def __init__(self, root):
-
-        self.traverse = []
-        def helper(root):
-            if root and root.left:
-                helper(root.left)
-            if root: self.traverse.append(root.val)
-            if root and root.right:
-                helper(root.right)
-        helper(root)
-        self.traverse.reverse()
-
-    def hasNext(self):
-
-        return len(self.traverse) != 0
-
-    def next(self):
-
-        return self.traverse.pop()
-'''
+# Your BSTIterator object will be instantiated and called as such:
+# obj = BSTIterator(root)
+# param_1 = obj.next()
+# param_2 = obj.hasNext()

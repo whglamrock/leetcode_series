@@ -1,43 +1,34 @@
+from typing import Optional
 
-# Definition for a Node.
-
-class Node(object):
-    def __init__(self, val, neighbors):
+class Node:
+    def __init__(self, val=0, neighbors=None):
         self.val = val
-        self.neighbors = neighbors
+        self.neighbors = neighbors if neighbors is not None else []
 
-
-
-from collections import deque
-
-# leetcode OJ is so fucking stupid that the order of each node's neighbor has to be identical to the original
-
-class Solution(object):
-    def cloneGraph(self, root):
-        """
-        :type node: Node
-        :rtype: Node
-        """
+class Solution:
+    def cloneGraph(self, root: Optional['Node']) -> Optional['Node']:
         if not root:
             return None
 
-        res = Node(root.val, [])
-        nodeToCopy = {root: res}
-        q = deque()
-        q.append(root)
+        oldToNew = {}
+        # bfs
+        todo = {root}
+        while todo:
+            nextTodo = set()
+            for node in todo:
+                if node in oldToNew:
+                    continue
+                newNode = Node(node.val)
+                oldToNew[node] = newNode
+                for connectedNode in node.neighbors:
+                    if connectedNode not in oldToNew:
+                        nextTodo.add(connectedNode)
+            todo = nextTodo
 
-        while q:
-            node = q.popleft()
-            nodeCopy = nodeToCopy[node]
-            for neighbor in node.neighbors:
-                if neighbor not in nodeToCopy:
-                    neighborCopy = Node(neighbor.val, [])
-                    nodeToCopy[neighbor] = neighborCopy
-                    q.append(neighbor)
-                else:
-                    neighborCopy = nodeToCopy[neighbor]
-                nodeCopy.neighbors.append(neighborCopy)
+        for oldNode in oldToNew:
+            newNode = oldToNew[oldNode]
+            for connectedOld in oldNode.neighbors:
+                connectedNewNode = oldToNew[connectedOld]
+                newNode.neighbors.append(connectedNewNode)
 
-        return res
-
-
+        return oldToNew[root]
