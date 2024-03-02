@@ -14,12 +14,16 @@ class Solution:
 
         ans = []
         for i in range(maxCount, minCount - 1, -1):
+            if i not in countToNums:
+                continue
             numsWithIcount = countToNums[i]
             # the answer is guaranteed to be unique so
-            # there won't be cases like [1,2,2,3,3,4,4] and k = 2
+            # there won't be cases like [1, 2, 2, 3, 3, 4, 4] and k = 2
             if len(numsWithIcount) <= k:
                 ans += numsWithIcount
                 k -= len(numsWithIcount)
+            if k <= 0:
+                break
 
         return ans
 
