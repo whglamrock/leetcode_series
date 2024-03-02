@@ -1,39 +1,51 @@
+from typing import List
 
-# the trick would be how to build your dp array
-
-class Solution(object):
-    def maxSumOfThreeSubarrays(self, nums, k):
+# 1) It shouldn't be too hard to think of using prefixSum + 3 rounds of dp array to get the sum of 3 k length subarrays;
+# But the question asks for the starting indexes and lexicographically smallest index triplets: this means we need to
+# keep track of which starting indexes we used to get the max n-K sum (n = 1/2/3)
+# 2) In dp array, dp[i] means in the xth round what the max x-k sum value is with the last subarray ends at nums[i],
+# where x = 1/2/3.
+class Solution:
+    def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:
+        prefixSums = []
+        for num in nums:
+            if not prefixSums:
+                prefixSums.append(num)
+            else:
+                prefixSums.append(num + prefixSums[-1])
 
         n = len(nums)
-        # dp[i][j] means in ith sum (the sum of all i subarrays), the max subarray sum from 0 to j
-        dp = [[0 for j in xrange(n)] for i in xrange(4)]
-        # indices[i][j] means in ith sum, the starting index of the ith max subarray from 0 to j
-        indices = [[0 for j in xrange(n)] for i in xrange(4)]
+        indexToStartIndexOfMax1stKSum = {}
+        dp1 = [-1] * n
+        dp1[k - 1] = prefixSums[k - 1]
+        indexToStartIndexOfMax1stKSum[k - 1] = 0
+        for i in range(k, n - 2 * k):
+            # if dp1[i - 1] == dp1[i] we need to use the starting index of dp1[i - 1]
+            if dp1[i - 1] >= prefixSums[i] - prefixSums[i - k]:
+                indexToStartIndexOfMax1stKSum[i] = indexToStartIndexOfMax1stKSum[i - 1]
+                dp1[i] = dp1[i - 1]
+            else:
+                indexToStartIndexOfMax1stKSum[i] = i - k + 1
+                dp1[i] = prefixSums[i] - prefixSums[i - k]
 
-        currSum = 0
-        accuSum = [0] * n
-        for i in xrange(n):
-            currSum += nums[i]
-            # accuSum[i] sums from 0 to i
-            accuSum[i] = currSum
+        dp2 = [-1] * n
+        indexToStartIndexesOfMaxTwoKSum = {}
+        for i in range(k * 2 - 1, n - k):
+            if dp2[i - 1] >= dp1[i - k] + (prefixSums[i] - prefixSums[i - k]):
+                indexToStartIndexesOfMaxTwoKSum[i] = indexToStartIndexesOfMaxTwoKSum[i - 1]
+                dp2[i] = dp2[i - 1]
+            else:
+                indexToStartIndexesOfMaxTwoKSum[i] = [indexToStartIndexOfMax1stKSum[i - k], i - k + 1]
+                dp2[i] = dp1[i - k] + (prefixSums[i] - prefixSums[i - k])
 
-        for i in xrange(1, 4):
-            # from k - 1, dp[i][j] starts to matter
-            for j in xrange(i * k - 1, n):
-                # tmp is actually the newly emerged sum that could "potentially" be the largest
-                tmp = accuSum[j] if j == k - 1 else accuSum[j] - accuSum[j - k] + dp[i - 1][j - k]
-                # arbitrarily inherit from previous status first
-                if j >= k:  # can be removed actually, because dp[i][k - 2] and indices[i][k - 2] were 0 anyways
-                    dp[i][j] = dp[i][j - 1]
-                    indices[i][j] = indices[i][j - 1]
-                # has to be "tmp > dp[i][j]" instead of ">=" because we need lexicographically smallest index
-                #   j > 0 condition has to be considered because k can == 1
-                if j > 0 and tmp > dp[i][j]:
-                    dp[i][j] = tmp
-                    indices[i][j] = j - k + 1
+        dp3 = [-1] * n
+        indexToStartIndexesOfMaxThreeKSum = {}
+        for i in range(k * 3 - 1, n):
+            if dp3[i - 1] >= dp2[i - k] + (prefixSums[i] - prefixSums[i - k]):
+                indexToStartIndexesOfMaxThreeKSum[i] = indexToStartIndexesOfMaxThreeKSum[i - 1]
+                dp3[i] = dp3[i - 1]
+            else:
+                indexToStartIndexesOfMaxThreeKSum[i] = indexToStartIndexesOfMaxTwoKSum[i - k] + [i - k + 1]
+                dp3[i] = dp2[i - k] + (prefixSums[i] - prefixSums[i - k])
 
-        res = [0] * 3
-        res[2] = indices[3][-1]
-        res[1] = indices[2][res[2] - 1]
-        res[0] = indices[1][res[1] - 1]
-        return res
+        return indexToStartIndexesOfMaxThreeKSum[n - 1]
