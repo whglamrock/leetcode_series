@@ -1,7 +1,4 @@
-
-from collections import defaultdict
-
-# Definition for a binary tree node.
+from typing import List, Dict
 
 class TreeNode(object):
     def __init__(self, x):
@@ -9,46 +6,34 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-
-
-# consider the tree as a bi-directional graph is easiest way
-# O(N) time complexity where N == number of nodes
-
-class Solution(object):
-    def distanceK(self, root, target, k):
-        """
-        :type root: TreeNode
-        :type target: TreeNode
-        :type K: int
-        :rtype: List[int]
-        """
-        if not root:
-            return []
-        if k == 0:
-            return [target.val]
-
-        graph = defaultdict(set)
-        self.buildGraph(root, graph)
+class Solution:
+    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+        nodeToParent = {}
+        self.dfs(root, nodeToParent)
+        # bfs
+        todo = {target}
+        visited = set()
+        for i in range(k):
+            nextTodo = set()
+            for node in todo:
+                visited.add(node)
+                if node in nodeToParent and nodeToParent[node] not in visited:
+                    nextTodo.add(nodeToParent[node])
+                if node.left and node.left not in visited:
+                    nextTodo.add(node.left)
+                if node.right and node.right not in visited:
+                    nextTodo.add(node.right)
+            todo = nextTodo
 
         ans = []
-        self.dfs(target, graph, set(), 0, k, ans)
+        for node in todo:
+            ans.append(node.val)
         return ans
 
-    def dfs(self, node, graph, visited, distance, k, ans):
-        visited.add(node)
-        if distance == k:
-            ans.append(node.val)
-            return
-        for neighbor in graph[node]:
-            if neighbor not in visited:
-                self.dfs(neighbor, graph, visited, distance + 1, k, ans)
-
-    def buildGraph(self, node, graph):
-        if node.left:
-            graph[node.left].add(node)
-            graph[node].add(node.left)
-            self.buildGraph(node.left, graph)
-        if node.right:
-            graph[node.right].add(node)
-            graph[node].add(node.right)
-            self.buildGraph(node.right, graph)
+    def dfs(self, root: TreeNode, nodeToParent: Dict[TreeNode, TreeNode]):
+        if root.left:
+            nodeToParent[root.left] = root
+            self.dfs(root.left, nodeToParent)
+        if root.right:
+            nodeToParent[root.right] = root
+            self.dfs(root.right, nodeToParent)
