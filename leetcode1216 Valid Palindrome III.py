@@ -1,3 +1,5 @@
+
+# The stupid leetcode gives MLE for a naive cached dfs solution (see at the bottom)
 class Solution:
     def isValidPalindrome(self, s: str, k: int) -> bool:
         lenOfLongestPalindromeSubsqns = self.longestPalindromeSubsequence(s)
@@ -25,3 +27,31 @@ class Solution:
 
 print(Solution().isValidPalindrome(s="abcdeca", k=2))
 print(Solution().isValidPalindrome(s="abbababa", k=1))
+
+
+'''
+class Solution:
+    def isValidPalindrome(self, s: str, k: int) -> bool:
+        return self.dfs(s, k)
+        
+    @lru_cache(None)
+    def dfs(self, s: str, k: int) -> bool:
+        if k == 0:
+            return self.isPalindrome(s)
+        
+        for i in range(len(s)):
+            if i > 0 and s[i] == s[i - 1]:
+                continue
+            newS = s[:i] + s[i + 1:]
+            if self.dfs(newS, k - 1):
+                return True
+        
+        return False
+    
+    @lru_cache(None)
+    def isPalindrome(self, s: str) -> bool:
+        for i in range(len(s) // 2):
+            if s[i] != s[len(s) - 1 - i]:
+                return False
+        return True
+'''

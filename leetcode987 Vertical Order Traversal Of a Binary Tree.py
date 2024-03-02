@@ -1,46 +1,39 @@
-from heapq import *
 from collections import defaultdict, deque
+from typing import Optional, List
 
-
-# Definition for a binary tree node.
-class TreeNode(object):
+class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
+class Solution:
+    def verticalTraversal(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root:
+            return []
 
-class Solution(object):
-    def verticalTraversal(self, root):
-        """
-        :type root: TreeNode
-        :rtype: List[List[int]]
-        """
-        columnToNodes = defaultdict(list)
-        self.generateColumnToNodes(root, columnToNodes, 0, 0)
-        minColumn = min(columnToNodes.keys())
-        maxColumn = max(columnToNodes.keys())
+        colToVals = defaultdict(list)
+        minCol, maxCol = 0, 0
+        todo = [[root, 0]]
+        while todo:
+            nextTodo = []
+            currColToVals = defaultdict(list)
+            for node, col in todo:
+                minCol = min(minCol, col)
+                maxCol = max(maxCol, col)
+                currColToVals[col].append(node.val)
+                if node.left:
+                    nextTodo.append([node.left, col - 1])
+                if node.right:
+                    nextTodo.append([node.right, col + 1])
+            for col, vals in currColToVals.items():
+                colToVals[col].extend(sorted(vals))
+            todo = nextTodo
 
         ans = []
-        for column in range(minColumn, maxColumn + 1):
-            nodeList = []
-            nodesInColumn = columnToNodes[column]
-            while nodesInColumn:
-                row, val, node = heappop(nodesInColumn)
-                nodeList.append(val)
-            ans.append(nodeList)
-
+        for col in range(minCol, maxCol + 1):
+            ans.append(colToVals[col])
         return ans
-
-    # generates: column index to node, and (row, col) index to node
-    def generateColumnToNodes(self, root, columnToNodes, row, column):
-        if not root:
-            return
-        heappush(columnToNodes[column], [row, root.val, root])
-        if root.left:
-            self.generateColumnToNodes(root.left, columnToNodes, row + 1, column - 1)
-        if root.right:
-            self.generateColumnToNodes(root.right, columnToNodes, row + 1, column + 1)
 
 
 def bfsGenerateTreeFromValArray(vals):
