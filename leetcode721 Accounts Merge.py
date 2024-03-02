@@ -1,35 +1,54 @@
-
 from collections import defaultdict
+from typing import List
 
-# DFS approach, more straightforward / easier then Union-Find
-
-class Solution(object):
-    def accountsMerge(self, accounts):
-        """
-        :type accounts: List[List[str]]
-        :rtype: List[List[str]]
-        """
-
-        emailToAccounts = defaultdict(list)
+# graph + bfs
+class Solution:
+    def accountsMerge(self, accounts: List[List[str]]) -> List[List[str]]:
+        emailToAccountIds = defaultdict(set)
         for i, account in enumerate(accounts):
             for email in account[1:]:
-                emailToAccounts[email].append(i)
+                emailToAccountIds[email].add(i)
 
-        ans = []
+        graph = defaultdict(set)
+        for email in emailToAccountIds:
+            for id1 in emailToAccountIds[email]:
+                for id2 in emailToAccountIds[email]:
+                    if id1 == id2:
+                        continue
+                    graph[id1].add(id2)
+                    graph[id2].add(id1)
+
         visited = set()
-        for i in xrange(len(accounts)):
-            emails = set()
-            self.dfs(i, accounts, emailToAccounts, emails, visited)
-            if emails:
-                ans.append([accounts[i][0]] + sorted(emails))
+        ans = []
+        for i in range(len(accounts)):
+            if i in visited:
+                continue
+            if i not in graph:
+                emails = sorted(set(accounts[i][1:]))
+                ans.append([accounts[i][0]] + emails)
+                visited.add(i)
+            else:
+                # bfs
+                todo = {i}
+                currVisited = set()
+                while todo:
+                    nextTodo = set()
+                    for node in todo:
+                        currVisited.add(node)
+                        if node not in graph:
+                            continue
+                        for connectedNode in graph[node]:
+                            if connectedNode not in currVisited:
+                                currVisited.add(connectedNode)
+                                nextTodo.add(connectedNode)
+                    todo = nextTodo
+
+                name = accounts[i][0]
+                emails = set()
+                for accountId in currVisited:
+                    for email in accounts[accountId][1:]:
+                        emails.add(email)
+                ans.append([name] + sorted(emails))
+                visited = visited.union(currVisited)
 
         return ans
-
-    def dfs(self, account_index, accounts, emailToAccounts, emails, visited):
-        if account_index in visited:
-            return
-        visited.add(account_index)
-        for email in accounts[account_index][1:]:
-            emails.add(email)
-            for neighbor in emailToAccounts[email]:
-                self.dfs(neighbor, accounts, emailToAccounts, emails, visited)

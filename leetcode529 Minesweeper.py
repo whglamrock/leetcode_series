@@ -1,51 +1,35 @@
+from typing import List
 
-# Remember the treatments towards mine how to to the further BFS.
-# Too many conditions and terms we need to care, so remember the work flow
-
-from collections import deque
-
-class Solution(object):
-    def updateBoard(self, board, click):
-
-        if not board or not board[0]:
-            return board
-
+class Solution:
+    def updateBoard(self, board: List[List[str]], click: List[int]) -> List[List[str]]:
         m, n = len(board), len(board[0])
-        queue = deque()
-        queue.append(click)
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1], [-1, -1], [-1, 1], [1, -1], [1, 1]]
+        # bfs
+        todo = {(click[0], click[1])}
+        while todo:
+            nextTodo = set()
+            for i, j in todo:
+                if board[i][j] == 'M':
+                    board[i][j] = 'X'
+                    return board
 
-        while queue:
-            row, col = queue.popleft()
-            if board[row][col] == 'M':
-                # we do not return here but just put 'X' to this mine
-                board[row][col] = 'X'
-
-            else:
-                count = 0
-                for i in [-1, 0, 1]:
-                    for j in [-1, 0, 1]:
-                        if i == 0 and j == 0:
-                            continue
-                        r, c = row + i, col + j
-                        if r < 0 or r >= m or c < 0 or c >= n:
-                            continue
-                        if board[r][c] == 'M' or board[r][c] == 'X':
-                            count += 1
-
-                if count:
-                    board[row][col] = str(count)
+                numOfMines = 0
+                adjacentEmptyCells = []
+                for deltaI, deltaJ in directions:
+                    ii, jj = i + deltaI, j + deltaJ
+                    if ii < 0 or ii >= m or jj < 0 or jj >= n:
+                        continue
+                    if board[ii][jj] == 'M':
+                        numOfMines += 1
+                    elif board[ii][jj] == 'E':
+                        adjacentEmptyCells.append((ii, jj))
+                if numOfMines == 0:
+                    for cell in adjacentEmptyCells:
+                        nextTodo.add(cell)
+                    board[i][j] = 'B'
                 else:
-                    # further BFS
-                    board[row][col] = 'B'
-                    for i in [-1, 0, 1]:
-                        for j in [-1, 0, 1]:
-                            if i == 0 and j == 0:
-                                continue
-                            r, c = row + i, col + j
-                            if r < 0 or r >= m or c < 0 or c >= n:
-                                continue
-                            if board[r][c] == 'E':
-                                queue.append([r, c])
-                                board[r][c] = 'B'
+                    board[i][j] = str(numOfMines)
+
+            todo = nextTodo
 
         return board
