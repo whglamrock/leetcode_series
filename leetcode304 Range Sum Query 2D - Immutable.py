@@ -1,35 +1,26 @@
+from collections import defaultdict
+from typing import List
 
-# idea is dp.
+class NumMatrix:
+    def __init__(self, matrix: List[List[int]]):
+        self.topLeftCornerSum = defaultdict(int)
+        for i, row in enumerate(matrix):
+            prefixSum = 0
+            for j, num in enumerate(row):
+                prefixSum += num
+                if i == 0:
+                    self.topLeftCornerSum[(0, j)] = prefixSum
+                else:
+                    self.topLeftCornerSum[(i, j)] = self.topLeftCornerSum[(i - 1, j)] + prefixSum
 
-class NumMatrix(object):
-    def __init__(self, matrix):
-
-        if (not matrix) or (not matrix[0]):
-            return
-        self.summatrix = [[0 for j in xrange(len(matrix[0]) + 1)] for i in xrange(len(matrix) + 1)]
-        self.summatrix[1][1] = matrix[0][0]
-        for i in xrange(1, len(matrix)):
-            self.summatrix[i + 1][1] = self.summatrix[i][1] + matrix[i][0]
-        for j in xrange(1, len(matrix[0])):
-            self.summatrix[1][j + 1] = self.summatrix[1][j] + matrix[0][j]
-        for i in xrange(1, len(matrix)):
-            for j in xrange(1, len(matrix[0])):
-                self.summatrix[i + 1][j + 1] = self.summatrix[i][j + 1] + self.summatrix[i + 1][j] - self.summatrix[i][j] + matrix[i][j]
-
-
-    def sumRegion(self, row1, col1, row2, col2):
-
-        return self.summatrix[row2 + 1][col2 + 1] + self.summatrix[row1][col1] - self.summatrix[row2 + 1][col1] - self.summatrix[row1][col2 + 1]
-
-
-
-matrix = [[3,0,1,4,2],[5,6,3,2,1],[1,2,0,1,5],[4,1,0,1,7],[1,0,3,0,5]]
-Sol = NumMatrix(matrix)
-print Sol.sumRegion(1, 1, 2, 2)
-
+    def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
+        # the defaultdict trick makes sure if any key not in the dict, it will return 0
+        return self.topLeftCornerSum[(row2, col2)] \
+            - self.topLeftCornerSum[(row1 - 1, col2)] \
+            - self.topLeftCornerSum[(row2, col1 - 1)] \
+            + self.topLeftCornerSum[(row1 - 1, col1 - 1)]
 
 
 # Your NumMatrix object will be instantiated and called as such:
-# numMatrix = NumMatrix(matrix)
-# numMatrix.sumRegion(0, 1, 2, 3)
-# numMatrix.sumRegion(1, 2, 3, 4)
+# obj = NumMatrix(matrix)
+# param_1 = obj.sumRegion(row1,col1,row2,col2)
