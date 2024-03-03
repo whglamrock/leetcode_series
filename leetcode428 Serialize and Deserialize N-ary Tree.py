@@ -1,63 +1,85 @@
-
-# Definition for a Node.
+from collections import deque
 
 class Node(object):
-    def __init__(self, val, children):
+    def __init__(self, val=None, children=[]):
         self.val = val
         self.children = children
 
-
-
-from collections import deque
-
-# serializing a binary tree is way easier because we know for sure each node has no more than 2 children
-
+# each level is separated by a '|', after a set of node values we add a '/' so all values in between
+# belong to the corresponding parent in the above level
 class Codec:
-    def serialize(self, root):
+    def serialize(self, root: 'Node') -> str:
         """Encodes a tree to a single string.
 
         :type root: Node
         :rtype: str
         """
-        if not root:
-            return ''
+        levels = []
+        todo = [root]
+        while todo:
+            level = []
+            nextTodo = []
+            for node in todo:
+                if not node:
+                    level.append('None')
+                    continue
+                elif node == '/':
+                    level.append('/')
+                    continue
 
-        traversal = []
-        self.serializeHelper(root, traversal)
-        return ','.join(traversal)
+                level.append(str(node.val))
+                if not node.children:
+                    nextTodo.append(None)
+                else:
+                    nextTodo.extend(node.children)
+                nextTodo.append('/')
+            # don't rstrip '/' because we need it in deserialization,
+            # especially when we add the second level as root's children
+            levels.append(','.join(level).strip(','))
+            todo = nextTodo
 
-    # for tree defined in problem description, the pre-order traversal will look
-        # like: 1,3,3,2,5,0,6,0,2,0,4,0
-    def serializeHelper(self, root, traversal):
-        if not root:
-            return
-        traversal.append(str(root.val))
-        traversal.append(str(len(root.children)))
-        for child in root.children:
-            self.serializeHelper(child, traversal)
+        return '|'.join(levels)
 
-    def deserialize(self, data):
+    def deserialize(self, data: str) -> 'Node':
         """Decodes your encoded data to tree.
 
         :type data: str
         :rtype: Node
         """
-        if not data:
+        levelStrs = deque(data.split('|'))
+        firstValue = levelStrs.popleft()
+        if firstValue == 'None':
             return None
+        root = Node(int(firstValue))
 
-        traversal = deque(data.split(','))
-        return self.deserializeHelper(traversal)
+        prev = [root]
+        while levelStrs:
+            levelStr = levelStrs.popleft()
+            valueStrs = levelStr.split(',')
+            # store the nodes created in this level so in next level they can be referenced as parents
+            curr = []
+            # store the nodes created in this level belonging to a certain parent in previous level
+            currChildren = []
+            prevLevelIndex = 0
+            i = 0
 
-    # traversal is a deque
-    def deserializeHelper(self, traversal):
-        val = int(traversal.popleft())
-        size = int(traversal.popleft())
-        root = Node(val, [])
-        for i in xrange(size):
-            root.children.append(self.deserializeHelper(traversal))
+            while i < len(valueStrs):
+                if valueStrs[i] == '/':
+                    if currChildren:
+                        prev[prevLevelIndex].children = currChildren
+                    currChildren = []
+                    prevLevelIndex += 1
+                elif valueStrs[i] == 'None':
+                    i += 1
+                    continue
+                else:
+                    node = Node(int(valueStrs[i]))
+                    curr.append(node)
+                    currChildren.append(node)
+                i += 1
+            prev = curr
 
         return root
-
 
 
 # Your Codec object will be instantiated and called as such:

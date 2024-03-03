@@ -4,7 +4,6 @@
 # At last, this problem becomes finding min operation to make a valid parenthesis
 class Solution:
     def minInsertions(self, s: str) -> int:
-
         consecutiveBackParenthesis = 0
         modifiedS = []
         minAdd = 0
@@ -36,7 +35,7 @@ class Solution:
                     minAdd += 1
             i += 1
 
-        # we make sure there can't be any } left in the stack
+        # this means there are some open parenthesis, '(', left in the stack
         if stack:
             minAdd += 2 * len(stack)
 
