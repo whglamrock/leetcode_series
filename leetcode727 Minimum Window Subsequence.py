@@ -1,6 +1,32 @@
 
-# A naive O(N ^ 2) solution gets TLE in the stupid leetcode but should be acceptable in real interview (unless any
-# motherfucking stupid interviewer asks for O(M * N) DP solution).
+# O(m * n) DP solution
+# dp[i][j] means the min length of s1 substring that ends at s1[i - 1] and is a super sequence of s2[:j]
+class Solution:
+    def minWindow(self, s1: str, s2: str) -> str:
+        m, n = len(s1), len(s2)
+        dp = [[2147483647 for j in range(n + 1)] for i in range(m + 1)]
+        for i in range(m + 1):
+            dp[i][0] = 0
+
+        for j in range(1, n + 1):
+            for i in range(1, m + 1):
+                # if s1[:i - 1] is already a super sequence of s2[:j]
+                dp[i][j] = dp[i - 1][j] + 1
+                if s1[i - 1] == s2[j - 1]:
+                    dp[i][j] = min(dp[i][j], dp[i - 1][j - 1] + 1)
+
+        minLen = min(dp[i][-1] for i in range(1, m + 1))
+        if minLen >= 2147483647:
+            return ''
+        for i in range(1, m + 1):
+            if dp[i][-1] == minLen:
+                return s1[i - minLen:i]
+
+
+print(Solution().minWindow(s1="abcdebdde", s2="bde"))
+
+'''
+# A naive O(N ^ 2) solution gets TLE in the stupid leetcode but should be acceptable in real interview
 # Below solution optimize the start index but in worst case scenario is still O(N ^ 2) time.
 class Solution:
     def minWindow(self, s1: str, s2: str) -> str:
@@ -43,3 +69,4 @@ class Solution:
                 i += 1
 
         return i - 1 if j == n else -1
+'''
