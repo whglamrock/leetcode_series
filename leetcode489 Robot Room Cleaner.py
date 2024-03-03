@@ -1,4 +1,3 @@
-
 # """
 # This is the robot's control interface.
 # You should not implement it, or speculate about its implementation
@@ -31,6 +30,7 @@
 #        :rtype void
 #        """
 
+# Visual demo of the dfs trajectory: https://leetcode.com/problems/robot-room-cleaner/description/comments/1565306
 class Solution(object):
     def cleanRoom(self, robot):
         """
@@ -40,15 +40,15 @@ class Solution(object):
         # initially the robot faces up
         self.dfs(robot, 0, 0, -1, 0, set())
 
-    def dfs(self, robot, i, j, direction_i, direction_j, visited):
+    def dfs(self, robot, i, j, deltaI, deltaJ, visited):
         robot.clean()
         visited.add((i, j))
 
-        for _ in xrange(4):
-            next_i, next_j = i + direction_i, j + direction_j
+        for _ in range(4):
+            ii, jj = i + deltaI, j + deltaJ
             # calling robot.move() will make robot move if there is no obstacle
-            if (next_i, next_j) not in visited and robot.move():
-                self.dfs(robot, next_i, next_j, direction_i, direction_j, visited)
+            if (ii, jj) not in visited and robot.move():
+                self.dfs(robot, ii, jj, deltaI, deltaJ, visited)
                 # get back to the starting point before dfs
                 robot.turnLeft()
                 robot.turnLeft()
@@ -60,15 +60,5 @@ class Solution(object):
 
             robot.turnRight()
             # clockwise change the dfs direction:
-                # (-1, 0) -> (0, 1) -> (1, 0) -> (0, -1)
-            direction_i, direction_j = direction_j, -direction_i
-
-
-
-
-
-
-
-
-
-
+            # (-1, 0) -> (0, 1) -> (1, 0) -> (0, -1)
+            deltaI, deltaJ = deltaJ, -deltaI
