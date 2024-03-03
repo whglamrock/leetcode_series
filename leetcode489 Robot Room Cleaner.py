@@ -40,7 +40,7 @@ class Solution(object):
         # initially the robot faces up
         self.dfs(robot, 0, 0, -1, 0, set())
 
-    def dfs(self, robot, i, j, deltaI, deltaJ, visited):
+    def dfs(self, robot: 'Robot', i: int, j: int, deltaI: int, deltaJ: int, visited: set):
         robot.clean()
         visited.add((i, j))
 
@@ -49,12 +49,15 @@ class Solution(object):
             # calling robot.move() will make robot move if there is no obstacle
             if (ii, jj) not in visited and robot.move():
                 self.dfs(robot, ii, jj, deltaI, deltaJ, visited)
-                # get back to the starting point before dfs
+                # back to the starting point before dfs
                 robot.turnLeft()
                 robot.turnLeft()
                 robot.move()
 
-                # turn robot to the original facing direction
+                # reset the direction. Because if we don't do:
+                # 1) The direction will be messed up in the next for loop
+                # 2) In the dfs recursion, the next backward recursion will run line 53 & 53 (turn robot 180 degree and
+                # back by one cell), which requires the direction to be same as before doing dfs
                 robot.turnRight()
                 robot.turnRight()
 

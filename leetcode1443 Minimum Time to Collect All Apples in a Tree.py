@@ -23,11 +23,9 @@ class Solution:
         while todo:
             nextTodo = set()
             for node in todo:
-                if node not in graph:
-                    continue
+                # no need to check if node not in graph
                 for nextNode in graph[node]:
-                    if nextNode not in graph:
-                        continue
+                    # also no need to check if nextNode is in graph
                     graph[nextNode].discard(node)
                     # be really careful about not trimming 0 here
                     if nextNode != 0 and len(graph[nextNode]) == 1 and not hasApple[nextNode]:

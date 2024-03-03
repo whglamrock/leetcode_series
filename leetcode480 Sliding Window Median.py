@@ -1,7 +1,8 @@
 from bisect import insort
 from typing import List
 
-# O(n * k) solution with python built-in bisect insort (insert into a sorted list, O(n) time)
+# O(n * k) solution with python built-in bisect insort (insert into a sorted list, O(n) time), most practical in real interview.
+# The 2 heap O(n * log(k)) solution requires lazy removal for out of bound elements, which are super error-prone.
 class Solution(object):
     def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
         ans, window = [], []
