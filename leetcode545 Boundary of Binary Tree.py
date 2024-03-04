@@ -1,55 +1,56 @@
+from typing import Optional, List
 
-# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-class TreeNode(object):
-    def __init__(self, x):
+class Solution:
+    def __init__(self):
+        self.leaves = []
 
-        self.val = x
-        self.left = None
-        self.right = None
-
-
-# single pass solution needs to keep track the middle (leave) node
-#   see: https://discuss.leetcode.com/topic/84258/java-preorder-single-pass-o-n-solution
-
-class Solution(object):
-    def boundaryOfBinaryTree(self, root):
-
-        if not root: return []
-        lb, rb = [root.val], []
-
+    def boundaryOfBinaryTree(self, root: Optional[TreeNode]) -> List[int]:
+        leftBoundary = []
         curr = root.left
-        while curr and (curr.left or curr.right):
-            lb.append(curr.val)
+        while curr:
+            # non leaf node
+            if curr.left or curr.right:
+                leftBoundary.append(curr.val)
+            # leaf node
+            else:
+                break
             if curr.left:
                 curr = curr.left
-            elif curr.right:
-                curr = curr.right
             else:
-                curr = None
+                curr = curr.right
 
+        rightBoundary = []
         curr = root.right
-        while curr and (curr.right or curr.left):
-            rb.append(curr.val)
+        while curr:
+            # non leaf node
+            if curr.left or curr.right:
+                rightBoundary.append(curr.val)
+            # leaf node
+            else:
+                break
             if curr.right:
                 curr = curr.right
-            elif curr.left:
-                curr = curr.left
             else:
-                curr = None
+                curr = curr.left
 
+        # get all leaf nodes
         self.leaves = []
-        # find all leaves from left to right
-        def traversal(node):
-            if node.left:
-                traversal(node.left)
-            if node.right:
-                traversal(node.right)
-            # the node != root condition is ver important:
-            #   when the root has no children, we don't consider it as a leaf
-            if node != root and not node.left and not node.right:
-                self.leaves.append(node.val)
-        traversal(root)
+        self.dfs(root, root)
 
-        rb.reverse()
-        return lb + self.leaves + rb
+        return [root.val] + leftBoundary + self.leaves + rightBoundary[::-1]
+
+    def dfs(self, node: Optional[TreeNode], root: Optional[TreeNode]):
+        if not node.left and not node.right and node != root:
+            self.leaves.append(node.val)
+            return
+
+        if node.left:
+            self.dfs(node.left, root)
+        if node.right:
+            self.dfs(node.right, root)
