@@ -42,8 +42,7 @@ print(Solution().findItinerary([["MUC", "LHR"], ["JFK", "MUC"], ["SFO", "SJC"], 
 # optimal Euler path theory. It's not a must in real interview.
 class Solution(object):
     def findItinerary(self, tickets):
-        tickets.sort()
-        tickets.reverse()
+        tickets.sort(reverse=True)
 
         trips = defaultdict(list)
         for a, b in tickets:

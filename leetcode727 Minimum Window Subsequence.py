@@ -25,6 +25,7 @@ class Solution:
 
 print(Solution().minWindow(s1="abcdebdde", s2="bde"))
 
+
 '''
 # A naive O(N ^ 2) solution gets TLE in the stupid leetcode but should be acceptable in real interview
 # Below solution optimize the start index but in worst case scenario is still O(N ^ 2) time.
