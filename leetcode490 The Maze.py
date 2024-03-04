@@ -17,7 +17,8 @@ class Solution:
                 if (i, j) in directionToVisited[direction]:
                     continue
                 directionToVisited[direction].add((i, j))
-                # don't check visited here until making a turn
+                # don't check visited here until making a turn. Let the ball slide into the next position
+                # even if it's visited. It's gonna be skipped in the nextTodo anyways
                 if direction == 'up' and (i - 1 >= 0 and maze[i - 1][j] == 0):
                     nextTodo.append([i - 1, j, 'up'])
                 elif direction == 'down' and (i + 1 < m and maze[i + 1][j] == 0):
@@ -26,7 +27,7 @@ class Solution:
                     nextTodo.append([i, j - 1, 'left'])
                 elif direction == 'right' and (j + 1 < n and maze[i][j + 1] == 0):
                     nextTodo.append([i, j + 1, 'right'])
-                # can't keep moving in original direction, see if we can turn
+                # hit a wall; see if we can turn
                 else:
                     if (i - 1 >= 0 and maze[i - 1][j] == 0) and (i - 1, j) not in upVisited:
                         nextTodo.append([i - 1, j, 'up'])

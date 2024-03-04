@@ -1,36 +1,41 @@
+class Solution:
+    def validIPAddress(self, queryIP: str) -> str:
+        if ('.' in queryIP and ':' in queryIP) or ('.' not in queryIP and ':' not in queryIP):
+            return 'Neither'
 
-# so many corner cases. In real interview, we need to consider them thoroughly.
-
-class Solution(object):
-    def validIPAddress(self, IP):
-
-        if not IP or len(IP) == 0:
-            return "Neither"
-
-        if '.' in IP:
-            nums = IP.split('.')
-            if len(nums) != 4: return 'Neither'
-            for num in nums:
-                if not num: return 'Neither'
-                # this if statement meant to avoid the "len(num.lstrip('0')) != len(num)" check
-                if num == '0': continue
-                for char in num:
-                    if not ('0' <= char <= '9'):
-                        return 'Neither'
-                if not (0 <= int(num) < 256) or (len(num.lstrip('0')) != len(num)):
+        if '.' in queryIP:
+            ipv4Tokens = queryIP.split('.')
+            if len(ipv4Tokens) != 4:
+                return 'Neither'
+            for ipv4Token in ipv4Tokens:
+                if not self.isValidIpv4Token(ipv4Token):
                     return 'Neither'
             return "IPv4"
-
-        elif ':' in IP:
-            nums = IP.split(':')
-            if len(nums) != 8: return 'Neither'
-            for num in nums:
-                if not num or len(num) > 4: return 'Neither'
-                for char in num:
-                    if not ('0' <= char <= '9') and not('a' <= char <= 'f') and not ('A' <= char <= 'F'):
-                        return 'Neither'
-            return 'IPv6'
-
         else:
-            return 'Neither'
+            ipv6Tokens = queryIP.split(':')
+            if len(ipv6Tokens) != 8:
+                return 'Neither'
+            for ipv6Token in ipv6Tokens:
+                if not self.isValidIpv6Token(ipv6Token):
+                    return 'Neither'
+            return "IPv6"
+
+    def isValidIpv4Token(self, ipv4Token: str) -> bool:
+        if not (1 <= len(ipv4Token) <= 3):
+            return False
+        # leading 0
+        if len(ipv4Token) > 1 and ipv4Token[0] == '0':
+            return False
+        for char in ipv4Token:
+            if not char.isdigit():
+                return False
+        return int(ipv4Token) < 256
+
+    def isValidIpv6Token(self, ipv6Token: str) -> bool:
+        if not (1 <= len(ipv6Token) <= 4):
+            return False
+        for char in ipv6Token:
+            if not char.isdigit() and char not in 'abcdefABCDEF':
+                return False
+        return True
 
