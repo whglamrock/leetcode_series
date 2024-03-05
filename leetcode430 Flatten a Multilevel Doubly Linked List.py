@@ -1,40 +1,36 @@
+from typing import Tuple
 
-# Definition for a Node.
-
-class Node(object):
+class Node:
     def __init__(self, val, prev, next, child):
         self.val = val
         self.prev = prev
         self.next = next
         self.child = child
 
-
-
-class Solution(object):
-    def flatten(self, head):
-        """
-        :type head: Node
-        :rtype: Node
-        """
+class Solution:
+    def flatten(self, head: 'Optional[Node]') -> 'Optional[Node]':
         if not head:
-            return head
+            return None
 
-        stack = [head]
-        ans = []
+        self.flattenList(head)
+        return head
 
-        while stack:
-            node = stack.pop()
-            ans.append(node)
-            if node.next:
-                stack.append(node.next)
-            if node.child:
-                stack.append(node.child)
+    def flattenList(self, node: 'Optional[Node]') -> Tuple['Node', 'Node']:
+        if not node.child and not node.next:
+            return node, node
+        if not node.child:
+            nextHead, nextTail = self.flattenList(node.next)
+            return node, nextTail
+        if not node.next:
+            childHead, childTail = self.flattenList(node.child)
+            node.next, node.child = childHead, None
+            childHead.prev = node
+            return node, childTail
 
-        for i in xrange(len(ans) - 1):
-            node = ans[i]
-            nextNode = ans[i + 1]
-            node.child, nextNode.child = None, None
-            node.next = nextNode
-            nextNode.prev = node
-
-        return ans[0]
+        # both child and next are present
+        nextNode, childNode = node.next, node.child
+        childHead, childTail = self.flattenList(childNode)
+        nextHead, nextTail = self.flattenList(nextNode)
+        node.next, node.child, childHead.prev = childHead, None, node
+        nextNode.prev, childTail.next = childTail, nextNode
+        return node, nextTail
