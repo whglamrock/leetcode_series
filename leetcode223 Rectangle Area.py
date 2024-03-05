@@ -1,15 +1,10 @@
+class Solution:
+    def computeArea(self, ax1: int, ay1: int, ax2: int, ay2: int, bx1: int, by1: int, bx2: int, by2: int) -> int:
+        area1, area2 = (ax2 - ax1) * (ay2 - ay1), (bx2 - bx1) * (by2 - by1)
+        # completely no overlapping
+        if ax2 < bx1 or ay2 < by1 or bx2 < ax1 or by2 < ay1:
+            return area1 + area2
 
-class Solution(object):
-    def computeArea(self, A, B, C, D, E, F, G, H):
-
-        if B>=H or D<=F or A>=G or C<=E:
-            return (C-A)*(D-B)+(G-E)*(H-F)
-
-        elif (A>E and G>C and B>F and H>D) or (A<E and G<C and B<F and H<D):
-            return max((C-A)*(D-B),(G-E)*(H-F))
-
-        else:
-            a = sorted([A,C,E,G])
-            b = sorted([B,D,F,H])
-            return (C-A)*(D-B)+(G-E)*(H-F)-(a[2]-a[1])*(b[2]-b[1])
-
+        sortedXs, sortedYs = sorted([ax1, ax2, bx1, bx2]), sorted([ay1, ay2, by1, by2])
+        overlappingArea = (sortedXs[2] - sortedXs[1]) * (sortedYs[2] - sortedYs[1])
+        return area1 + area2 - overlappingArea
