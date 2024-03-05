@@ -1,7 +1,5 @@
 
-# Binary search solution: O(logN) where N == dividend / divisor.
-# P.S.: We have to use Binary Manipulation to avoid "*"
-
+# Binary search solution: O(logN) where N == dividend / divisor. We have to use bit Manipulation to avoid "*"
 class Solution(object):
     def divide(self, dividend: int, divisor: int) -> int:
         positive = (dividend > 0) is (divisor > 0)
@@ -21,7 +19,4 @@ class Solution(object):
         return max(min(ans, 2147483647), -2147483648)
 
 
-# Taking (32, 5) as an example, the dividend goes through:
-# 1) big while(1): 32 -> 27 -> 17;
-# 2) big while(2): 17 -> 12 -> 2;
 print(Solution().divide(32, 5))

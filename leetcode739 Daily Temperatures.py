@@ -1,30 +1,20 @@
+from collections import deque
+from typing import List
 
-# typical decreasing stack question
-
-class Solution(object):
-    def dailyTemperatures(self, T):
-        """
-        :type T: List[int]
-        :rtype: List[int]
-        """
-        if not T:
-            return []
-
-        stack = []
-        n = len(T)
+# intuition: keep a decreasing stack scanning from right to left
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        decreasingQueue = deque()
+        n = len(temperatures)
         ans = [0] * n
-
-        for i in xrange(n):
-            while stack and T[i] > T[stack[-1]]:
-                j = stack.pop()
-                ans[j] = i - j
-            stack.append(i)
-
-        while stack:
-            ans[stack.pop()] = 0
+        for i in range(n - 1, -1, -1):
+            while decreasingQueue and temperatures[i] >= decreasingQueue[0][1]:
+                decreasingQueue.popleft()
+            if decreasingQueue:
+                ans[i] = decreasingQueue[0][0] - i
+            decreasingQueue.appendleft([i, temperatures[i]])
 
         return ans
 
 
-
-print Solution().dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73])
+print(Solution().dailyTemperatures([73, 74, 75, 71, 69, 72, 76, 73]))
