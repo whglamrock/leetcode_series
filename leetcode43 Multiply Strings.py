@@ -1,14 +1,9 @@
 
 # idea came from: https://discuss.leetcode.com/topic/30508/easiest-java-solution-with-graph-explanation
-
 class Solution(object):
-    def multiply(self, num1, num2):
-
-        if not num1 or not num2:
-            return None
-
+    def multiply(self, num1: str, num2: str) -> str:
         # using example like "100 * 100", we can know at most how many digits the answer has
-        digits = [0 for _ in xrange(len(num1) + len(num2))]
+        digits = [0 for _ in range(len(num1) + len(num2))]
 
         for i, digit1 in enumerate(num1):
             for j, digit2 in enumerate(num2):
@@ -18,15 +13,7 @@ class Solution(object):
                 digits[i + j] += tens
                 digits[i + j + 1] += ones
 
-        res = 0
+        ans = 0
         for digit in digits:
-            res = res * 10 + digit
-        return str(res)
-
-
-
-Sol = Solution()
-num1 = '15'
-num2 = '25'
-print Sol.multiply(num1, num2)
-
+            ans = ans * 10 + digit
+        return str(ans)

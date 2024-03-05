@@ -21,8 +21,8 @@ class Solution:
                 node = None
                 while stack and val > stack[-1].val:
                     node = stack.pop()
-                if node:
-                    node.right = newNode
+                # no need to check if node is not None
+                node.right = newNode
                 stack.append(newNode)
 
         return root

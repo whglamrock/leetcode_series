@@ -15,26 +15,52 @@ class Solution:
     def minCameraCover(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
+        if not root.left and not root.right:
+            return 1
 
         self.ans = 0
-        # in this case root is considered a "leaf" or all its children are covered
-        if self.dfs(root) == 0:
-            return self.ans + 1
+        self.dfs(root, None)
+        return self.ans
+
+    # 0 means we put camera on this node; -1 means it's leaf or "similar to leaf"; 1 means it's covered by its children
+    def dfs(self, root: Optional[TreeNode], parent: Optional[TreeNode]) -> int:
+        if not root.left and not root.right:
+            if not parent:
+                self.ans += 1
+                return 0
+            return -1
+
+        if root.left and root.right:
+            leftValue, rightValue = self.dfs(root.left, root), self.dfs(root.right, root)
+            if leftValue == -1 or rightValue == -1:
+                self.ans += 1
+                return 0
+            if leftValue == 0 or rightValue == 0:
+                return 1
+            # both children are covered, the node needs to be covered by its parent or itself
+            if not parent:
+                self.ans += 1
+                return 0
+            return -1
+        elif root.left:
+            leftValue = self.dfs(root.left, root)
+            if leftValue == -1:
+                self.ans += 1
+                return 0
+            if leftValue == 0:
+                return 1
+            if not parent:
+                self.ans += 1
+                return 0
+            return -1
         else:
-            return self.ans
-
-    def dfs(self, root: Optional[TreeNode]) -> int:
-        if not root:
-            return 2
-
-        left, right = self.dfs(root.left), self.dfs(root.right)
-        # at least one of the children is leaf
-        if left == 0 or right == 0:
-            self.ans += 1
-            return 1
-        # at least one of the children has a camera
-        if left == 1 or right == 1:
-            return 2
-
-        # both children are returning 2 so it's a leaf
-        return 0
+            rightValue = self.dfs(root.right, root)
+            if rightValue == -1:
+                self.ans += 1
+                return 0
+            if rightValue == 0:
+                return 1
+            if not parent:
+                self.ans += 1
+                return 0
+            return -1
