@@ -1,29 +1,26 @@
+from typing import List
 
-# The key is to remember to set the 0 to -1 and use preSum. Otherwise solely using dp without hashMap won't work
-
-class Solution(object):
-    def findMaxLength(self, nums):
-
-        if not nums:
-            return 0
-
-        for i in xrange(len(nums)):
-            if nums[i] == 0:
+# Remember this trick of changing 0 to -1 then use prefixSum
+class Solution:
+    def findMaxLength(self, nums: List[int]) -> int:
+        for i, num in enumerate(nums):
+            if num == 0:
                 nums[i] = -1
 
+        prefixSum = 0
+        prefixSumToIndex = {}
         maxLen = 0
-        preSum = 0
-        preSumToIndex = {0: -1}
-
         for i, num in enumerate(nums):
-            preSum += num
-            if preSum in preSumToIndex:
-                maxLen = max(maxLen, i - preSumToIndex[preSum])
-            else:
-                preSumToIndex[preSum] = i
+            prefixSum += num
+            if prefixSum == 0:
+                maxLen = max(maxLen, i + 1)
+            elif prefixSum in prefixSumToIndex:
+                maxLen = max(maxLen, i - prefixSumToIndex[prefixSum])
+
+            if prefixSum not in prefixSumToIndex:
+                prefixSumToIndex[prefixSum] = i
 
         return maxLen
 
 
-
-print Solution().findMaxLength([0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0])
+print(Solution().findMaxLength([0, 1, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0]))
