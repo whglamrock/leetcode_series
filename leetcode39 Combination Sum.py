@@ -1,30 +1,62 @@
+from collections import defaultdict
+from copy import deepcopy
+from typing import List, Dict
 
-# remember the standard format of backtracking solution:
-
-class Solution(object):
-    def combinationSum(self, candidates, target):
-
-        combis = []
-        candidates.sort()
-        pool = set(candidates)
-        todo = [(target, 0, [])]
-        if target in pool:
-            combis.append([target])
+class Solution:
+    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+        todo = {('', 0)}
+        visited = set()
+        workingNumCountStrs = set()
         while todo:
-            rest, i, combi = todo.pop()
-            if rest < candidates[i]:
-                continue
-            if rest in pool and rest != target:
-                combis.append(combi+[rest])
-            while i < len(candidates) and rest >= candidates[i]:
-                todo.append((rest-candidates[i], i, combi+[candidates[i]]))
-                i += 1
+            nextTodo = set()
+            for serializedNumCount, currSum in todo:
+                visited.add(serializedNumCount)
+                if currSum == target:
+                    workingNumCountStrs.add(serializedNumCount)
+                    continue
 
-        return combis
+                numCount = self.deserializeToNumCount(serializedNumCount)
+                for nextNum in candidates:
+                    if currSum + nextNum > target:
+                        continue
+                    nextNumCount = deepcopy(numCount)
+                    nextNumCount[nextNum] += 1
+                    serializedNexNumCount = self.serializeNumCount(nextNumCount)
+                    if serializedNexNumCount in visited:
+                        continue
+                    visited.add(serializedNexNumCount)
+                    nextSum = currSum + nextNum
+                    nextTodo.add((serializedNexNumCount, nextSum))
 
+            todo = nextTodo
 
+        ans = []
+        for numCountStr in workingNumCountStrs:
+            numCount = self.deserializeToNumCount(numCountStr)
+            curr = []
+            for num in numCount:
+                for i in range(numCount[num]):
+                    curr.append(num)
+            ans.append(curr)
 
-Sol = Solution()
-candidates = [2,3,4,5,6,7]
-target = 18
-print Sol.combinationSum(candidates,target)
+        return ans
+
+    def serializeNumCount(self, numCount: Dict[int, int]) -> str:
+        sortedNums = sorted(numCount.keys())
+        serialized = []
+        for num in sortedNums:
+            serialized.append(str(num) + ':' + str(numCount[num]))
+        return ','.join(serialized)
+
+    def deserializeToNumCount(self, numCountStr: str) -> Dict[int, int]:
+        if not numCountStr:
+            return defaultdict(int)
+
+        tokens = numCountStr.split(',')
+        numCount = defaultdict(int)
+        for token in tokens:
+            splitterIndex = token.index(':')
+            num = int(token[:splitterIndex])
+            count = int(token[splitterIndex + 1:])
+            numCount[num] = count
+        return numCount
