@@ -1,27 +1,20 @@
+from typing import List
 
-# easy to understand and beats 100%
+class Solution:
+    def partitionLabels(self, s: str) -> List[int]:
+        charToMaxIndex = {}
+        for i, char in enumerate(s):
+            charToMaxIndex[char] = i
 
-class Solution(object):
-    def partitionLabels(self, S):
+        ans = []
+        i = 0
+        while i < len(s):
+            l = i
+            r = charToMaxIndex[s[i]]
+            while i < r:
+                r = max(r, charToMaxIndex[s[i]])
+                i += 1
+            i = r + 1
+            ans.append(r - l + 1)
 
-        letterToRange = {}
-        for i, c in enumerate(S):
-            letterToRange[c] = i
-
-        ans = [-1]
-        farthest = 0
-        for i, c in enumerate(S):
-            farthest = max(letterToRange[c], farthest)
-            if farthest <= i:
-                ans.append(i)
-
-        res = []
-        for j in xrange(1, len(ans)):
-            res.append(ans[j] - ans[j - 1])
-
-        return res
-
-
-
-S = "ababcbacadefegdehijhklij"
-print Solution().partitionLabels(S)
+        return ans
