@@ -1,10 +1,23 @@
-from collections import Counter
+from collections import Counter, defaultdict
 from typing import List
 
+# we could simply sort numCount.values() but below solution is guaranteed O(n) time.
 class Solution:
     def findLeastNumOfUniqueInts(self, arr: List[int], k: int) -> int:
         numCount = Counter(arr)
-        counts = sorted(numCount.values())
+        numCountFrequency = defaultdict(int)
+        minCount, maxCount = 2147483647, 0
+        for num, count in numCount.items():
+            numCountFrequency[count] += 1
+            minCount = min(minCount, count)
+            maxCount = max(maxCount, count)
+
+        counts = []
+        for count in range(minCount, maxCount + 1):
+            if count not in numCountFrequency:
+                continue
+            for i in range(numCountFrequency[count]):
+                counts.append(count)
 
         i = 0
         while i < len(counts) and k >= counts[i]:

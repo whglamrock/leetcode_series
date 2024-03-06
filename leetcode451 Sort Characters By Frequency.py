@@ -1,25 +1,21 @@
+from collections import Counter, defaultdict
 
-# this one should be marked easy.
-
-class Solution(object):
-    def frequencySort(self, s):
-
-        dick = {}
-        for letter in s:
-            if letter not in dick:
-                dick[letter] = 1
-            else:
-                dick[letter] += 1
-
-        order = []
-        for letter in dick:
-            order.append([dick[letter], letter])
-        order.sort()
-        order.reverse()
+class Solution:
+    def frequencySort(self, s: str) -> str:
+        charCount = Counter(s)
+        countToChars = defaultdict(set)
+        minCount, maxCount = 2147483647, 0
+        for char, count in charCount.items():
+            countToChars[count].add(char)
+            minCount = min(minCount, count)
+            maxCount = max(maxCount, count)
 
         ans = []
-        for item in order:
-            for i in xrange(item[0]):
-                ans.append(item[1])
+        for count in range(maxCount, minCount - 1, -1):
+            if count not in countToChars:
+                continue
+            for char in countToChars[count]:
+                for i in range(count):
+                    ans.append(char)
 
         return ''.join(ans)
