@@ -1,39 +1,24 @@
+from typing import List
 
-# Detailed idea and algorithm is referenced from leetcode15: 3Sum.
-
-class Solution(object):
-    def threeSumClosest(self, nums, target):
-
-        if (not nums) or len(nums) < 3:
-            return
-
+# O(n ^ 2) time. idea came from 3sum
+class Solution:
+    def threeSumClosest(self, nums: List[int], target: int) -> int:
         nums.sort()
-        diff = abs(nums[0] + nums[1] + nums[2] - target)
-        ans = nums[0] + nums[1] + nums[2]
-        for i in xrange(len(nums) - 2):
-            l, r = i + 1, len(nums) - 1
+        minDiff = 2147483647
+        closestThreeSum = 0
+        for i in range(2, len(nums)):
+            l, r = 0, i - 1
             while l < r:
-                newsum = nums[i] + nums[l] + nums[r]
-                if abs(newsum - target) < diff:
-                    diff = abs(newsum - target)
-                    ans = newsum
-                if newsum < target:
+                threeSum = nums[l] + nums[r] + nums[i]
+                if threeSum == target:
+                    return threeSum
+                diff = abs(threeSum - target)
+                if diff < minDiff:
+                    minDiff = diff
+                    closestThreeSum = threeSum
+                if threeSum < target:
                     l += 1
-                elif newsum > target:
-                    r -= 1
                 else:
-                    return newsum
+                    r -= 1
 
-        return ans
-
-
-
-nums = [-1,2,1,-4]
-target = 1
-Sol = Solution()
-print Sol.threeSumClosest(nums,target)
-
-
-
-
-
+        return closestThreeSum

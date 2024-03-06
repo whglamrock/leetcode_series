@@ -1,45 +1,26 @@
+from functools import lru_cache
+from typing import List
 
-# unusual dp solution with memoization that records all possible previous sums
+# cached dfs solution, much easier to implement than any "dp".
+class Solution:
+    def __init__(self):
+        self.nums = []
 
-class Solution(object):
-    def canPartition(self, nums):
+    def canPartition(self, nums: List[int]) -> bool:
+        numsSum = sum(nums)
+        if numsSum % 2:
+            return False
+        self.nums = sorted(nums)
+        return self.dfs(0, 0, numsSum // 2)
 
-        target = sum(nums)
-        if target % 2 != 0: return False
-        target /= 2
+    @lru_cache(None)
+    def dfs(self, i: int, currSum: int, target: int) -> bool:
+        if currSum == target:
+            return True
+        if i >= len(self.nums) or currSum > target:
+            return False
 
-        sumset = set()
-        sumset.add(0)
-        for num in nums:
-            if target - num in sumset:
-                return True
-            newsum = set()
-            for sumvalue in sumset:
-                newsum.add(sumvalue + num)
-            sumset |= newsum
+        if currSum + self.nums[i] > target:
+            return False
 
-        return False
-
-
-
-'''
-# top-down naive backtracking solution
-
-class Solution(object):
-    def canFindSum(self, nums, target, ind, n, d):
-        if target in d: return d[target]
-        if target == 0: d[target] = True
-        else:
-            d[target] = False
-            if target > 0:
-                for i in xrange(ind, n):
-                    if self.canFindSum(nums, target - nums[i], i+1, n, d):
-                        d[target] = True
-                        break
-        return d[target]
-
-    def canPartition(self, nums):
-        s = sum(nums)
-        if s % 2 != 0: return False
-        return self.canFindSum(nums, s/2, 0, len(nums), {})
-'''
+        return self.dfs(i + 1, currSum + self.nums[i], target) or self.dfs(i + 1, currSum, target)

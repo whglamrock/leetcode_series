@@ -1,33 +1,37 @@
+from collections import defaultdict
+from typing import List
 
-# the key is to transfer the problem into subset sum
-# O(N * value) classical dp approach, where value is the average value of each element in nums
-# see explanation: https://discuss.leetcode.com/topic/76243/java-15-ms-c-3-ms-o-ns-iterative-dp-solution-using-subset-sum-with-explanation
-
-class Solution(object):
-    def findTargetSumWays(self, nums, S):
-
-        sumofnums = sum(nums)
-        if sumofnums < S or (sumofnums + S) % 2 != 0:
-            return 0
-
-        return self.subsetSum(nums, (sumofnums + S) / 2)
-
-    def subsetSum(self, nums, S):
-
-        # using one dimensional dp array and updating all elements in each for loop
-        dp = [0 for j in xrange(S + 1)]
-        dp[0] = 1
-
+# A naive "DP" solution actually runs very fast.
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        sumCount = {0: 1}
         for num in nums:
-            for i in xrange(S, num - 1, -1):
-                if dp[i - num] != 0:    # or even save this if statement because "+= 0" still applies
-                    dp[i] += dp[i - num]
+            nextSumCount = defaultdict(int)
+            for prevSum in sumCount:
+                nextSumCount[prevSum + num] += sumCount[prevSum]
+                nextSumCount[prevSum - num] += sumCount[prevSum]
+            sumCount = nextSumCount
 
-        return dp[-1]
+        return sumCount[target]
 
 
+'''
+# cached dfs solution
+class Solution:
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        self.nums = nums
+        return self.dfs(0, 0, target)
 
-Sol = Solution()
-nums = [1, 1, 1, 1, 1]
-S = 3
-print Sol.findTargetSumWays(nums, S)
+    @lru_cache(None)
+    def dfs(self, i: int, currSum: int, target: int):
+        if i == len(self.nums) - 1:
+            if currSum == target and self.nums[-1] == 0:
+                return 2
+            if currSum + self.nums[-1] == target:
+                return 1
+            if currSum - self.nums[-1] == target:
+                return 1
+            return 0
+        
+        return self.dfs(i + 1, currSum + self.nums[i], target) + self.dfs(i + 1, currSum - self.nums[i], target)
+'''
