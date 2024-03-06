@@ -1,70 +1,69 @@
+from typing import Optional, Tuple
 
-# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-class TreeNode(object):
-    def __init__(self, x):
-
-        self.val = x
-        self.left = None
-        self.right = None
-
-
-# the leetcode test cases are stupid.
-
-class Solution(object):
-    def deleteNode(self, root, key):
-
-        if not root or key == None:
-            return root
-
-        def finder(parent, node, key):
-            if not node:
-                return parent, None
-            elif node.val == key:
-                return parent, node
-            elif node.val < key:
-                return finder(node, node.right, key)
-            else:
-                return finder(node, node.left, key)
-
-        parent, node = finder(None, root, key)
+class Solution:
+    def deleteNode(self, root: Optional[TreeNode], key: int) -> Optional[TreeNode]:
+        node, parent = self.dfs(root, key)
+        # didn't find the node or the root is what we wanna delete
         if not node:
-            return root
+            if not root or root.val != key:
+                return root
+            leftChild, rightChild = root.left, root.right
+            if not leftChild:
+                return rightChild
+            if not rightChild:
+                return leftChild
+            curr = leftChild
+            while curr.right:
+                curr = curr.right
+            curr.right = rightChild
+            return leftChild
 
-        def helper(node):
-            if not node:
-                return None
-            elif (not node.left) and (not node.right):
-                return None
-            elif (not node.left) and node.right:
-                return node.right
-            elif node.left and (not node.right):
-                return node.left
+        leftChild, rightChild = node.left, node.right
+        if not leftChild and not rightChild:
+            if parent.left == node:
+                parent.left = None
             else:
-                org = node
-                prev, node = node, node.right
-                while node and node.left:
-                    prev = node
-                    node = node.left
-                if prev != org:
-                    prev.left = node.right
-                    node.right = None
-                    node.left = org.left
-                    node.right = org.right
-                    org.left, org.right = None, None
-                else:
-                    node.left = org.left
-                    org.left, org.right = None, None
-                return node
-
-        if not parent:
-            newnode = helper(root)
-            return newnode
+                parent.right = None
+        elif leftChild and rightChild:
+            if parent.left == node:
+                parent.left = leftChild
+            else:
+                parent.right = leftChild
+            curr = leftChild
+            while curr.right:
+                curr = curr.right
+            curr.right = rightChild
+        elif leftChild:
+            if parent.left == node:
+                parent.left = leftChild
+            else:
+                parent.right = leftChild
         else:
-            if parent.left is node:
-                newnode = helper(node)
-                parent.left = newnode
+            if parent.left == node:
+                parent.left = rightChild
             else:
-                newnode = helper(node)
-                parent.right = newnode
-            return root
+                parent.right = rightChild
+
+        return root
+
+    def dfs(self, root: Optional[TreeNode], key: int) -> Tuple[Optional[TreeNode], Optional[TreeNode]]:
+        if not root:
+            return None, None
+        if not root.left and not root.right:
+            return None, None
+
+        if root.left and root.left.val == key:
+            return root.left, root
+        if root.right and root.right.val == key:
+            return root.right, root
+
+        if root.val < key:
+            return self.dfs(root.right, key)
+        else:
+            return self.dfs(root.left, key)
