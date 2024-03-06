@@ -1,43 +1,20 @@
+from typing import List
 
-# the idea is greedy algorithm
+# implicit BFS idea:
+# 1) At nums[0] you have to jump. say the farthest you can jump is currEnd (0 + nums[0]), then for all i values within
+# [0, currEnd], you keep updating the currFarthest (which means the optimal farthest you can reach from the 2nd jump)
+# 2) Once i == currEnd, you need to reset the currEnd to the currFarthest and increment the number of jumps
+# 3) You don't need to scan all the way to i == len(nums) - 1 (because you already stand at the last position you don't
+# need to further increment the number of jumps). It's also guaranteed from the problem description you can reach the end.
+class Solution:
+    def jump(self, nums: List[int]) -> int:
+        numOfJumps = 0
+        currEnd = 0
+        currFarthest = 0
+        for i in range(len(nums) - 1):
+            currFarthest = max(currFarthest, i + nums[i])
+            if i == currEnd:
+                numOfJumps += 1
+                currEnd = currFarthest
 
-class Solution(object):
-    def jump(self, nums):
-
-        # in real interview we need to ask what to return for the corner cases
-        if not nums or len(nums) == 1:
-            return 0
-
-        start, end = 0, 0
-        steps = 0
-        n = len(nums)
-        farthest = 0
-
-        # within each round of scan, the range is [start, end], inclusive
-        # since we don't care about nums[-1], the ceiling for i is n - 2
-        while end < n - 1:
-            steps += 1
-
-            # core idea of greedy: if we can reach an index with 1 step, we
-            # do not use 2. However, each [start, end] range does not necessarily
-            # have 1 step index in it
-            for i in xrange(start, end + 1):
-                farthest = max(farthest, i + nums[i])
-            if farthest >= n - 1:
-                return steps
-
-            # next end = farthest so the index i can reach farthest
-            start, end = end + 1, farthest
-
-            # not needed because we assume we will always be able to reach it
-            # if start > end:
-            #     break
-
-            # not needed because we assume we will always be able to reach it
-            # return 2147483647
-
-
-
-Sol = Solution()
-nums = [2,3,1,1,4]
-print Sol.jump(nums)
+        return numOfJumps
