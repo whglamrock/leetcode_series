@@ -1,27 +1,18 @@
+from typing import List
 
-# Definition for an interval.
-
-class Interval(object):
-    def __init__(self, s=0, e=0):
-
-        self.start = s
-        self.end = e
-
-
-# the key is to transfer the orginal question into: find the longest non-overlapping
-# list of intervals
-
-class Solution(object):
-    def eraseOverlapIntervals(self, intervals):
-
-        intervals.sort(key = lambda x: x.end)
-        ans = []
-        for i in xrange(len(intervals)):
-            s, e = intervals[i].start, intervals[i].end
-            if not ans:
-                ans.append([s, e])
+# if there is overlapping, we choose the one with smaller end
+class Solution:
+    def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
+        intervals.sort()
+        curr = None
+        ans = 0
+        for start, end in intervals:
+            if curr is None or start >= curr:
+                curr = end
                 continue
-            if s >= ans[-1][-1]:
-                ans.append([s, e])
 
-        return len(intervals) - len(ans)
+            # overlapping, we will have to remove one of them
+            curr = min(end, curr)
+            ans += 1
+
+        return ans
