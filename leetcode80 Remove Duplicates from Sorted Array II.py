@@ -1,17 +1,18 @@
+from typing import List
 
-# super easy
-
-class Solution(object):
-    def removeDuplicates(self, nums):
-
-        counter,i = 1, 1
-        while i < len(nums):
-            if nums[i] == nums[i-1]:
-                counter += 1
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
+        # index is used to reassign nums[index]'s value
+        index = 1
+        count = 1
+        for i in range(1, len(nums)):
+            if nums[i] == nums[i - 1]:
+                count += 1
             else:
-                counter = 1
-            if counter == 3:
-                del nums[i]
-                counter -= 1    # to deal with situation like [1,1,1,1]...
-                continue
-            i += 1
+                count = 1
+
+            if count <= 2:
+                nums[index] = nums[i]
+                index += 1
+
+        return index
