@@ -1,31 +1,34 @@
+from typing import Optional
 
-# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-class TreeNode(object):
-    def __init__(self, x):
-        self.val = x
-        self.left = None
-        self.right = None
+class Solution:
+    def __init__(self):
+        self.ans = 0
 
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        self.ans = 0
+        self.dfs(root)
+        return self.ans - 1
 
-# idea: the length of the path is the leftdepth + rightdepth + 1,
-#   so set a global variable and traverse the tree
-
-class Solution(object):
-    def diameterOfBinaryTree(self, root):
-
+    def dfs(self, root: Optional[TreeNode]) -> int:
         if not root:
             return 0
 
-        self.ans = 0
+        maxLenFromRoot = 1
+        diameter = 1
+        if root.left:
+            maxLenFromLeftChild = self.dfs(root.left)
+            maxLenFromRoot += maxLenFromLeftChild
+            diameter += maxLenFromLeftChild
+        if root.right:
+            maxLenFromRightChild = self.dfs(root.right)
+            maxLenFromRoot = max(maxLenFromRoot, 1 + maxLenFromRightChild)
+            diameter += maxLenFromRightChild
 
-        def maxDepth(node):
-            if not node:
-                return 0
-            leftdepth = maxDepth(node.left)
-            rightdepth = maxDepth(node.right)
-            self.ans = max(self.ans, leftdepth + 1 + rightdepth)
-            return max(leftdepth, rightdepth) + 1
-
-        maxDepth(root)
-        return self.ans - 1
+        self.ans = max(self.ans, diameter)
+        return maxLenFromRoot

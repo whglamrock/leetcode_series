@@ -2,58 +2,35 @@ from typing import List
 
 class Solution:
     def searchRange(self, nums: List[int], target: int) -> List[int]:
-        indexOfTarget = self.binarySearchToFindTarget(nums, target)
-        if indexOfTarget == -1:
+        if not nums:
             return [-1, -1]
-        firstIndex = self.findFirstIndex(nums, target, 0, indexOfTarget)
-        lastIndex = self.findLastIndex(nums, target, indexOfTarget, len(nums) - 1)
-        return [firstIndex, lastIndex]
 
-    def binarySearchToFindTarget(self, nums: List[int], target: int) -> int:
+        ans = []
+        # find the first position
         l, r = 0, len(nums) - 1
         while l <= r:
-            if l == r:
-                if nums[l] == target:
-                    return l
-                else:
-                    return -1
             m = (l + r) // 2
-            if nums[m] == target:
-                return m
-            elif nums[m] < target:
-                l = m + 1
-            else:
-                r = m - 1
-
-        return -1
-
-    # nums[l:r + 1] <= target
-    def findFirstIndex(self, nums: List[int], target: int, l: int, r: int):
-        while l <= r:
             if l == r:
-                return l
-            m = (l + r) // 2
-            if nums[m] == target:
+                if nums[m] != target:
+                    return [-1, -1]
+                break
+            if nums[m] >= target:
                 r = m
-            # nums[m] < target
             else:
                 l = m + 1
+        ans.append(l)
 
-        return r
-
-    # nums[l:r + 1] >= target
-    def findLastIndex(self, nums: List[int], target: int, l: int, r: int):
-        while l <= r:
-            if l == r:
-                return l
+        # find the last position
+        l, r = 0, len(nums) - 1
+        while l < r:
             m = (l + r + 1) // 2
-            if nums[m] == target:
-                l = m
-            # nums[m] > target
-            else:
+            if nums[m] > target:
                 r = m - 1
+            else:
+                l = m
+        ans.append(l)
 
-        return l
+        return ans
 
 
 print(Solution().searchRange([2, 2], 2))
