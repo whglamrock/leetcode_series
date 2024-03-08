@@ -2,7 +2,7 @@ from collections import defaultdict
 from typing import List
 
 # Tweaked O(N) time BFS solution. The naive O(N ^ 2) graph solution gets MLE in the stupid leetcode.
-# To deal with annoying edge cases like [7,7,7...7], we need to use a visitedVals set to store the visited node values.
+# To deal with annoying edge cases like [7, 7, 7, ..., 7], we need to use a visitedVals set to store the visited node values.
 # Note the trick of checking the visitedVal before bulk adding all nodes with the same value to the nextTodo.
 class Solution:
     def minJumps(self, arr: List[int]) -> int:
