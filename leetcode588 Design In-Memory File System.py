@@ -1,28 +1,19 @@
-
 from collections import defaultdict
+from typing import List
 
-# a really stupid question from baidu. what's the point of it if without complexity requirements?
-# P.S., the sort in ls function can be saved using heapq (however, it takes more space and
-#   each insertion take extra O(logN))
-
+# P.S., another solution is using heapq in a folder to sub-folder heapq list, which saves some time in ls function
 class TrieNode:
     def __init__(self):
         self.isFile = False
         self.children = defaultdict(TrieNode)
-
-
 
 class FileSystem(object):
     def __init__(self):
         self.root = TrieNode()
         self.fileToContent = defaultdict(list)
 
-    # the path is alwasy valid
-    def ls(self, path):
-        """
-        :type path: str
-        :rtype: List[str]
-        """
+    # the path is always valid
+    def ls(self, path: str) -> List[str]:
         directories = path.split('/')
         curr = self.root
 
@@ -36,11 +27,7 @@ class FileSystem(object):
         else:
             return sorted(curr.children.keys())
 
-    def mkdir(self, path):
-        """
-        :type path: str
-        :rtype: None
-        """
+    def mkdir(self, path: str) -> None:
         directories = path.split('/')
         curr = self.root
 
@@ -49,12 +36,7 @@ class FileSystem(object):
                 continue
             curr = curr.children[directory]
 
-    def addContentToFile(self, filePath, content):
-        """
-        :type filePath: str
-        :type content: str
-        :rtype: None
-        """
+    def addContentToFile(self, filePath: str, content: str) -> None:
         directories = filePath.split('/')
         self.fileToContent[filePath].append(content)
         curr = self.root
@@ -65,13 +47,8 @@ class FileSystem(object):
             curr = curr.children[directory]
         curr.isFile = True
 
-    def readContentFromFile(self, filePath):
-        """
-        :type filePath: str
-        :rtype: str
-        """
+    def readContentFromFile(self, filePath: str) -> str:
         return ''.join(self.fileToContent[filePath])
-
 
 
 # Your FileSystem object will be instantiated and called as such:
