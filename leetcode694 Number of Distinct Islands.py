@@ -1,9 +1,9 @@
 from collections import defaultdict
 from typing import List, Dict
 
-# when calculating the string shape of an island, we don't need to sort the indexes for each row because the order of
-# doing dfs is unchanged. This means: for certain island shape, within each row, the indexes of 1's are added to the
-# value list of map in the same order.
+# when calculating the string shape of an island, we don't need to sort the indexes for each row because the order &
+# starting point of doing dfs is unchanged if it's the same shape. This means: for certain island shape,
+# within each row, the indexes of 1's are added to the value list of map in the same order.
 class Solution:
     def numDistinctIslands(self, grid: List[List[int]]) -> int:
         islandShapes = set()
@@ -18,7 +18,7 @@ class Solution:
                         valueList = rowTo1Indexes[k]
                         rowShape = ','.join(str(value - j) for value in valueList)
                         shape.append(rowShape)
-                    islandShapes.add('\n'.join(shape))
+                    islandShapes.add('_'.join(shape))
 
         return len(islandShapes)
 

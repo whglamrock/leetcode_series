@@ -1,16 +1,10 @@
-
 from collections import defaultdict, deque
+from typing import List
 
-# basically equals to number of islands (Strictly O(n) solution):
-    # if 2 stones in a same row/column they belong to the same island
-# for an island, optimally we can remove all stones until the last one. so the answer = numOfStones - numOfIslands
-
+# Basically equals to number of islands (Strictly O(n) solution): if 2 stones in a same row/column they belong to
+# the same island. For an island, optimally we can remove all stones until the last one.
 class Solution(object):
-    def removeStones(self, stones):
-        """
-        :type stones: List[List[int]]
-        :rtype: int
-        """
+    def removeStones(self, stones: List[List[int]]) -> int:
         rows = defaultdict(set)
         cols = defaultdict(set)
 
@@ -40,14 +34,3 @@ class Solution(object):
                     del cols[y]
 
         return len(stones) - numOfIslands
-
-
-
-
-
-
-
-
-
-
-
