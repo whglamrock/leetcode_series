@@ -1,3 +1,5 @@
+from typing import List
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -10,7 +12,7 @@ class TreeNode:
 # 1) For each node, the number of leaf nodes is 2 ^ h (h is the height/distance to leaf of this node)
 # 2) so the nested for loop (left distance & right distance for loop) causes 2 ^ h * 2 ^ h = 2 ^ (2 * h) = n ^ 2
 # where n is the number of nodes in this subtree
-# 3) Considering each node in the tree from root downwards, the total time is: n ^ 2 + (n / 2) ^ * 2 + (n / 4) ^ 2 * 4
+# 3) Considering each node in the tree from root downwards, the total time is: n ^ 2 + (n / 2) ^ 2 * 2 + (n / 4) ^ 2 * 4
 # + ... = n ^ 2 + (n ^ 2) / 2 + (n ^ 2) / 4 + (n ^ 2) / 8 + ... = O(n ^ 2)
 class Solution:
     def __init__(self):
@@ -21,7 +23,7 @@ class Solution:
         self.dfs(root, distance)
         return self.count
 
-    def dfs(self, node: TreeNode, distance: int):
+    def dfs(self, node: TreeNode, distance: int) -> List[int]:
         if not node:
             return []
         if not node.left and not node.right:

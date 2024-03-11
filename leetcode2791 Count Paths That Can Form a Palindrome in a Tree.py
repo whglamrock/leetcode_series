@@ -3,7 +3,7 @@ from copy import deepcopy
 from typing import Dict, List
 
 # The stupid leetcode only accepts O(N) solution which is unachievable without using bitmask.
-# Below O(N ^ 2) solution is definitely OK in real interview. See idea: https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/solutions/3803762/java-c-python-bit-mask/
+# Below O(N ^ 2) solution is definitely OK in real interview. For idea, see: https://leetcode.com/problems/count-paths-that-can-form-a-palindrome-in-a-tree/solutions/3803762/java-c-python-bit-mask/
 class Solution:
     def countPalindromePaths(self, parent: List[int], s: str) -> int:
         nodeToChildren = defaultdict(set)
@@ -15,17 +15,17 @@ class Solution:
         visited = set()
         while todo:
             nextTodo = []
-            for node, currCharCount in todo:
+            for node, pathCharCount in todo:
                 if node in visited:
                     continue
-                nodeToCharCount[node] = currCharCount
+                nodeToCharCount[node] = pathCharCount
                 visited.add(node)
                 for child in nodeToChildren[node]:
                     if child in visited:
                         continue
-                    nextCharCount = deepcopy(currCharCount)
-                    nextCharCount[s[child]] += 1
-                    nextTodo.append([child, nextCharCount])
+                    nextPathCharCount = deepcopy(pathCharCount)
+                    nextPathCharCount[s[child]] += 1
+                    nextTodo.append([child, nextPathCharCount])
 
             todo = nextTodo
 

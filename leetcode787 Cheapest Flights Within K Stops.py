@@ -14,16 +14,16 @@ class Solution:
         nodeToMinFlights = {}
 
         while pq:
-            price, node, numOfFlights = heappop(pq)
+            cost, node, numOfFlights = heappop(pq)
             if node == dst:
-                return price
+                return cost
 
             # already used up all available number of flights
             if numOfFlights >= k:
                 continue
 
             # means we have visited this node with fewer flights AND CHEAPER PRICE because
-            # the pq always pops out the next stop with the currently cheapest price
+            # the pq always pops out the next stop with the currently cheapest cost
             if node in nodeToMinFlights and nodeToMinFlights[node] < numOfFlights:
                 continue
             nodeToMinFlights[node] = numOfFlights
@@ -32,6 +32,6 @@ class Solution:
                 continue
             for nextNode in srcToDestToPrice[node]:
                 nextPrice = srcToDestToPrice[node][nextNode]
-                heappush(pq, [price + nextPrice, nextNode, numOfFlights + 1])
+                heappush(pq, [cost + nextPrice, nextNode, numOfFlights + 1])
 
         return -1
