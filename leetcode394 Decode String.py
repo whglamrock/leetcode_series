@@ -7,27 +7,24 @@ class Solution:
         i = 0
         while i < len(s):
             if s[i].isdigit():
-                currDigit = 0
-                while i < len(s) and s[i].isdigit():
-                    currDigit = currDigit * 10 + int(s[i])
+                currDigit = int(s[i])
+                while i + 1 < len(s) and s[i + 1].isdigit():
+                    currDigit = currDigit * 10 + int(s[i + 1])
                     i += 1
                 stack.append(currDigit)
-            elif s[i] == '[':
-                i += 1
             elif s[i] == ']':
-                currStr = deque()
-                # P.S. in case like 3[a2[c]], there might be multiple  consecutive substrings
+                # P.S. in case like 3[a2[c]], there might be multiple consecutive substrings
                 # so we need to pop all of them before checking if stack[-1] is an int
+                currStr = deque()
                 while stack and type(stack[-1]) == str:
                     currStr.appendleft(stack.pop())
                 currStr = ''.join(currStr)
                 if stack and type(stack[-1]) == int:
                     currStr *= stack.pop()
                 stack.append(currStr)
-                i += 1
-            else:
+            elif s[i] in letters:
                 stack.append(s[i])
-                i += 1
+            i += 1
 
         return ''.join(stack)
 

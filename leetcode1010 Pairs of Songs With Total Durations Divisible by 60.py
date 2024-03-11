@@ -3,20 +3,20 @@ from typing import List
 
 class Solution:
     def numPairsDivisibleBy60(self, time: List[int]) -> int:
-        n = len(time)
-        numCount = defaultdict(int)
-        ans = 0
-        for i in range(n):
+        for i in range(len(time)):
             time[i] %= 60
-            if time[i] == 0 and 0 in numCount:
-                ans += numCount[0]
-                numCount[0] += 1
-                continue
-            if 60 - time[i] in numCount:
-                ans += numCount[60 - time[i]]
-            numCount[time[i]] += 1
 
-        return ans
+        numOfPairs = 0
+        durationCount = defaultdict(int)
+        for duration in time:
+            if 60 - duration in durationCount:
+                numOfPairs += durationCount[60 - duration]
+            elif duration == 0:
+                if 0 in durationCount:
+                    numOfPairs += durationCount[0]
+            durationCount[duration] += 1
+
+        return numOfPairs
 
 
 print(Solution().numPairsDivisibleBy60(time=[30, 20, 150, 100, 40]))
