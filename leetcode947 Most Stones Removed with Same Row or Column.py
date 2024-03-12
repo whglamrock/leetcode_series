@@ -1,36 +1,44 @@
-from collections import defaultdict, deque
+from collections import defaultdict
 from typing import List
 
-# Basically equals to number of islands (Strictly O(n) solution): if 2 stones in a same row/column they belong to
-# the same island. For an island, optimally we can remove all stones until the last one.
-class Solution(object):
+# Most importantly we need to realize: for an island, optimally we can remove all stones until the last one. so this
+# problem becomes a number of island problem
+class Solution:
     def removeStones(self, stones: List[List[int]]) -> int:
-        rows = defaultdict(set)
-        cols = defaultdict(set)
+        xToYs, yToXs = defaultdict(set), defaultdict(set)
+        for x, y in stones:
+            xToYs[x].add(y)
+            yToXs[y].add(x)
 
-        for i, j in stones:
-            rows[i].add(j)
-            cols[j].add(i)
-
-        queue = deque()
         numOfIslands = 0
-        for i, j in stones:
-            # means the node has been removed by previous dfs
-            if j not in rows[i]:
+        for x, y in stones:
+            # this stone has been removed
+            if x not in xToYs or y not in xToYs[x]:
                 continue
-            queue.append((i, j))
             numOfIslands += 1
-            while queue:
-                x, y = queue.popleft()
-                if x in rows:
-                    rows[x].discard(y)
-                    for y1 in rows[x]:
-                        queue.append((x, y1))
-                    del rows[x]
-                if y in cols:
-                    cols[y].discard(x)
-                    for x1 in cols[y]:
-                        queue.append((x1, y))
-                    del cols[y]
+            # bfs
+            todo = {(x, y)}
+            visited = set()
+            while todo:
+                nextTodo = set()
+                for i, j in todo:
+                    visited.add((i, j))
+                    # search for the same ys
+                    xToYs[i].discard(j)
+                    if not xToYs[i]:
+                        del xToYs[i]
+                    for jj in xToYs[i]:
+                        if (i, jj) in visited:
+                            continue
+                        nextTodo.add((i, jj))
+                    # search for the same xs
+                    yToXs[j].discard(i)
+                    if not yToXs[j]:
+                        del yToXs[j]
+                    for ii in yToXs[j]:
+                        if (ii, j) in visited:
+                            continue
+                        nextTodo.add((ii, j))
+                todo = nextTodo
 
         return len(stones) - numOfIslands

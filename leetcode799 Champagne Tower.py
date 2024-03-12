@@ -8,14 +8,17 @@ class Solution:
             # the currRow has i + 1 cups, and nextRow has i + 2
             nextRow = [0] * (i + 2)
             # only loop through the currRow
-            for j in range(i + 1):
+            for j in range(len(currRow)):
                 # if the champagne is overflowing
-                if currRow[j] >= 1:
-                    nextRow[j] += (currRow[j] - 1) / 2
-                    nextRow[j + 1] += (currRow[j] - 1) / 2
-                    currRow[j] = 1
-            if i < queryRow:
-                currRow = nextRow
+                if currRow[j] <= 1:
+                    continue
+                extra = currRow[j] - 1
+                nextRow[j] += extra / 2
+                nextRow[j + 1] += extra / 2
+                currRow[j] = 1
+            if i == queryRow:
+                break
+            currRow = nextRow
 
         return currRow[queryGlass]
 
