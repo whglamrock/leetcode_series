@@ -8,9 +8,9 @@ class Solution:
 
         maxScore, minScore = weights[0] + weights[-1], weights[0] + weights[-1]
         consecutivePairs = []
-        # note that weights[0] and weights[-1] will always be added in score
+        # note that wordIndexes[0] and wordIndexes[-1] will always be added in score
         # we just need to choose k - 1 cut points, but these points can overlap with
-        # weights[0] or weights[-1]
+        # wordIndexes[0] or wordIndexes[-1]
         for i in range(len(weights) - 1):
             consecutivePairs.append(weights[i] + weights[i + 1])
         consecutivePairs.sort()
