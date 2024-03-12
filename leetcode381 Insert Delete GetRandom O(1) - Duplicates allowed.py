@@ -1,56 +1,50 @@
-
-# the idea is to always swapping the value to delete with the last element and delete the last element
-# data structure used: array + hashmap
-
-import random
 from collections import defaultdict
+from random import randint
 
-class RandomizedCollection(object):
-
+# 1) The reason we need to use set instead of list to store the indexes is because when we do the swapping, we won't be able to
+# keep the indexes of the number to be swapped "in" sorted with O(1) time if we insert "indexOfRemoved" into a list
+# 2) Remember using Python set.pop() operation, which is amortized O(1) time
+class RandomizedCollection:
     def __init__(self):
+        self.nums = []
+        self.numToIndexes = defaultdict(set)
 
-        self.vals = []
-        self.dic = defaultdict(set)
-
-
-    def insert(self, val):
-
-        self.vals.append(val)
-        self.dic[val].add(len(self.vals) - 1)
-        return len(self.dic[val]) == 1
-
-
-    def remove(self, val):
-
-        if not self.dic[val]:
+    def insert(self, val: int) -> bool:
+        if val not in self.numToIndexes:
+            self.numToIndexes[val].add(len(self.nums))
+            self.nums.append(val)
+            return True
+        else:
+            self.numToIndexes[val].add(len(self.nums))
+            self.nums.append(val)
             return False
 
-        # getin is a value
-        getin = self.vals[-1]
-        # getout is an index
-        getout = self.dic[val].pop()
-        self.vals[getout] = getin
+    def remove(self, val: int) -> bool:
+        if val not in self.numToIndexes:
+            return False
 
-        # means originally, the self.array contains only one element
-        #   i.e., getin == val and len(self.array) == 1
-        if not self.dic[getin]:
-            del self.dic[getin]
+        if self.nums[-1] == val:
+            self.numToIndexes[val].discard(len(self.nums) - 1)
+            if not self.numToIndexes[val]:
+                del self.numToIndexes[val]
+            self.nums.pop()
+            return True
         else:
-            # the order of two following steps can't be switched
-            #   e.g., when getout == len(self.vals) - 1 <=> getin == val
-            self.dic[getin].add(getout)
-            self.dic[getin].discard(len(self.vals) - 1)
+            indexOfRemoved = self.numToIndexes[val].pop()
+            if not self.numToIndexes[val]:
+                del self.numToIndexes[val]
 
-        # it needs to be after the above getin check
-        #    because we need to get rid of the old 'len(self.vals) - 1'
-        self.vals.pop()
-        return True
+            indexToDiscard = len(self.nums) - 1
+            numToSwap = self.nums[-1]
+            self.numToIndexes[numToSwap].discard(indexToDiscard)
+            self.numToIndexes[numToSwap].add(indexOfRemoved)
+            self.nums[indexOfRemoved] = numToSwap
+            self.nums.pop()
+            return True
 
-
-    def getRandom(self):
-
-        return random.choice(self.vals)
-
+    def getRandom(self) -> int:
+        randomIndex = randint(0, len(self.nums) - 1)
+        return self.nums[randomIndex]
 
 
 # Your RandomizedCollection object will be instantiated and called as such:
