@@ -1,6 +1,35 @@
+
+# O(log(maxSum)) binary search solution, most practical to implement in real interview
+class Solution:
+    def maxValue(self, n: int, index: int, maxSum: int) -> int:
+        maxSum -= n
+        l, r = 0, maxSum
+        while l < r:
+            m = (l + r + 1) // 2
+            if self.check(n, index, m, maxSum):
+                l = m
+            else:
+                r = m - 1
+        # exit condition is l == r
+
+        # return l + 1 because we excluded the bottom layer of 1's
+        return l + 1
+
+    def check(self, n: int, index: int, indexVal: int, maxSum: int) -> bool:
+        # minHeight is min height after remove the bottom layer of 1 units
+        minHeightInLeft = max(indexVal - index, 0)
+        heightSum = (indexVal - 1 + minHeightInLeft) * (indexVal - minHeightInLeft) // 2
+
+        minHeightInRight = max(indexVal - (n - index - 1), 0)
+        heightSum += (indexVal - 1 + minHeightInRight) * (indexVal - minHeightInRight) // 2
+
+        return heightSum + indexVal <= maxSum
+
+
+'''
 from math import floor, sqrt
 
-# This is a stupid math problem.
+# This is a stupid math problem. Below math solution is O(1) but is almost impossible to come up with in real interview.
 # Idea:
 # 1) We first put 1 at each index, and try to add 1 to index and it's neighbors, extending leftward and rightward.
 # e.g., with n = 6 and index = 2, we first have: 1 1 1 1 1 1
@@ -43,3 +72,4 @@ class Solution:
         heightOfUnequalEdgeOnes = n - maxRegularNumOfOnesToAdd
         maxSum -= sumOfUnequalEdgeOnes
         return 1 + heightOfEqualEdgeOnes + heightOfUnequalEdgeOnes + maxSum // n
+'''

@@ -1,24 +1,53 @@
+from typing import Optional, Tuple
 
-# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
+class Solution:
+    def __init__(self):
+        self.nodeToNumOfNodes = {}
+        self.nodeToIsBst = {}
 
-class TreeNode(object):
-    def __init__(self, x):
+    def largestBSTSubtree(self, root: Optional[TreeNode]) -> int:
+        if not root:
+            return 0
 
-        self.val = x
-        self.left = None
-        self.right = None
+        self.nodeToIsBst = {}
+        self.nodeToNumOfNodes = {}
+        self.dfs(root)
 
+        maxNumOfNode = 0
+        for node in self.nodeToIsBst:
+            if self.nodeToIsBst[node]:
+                maxNumOfNode = max(maxNumOfNode, self.nodeToNumOfNodes[node])
 
-# idea from: https://discuss.leetcode.com/topic/36966/short-python-solution
-class Solution(object):
-    def largestBSTSubtree(self, root):
+        return maxNumOfNode
 
-        def dfs(root):
-            if (not root):
-                return 0, 0, float('inf'), float('-inf')
-            N1, n1, min1, max1 = dfs(root.left)
-            N2, n2, min2, max2 = dfs(root.right)
-            n = n1 + 1 + n2 if max1 < root.val < min2 else float('-inf')
-            return max(N1, N2, n), n, min(min1, min2, root.val), max(max1, max2, root.val)
+    def dfs(self, node: Optional[TreeNode]) -> Tuple[int, int, int]:
+        if not node.left and not node.right:
+            self.nodeToIsBst[node] = True
+            self.nodeToNumOfNodes[node] = 1
+            return node.val, node.val, 1
 
-        return dfs(root)[0]
+        minVal, maxVal, numOfNodes = node.val, node.val, 1
+        isBst = True
+        if node.left:
+            minOfLeft, maxOfLeft, numOfNodesInLeft = self.dfs(node.left)
+            if maxOfLeft >= node.val or not self.nodeToIsBst[node.left]:
+                isBst = False
+            numOfNodes += numOfNodesInLeft
+            minVal = min(minVal, minOfLeft)
+            maxVal = max(maxVal, maxOfLeft)
+        if node.right:
+            minOfRight, maxOfRight, numOfNodesInRight = self.dfs(node.right)
+            if minOfRight <= node.val or not self.nodeToIsBst[node.right]:
+                isBst = False
+            numOfNodes += numOfNodesInRight
+            minVal = min(minVal, minOfRight)
+            maxVal = max(maxVal, maxOfRight)
+
+        self.nodeToIsBst[node] = isBst
+        self.nodeToNumOfNodes[node] = numOfNodes
+        return minVal, maxVal, numOfNodes
