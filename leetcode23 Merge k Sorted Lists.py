@@ -9,6 +9,7 @@ class ListNode:
 class Solution:
     def mergeKLists(self, lists: List[Optional[ListNode]]) -> Optional[ListNode]:
         pq = []
+        # the reason to use this map is in python ListNode object is not comparable
         indexToCurrNode = {}
         for i, head in enumerate(lists):
             if head:
