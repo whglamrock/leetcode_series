@@ -1,10 +1,6 @@
 
-class Solution(object):
-    def minAddToMakeValid(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+class Solution:
+    def minAddToMakeValid(self, s: str) -> int:
         stack = []
         for char in s:
             if char == '(':

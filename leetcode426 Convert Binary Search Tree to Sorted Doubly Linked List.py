@@ -1,41 +1,36 @@
+from typing import Tuple
 
-# Definition for a Node.
-
-class Node(object):
-    def __init__(self, val, left, right):
+class Node:
+    def __init__(self, val, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
-
-
-class Solution(object):
-    def treeToDoublyList(self, root):
-        """
-        :type root: Node
-        :rtype: Node
-        """
+class Solution:
+    def treeToDoublyList(self, root: 'Optional[Node]') -> 'Optional[Node]':
         if not root:
-            return
-
-        # find the smallest node as the return value
-        head, tail = self.dfs(root)
-        tail.right = head
-        head.left = tail
+            return None
+        head, tail = self.buildHeadAndTail(root)
+        head.left, tail.right = tail, head
 
         return head
 
-    def dfs(self, node):
-        head, tail = node, node
-        if node.left:
-            prevHead, prevTail = self.dfs(node.left)
-            head = prevHead
-            prevTail.right = node
-            node.left = prevTail
-        if node.right:
-            nextHead, nextTail = self.dfs(node.right)
-            tail = nextTail
-            nextHead.left = node
-            node.right = nextHead
+    def buildHeadAndTail(self, node: 'Optional[Node]') -> Tuple['Node', 'Node']:
+        if not node:
+            return None, None
+        if not node.left and not node.right:
+            return node, node
+        if not node.left:
+            headOfRight, tailOfRight = self.buildHeadAndTail(node.right)
+            node.right, headOfRight.left = headOfRight, node
+            return node, tailOfRight
+        if not node.right:
+            headOfLeft, tailOfLeft = self.buildHeadAndTail(node.left)
+            tailOfLeft.right, node.left = node, tailOfLeft
+            return headOfLeft, node
 
-        return head, tail
+        headOfLeft, tailOfLeft = self.buildHeadAndTail(node.left)
+        headOfRight, tailOfRight = self.buildHeadAndTail(node.right)
+        tailOfLeft.right, node.left = node, tailOfLeft
+        node.right, headOfRight.left = headOfRight, node
+        return headOfLeft, tailOfRight

@@ -1,5 +1,5 @@
 
-# need to think of divide and conquer idea (fastPow)
+# need to be able to think of the divide and conquer idea (fastPow)
 class Solution:
     def myPow(self, x: float, n: int) -> float:
         if n < 0:
@@ -22,4 +22,3 @@ class Solution:
 
 print(Solution().myPow(1.00012, 1024))
 print(Solution().myPow(3.2, 10))
-
