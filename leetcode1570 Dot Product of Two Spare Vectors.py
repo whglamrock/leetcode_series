@@ -1,28 +1,22 @@
+from typing import List
+
 class SparseVector:
-    def __init__(self, nums):
-        """
-        :type nums: List[int]
-        """
-        self.nums = nums
-        self.nonZeroIndexes = set()
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                self.nonZeroIndexes.add(i)
+    def __init__(self, nums: List[int]):
+        self.indexToNum = {}
+        for i, num in enumerate(nums):
+            if num:
+                self.indexToNum[i] = num
 
     # Return the dotProduct of two sparse vectors
-    def dotProduct(self, vec):
-        """
-        :type vec: 'SparseVector'
-        :rtype: int
-        """
-        nonZeroIndexesOfVec = vec.nonZeroIndexes
-        nonZeroIndexesOfBoth = nonZeroIndexesOfVec.intersection(self.nonZeroIndexes)
-
+    def dotProduct(self, vec: 'SparseVector') -> int:
+        indexToNumOfVec = vec.indexToNum
+        non0Indexes = set(self.indexToNum.keys()).intersection(indexToNumOfVec.keys())
         ans = 0
-        for i in nonZeroIndexesOfBoth:
-            ans += vec.nums[i] * self.nums[i]
+        for i in non0Indexes:
+            ans += self.indexToNum[i] * indexToNumOfVec[i]
 
         return ans
+
 
 # Your SparseVector object will be instantiated and called as such:
 # v1 = SparseVector(nums1)

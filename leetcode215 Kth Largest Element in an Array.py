@@ -31,8 +31,8 @@ class Solution:
         while i < j:
             while i < j and nums[i] <= nums[l]:
                 i += 1
-            # at this point i could be == j. we still wanna proceed because we wanna make sure
-            # after swapping nums[l] and nums[j], nums[j + 1:] will be strictly bigger than nums[j]
+            # when j == i, we won't need any more swap but we need j further -=1 once more
+            # so that nums[:j + 1] strictly <= nums[l], nums[j + 1:] strictly > nums[l]
             while j >= i and nums[j] > nums[l]:
                 j -= 1
             if i < j:
@@ -46,14 +46,17 @@ print(Solution().findKthLargest(nums=[1, 1, 1, 2, 2, 3, 4, 6, 6, 7, 9], k=5))
 
 
 '''
-# O(N * log(N)) solution:
-class Solution(object):
-    def findKthLargest(self, nums, k):
+from heapq import *
 
-        if not nums or len(nums) < k:
-            return
-
-        nums.sort()
-        nums.reverse()
-        return nums[k - 1]
+# O(n * log(k)) heapq solution
+class Solution:
+    def findKthLargest(self, nums: List[int], k: int) -> int:
+        pq = []
+        for num in nums:
+            heappush(pq, num)
+            if len(pq) > k:
+                # pop out the smallest so the largest ones remain in heap
+                heappop(pq)
+        
+        return pq[0]
 '''
