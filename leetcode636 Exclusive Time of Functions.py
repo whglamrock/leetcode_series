@@ -1,8 +1,11 @@
 from typing import List
 
-# we have to use a stack to store the started/ongoing functions instead of using a "executionFunction" single variable
+# 1) We have to use a stack to store the started/ongoing functions instead of using a "executionFunction" single variable
 # to record the start function. Because for every operation you will need to switch context, in which case you will
-# lose track of which function you should execute (i.e., the "executionFunction" may point to the wrong function)
+# lose track of which function you should execute (i.e., the "executionFunction" may point to the wrong function).
+# 2) We also need a currStartTime variable to record/reset the new start time, especially when a function ends and
+# we need to restart executing the function on top of the stack. If we simply store the original start time in the stack
+# that original start time != currStartTime and will result in wrong execution time calculation.
 class Solution:
     def exclusiveTime(self, n: int, logs: List[str]) -> List[int]:
         stack = []

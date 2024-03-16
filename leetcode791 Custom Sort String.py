@@ -1,28 +1,22 @@
+from collections import Counter
 
-from collections import defaultdict
-
-class Solution(object):
-    def customSortString(self, S, T):
-
+class Solution:
+    def customSortString(self, order: str, s: str) -> str:
+        charCount = Counter(s)
         ans = []
-        letterCount = defaultdict(int)
-        for c in T:
-            letterCount[c] += 1
-
-        for c in S:
-            if c not in letterCount:
+        for char in order:
+            if char not in charCount:
                 continue
-            for i in xrange(letterCount[c]):
-                ans.append(c)
-            del letterCount[c]
+            for i in range(charCount[char]):
+                ans.append(char)
+            del charCount[char]
 
-        # deal with the leftover letters
-        for c in letterCount:
-            for i in xrange(letterCount[c]):
-                ans.append(c)
+        # deal with leftover chars (the ones with no order restriction)
+        for char in charCount:
+            for i in range(charCount[char]):
+                ans.append(char)
 
         return ''.join(ans)
 
 
-
-print Solution().customSortString("cba", "abcd")
+print(Solution().customSortString("cba", "abcd"))
