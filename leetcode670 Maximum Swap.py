@@ -1,31 +1,42 @@
 
-class Solution(object):
-    def maximumSwap(self, num):
+# optimal O(n) solution: scanning backward, record the index of the max digit seen so far; then try to find
+# the left most digit < the max digit seen so far
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+        num = [int(digit) for digit in str(num)]
+        maxIndex = len(num) - 1
+        left, right = 0, 0
+        for i in range(len(num) - 1, -1, -1):
+            if num[i] > num[maxIndex]:
+                maxIndex = i
+            elif num[i] < num[maxIndex]:
+                left = i
+                right = maxIndex
 
-        num = str(num)
-        n = len(num)
-        index_of_max_from_right = [0] * n
-        swapped_digits = list(num)
+        num[left], num[right] = num[right], num[left]
+        return int(''.join([str(digit) for digit in num]))
 
-        # scan from right to left, find the index of the biggest digit to num[i]'s right (including num[i])
-        for i in xrange(n - 1, -1, -1):
-            # second condition is ">=" because you want to swap the smaller digit with the
-            #   right most bigger digit
-            if i < n - 1 and num[index_of_max_from_right[i + 1]] >= num[i]:
-                index_of_max_from_right[i] = index_of_max_from_right[i + 1]
-            else:
-                index_of_max_from_right[i] = i
 
-        the_index_to_swap = None
-        j = 0
-        while j < n:
-            if num[index_of_max_from_right[j]] > num[j]:
-                the_index_to_swap = index_of_max_from_right[j]
-                break
-            j += 1
+'''
+# straightforward sorting solution, O(n * log(n)) time. num has at most 8 digits so it's also fine to use this
+# solution in real interview.
+class Solution:
+    def maximumSwap(self, num: int) -> int:
+        digits = []
+        digitToIndex = {}
+        originalNum = str(num)
+        for i, char in enumerate(str(num)):
+            digits.append(int(char))
+            digitToIndex[int(char)] = i
+        digits.sort(reverse=True)
 
-        if the_index_to_swap != None:
-            swapped_digits[the_index_to_swap] = num[j]
-            swapped_digits[j] = num[the_index_to_swap]
+        for i, digit in enumerate(digits):
+            originalDigit = int(originalNum[i])
+            if originalDigit == digit:
+                continue
+            # found the digit to swap
+            j = digitToIndex[digit]
+            return int(originalNum[:i] + str(digit) + originalNum[i + 1:j] + str(originalDigit) + originalNum[j + 1:])
 
-        return int(''.join(swapped_digits))
+        return int(originalNum)
+'''
