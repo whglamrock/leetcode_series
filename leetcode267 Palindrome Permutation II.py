@@ -1,59 +1,51 @@
+from collections import Counter
+from copy import deepcopy
+from typing import List, Dict
 
-from copy import copy
-class Solution(object):
-    def generatePalindromes(self, s):
+class Solution:
+    def generatePalindromes(self, s: str) -> List[str]:
+        charCount = Counter(s)
+        oddCountChars = self.getOddCountChars(charCount)
+        if len(oddCountChars) > 1:
+            return []
 
-        dick = {}
-        for char in s:
-            if char not in dick:
-                dick[char] = 1
-            else:
-                dick[char] += 1
-
-        odd = []
-        for item in dick:
-            if dick[item] % 2 != 0:
-                odd.append(item)
-
-        todo = []
-        if len(odd) > 1: return []
-        if odd:
-            newpool = copy(dick)
-            newpool[odd[0]] -= 1
-            if newpool[odd[0]] == 0:
-                del newpool[odd[0]]
-            todo.append((odd[0], newpool))
+        if len(oddCountChars) == 0:
+            todo = [['', charCount]]
         else:
-            for item in dick:
-                newpool = copy(dick)
-                newpool[item] -= 2
-                if newpool[item] == 0:
-                    del newpool[item]
-                todo.append((item + item, newpool))
+            charCount[oddCountChars[0]] -= 1
+            if not charCount[oddCountChars[0]]:
+                del charCount[oddCountChars[0]]
+            todo = [[oddCountChars[0], charCount]]
 
-        ans = []
+        ans = set()
+        visited = set()
         while todo:
-            next = []
-            for already, pool in todo:
-                for candidate in pool:
-                    nextpool = copy(pool)
-                    if nextpool[candidate] == 2:
-                        del nextpool[candidate]
-                    else:
-                        nextpool[candidate] -= 2
-                    next.append((candidate + already + candidate, nextpool))
-            if (not next):
-                ans = todo
-                break
-            todo = next
+            nextTodo = []
+            for currStr, currCharCount in todo:
+                visited.add(currStr)
+                if not currCharCount:
+                    ans.add(currStr)
+                for nextChar in currCharCount:
+                    nextStr = nextChar + currStr + nextChar
+                    if nextStr in visited:
+                        continue
+                    visited.add(nextStr)
+                    nextCharCount = deepcopy(currCharCount)
+                    nextCharCount[nextChar] -= 2
+                    if not nextCharCount[nextChar]:
+                        del nextCharCount[nextChar]
+                    nextTodo.append([nextStr, nextCharCount])
 
-        for i in xrange(len(ans)):
-            ans[i] = ans[i][0]
+            todo = nextTodo
 
-        return ans
+        return list(ans)
+
+    def getOddCountChars(self, charCount: Dict[str, int]) -> List[str]:
+        oddCountChars = []
+        for char in charCount:
+            if charCount[char] % 2:
+                oddCountChars.append(char)
+        return oddCountChars
 
 
-
-Sol = Solution()
-s = 'aaaabb'
-print Sol.generatePalindromes(s)
+print(Solution().generatePalindromes('aaaabb'))

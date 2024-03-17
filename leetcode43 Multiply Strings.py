@@ -8,7 +8,7 @@ class Solution(object):
         for i, digit1 in enumerate(num1):
             for j, digit2 in enumerate(num2):
                 product = (ord(digit1) - ord('0')) * (ord(digit2) - ord('0'))
-                tens = product / 10
+                tens = product // 10
                 ones = product % 10
                 digits[i + j] += tens
                 digits[i + j + 1] += ones
