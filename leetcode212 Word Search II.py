@@ -29,6 +29,8 @@ class Solution(object):
             # do no return here because the word may share a common prefix with other words
 
         m, n = len(board), len(board[0])
+        # the reason for checking i, j here instead of not doing dfs in line 44-47 is because we need
+        # one more layer of dfs to trigger curr.isWord == True.
         if i < 0 or i >= m or j < 0 or j >= n:
             return
         if board[i][j] not in curr.children:

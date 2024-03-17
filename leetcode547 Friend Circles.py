@@ -1,53 +1,37 @@
+from typing import List
 
-from collections import deque
+class Solution:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        numOfProvinces = 0
+        n = len(isConnected)
+        for i in range(n):
+            if isConnected[i][i] == 0:
+                continue
+            self.bfs(isConnected, i)
+            numOfProvinces += 1
 
-# no need to use union find. DFS solution can achieve O(N^2) time complexity
+        return numOfProvinces
 
-class Solution(object):
-    def findCircleNum(self, M):
-        """
-        :type M: List[List[int]]
-        :rtype: int
-        """
-        if not M:
-            return 0
-
-        ans = 0
-        for i in xrange(len(M)):
-            for j in xrange(len(M)):
-                if M[i][j] == 1:
-                    ans += 1
-                    M[i][j] = 0
-                    self.dfs(i, j, M)
-
-        return ans
-
-    def dfs(self, i, j, M):
-        queue = deque()
-        queue.append((i, j))
-        visitedRows = set()
-        visitedCols = set()
-        while queue:
-            x, y = queue.popleft()
-            if x not in visitedRows:
-                for y1 in xrange(len(M)):
-                    if M[x][y1] == 1:
-                        queue.append((x, y1))
-                        M[x][y1] = 0
-            if y not in visitedCols:
-                for x1 in xrange(len(M)):
-                    if M[x1][y] == 1:
-                        queue.append((x1, y))
-                        M[x1][y] = 0
-            visitedRows.add(x)
-            visitedCols.add(y)
+    def bfs(self, isConnected: List[List[int]], city: int):
+        n = len(isConnected)
+        todo = {city}
+        while todo:
+            nextTodo = set()
+            for node in todo:
+                # means this node is visited
+                isConnected[node][node] = 0
+                for nextNode, value in enumerate(isConnected[node]):
+                    if value == 0 or node == nextNode:
+                        continue
+                    # cut the connection
+                    isConnected[node][nextNode] = 0
+                    isConnected[nextNode][node] = 0
+                    nextTodo.add(nextNode)
+            todo = nextTodo
 
 
-
-print Solution().findCircleNum([
-    [1,1,0],
-    [1,1,0],
-    [0,0,1]
-])
-
-
+print(Solution().findCircleNum([
+    [1, 1, 0],
+    [1, 1, 0],
+    [0, 0, 1]
+]))
