@@ -22,7 +22,6 @@ class Solution:
             nodeToReturn = head.next
         if prev:
             prev.next = slow.next
-            if slow:
-                slow.next = None
+            slow.next = None
 
         return nodeToReturn
