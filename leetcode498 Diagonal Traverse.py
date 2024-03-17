@@ -9,7 +9,7 @@ class Solution:
             for i in range(min(diagonalIndex, m - 1), -1, -1):
                 j = diagonalIndex - i
                 if j >= n:
-                    continue
+                    break
                 level.append(mat[i][j])
             if diagonalIndex % 2 == 0:
                 ans.extend(level)

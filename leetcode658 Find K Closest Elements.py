@@ -20,23 +20,23 @@ class Solution:
         ans = deque([arr[closestIndex]])
         l, r = closestIndex - 1, closestIndex + 1
         k -= 1
-        while k:
-            while k and l >= 0 and r < len(arr):
-                if abs(arr[l] - x) <= abs(arr[r] - x):
-                    ans.appendleft(arr[l])
-                    l -= 1
-                else:
-                    ans.append(arr[r])
-                    r += 1
-                k -= 1
-            while k and l >= 0:
+
+        while k and l >= 0 and r < len(arr):
+            if abs(arr[l] - x) <= abs(arr[r] - x):
                 ans.appendleft(arr[l])
                 l -= 1
-                k -= 1
-            while k and r < len(arr):
+            else:
                 ans.append(arr[r])
                 r += 1
-                k -= 1
+            k -= 1
+        while k and l >= 0:
+            ans.appendleft(arr[l])
+            l -= 1
+            k -= 1
+        while k and r < len(arr):
+            ans.append(arr[r])
+            r += 1
+            k -= 1
 
         return ans
 
