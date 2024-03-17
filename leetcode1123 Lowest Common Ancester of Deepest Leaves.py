@@ -1,7 +1,6 @@
 from collections import defaultdict
 from typing import Set, Dict, Optional
 
-# Definition for a binary tree node.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -10,7 +9,6 @@ class TreeNode:
 
 class Solution:
     def lcaDeepestLeaves(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
-
         nodeToParent = {}
         self.buildNodeToParent(root, nodeToParent)
         depthToNodes = defaultdict(set)
@@ -37,10 +35,10 @@ class Solution:
 
     def findLowestCommonAncestor(self, nodes: Set[TreeNode], nodeToParent: Dict[TreeNode, TreeNode]) -> TreeNode:
         todo = nodes
-        while todo:
-            if len(todo) == 1:
-                return list(todo)[0]
+        while len(todo) > 1:
             nextTodo = set()
             for node in todo:
                 nextTodo.add(nodeToParent[node])
             todo = nextTodo
+
+        return list(todo)[0]

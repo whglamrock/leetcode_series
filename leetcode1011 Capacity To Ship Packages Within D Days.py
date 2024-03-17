@@ -1,6 +1,5 @@
 from typing import List
 
-
 class Solution:
     def shipWithinDays(self, weights: List[int], days: int) -> int:
         l = max(weights)
@@ -8,12 +7,12 @@ class Solution:
 
         minCap = r
         while l <= r:
+            if l == r:
+                break
             capacity = (l + r) // 2
             if self.isCapacityEnough(weights, days, capacity):
                 r = capacity
                 minCap = min(minCap, capacity)
-                if l == r:
-                    break
             else:
                 l = capacity + 1
 
