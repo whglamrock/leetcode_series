@@ -1,40 +1,31 @@
+from typing import List
 
-from collections import deque
-
-# again, sink the island idea
-class Solution(object):
-    def maxAreaOfIsland(self, grid):
-
+class Solution:
+    def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
         maxArea = 0
-        for i in xrange(len(grid)):
-            for j in xrange(len(grid[0])):
-                if grid[i][j] == 1:
-                    area = self.bfs(grid, i, j)
-                    maxArea = max(maxArea, area)
+        m, n = len(grid), len(grid[0])
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j]:
+                    maxArea = max(maxArea, self.sinkTheIsland(grid, i, j))
 
         return maxArea
 
-    def bfs(self, grid, i, j):
-        grid[i][j] = 0
-        todo = deque()
-        todo.append([i, j])
+    def sinkTheIsland(self, grid: List[List[int]], x: int, y: int) -> int:
         area = 0
-
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+        m, n = len(grid), len(grid[0])
+        todo = {(x, y)}
         while todo:
-            x, y = todo.popleft()
-            area += 1
-            if x - 1 >= 0 and grid[x - 1][y] == 1:
-                todo.append([x - 1, y])
-                grid[x - 1][y] = 0
-            if x + 1 < len(grid) and grid[x + 1][y] == 1:
-                todo.append([x + 1, y])
-                grid[x + 1][y] = 0
-            if y - 1 >= 0 and grid[x][y - 1] == 1:
-                todo.append([x, y - 1])
-                grid[x][y - 1] = 0
-            if y + 1 < len(grid[0]) and grid[x][y + 1] == 1:
-                todo.append([x, y + 1])
-                grid[x][y + 1] = 0
+            nextTodo = set()
+            for i, j in todo:
+                area += 1
+                grid[i][j] = 0
+                for deltaI, deltaJ in directions:
+                    ii, jj = i + deltaI, j + deltaJ
+                    if ii < 0 or ii >= m or jj < 0 or jj >= n or grid[ii][jj] == 0:
+                        continue
+                    nextTodo.add((ii, jj))
+            todo = nextTodo
+
         return area
-
-

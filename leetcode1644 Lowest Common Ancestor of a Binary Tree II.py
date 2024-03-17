@@ -47,32 +47,3 @@ class Solution:
         if node.right:
             nodeToParent[node.right] = node
             self.traverseTree(node.right, nodeToDepth, nodeToParent, depth + 1)
-
-
-'''
-# dfs recursion solution
-class Solution:
-    def dfs(self, root, p, q):
-
-        if not root: 
-            return None
-        l = self.dfs(root.left, p, q)
-        r = self.dfs(root.right, p, q)
-        if root.val == p.val: 
-            self.foundP = True
-            return root
-        if root.val == q.val: 
-            self.foundQ = True
-            return root
-        if l and r: 
-            return root
-        return l or r  
-
-    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
-        self.foundP = False
-        self.foundQ = False
-        ans = self.dfs(root, p, q)
-        if not self.foundP or not self.foundQ: 
-            return None
-        return ans
-'''
