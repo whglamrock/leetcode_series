@@ -24,7 +24,7 @@ class Solution:
                     graph[nextNode].discard(node)
                     if not graph[nextNode]:
                         del graph[nextNode]
-                    # edge case: a ring of 4 nodes (or any even number of nodes)
+                    # edge case: a ring of 3 or 4 nodes
                     if nextNode in nextTodo:
                         return False
                     nextTodo.add(nextNode)
