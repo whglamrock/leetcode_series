@@ -30,17 +30,18 @@ class Solution:
 '''
 from functools import lru_cache
 
-# same time complexity but faster "dp" approach with memoization
+# same time complexity but faster "dp" approach with memoization. The problem is converted into going from [x, y]
+# to [0, 0]. Due to symmetry, we always operate in the first quadrant (x > 0 & y > 0).
 class Solution:
     def minKnightMoves(self, x: int, y: int) -> int:
+        return self.dfs(abs(x), abs(y))
+    
+    @lru_cache(None)
+    def dfs(self, x: int, y: int) -> int:
+        if x + y == 0:
+            return 0
+        elif x + y == 2:
+            return 2
         
-        @lru_cache(None) 
-        def dp(x,y):
-            if x + y == 0:
-                return 0
-            elif x + y == 2:
-                return 2
-            return min(dp(abs(x - 1), abs(y - 2)), dp(abs(x - 2), abs(y - 1))) + 1
-        
-        return dp(abs(x), abs(y))
+        return min(self.dfs(abs(x - 2), abs(y - 1)), self.dfs(abs(x - 1), abs(y - 2))) + 1
 '''

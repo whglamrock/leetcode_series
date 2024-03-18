@@ -8,7 +8,7 @@ class Solution:
         for r, num in enumerate(nums):
             currProduct *= num
             while currProduct >= k and l <= r:
-                currProduct /= nums[l]
+                currProduct //= nums[l]
                 l += 1
             if currProduct < k:
                 ans += r - l + 1
