@@ -1,23 +1,19 @@
+from typing import List
 
 # see discussion from: https://discuss.leetcode.com/topic/310/when-there-are-duplicates-the-worst-case-is-o-n-could-we-do-better
 # 1337c0d3r gives the reason why we need to keep doing l += 1 when nums[l] == nums[mid]
-
 # consider the tricky test case like:
 #   nums = [1,1,1,1,1,1,  1,3,3,4,1,1,1], target 3
 #   nums = [1,1,1,  3,3,4,1,1,1,1,1,1,1], target 3
 #   worst case: nums = [1, 1, 1, 1, 1, 1, 1, 5], target = 5
-
 class Solution(object):
-    def search(self, nums, target):
-
+    def search(self, nums: List[int], target: int) -> bool:
         if not nums:
             return False
 
         l, r = 0, len(nums) - 1
-
-        # the structure of this while loop is pretty much like lc33
         while l <= r:
-            m = (l + r) / 2
+            m = (l + r) // 2
             if nums[m] == target:
                 return True
             if nums[l] < nums[m]:
@@ -36,6 +32,5 @@ class Solution(object):
         return False
 
 
-
-print Solution().search([1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1], 5)
-print Solution().search([1, 1, 1, 1, 1, 1, 1, 3, 3, 4, 1, 1, 1], 3)
+print(Solution().search([1, 1, 1, 1, 1, 1, 1, 5, 1, 1, 1, 1, 1], 5))
+print(Solution().search([1, 1, 1, 1, 1, 1, 1, 3, 3, 4, 1, 1, 1], 3))
