@@ -1,40 +1,33 @@
+from typing import Optional
 
-class TreeNode(object):
-    def __init__(self, x):
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-        self.val = x
-        self.left = None
-        self.right = None
+class Solution:
+    def __init__(self):
+        self.minimumDepth = 0
 
-
-class Solution(object):
-    def minDepth(self, root):
-
-        if root is None:
+    def minDepth(self, root: Optional[TreeNode]) -> int:
+        if not root:
             return 0
 
-        def fku(root1,level):
-            if root1.left == None and root1.right == None:
-                return level
-            elif root1.right == None:
-                level += 1
-                return fku(root1.left,level)
-            elif root1.left == None:
-                level += 1
-                return fku(root1.right,level)
+        self.minimumDepth = 0
+        self.dfs(root, 1)
+        return self.minimumDepth
+
+    def dfs(self, node: Optional[TreeNode], depth: int):
+        # leaf
+        if not node.left and not node.right:
+            if not self.minimumDepth:
+                self.minimumDepth = depth
             else:
-                level += 1
-                return min(fku(root1.left,level),fku(root1.right,level))
+                self.minimumDepth = min(self.minimumDepth, depth)
+            return
 
-        return fku(root,1)
-
-
-
-a = TreeNode(1)
-b = TreeNode(2)
-c = TreeNode(3)
-a.left = b
-b.right = c
-Sol = Solution()
-e = Sol.minDepth(a)
-print e
+        if node.left:
+            self.dfs(node.left, depth + 1)
+        if node.right:
+            self.dfs(node.right, depth + 1)

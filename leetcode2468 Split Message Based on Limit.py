@@ -21,9 +21,9 @@ class Solution:
         if 3 + len(str(numOfParts)) * 2 < limit:
             i = 0
             for j in range(1, numOfParts + 1):
-                l = limit - (len(str(j)) + 3 + len(str(numOfParts)))
-                ans.append('%s<%s/%s>' % (message[i:i + l], j, numOfParts))
-                i += l
+                lengthOfSubstr = limit - (len(str(j)) + 3 + len(str(numOfParts)))
+                ans.append('%s<%s/%s>' % (message[i:i + lengthOfSubstr], j, numOfParts))
+                i += lengthOfSubstr
 
         return ans
 

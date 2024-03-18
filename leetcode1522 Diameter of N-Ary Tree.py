@@ -1,7 +1,6 @@
 from collections import defaultdict
 from typing import Dict, List
 
-# Definition for a Node.
 class Node:
     def __init__(self, val=None, children=None):
         self.val = val
@@ -9,14 +8,14 @@ class Node:
 
 class Solution:
     def diameter(self, root: 'Node') -> int:
-        nodeToDepths = defaultdict(list)
-        self.traverseTree(root, nodeToDepths)
+        nodeToPathLengths = defaultdict(list)
+        self.traverseTree(root, nodeToPathLengths)
         ans = 0
-        for node in nodeToDepths:
-            if len(nodeToDepths[node]) == 1:
-                ans = max(ans, nodeToDepths[node][0] - 1)
+        for node in nodeToPathLengths:
+            if len(nodeToPathLengths[node]) == 1:
+                ans = max(ans, nodeToPathLengths[node][0] - 1)
             else:
-                longestAnd2ndLongestPaths = self.findLongestAnd2ndLongestPaths(nodeToDepths[node])
+                longestAnd2ndLongestPaths = self.findLongestAnd2ndLongestPaths(nodeToPathLengths[node])
                 ans = max(ans, longestAnd2ndLongestPaths[0] + longestAnd2ndLongestPaths[1] - 2)
 
         return ans

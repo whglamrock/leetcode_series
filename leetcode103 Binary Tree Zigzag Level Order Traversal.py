@@ -13,7 +13,7 @@ class Solution:
 
         ans = []
         todo = [root]
-        isReverse = True
+        isReverse = False
         while todo:
             nextTodo = []
             level = []
@@ -24,7 +24,7 @@ class Solution:
                 if node.right:
                     nextTodo.append(node.right)
             todo = nextTodo
-            if isReverse:
+            if not isReverse:
                 ans.append(level)
             else:
                 ans.append(level[::-1])
