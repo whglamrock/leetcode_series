@@ -15,11 +15,11 @@ class Solution:
             return ['']
 
         ans = []
-        for j in range(i, len(s)):
-            if s[i:j + 1] in self.wordDict:
-                wordBreaksOfSuffix = self.dfs(s, j + 1)
+        for j in range(i + 1, len(s) + 1):
+            if s[i:j] in self.wordDict:
+                wordBreaksOfSuffix = self.dfs(s, j)
                 for wordBreakOfSuffix in wordBreaksOfSuffix:
-                    ans.append((s[i:j + 1] + ' ' + wordBreakOfSuffix).strip())
+                    ans.append((s[i:j] + ' ' + wordBreakOfSuffix).strip())
         return ans
 
 
