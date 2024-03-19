@@ -1,4 +1,3 @@
-
 class ListNode:
     def __init__(self, key, value):
         self.key = key
@@ -6,24 +5,12 @@ class ListNode:
         self.next = None
         self.prev = None
 
-
-
 # the double linked list solution should satisfy the need in real interview
-
 class MyHashMap(object):
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
         self.map = [None] * 10000
 
-    def put(self, key, value):
-        """
-        value will always be non-negative.
-        :type key: int
-        :type value: int
-        :rtype: None
-        """
+    def put(self, key: int, value: int) -> None:
         hashValue = self.hashCode(key)
 
         # not even a single value exists
@@ -39,27 +26,17 @@ class MyHashMap(object):
 
         # node doesn't exist but there is collision
         curr = self.map[hashValue]
-        while curr.next != None:
+        while curr.next is not None:
             curr = curr.next
         newNode = ListNode(key, value)
         curr.next = newNode
         newNode.prev = curr
 
-    def get(self, key):
-        """
-        Returns the value to which the specified key is mapped, or -1 if this map contains no mapping for the key
-        :type key: int
-        :rtype: int
-        """
+    def get(self, key: int) -> int:
         node = self.findNode(key)
         return node.value if node else -1
 
-    def remove(self, key):
-        """
-        Removes the mapping of the specified value key if this map contains a mapping for the key
-        :type key: int
-        :rtype: None
-        """
+    def remove(self, key: int) -> None:
         node = self.findNode(key)
         if not node:
             return
@@ -90,16 +67,3 @@ class MyHashMap(object):
         while curr and curr.key != key:
             curr = curr.next
         return curr
-
-
-
-hashMap = MyHashMap()
-hashMap.put(1, 1)
-hashMap.put(2, 2)
-print hashMap.get(1)
-print hashMap.get(3)
-print hashMap.get(2)
-hashMap.put(2, 1)
-print hashMap.get(2)
-hashMap.remove(2)
-print hashMap.get(2)

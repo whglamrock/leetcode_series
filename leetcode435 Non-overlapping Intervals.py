@@ -1,6 +1,6 @@
 from typing import List
 
-# if there is overlapping, we choose the one with smaller end
+# if there is overlapping, we choose the one with smaller end. i.e., choose the one with bigger end to remove
 class Solution:
     def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
         intervals.sort()

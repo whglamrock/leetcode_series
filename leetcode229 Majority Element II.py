@@ -1,13 +1,9 @@
+from typing import List
 
 # Majority Voting Algorithm idea from: https://gregable.com/2013/10/majority-vote-algorithm-find-majority.html
 # O(n) time, O(1) space solution
-
 class Solution(object):
-    def majorityElement(self, nums):
-
-        if (not nums):
-            return []
-
+    def majorityElement(self, nums: List[int]) -> List[int]:
         count1, count2, candidate1, candidate2 = 0, 0, 0, 1
         # the count1, count2 just need to be check if they are zero
         for num in nums:
@@ -38,9 +34,3 @@ class Solution(object):
             ans.append(candidate2)
 
         return ans
-
-
-
-Sol = Solution()
-nums = [2,3,0,0,0,0,1,1,1,1,1,1]
-print(Sol.majorityElement(nums))

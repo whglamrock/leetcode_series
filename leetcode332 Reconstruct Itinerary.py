@@ -55,9 +55,7 @@ class Solution(object):
         while stack:
             while trips[stack[-1]]:
                 stack.append(trips[stack[-1]].pop())
-                # print(stack)
             ans.append(stack.pop())
-            # print("curr path is: ", ans)
 
         return ans[::-1]
 '''
