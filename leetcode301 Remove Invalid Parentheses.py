@@ -12,10 +12,13 @@ class Solution:
             for currStr in todo:
                 if ans and len(currStr) < len(ans[0]):
                     return list(set(ans))
-
                 visited.add(currStr)
+
                 if self.isValid(currStr):
                     ans.append(currStr)
+                    # there is no need to remove one more parenthesis
+                    continue
+
                 for i in range(len(currStr)):
                     if currStr[i] not in '()' or (i > 0 and currStr[i] == currStr[i - 1]):
                         continue

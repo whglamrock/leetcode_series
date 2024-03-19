@@ -6,18 +6,6 @@ class Solution:
     def possiblyEquals(self, s1: str, s2: str) -> bool:
         return self.dpSearch(0, 0, s1, s2, 0)
 
-    # the s1/s2's length is after compression. The original length of the string can be super long
-    def possibleLengths(self, s: str) -> set:
-        possibleLens = {int(s)}
-        if len(s) == 2:
-            possibleLens.add(int(s[0]) + int(s[1]))
-        elif len(s) == 3:
-            possibleLens.add(int(s[0]) + int(s[1]) + int(s[2]))
-            possibleLens.add(int(s[0]) + int(s[1:]))
-            possibleLens.add(int(s[:2]) + int(s[2]))
-
-        return possibleLens
-
     # backtracking search
     # diff < 0 means we are lagging behind in advancing rightward in s2
     # diff > 0 means we are lagging behind in advancing rightward in s1
@@ -55,6 +43,18 @@ class Solution:
                 return False
             # because s1 "owes" characters, so we advance in s1
             return self.dpSearch(i + 1, j, s1, s2, diff - 1)
+
+    # the s1/s2's length is after compression. The original length of the string can be super long
+    def possibleLengths(self, s: str) -> set:
+        possibleLens = {int(s)}
+        if len(s) == 2:
+            possibleLens.add(int(s[0]) + int(s[1]))
+        elif len(s) == 3:
+            possibleLens.add(int(s[0]) + int(s[1]) + int(s[2]))
+            possibleLens.add(int(s[0]) + int(s[1:]))
+            possibleLens.add(int(s[:2]) + int(s[2]))
+
+        return possibleLens
 
 
 print(Solution().possiblyEquals(s1="internationalization", s2="i18n"))

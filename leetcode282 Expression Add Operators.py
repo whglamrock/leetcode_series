@@ -28,12 +28,9 @@ class Solution:
             currNumStr = numStr[:i]
             nextNumStr = numStr[i:]
             if i == 1 or numStr[0] != '0':
-                self.dfs(nextNumStr, target, currExpression + '+' + currNumStr, currResult + int(currNumStr),
-                         int(currNumStr))
-                self.dfs(nextNumStr, target, currExpression + '-' + currNumStr, currResult - int(currNumStr),
-                         -int(currNumStr))
-                self.dfs(nextNumStr, target, currExpression + '*' + currNumStr,
-                         currResult - lastNum + int(currNumStr) * lastNum, int(currNumStr) * lastNum)
+                self.dfs(nextNumStr, target, currExpression + '+' + currNumStr, currResult + int(currNumStr), int(currNumStr))
+                self.dfs(nextNumStr, target, currExpression + '-' + currNumStr, currResult - int(currNumStr), -int(currNumStr))
+                self.dfs(nextNumStr, target, currExpression + '*' + currNumStr, currResult - lastNum + int(currNumStr) * lastNum, int(currNumStr) * lastNum)
 
 
 print(Solution().addOperators('105', 5))
