@@ -1,31 +1,17 @@
+from collections import deque
 
-class MovingAverage(object):
-
-    def __init__(self, size):
-
+class MovingAverage:
+    def __init__(self, size: int):
+        self.q = deque()
         self.size = size
-        self.inside = 0
-        self.sum = []
+        self.windowSum = 0
 
-    def next(self, val):
-
-        if self.inside < self.size:
-            self.sum.append(val)
-            self.inside += 1
-        else:
-            self.sum.pop(0)
-            self.sum.append(val)
-
-        return float(sum(self.sum))/self.inside
-
-
-
-movavg = MovingAverage(3)
-print movavg.next(4)
-print movavg.next(100)
-print movavg.next(-10)
-print movavg.next(-300)
-
+    def next(self, val: int) -> float:
+        while len(self.q) >= self.size:
+            self.windowSum -= self.q.popleft()
+        self.q.append(val)
+        self.windowSum += val
+        return self.windowSum / len(self.q)
 
 
 # Your MovingAverage object will be instantiated and called as such:

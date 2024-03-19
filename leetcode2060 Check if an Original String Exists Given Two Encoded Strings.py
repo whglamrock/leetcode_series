@@ -22,6 +22,7 @@ class Solution:
             for possibleLen in self.possibleLengths(s1[i:ii]):
                 if self.dpSearch(ii, j, s1, s2, diff - possibleLen):
                     return True
+            return False
         elif j < len(s2) and s2[j].isdigit():
             jj = j
             while jj < len(s2) and s2[jj].isdigit():
@@ -29,6 +30,7 @@ class Solution:
             for possibleLen in self.possibleLengths(s2[j:jj]):
                 if self.dpSearch(i, jj, s1, s2, diff + possibleLen):
                     return True
+            return False
         elif diff == 0:
             if i == len(s1) or j == len(s2) or s1[i] != s2[j]:
                 return False
