@@ -12,6 +12,7 @@ class Solution:
                 return nums[l]
             # nums[l] > nums[r]
             else:
+                # when nums[m] == nums[l], it's l == m
                 if nums[m] >= nums[l]:
                     l = m + 1
                 else:
