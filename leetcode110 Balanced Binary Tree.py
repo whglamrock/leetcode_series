@@ -1,37 +1,36 @@
+from typing import Optional, Tuple
 
-# Definition for a binary tree node.
+class TreeNode:
+    def __init__(self, val=0, left=None, right=None):
+        self.val = val
+        self.left = left
+        self.right = right
 
-class TreeNode(object):
-    def __init__(self, x):
+class Solution:
+    def __init__(self):
+        self.heightBalanced = False
 
-        self.val = x
-        self.left = None
-        self.right = None
-
-
-
-# writing a arbitary O(N) solution is easy, but we need to find optimization to avoid unnecessary traversal
-
-class Solution(object):
-    def isBalanced(self, root):
-        """
-        :type root: TreeNode
-        :rtype: bool
-        """
-        height = self.get_height(root)
-        return height != -1
-
-    # dfs
-    def get_height(self, root):
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
         if not root:
-            return 0
-        left = self.get_height(root.left)
-        right = self.get_height(root.right)
+            return True
 
-        if left == -1 or right == -1:
-            # this would prevent further dfs
-            return -1
-        if abs(left - right) > 1:
-            return -1
-        return max(left, right) + 1
+        self.heightBalanced = True
+        self.compareSubtrees(root)
+        return self.heightBalanced
 
+    def compareSubtrees(self, node: Optional[TreeNode]) -> Tuple[int, int]:
+        if not node.left and not node.right:
+            return 1, 1
+
+        leftDepth, rightDepth = 1, 1
+        if node.left:
+            maxDepthOfLeftInLeft, maxDepthOfRightInLeft = self.compareSubtrees(node.left)
+            leftDepth += max(maxDepthOfLeftInLeft, maxDepthOfRightInLeft)
+        if node.right:
+            maxDepthOfLeftInRight, maxDepthOfRightInRight = self.compareSubtrees(node.right)
+            rightDepth += max(maxDepthOfLeftInRight, maxDepthOfRightInRight)
+
+        if abs(rightDepth - leftDepth) > 1:
+            self.heightBalanced = False
+
+        return leftDepth, rightDepth

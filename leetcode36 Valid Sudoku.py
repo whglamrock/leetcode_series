@@ -18,9 +18,8 @@ class Solution:
                 numSet.add(board[i][j])
 
         indexPairs = [[0, 2], [3, 5], [6, 8]]
-        for indexPair1 in indexPairs:
-            for indexPair2 in indexPairs:
-                bottom, top, left, right = indexPair1[0], indexPair1[1], indexPair2[0], indexPair2[1]
+        for bottom, top in indexPairs:
+            for left, right in indexPairs:
                 if self.checkDuplicateInSubBoxes(board, top, bottom, left, right):
                     return False
 

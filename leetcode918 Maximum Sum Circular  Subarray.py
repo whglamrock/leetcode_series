@@ -17,7 +17,7 @@ class Solution:
 
         n = len(nums)
         increasingQueue = deque()
-        for i in range(n - 2, n // 2 - 2, -1):
+        for i in range(n - 2, n // 2 - 1, -1):
             while increasingQueue and increasingQueue[0][0] >= prefixSums[i]:
                 increasingQueue.popleft()
             increasingQueue.appendleft([prefixSums[i], i])
