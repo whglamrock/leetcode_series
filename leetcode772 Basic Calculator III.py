@@ -2,72 +2,66 @@ class Solution:
     def calculate(self, s: str) -> int:
         stack = []
         i = 0
+        n = len(s)
         sign = '+'
-        while i < len(s):
+        while i < n:
             if s[i].isdigit():
-                curr = 0
-                while i < len(s) and s[i].isdigit():
-                    curr = curr * 10 + int(s[i])
+                curr = int(s[i])
+                while i + 1 < n and s[i + 1].isdigit():
+                    curr = curr * 10 + int(s[i + 1])
                     i += 1
-                if stack and stack[-1] == '*':
-                    stack.pop()
+                # in this case curr must be a positive number
+                if stack and (type(stack[-1]) == str and stack[-1] in '*/'):
+                    operand = stack.pop()
                     prevNum = stack.pop()
-                    stack.append(prevNum * curr)
-                elif stack and stack[-1] == '/':
-                    stack.pop()
-                    prevNum = stack.pop()
-                    # a '/' won't be followed by a non-negative number (i.e., curr > 0)
-                    # so we only need to check the sign of the previous number
-                    if prevNum > 0:
-                        stack.append(prevNum // curr)
+                    if operand == '*':
+                        stack.append(prevNum * curr)
                     else:
-                        prevNum = -prevNum
-                        stack.append(-(prevNum // curr))
+                        if prevNum < 0:
+                            stack.append(-(-prevNum // curr))
+                        else:
+                            stack.append(prevNum // curr)
+                elif sign == '+':
+                    stack.append(curr)
                 else:
-                    if sign == '+':
-                        stack.append(curr)
-                    else:
-                        stack.append(-curr)
-            elif s[i] == '+':
-                sign = '+'
-                i += 1
-            elif s[i] == '-':
-                sign = '-'
-                i += 1
-            # reset the sign because '*/' must be followed by a non-negative number
+                    stack.append(-curr)
+                    sign = '+'
+            elif s[i] in '+-':
+                sign = s[i]
             elif s[i] in '*/':
-                sign = '+'
                 stack.append(s[i])
-                i += 1
             elif s[i] == '(':
                 if sign == '+':
                     stack.append('(')
                 else:
                     stack.append('-(')
-                sign = '+'
-                i += 1
+                    # always reset the sign when we add anything to the stack
+                    sign = '+'
+            # s[i] == ')', need to pop
             else:
-                chunkSum = 0
-                while stack[-1] not in ['(', '-(']:
-                    chunkSum += stack.pop()
-                openParenthesis = stack.pop()
-                if openParenthesis == '-(':
-                    chunkSum = -chunkSum
-
-                if stack and stack[-1] == '*':
-                    stack.pop()
-                    prevNum = stack.pop()
-                    stack.append(chunkSum * prevNum)
-                elif stack and stack[-1] == '/':
-                    stack.pop()
-                    prevNum = stack.pop()
-                    if prevNum * chunkSum < 0:
-                        stack.append(-(abs(prevNum) // abs(chunkSum)))
-                    else:
-                        stack.append(prevNum // chunkSum)
+                curr = stack.pop()
+                while not (type(stack[-1]) == str and stack[-1] in ['-(', '(']):
+                    curr += stack.pop()
+                openParenthesisToken = stack.pop()
+                # in this case the current stack[-1] won't be '*/'
+                if openParenthesisToken == '-(':
+                    stack.append(-curr)
                 else:
-                    stack.append(chunkSum)
-                i += 1
+                    if stack and (type(stack[-1]) == str and stack[-1] in '*/'):
+                        if stack[-1] == '*':
+                            stack.pop()
+                            prevNum = stack.pop()
+                            stack.append(prevNum * curr)
+                        else:
+                            stack.pop()
+                            prevNum = stack.pop()
+                            if prevNum * curr < 0:
+                                stack.append(-(abs(prevNum) // abs(curr)))
+                            else:
+                                stack.append(prevNum // curr)
+                    else:
+                        stack.append(curr)
+            i += 1
 
         return sum(stack)
 

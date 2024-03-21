@@ -1,32 +1,39 @@
 class Solution:
     def calculate(self, s: str) -> int:
-        curr = 0
         stack = []
-        operator = None
-        for i, char in enumerate(s):
-            if char == ' ':
+        i = 0
+        sign = '+'
+        while i < len(s):
+            if s[i] == ' ':
+                i += 1
                 continue
-            if char in '+-*/':
-                operator = char
-            else:
-                curr = curr * 10 + int(char)
-                # need to add number to stack
-                if i + 1 >= len(s) or not s[i + 1].isdigit():
-                    if operator == '+' or operator is None:
-                        stack.append(curr)
-                    elif operator == '-':
-                        stack.append(-curr)
-                    elif operator == '*':
-                        prevNum = stack.pop()
-                        stack.append(prevNum * curr)
+            if s[i].isdigit():
+                curr = int(s[i])
+                while i + 1 < len(s) and s[i + 1].isdigit():
+                    curr = curr * 10 + int(s[i + 1])
+                    i += 1
+                if stack and type(stack[-1]) == str and stack[-1] in '*/':
+                    operand = stack.pop()
+                    lastNum = stack.pop()
+                    if operand == '*':
+                        stack.append(curr * lastNum)
                     else:
-                        prevNum = stack.pop()
-                        isNegative = prevNum < 0
-                        curr = abs(prevNum) // curr
-                        if isNegative:
-                            curr = -curr
+                        if lastNum < 0:
+                            stack.append(-(-lastNum // curr))
+                        else:
+                            stack.append(lastNum // curr)
+                else:
+                    if sign == '+':
                         stack.append(curr)
-                    curr = 0
+                    else:
+                        stack.append(-curr)
+                        sign = '+'
+            elif s[i] in '+-':
+                sign = s[i]
+            # s[i] == * or /
+            else:
+                stack.append(s[i])
+            i += 1
 
         return sum(stack)
 

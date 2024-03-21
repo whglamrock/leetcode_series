@@ -2,40 +2,40 @@ class Solution:
     def calculate(self, s: str) -> int:
         stack = []
         i = 0
-        n = len(s)
-        operand = '+'
-        while i < n:
-            if s[i] == '-':
-                operand = '-'
-            elif s[i] == '+':
-                operand = '+'
-            elif s[i].isdigit():
-                num = int(s[i])
-                while i + 1 < n and s[i + 1].isdigit():
-                    num = num * 10 + int(s[i + 1])
+        sign = '+'
+        while i < len(s):
+            if s[i] == ' ':
+                i += 1
+                continue
+            if s[i].isdigit():
+                curr = int(s[i])
+                while i + 1 < len(s) and s[i + 1].isdigit():
+                    curr = curr * 10 + int(s[i + 1])
                     i += 1
-                if operand == '-':
-                    stack.append(-num)
+                if sign == '+':
+                    stack.append(curr)
                 else:
-                    stack.append(num)
+                    stack.append(-curr)
+                    sign = '+'
+            elif s[i] in '+-':
+                sign = s[i]
             elif s[i] == '(':
-                if operand == '+':
+                if sign == '+':
                     stack.append('(')
                 else:
                     stack.append('-(')
-                operand = '+'
-            elif s[i] == ')':
-                sumOfChunk = 0
-                while stack[-1] not in ['(', '-(']:
-                    sumOfChunk += stack.pop()
-                if stack[-1] == '-(':
-                    stack.pop()
-                    stack.append(-sumOfChunk)
+                    sign = '+'
+            # s[i] == ')'
+            else:
+                # need to pop
+                curr = stack.pop()
+                while not (type(stack[-1]) == str and stack[-1] in ['-(', '(']):
+                    curr += stack.pop()
+                openParenthesisToken = stack.pop()
+                if openParenthesisToken == '-(':
+                    stack.append(-curr)
                 else:
-                    stack.pop()
-                    stack.append(sumOfChunk)
-
-            # ignore when s[i] == ' '
+                    stack.append(curr)
             i += 1
 
         return sum(stack)
