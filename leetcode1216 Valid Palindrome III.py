@@ -1,5 +1,5 @@
 
-# The stupid leetcode gives MLE for a naive cached dfs solution (see at the bottom)
+# At the bottom, there is a delete char dfs + cache solution, which can be a follow up from valid palindrome II
 class Solution:
     def isValidPalindrome(self, s: str, k: int) -> bool:
         lenOfLongestPalindromeSubsqns = self.longestPalindromeSubsequence(s)
@@ -30,28 +30,22 @@ print(Solution().isValidPalindrome(s="abbababa", k=1))
 
 
 '''
+# delete char dfs + cache solution (AC in leetcode); it can get asked as follow-up in real interview
 class Solution:
     def isValidPalindrome(self, s: str, k: int) -> bool:
-        return self.dfs(s, k)
-        
-    @lru_cache(None)
-    def dfs(self, s: str, k: int) -> bool:
-        if k == 0:
-            return self.isPalindrome(s)
-        
-        for i in range(len(s)):
-            if i > 0 and s[i] == s[i - 1]:
-                continue
-            newS = s[:i] + s[i + 1:]
-            if self.dfs(newS, k - 1):
-                return True
-        
-        return False
+        l, r = 0, len(s) - 1
+        return self.isPalindrome(s, l, r, k)
     
     @lru_cache(None)
-    def isPalindrome(self, s: str) -> bool:
-        for i in range(len(s) // 2):
-            if s[i] != s[len(s) - 1 - i]:
-                return False
+    def isPalindrome(self, s: str, l: int, r: int, k: int) -> bool:
+        while l < r:
+            # have to delete one char
+            if s[l] != s[r]:
+                if k == 0:
+                    return False
+                return self.isPalindrome(s, l + 1, r, k - 1) or self.isPalindrome(s, l, r - 1, k - 1)
+            l += 1
+            r -= 1
         return True
+
 '''
