@@ -6,9 +6,7 @@ class Solution:
         r = sum(weights)
 
         minCap = r
-        while l <= r:
-            if l == r:
-                break
+        while l < r:
             capacity = (l + r) // 2
             if self.isCapacityEnough(weights, days, capacity):
                 r = capacity
