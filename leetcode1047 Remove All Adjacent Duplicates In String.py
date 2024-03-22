@@ -1,19 +1,13 @@
-
-class Solution(object):
-    def removeDuplicates(self, S):
-        """
-        :type S: str
-        :rtype: str
-        """
+class Solution:
+    def removeDuplicates(self, s: str) -> str:
         stack = []
-        for char in S:
+        for char in s:
             if stack and stack[-1] == char:
                 stack.pop()
-            else:
-                stack.append(char)
+                continue
+            stack.append(char)
 
         return ''.join(stack)
 
 
-
-print Solution().removeDuplicates('abccbawfd')
+print(Solution().removeDuplicates('abccbawfd'))

@@ -1,16 +1,29 @@
+from collections import deque
+from typing import List
 
-class Solution(object):
-    def findMissingRanges(self, A, lower, upper):
+class Solution:
+    def findMissingRanges(self, nums: List[int], lower: int, upper: int) -> List[List[int]]:
+        if not nums:
+            return [[lower, upper]]
 
-        result = []
-        A.append(upper+1)
-        pre = lower-1
+        nums = deque(nums)
+        while nums and nums[0] < lower:
+            nums.popleft()
+        ans = []
+        if nums and nums[0] > lower:
+            ans.append([lower, nums[0] - 1])
 
-        for i in A:
-           if (i == pre+2):    # there is only one value between 'pre' and 'pre+2'
-               result.append(str(i-1))
-           elif (i > pre+2):    # need to add a 'A->B' range to the result
-               result.append(str(pre+1)+"->"+str(i-1))
-           pre = i    # the 'pre' records the previously visited value
+        # pop out the invalid bigger numbers
+        while nums and nums[-1] > upper:
+            nums.pop()
 
-        return result
+        n = len(nums)
+        for i in range(n - 1):
+            currNum, nextNum = nums[i], nums[i + 1]
+            if nextNum - currNum > 1:
+                ans.append([currNum + 1, nextNum - 1])
+
+        if nums and nums[-1] < upper:
+            ans.append([nums[-1] + 1, upper])
+
+        return ans

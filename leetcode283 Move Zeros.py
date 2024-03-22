@@ -7,12 +7,10 @@ class Solution:
         """
         i, j = 0, 0
         n = len(nums)
-        while i < n:
-            # find the next non 0 elements
-            while j < n and nums[j] == 0:
+        while j < n:
+            if nums[j] == 0:
                 j += 1
-            if j >= n:
-                break
+                continue
             nums[i] = nums[j]
             i += 1
             j += 1
