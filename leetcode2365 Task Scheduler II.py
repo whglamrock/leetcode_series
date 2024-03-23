@@ -1,18 +1,15 @@
 from typing import List
 
-
 class Solution:
     def taskSchedulerII(self, tasks: List[int], space: int) -> int:
         # the actual day number with break days included
+        taskToLastExecutedDay = {}
         days = 0
-        taskTypeToLastExecutionTime = {}
-
         for task in tasks:
-            if task in taskTypeToLastExecutionTime and days - taskTypeToLastExecutionTime[task] < space + 1:
-                days += space + 1 - (days - taskTypeToLastExecutionTime[task])
-                taskTypeToLastExecutionTime[task] = days
-            else:
-                taskTypeToLastExecutionTime[task] = days
+            if task in taskToLastExecutedDay and days - taskToLastExecutedDay[task] <= space + 1:
+                waitTime = space + 1 - (days - taskToLastExecutedDay[task])
+                days += waitTime
+            taskToLastExecutedDay[task] = days
             days += 1
 
         return days

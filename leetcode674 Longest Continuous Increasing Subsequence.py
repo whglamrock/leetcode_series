@@ -1,18 +1,14 @@
+from typing import List
 
-class Solution(object):
-    def findLengthOfLCIS(self, nums):
-
-        # not sure whether we should return 0 or throw exception when nums is None
-        if not nums:
-            return 0
-
-        maxLen = 1
-        currLen = 1
-        for i in xrange(1, len(nums)):
+class Solution:
+    def findLengthOfLCIS(self, nums: List[int]) -> int:
+        maxCount = 1
+        count = 1
+        for i in range(1, len(nums)):
             if nums[i] > nums[i - 1]:
-                currLen += 1
+                count += 1
             else:
-                currLen = 1
-            maxLen = max(maxLen, currLen)
+                count = 1
+            maxCount = max(maxCount, count)
 
-        return maxLen
+        return maxCount
