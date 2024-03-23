@@ -60,4 +60,3 @@ print(Solution().largestIsland(grid2))
 grid3 = [[1, 1],
          [1, 1]]
 print(Solution().largestIsland(grid3))
-
