@@ -5,7 +5,7 @@ from typing import List
 # 2) We record the lastIndex of minK and maxK. If any element is out of boundary it means the left bound has to be reset
 # to current index + 1 (next index)
 # 3) If the element is within the bound, we keep expanding the window. If the window is valid, the current element can be
-# used as the right bound of the subarray. And the left bound of subarray can anywhere between
+# used as the right bound of the subarray. And the left bound of subarray can be anywhere between
 # [l, min(lastMinKIndex, lastMaxKIndex)], inclusive.
 class Solution:
     def countSubarrays(self, nums: List[int], minK: int, maxK: int) -> int:
