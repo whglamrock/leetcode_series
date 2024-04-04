@@ -1,8 +1,5 @@
 class Solution(object):
     def maximalSquare(self, matrix):
-        if not matrix or not matrix[0]:
-            return 0
-
         m, n = len(matrix), len(matrix[0])
         dp = [[0 for j in range(n)] for i in range(m)]
         for i in range(m):

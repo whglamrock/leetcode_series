@@ -3,29 +3,30 @@ from typing import List
 
 class TrieNode:
     def __init__(self):
-        self.isWord = False
+        # directly store the word in the node. Otherwise you will have to add char to the path in the bfs search
+        # which rebuilds the path string in every recursion.
+        self.word = ''
         self.children = defaultdict(TrieNode)
 
 class Solution(object):
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
-
         root = TrieNode()
         for word in words:
             curr = root
             for c in word:
                 curr = curr.children[c]
-            curr.isWord = True
+            curr.word = word
 
         ans = set()
         for i in range(len(board)):
             for j in range(len(board[0])):
-                self.dfs(i, j, root, board, '', ans)
+                self.dfs(i, j, root, board, ans)
 
         return list(ans)
 
-    def dfs(self, i: int, j: int, curr: 'TrieNode', board: List[List[str]], path: str, ans: set):
-        if curr.isWord:
-            ans.add(path)
+    def dfs(self, i: int, j: int, curr: 'TrieNode', board: List[List[str]], ans: set):
+        if curr.word:
+            ans.add(curr.word)
             # do no return here because the word may share a common prefix with other words
 
         m, n = len(board), len(board[0])
@@ -42,10 +43,10 @@ class Solution(object):
         tmp = board[i][j]
         board[i][j] = '#'
 
-        self.dfs(i - 1, j, curr.children[tmp], board, path + tmp, ans)
-        self.dfs(i + 1, j, curr.children[tmp], board, path + tmp, ans)
-        self.dfs(i, j - 1, curr.children[tmp], board, path + tmp, ans)
-        self.dfs(i, j + 1, curr.children[tmp], board, path + tmp, ans)
+        self.dfs(i - 1, j, curr.children[tmp], board, ans)
+        self.dfs(i + 1, j, curr.children[tmp], board, ans)
+        self.dfs(i, j - 1, curr.children[tmp], board, ans)
+        self.dfs(i, j + 1, curr.children[tmp], board, ans)
 
         board[i][j] = tmp
 

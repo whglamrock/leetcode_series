@@ -33,19 +33,17 @@ print(Solution().isValidPalindrome(s="abbababa", k=1))
 # delete char dfs + cache solution (AC in leetcode); it can get asked as follow-up in real interview
 class Solution:
     def isValidPalindrome(self, s: str, k: int) -> bool:
-        l, r = 0, len(s) - 1
-        return self.isPalindrome(s, l, r, k)
+        return self.isValidKPalindrome(s, 0, len(s) - 1, k)
     
     @lru_cache(None)
-    def isPalindrome(self, s: str, l: int, r: int, k: int) -> bool:
-        while l < r:
-            # have to delete one char
-            if s[l] != s[r]:
-                if k == 0:
+    def isValidKPalindrome(self, s, l: int, r: int, k: int) -> bool:
+        i, j = l, r
+        while i < j:
+            if s[i] != s[j]:
+                if k <= 0:
                     return False
-                return self.isPalindrome(s, l + 1, r, k - 1) or self.isPalindrome(s, l, r - 1, k - 1)
-            l += 1
-            r -= 1
+                return self.isValidKPalindrome(s, i + 1, j, k - 1) or self.isValidKPalindrome(s, i, j - 1, k - 1)
+            i += 1
+            j -= 1
         return True
-
 '''
