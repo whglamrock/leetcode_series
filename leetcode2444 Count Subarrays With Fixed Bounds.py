@@ -17,6 +17,7 @@ class Solution:
                 lastMinKIndex, lastMaxKIndex = None, None
                 l = r + 1
                 continue
+
             if num == minK:
                 lastMinKIndex = r
             if num == maxK:

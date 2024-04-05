@@ -1,38 +1,29 @@
-
 from collections import defaultdict
 from heapq import *
+from typing import List
 
-# classic Djikstra algorithm
+class Solution:
+    def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
+        srcToDstToTime = defaultdict(dict)
+        for src, dst, time in times:
+            srcToDstToTime[src][dst] = time
 
-class Solution(object):
-    def networkDelayTime(self, times, N, K):
-        """
-        :type times: List[List[int]]
-        :type N: int
-        :type K: int
-        :rtype: int
-        """
-        if not times:
-            return -1
+        pq = [[0, k]]
+        nodeToMinTime = {}
+        while pq:
+            currTime, node = heappop(pq)
+            if node in nodeToMinTime and nodeToMinTime[node] < currTime:
+                continue
+            nodeToMinTime[node] = currTime
 
-        q = [(0, K)]
-        heapify(q)
-        nodeToNeighborToTime = defaultdict(dict)
-        nodeToTime = {}
+            if node not in srcToDstToTime:
+                continue
+            for nextNode in srcToDstToTime[node]:
+                nextTime = currTime + srcToDstToTime[node][nextNode]
+                # pre-check to speed up the BFS. Pay attention here we need to use "<=" not "<" to avoid TLE
+                if nextNode in nodeToMinTime and nodeToMinTime[nextNode] <= nextTime:
+                    continue
+                nodeToMinTime[nextNode] = nextTime
+                heappush(pq, [nextTime, nextNode])
 
-        for u, v, t in times:
-            nodeToNeighborToTime[u][v] = t
-
-        while q:
-            lastTime, node = heappop(q)
-            if node not in nodeToTime:
-                nodeToTime[node] = lastTime
-                for child in nodeToNeighborToTime[node]:
-                    heappush(q, (nodeToNeighborToTime[node][child] + lastTime, child))
-
-        # the graph can be disconnected
-        return max(nodeToTime.values()) if len(nodeToTime) == N else -1
-
-
-
-print Solution().networkDelayTime([[2, 1, 1], [2, 3, 3], [1, 3, 1], [1, 4, 5], [3, 4, 1], [3, 5, 2], [4, 5, 1]], 5, 2)
+        return max(nodeToMinTime.values()) if len(nodeToMinTime) == n else -1

@@ -1,37 +1,24 @@
-# Sliding window solution. O(n) time, n is the length of s.
+from collections import Counter
+from typing import List
 
-from collections import defaultdict
-
-class Solution(object):
-    def findAnagrams(self, s, p):
-
-        if len(s) < len(p):
+class Solution:
+    def findAnagrams(self, s: str, p: str) -> List[int]:
+        if len(p) > len(s):
             return []
 
-        pdic = defaultdict(int)
-        for letter in p:
-            pdic[letter] += 1
-
-        window = defaultdict(int)
-        for i in xrange(len(p)):
-            window[s[i]] += 1
-
+        m, n = len(s), len(p)
+        charCountOfP = Counter(p)
+        charCountOfSubStrS = Counter(s[:n])
         ans = []
-        if window == pdic:
+        if charCountOfP == charCountOfSubStrS:
             ans.append(0)
 
-        i = 1
-        while i <= len(s) - len(p):
-            leftletter = s[i - 1]
-            window[leftletter] -= 1
-            if window[leftletter] == 0:
-                del window[leftletter]
-            newletter = s[i + len(p) - 1]
-            window[newletter] += 1
-            # because the size of both maps are within 26, comparison takes O(1) time
-            if window == pdic:
+        for i in range(1, m - n + 1):
+            charCountOfSubStrS[s[i - 1]] -= 1
+            charCountOfSubStrS[s[i + n - 1]] += 1
+            if not charCountOfSubStrS[s[i - 1]]:
+                del charCountOfSubStrS[s[i - 1]]
+            if charCountOfSubStrS == charCountOfP:
                 ans.append(i)
-            i += 1
 
         return ans
-
