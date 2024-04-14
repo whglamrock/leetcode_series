@@ -22,12 +22,11 @@ class Solution:
                             stack.append(-(-lastNum // curr))
                         else:
                             stack.append(lastNum // curr)
+                elif sign == '+':
+                    stack.append(curr)
                 else:
-                    if sign == '+':
-                        stack.append(curr)
-                    else:
-                        stack.append(-curr)
-                        sign = '+'
+                    stack.append(-curr)
+                    sign = '+'
             elif s[i] in '+-':
                 sign = s[i]
             # s[i] == * or /
