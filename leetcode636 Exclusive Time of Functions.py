@@ -21,6 +21,10 @@ class Solution:
                 stack.append(function)
                 currStartTime = time
             else:
+                # here is why this question is super confusing and an awful question:
+                # if the cpu is single threaded, when a function ends the stack[-1] should always == function;
+                # but there is some stupid test case like: ["1:start:0","0:start:2","1:start:3","2:start:4","2:end:4","0:end:6","1:end:7","1:end:8"]
+                # which forces us to do ans[stack[-1]] += time - currStartTime + 1 instead of ans[function] += time - currStartTime + 1
                 ans[stack[-1]] += time - currStartTime + 1
                 stack.pop()
                 currStartTime = time + 1
