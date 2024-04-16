@@ -3,7 +3,7 @@ from typing import List
 # 1) It shouldn't be too hard to think of using prefixSum + 3 rounds of dp array to get the sum of 3 k length subarrays;
 # But the question asks for the starting indexes and lexicographically smallest index triplets: this means we need to
 # keep track of which starting indexes we used to get the max n-K sum (n = 1/2/3)
-# 2) In dp array, dp[i] means in the xth round what the max x-k sum value is with the last subarray ends at nums[i],
+# 2) In dp array, dp[i] means in the xth round what the max x number of k-sum value is with the last subarray ends at nums[i],
 # where x = 1/2/3.
 class Solution:
     def maxSumOfThreeSubarrays(self, nums: List[int], k: int) -> List[int]:

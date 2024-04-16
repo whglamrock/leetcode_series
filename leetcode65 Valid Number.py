@@ -1,25 +1,23 @@
 class Solution:
     def isNumber(self, s: str) -> bool:
+        splitter = None
         eCount = 0
-        digitCount = 0
-        splitter = ''
         for char in s:
             if char in 'eE':
                 eCount += 1
                 splitter = char
-            if char.isdigit():
-                digitCount += 1
-        if eCount > 1 or digitCount == 0:
+        if eCount > 1:
             return False
         if eCount == 0:
-            return self.isValidNumber(s)
+            return self.isValidSimpleNumber(s)
 
-        leftNum, rightNum = s.split(splitter)[0], s.split(splitter)[1]
-        return self.isValidNumber(leftNum) and '.' not in rightNum and self.isValidNumber(rightNum)
+        left, right = s.split(splitter)
+        return self.isValidSimpleNumber(left) and self.isValidSimpleNumber(right) and '.' not in right
 
-    def isValidNumber(self, s: str) -> bool:
+    def isValidSimpleNumber(self, s: str) -> bool:
         if not s:
             return False
+
         if s[0] in '+-':
             s = s[1:]
 
