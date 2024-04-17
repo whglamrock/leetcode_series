@@ -16,6 +16,7 @@ class Solution:
 
         return self.ans
 
+    # no need to use @lru_cache(None) here. The leetcode OJ shows this way it runs faster
     def dfs(self, numStr: str, target: int, currExpression: str, currResult: int, lastNum: int):
         if not numStr:
             if currResult == target:
