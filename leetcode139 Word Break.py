@@ -26,24 +26,23 @@ print(Solution().wordBreak(s="catsandog", wordDict=["cats", "dog", "sand", "and"
 from functools import lru_cache
 from typing import List
 
-# the brute force without memoization will take 2^N. See: https://leetcode.com/problems/word-break/solutions/169383/solved-the-time-complexity-of-the-brute-force-method-should-be-o-2-n-and-prove-it-below/
-# here we use cache to optimize
+# cached dfs solution
 class Solution:
-    def __init__(self):
-        self.wordDict = set()
-
     def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         self.wordDict = set(wordDict)
-        return self.dfs(s)
+        return self.dfs(s, 0)
 
     @lru_cache(None)
-    def dfs(self, substring: str) -> bool:
-        if not substring:
+    def dfs(self, s: str, index: int) -> bool:
+        if index == len(s):
             return True
-
-        for i in range(1, len(substring) + 1):
-            if substring[:i] in self.wordDict and self.dfs(substring[i:]):
-                return True
-
-        return False
+        
+        isWordBreakable = False
+        for i in range(index + 1, len(s) + 1):
+            if s[index:i] in self.wordDict:
+                isWordBreakable |= self.dfs(s, i)
+                if isWordBreakable:
+                    break
+        
+        return isWordBreakable
 '''

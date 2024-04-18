@@ -1,25 +1,21 @@
+from typing import List
 
-# most important thing is find the range of previous states where we generate dp[i] from. i.e., not how many times A[j]
-    # is used in this block, but rather how long the current block(that ends with A[j], inclusive) can be
-
-class Solution(object):
-    def maxSumAfterPartitioning(self, A, K):
-        """
-        :type A: List[int]
-        :type K: int
-        :rtype: int
-        """
-        n = len(A)
+# O(n * k) time dp solution. There is no way to do better than this.
+class Solution:
+    def maxSumAfterPartitioning(self, nums: List[int], k: int) -> int:
+        n = len(nums)
+        # dp[i] means max of such sum after partitioning nums[:i + 1]
         dp = [0] * n
+        dp[0] = nums[0]
 
-        for i in xrange(K):
-            dp[i] = max(A[:i + 1]) * (i + 1)
-
-        for i in xrange(K, n):
-            maxFromRightToLeft = 0
-            # j iterate from i - 1 to i - K
-            for j in range(i - K, i)[::-1]:
-                maxFromRightToLeft = max(maxFromRightToLeft, A[j + 1])
-                dp[i] = max(dp[i], dp[j] + maxFromRightToLeft * (i - j))
+        for i in range(1, n):
+            maxOfK = nums[i]
+            # j is the starting index of last partition
+            for j in range(i, max(-1, i - k), -1):
+                maxOfK = max(maxOfK, nums[j])
+                if j == 0:
+                    dp[i] = max(dp[i], maxOfK * (i - j + 1))
+                else:
+                    dp[i] = max(dp[i], dp[j - 1] + maxOfK * (i - j + 1))
 
         return dp[-1]
