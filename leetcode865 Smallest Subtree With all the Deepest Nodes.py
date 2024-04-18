@@ -11,28 +11,19 @@ class TreeNode:
 class Solution:
     def subtreeWithAllDeepest(self, root: TreeNode) -> TreeNode:
         nodeToParent = {}
-        self.buildNodeToParent(root, nodeToParent)
         depthToNodes = defaultdict(set)
-        self.buildDepthToNodes(root, depthToNodes, 0)
+        self.dfs(root, depthToNodes, nodeToParent, 0)
         maxDepth = max(depthToNodes.keys())
         return self.findLowestCommonAncestor(depthToNodes[maxDepth], nodeToParent)
 
-    def buildDepthToNodes(self, node: TreeNode, depthToNodes: Dict[int, Set[TreeNode]], depth: int):
+    def dfs(self, node: TreeNode, depthToNodes: Dict[int, Set[TreeNode]], nodeToParent: Dict[TreeNode, TreeNode], depth: int):
         depthToNodes[depth].add(node)
         if node.left:
-            self.buildDepthToNodes(node.left, depthToNodes, depth + 1)
-        if node.right:
-            self.buildDepthToNodes(node.right, depthToNodes, depth + 1)
-
-    def buildNodeToParent(self, node: TreeNode, nodeToParent: Dict[TreeNode, TreeNode]):
-        if not node or (not node.left and not node.right):
-            return
-        if node.left:
             nodeToParent[node.left] = node
-            self.buildNodeToParent(node.left, nodeToParent)
+            self.dfs(node.left, depthToNodes, nodeToParent, depth + 1)
         if node.right:
             nodeToParent[node.right] = node
-            self.buildNodeToParent(node.right, nodeToParent)
+            self.dfs(node.right, depthToNodes, nodeToParent, depth + 1)
 
     def findLowestCommonAncestor(self, nodes: Set[TreeNode], nodeToParent: Dict[TreeNode, TreeNode]) -> TreeNode:
         todo = nodes

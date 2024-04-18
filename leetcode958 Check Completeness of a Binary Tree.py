@@ -8,26 +8,21 @@ class TreeNode:
 
 class Solution:
     def isCompleteTree(self, root: Optional[TreeNode]) -> bool:
-        vals = self.traverseTree(root)
-        return None not in vals
-
-    def traverseTree(self, node: Optional[TreeNode]):
-        todo = [node]
-        vals = []
-        while todo:
-            nextTodo = []
-            for node in todo:
+        curr = [root]
+        traversal = []
+        while curr:
+            next = []
+            for node in curr:
                 if node is None:
-                    vals.append(None)
+                    traversal.append(None)
                     continue
-                else:
-                    vals.append(node.val)
-                    nextTodo.append(node.left)
-                    nextTodo.append(node.right)
-            todo = nextTodo
+                traversal.append(node.val)
+                next.append(node.left)
+                next.append(node.right)
 
-        while vals and vals[-1] is None:
-            vals.pop()
+            curr = next
 
-        return vals
+        while traversal and traversal[-1] is None:
+            traversal.pop()
+        return None not in traversal
 
