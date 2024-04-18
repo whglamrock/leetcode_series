@@ -5,6 +5,30 @@ class Node:
         self.right = right
         self.next = next
 
+# level order traversal approach that's easier to remember
+class Solution:
+    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        if not root:
+            return None
+
+        curr = [root]
+        while curr:
+            next = []
+            for node in curr:
+                if node.left:
+                    node.left.next = node.right
+                    next.append(node.left)
+                if node.right:
+                    if node.next:
+                        node.right.next = node.next.left
+                    next.append(node.right)
+            curr = next
+
+        return root
+
+
+'''
+# move the root solution
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
         ans = root
@@ -18,26 +42,4 @@ class Solution:
                 curr = curr.next
             root = root.left
         return ans
-
-
-'''
-level order traversal approach
-class Solution:
-    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
-        if not root:
-            return None
-        todo = [root]
-        while todo:
-            nextTodo = []
-            if todo[0].left:
-                nextTodo.append(todo[0].left)
-                nextTodo.append(todo[0].right)
-            for i in range(len(todo) - 1):
-                leftNode, rightNode = todo[i], todo[i + 1]
-                leftNode.next = rightNode
-                if rightNode.left:
-                    nextTodo.append(rightNode.left)
-                    nextTodo.append(rightNode.right)
-            todo = nextTodo
-        return root
 '''
