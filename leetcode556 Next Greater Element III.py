@@ -23,9 +23,10 @@ class Solution:
             if digits[k] > digits[j]:
                 break
         digits[k], digits[j] = digits[j], digits[k]
-        digits = digits[:j + 1] + sorted(digits[j + 1:])
-        digits = [str(item) for item in digits]
-        ans = int(''.join(digits))
+        digits[j + 1:] = sorted(digits[j + 1:])
+        ans = 0
+        for digit in digits:
+            ans = ans * 10 + digit
         return ans if ans <= 2147483647 else -1
 
 

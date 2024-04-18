@@ -2,45 +2,41 @@ from typing import List
 
 class Solution:
     def sortedSquares(self, nums: List[int]) -> List[int]:
-        firstIndexLessThan0 = self.findFirstIndexLessThan0(nums)
-        negatives = []
-        if firstIndexLessThan0 != -1:
-            negatives = nums[:firstIndexLessThan0 + 1]
-            negatives.reverse()
-        return self.mergeArrays(negatives, nums[firstIndexLessThan0 + 1:])
+        indexOfMinNonNegative = self.findIndexOfMinNonNegative(nums)
+        ans = []
+        if indexOfMinNonNegative == -1:
+            for i in range(len(nums) - 1, -1, -1):
+                ans.append(nums[i] * nums[i])
+        else:
+            l, r = indexOfMinNonNegative - 1, indexOfMinNonNegative
+            while l >= 0 and r < len(nums):
+                if nums[l] * nums[l] <= nums[r] * nums[r]:
+                    ans.append(nums[l] * nums[l])
+                    l -= 1
+                else:
+                    ans.append(nums[r] * nums[r])
+                    r += 1
+            while l >= 0:
+                ans.append(nums[l] * nums[l])
+                l -= 1
+            while r < len(nums):
+                ans.append(nums[r] * nums[r])
+                r += 1
 
-    # it's assumed that negatives are sorted in reverse order
-    def mergeArrays(self, negatives: List[int], positives: List[int]) -> List[int]:
-        merged = []
-        i, j = 0, 0
-        while i < len(negatives) and j < len(positives):
-            if -negatives[i] < positives[j]:
-                merged.append(negatives[i] * negatives[i])
-                i += 1
-            else:
-                merged.append(positives[j] * positives[j])
-                j += 1
+        return ans
 
-        while i < len(negatives):
-            merged.append(negatives[i] * negatives[i])
-            i += 1
-
-        while j < len(positives):
-            merged.append(positives[j] * positives[j])
-            j += 1
-
-        return merged
-
-    def findFirstIndexLessThan0(self, nums: List[int]) -> int:
+    def findIndexOfMinNonNegative(self, nums: List[int]) -> int:
         l, r = 0, len(nums) - 1
         while l <= r:
-            m = (l + r + 1) // 2
-            if l == r and nums[m] < 0:
-                return m
-            if nums[m] >= 0:
-                r = m - 1
+            m = (l + r) // 2
+            if l == r:
+                if nums[m] >= 0:
+                    return m
+                return -1
+            if nums[m] < 0:
+                l = m + 1
             else:
-                l = m
+                r = m
 
         return -1
 

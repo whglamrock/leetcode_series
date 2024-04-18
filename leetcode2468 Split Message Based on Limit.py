@@ -30,3 +30,4 @@ class Solution:
 
 print(Solution().splitMessage(message="this is really a very awesome message", limit=9))
 print(Solution().splitMessage(message="short message", limit=15))
+print(Solution().splitMessage(message="short message", limit=30))

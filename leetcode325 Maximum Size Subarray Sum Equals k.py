@@ -1,30 +1,18 @@
+from typing import List
 
-# key is use sumarray and hash table to search
+class Solution:
+    def maxSubArrayLen(self, nums: List[int], k: int) -> int:
+        prefixSumToIndex = {}
+        prefixSum = 0
+        maxSubarraySize = 0
+        for i, num in enumerate(nums):
+            prefixSum += num
+            if prefixSum == k:
+                maxSubarraySize = max(maxSubarraySize, i + 1)
+            if prefixSum - k in prefixSumToIndex:
+                maxSubarraySize = max(maxSubarraySize, i - prefixSumToIndex[prefixSum - k])
 
-class Solution(object):
-    def maxSubArrayLen(self, nums, k):
+            if prefixSum not in prefixSumToIndex:
+                prefixSumToIndex[prefixSum] = i
 
-        if not nums:
-            return 0
-
-        sumarray = []
-        sumdic = {0: -1}
-        ans = 0
-        for i in xrange(len(nums)):
-            newsum = sumarray[-1] + nums[i] if sumarray else nums[i]
-            sumarray.append(newsum)
-            # if the sum value is already already occurred we don't update because we only
-            #   need the smallest index to product the longest subarray
-            if newsum not in sumdic:
-                sumdic[newsum] = i
-            if newsum - k in sumdic:
-                ans = max(ans, i - sumdic[newsum - k])
-
-        return ans
-
-
-
-Sol = Solution()
-nums = [1, -1, 5, -2, 3]
-k = 3
-print Sol.maxSubArrayLen(nums, k)
+        return maxSubarraySize
