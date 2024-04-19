@@ -1,16 +1,14 @@
-from collections import defaultdict
 
-# count the number of substrings that ends at each s[i], the rightmost of startIndex j of s[j:i + 1] should be
-# the min of right most indexes of a/b/c. Then all start index (j) in range [0, rightmostStartIndex] suffice.
+# you just need to record last index of a, b, c. The minimum of them is the rightmost left index of such substring
+# the leftmost left index of such substring is obviously 0.
 class Solution:
     def numberOfSubstrings(self, s: str) -> int:
-        letterToIndexes = defaultdict(list)
+        letterToLastIndex = {}
         ans = 0
         for i, char in enumerate(s):
-            if char in 'abc':
-                letterToIndexes[char].append(i)
-            if len(letterToIndexes) == 3:
-                minOfLatestAbcIndex = min(letterToIndexes['a'][-1], letterToIndexes['b'][-1], letterToIndexes['c'][-1])
-                ans += minOfLatestAbcIndex + 1
+            letterToLastIndex[char] = i
+            if len(letterToLastIndex) == 3:
+                rightmostStartIndex = min(letterToLastIndex['a'], letterToLastIndex['b'], letterToLastIndex['c'])
+                ans += rightmostStartIndex + 1
 
         return ans

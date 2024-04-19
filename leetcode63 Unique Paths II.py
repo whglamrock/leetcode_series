@@ -5,17 +5,13 @@ class Solution:
         m, n = len(obstacleGrid), len(obstacleGrid[0])
         dp = [[0 for j in range(n)] for i in range(m)]
 
-        anyObstacleInFirstRow = False
         for i in range(m):
-            if obstacleGrid[i][0] == 1 or anyObstacleInFirstRow:
-                anyObstacleInFirstRow = True
-                continue
+            if obstacleGrid[i][0] == 1:
+                break
             dp[i][0] = 1
-        anyObstacleInFirstColumn = False
         for j in range(n):
-            if obstacleGrid[0][j] == 1 or anyObstacleInFirstColumn:
-                anyObstacleInFirstColumn = True
-                continue
+            if obstacleGrid[0][j] == 1:
+                break
             dp[0][j] = 1
 
         for i in range(1, m):

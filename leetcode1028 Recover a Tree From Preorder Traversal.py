@@ -11,7 +11,6 @@ class Solution:
         i, n = 0, len(traversal)
         stack = []
         depth = 0
-        nodeToDepth = {}
         while i < n:
             if traversal[i].isdigit():
                 currVal = int(traversal[i])
@@ -19,16 +18,16 @@ class Solution:
                     currVal = currVal * 10 + int(traversal[i + 1])
                     i += 1
                 node = TreeNode(currVal)
-                nodeToDepth[node] = depth
-                while stack and nodeToDepth[stack[-1]] >= depth:
+
+                while stack and stack[-1][1] >= depth:
                     stack.pop()
                 if stack:
-                    parentNode = stack[-1]
+                    parentNode = stack[-1][0]
                     if not parentNode.left:
                         parentNode.left = node
                     else:
                         parentNode.right = node
-                stack.append(node)
+                stack.append([node, depth])
             else:
                 depth = 1
                 while i + 1 < n and traversal[i + 1] == '-':
@@ -36,4 +35,4 @@ class Solution:
                     depth += 1
             i += 1
 
-        return stack[0]
+        return stack[0][0]
