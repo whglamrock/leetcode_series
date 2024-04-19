@@ -6,7 +6,7 @@ class TreeNode(object):
         self.left = None
         self.right = None
 
-
+# serialize it the same way in leetcode. e.g., [1,2,3,null,null,4,5,null,6,null,7]
 class Codec:
     def serialize(self, root):
         """Encodes a tree to a single string.
@@ -17,34 +17,25 @@ class Codec:
         if not root:
             return ''
 
-        # level order traversal
-        todo = [root]
-        levelOrderTraversals = []
-        while todo:
-            nextTodo = []
-            for node in todo:
+        serialized = []
+        curr = [root]
+        while curr:
+            next = []
+            for node in curr:
                 if node is None:
-                    levelOrderTraversals.append(None)
+                    serialized.append('null')
                     continue
-                levelOrderTraversals.append(node.val)
-                if node.left:
-                    nextTodo.append(node.left)
-                else:
-                    nextTodo.append(None)
-                if node.right:
-                    nextTodo.append(node.right)
-                else:
-                    nextTodo.append(None)
-            todo = nextTodo
-        while levelOrderTraversals and levelOrderTraversals[-1] is None:
-            levelOrderTraversals.pop()
-        ans = []
-        for val in levelOrderTraversals:
-            if val is None:
-                ans.append('null')
-            else:
-                ans.append(str(val))
-        return ','.join(ans)
+
+                serialized.append(str(node.val))
+                next.append(node.left)
+                next.append(node.right)
+
+            curr = next
+
+        while serialized and serialized[-1] == 'null':
+            serialized.pop()
+
+        return ','.join(serialized)
 
     def deserialize(self, data):
         """Decodes your encoded data to tree.
@@ -55,29 +46,30 @@ class Codec:
         if not data:
             return None
 
-        data = deque(data.split(','))
-        root = TreeNode(int(data.popleft()))
-        todo = [root]
-        while todo:
-            nextTodo = []
-            for node in todo:
-                # to deal with leaf node
-                if not data:
-                    break
-                nextVal = data.popleft()
-                if nextVal != 'null':
-                    leftNode = TreeNode(int(nextVal))
-                    node.left = leftNode
-                    nextTodo.append(leftNode)
-                # to deal with leaf node
-                if not data:
-                    break
-                nextVal = data.popleft()
-                if nextVal != 'null':
-                    rightNode = TreeNode(int(nextVal))
-                    node.right = rightNode
-                    nextTodo.append(rightNode)
-            todo = nextTodo
+        tokens = deque(data.split(','))
+        root = TreeNode(int(tokens.popleft()))
+
+        q = deque([root])
+        parent = None
+        leftChildConnected = False
+        while tokens:
+            if not parent:
+                parent = q.popleft()
+
+            val = tokens.popleft()
+            if val == 'null':
+                childNode = None
+            else:
+                childNode = TreeNode(int(val))
+                q.append(childNode)
+
+            if not leftChildConnected:
+                parent.left = childNode
+                leftChildConnected = True
+            else:
+                parent.right = childNode
+                parent = None
+                leftChildConnected = False
 
         return root
 

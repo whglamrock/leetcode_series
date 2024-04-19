@@ -1,15 +1,15 @@
+from typing import List
 
-# or use deque
+# most likely in real interview the motherfucking interviewer will ask for in-place swap
+class Solution:
+    def sortArrayByParity(self, nums: List[int]) -> List[int]:
+        l, r = 0, len(nums) - 1
+        while l < r:
+            while l < r and nums[l] % 2 == 0:
+                l += 1
+            while l < r and nums[r] % 2:
+                r -= 1
+            if l < r:
+                nums[l], nums[r] = nums[r], nums[l]
 
-class Solution(object):
-    def sortArrayByParity(self, A):
-
-        res = []
-        for num in A:
-            if num % 2 == 0:
-                res.append(num)
-        for num in A:
-            if num % 2 != 0:
-                res.append(num)
-
-        return res
+        return nums

@@ -8,12 +8,9 @@ class Solution:
     def minSwaps(self, s: str) -> int:
         stack = []
         for char in s:
-            if char == '[':
-                stack.append('[')
-            else:
-                if stack and stack[-1] == '[':
-                    stack.pop()
-                else:
-                    stack.append(']')
+            if char == ']' and stack and stack[-1] == '[':
+                stack.pop()
+                continue
+            stack.append(char)
 
         return ceil((len(stack) // 2) / 2)

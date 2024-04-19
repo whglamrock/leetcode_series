@@ -22,45 +22,38 @@ class Solution:
         self.dfs(root, None)
         return self.ans
 
-    # 0 means we put camera on this node; -1 means it's leaf or "similar to leaf"; 1 means it's covered by its children
-    def dfs(self, root: Optional[TreeNode], parent: Optional[TreeNode]) -> int:
-        if not root.left and not root.right:
-            if not parent:
-                self.ans += 1
-                return 0
+    # if it's leaf, return -1; if it's covered by its child return 0; if we put a camera on it, return 1
+    def dfs(self, node: Optional[TreeNode], parent: Optional[TreeNode]) -> int:
+        # leaf
+        if not node.left and not node.right:
             return -1
-
-        if root.left and root.right:
-            leftValue, rightValue = self.dfs(root.left, root), self.dfs(root.right, root)
-            if leftValue == -1 or rightValue == -1:
+        elif node.left and node.right:
+            leftChild = self.dfs(node.left, node)
+            rightChild = self.dfs(node.right, node)
+            if leftChild == -1 or rightChild == -1:
                 self.ans += 1
-                return 0
-            if leftValue == 0 or rightValue == 0:
                 return 1
-            # both children are covered, the node needs to be covered by its parent or itself
-            if not parent:
-                self.ans += 1
+            if leftChild == 1 or rightChild == 1:
                 return 0
-            return -1
-        elif root.left:
-            leftValue = self.dfs(root.left, root)
-            if leftValue == -1:
+        elif node.left:
+            leftChild = self.dfs(node.left, node)
+            if leftChild == -1:
                 self.ans += 1
-                return 0
-            if leftValue == 0:
                 return 1
-            if not parent:
-                self.ans += 1
+            if leftChild == 1:
                 return 0
-            return -1
         else:
-            rightValue = self.dfs(root.right, root)
-            if rightValue == -1:
+            rightChild = self.dfs(node.right, node)
+            if rightChild == -1:
                 self.ans += 1
-                return 0
-            if rightValue == 0:
                 return 1
-            if not parent:
-                self.ans += 1
+            if rightChild == 1:
                 return 0
-            return -1
+
+        # both children are covered by grandchildren, we need to rely on parent
+        # to decide whether we put a camera on it
+        if not parent:
+            self.ans += 1
+            return 1
+        # leaf "like"
+        return -1
