@@ -5,25 +5,32 @@ from typing import List
 class Solution:
     def fourSum(self, nums: List[int], target: int) -> List[List[int]]:
         nums.sort()
-        quadruplets = set()
-        n = len(nums)
-        for i in range(n - 3):
-            for j in range(i + 1, n - 2):
-                l, r = j + 1, n - 1
-                twoSumTarget = target - (nums[i] + nums[j])
+        ans = []
+        for i in range(len(nums) - 3):
+            if i > 0 and nums[i] == nums[i - 1]:
+                continue
+            for j in range(i + 1, len(nums) - 2):
+                if j > i + 1 and nums[j] == nums[j - 1]:
+                    continue
+                l, r = j + 1, len(nums) - 1
+                currTarget = target - (nums[i] + nums[j])
                 while l < r:
-                    if nums[l] + nums[r] == twoSumTarget:
-                        quadruplets.add((nums[i], nums[j], nums[l], nums[r]))
+                    twoSum = nums[l] + nums[r]
+                    if twoSum == currTarget:
+                        ans.append([nums[i], nums[j], nums[l], nums[r]])
+                        while l + 1 < len(nums) and nums[l + 1] == nums[l]:
+                            l += 1
                         l += 1
                         r -= 1
-                    elif nums[l] + nums[r] < twoSumTarget:
+                    elif twoSum < currTarget:
+                        while l + 1 < len(nums) and nums[l + 1] == nums[l]:
+                            l += 1
                         l += 1
                     else:
+                        while r - 1 >= 0 and nums[r - 1] == nums[r]:
+                            r -= 1
                         r -= 1
 
-        ans = []
-        for item in quadruplets:
-            ans.append(list(item))
         return ans
 
 

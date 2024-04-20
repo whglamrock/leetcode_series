@@ -1,10 +1,7 @@
 from collections import deque
 from typing import List
 
-# 1) nums = nums + nums
-# 2) scanning from right to left, using a increasing queue/stack (from right to left) to store the min prefixSum[j]
-# in range [i - n // 2, i - 1] ==> prefixSum[i] - min(prefixSum[j]) is the max subarray Sum that ends at i
-# 3) when adding element to the increasing queue, we also need to add index so we can pop out the invalid prefix from right
+# when dealing with circular array, always just double the array
 class Solution:
     def maxSubarraySumCircular(self, nums: List[int]) -> int:
         nums = nums + nums
@@ -16,24 +13,20 @@ class Solution:
                 prefixSums.append(prefixSums[-1] + num)
 
         n = len(nums)
-        increasingQueue = deque()
-        for i in range(n - 2, n // 2 - 1, -1):
-            while increasingQueue and increasingQueue[0][0] >= prefixSums[i]:
-                increasingQueue.popleft()
-            increasingQueue.appendleft([prefixSums[i], i])
+        increasingStack = deque()
+        ans = -2147483647
+        for i, prefixSum in enumerate(prefixSums):
+            while increasingStack and i - increasingStack[0][0] + 1 > n // 2:
+                increasingStack.popleft()
 
-        ans = -2147483648
-        for i in range(n - 1, n // 2 - 1, -1):
-            # currPrefixSum is the new prefixSum on the left side we are adding to the increasingQueue
-            currPrefixSum = prefixSums[i - n // 2]
-            while increasingQueue and increasingQueue[0][0] >= currPrefixSum:
-                increasingQueue.popleft()
-            increasingQueue.appendleft([currPrefixSum, i - n // 2])
+            # when i < n // 2, we don't have to worry about left index of the prefix array
+            if i < n // 2:
+                ans = max(ans, prefixSum)
+            if increasingStack:
+                ans = max(ans, prefixSum - increasingStack[0][1])
 
-            ans = max(ans, prefixSums[i] - increasingQueue[-1][0])
-            # the smallest prefixSum in increasingQueue cannot be i - 1 because in the next
-            # for loop it's gonna be deducted from prefixSums[i - 1] which will always == 0
-            while increasingQueue and increasingQueue[-1][1] >= i - 1:
-                increasingQueue.pop()
+            while increasingStack and increasingStack[-1][1] > prefixSum:
+                increasingStack.pop()
+            increasingStack.append([i, prefixSum])
 
         return ans

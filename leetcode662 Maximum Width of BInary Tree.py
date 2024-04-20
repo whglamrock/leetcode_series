@@ -6,48 +6,22 @@ class TreeNode:
         self.left = left
         self.right = right
 
-# To avoid MLE in leetcode, simple level order traversal with redundant null values won't work, so we need to count
-# the number of consecutive null nodes in the next level
+# remember the order * 2 & order * 2 + 1 trick.
 class Solution:
     def widthOfBinaryTree(self, root: Optional[TreeNode]) -> int:
-        todo = [root]
-        maxWidth = 1
-        while todo:
-            nextTodo = []
-            firstNonNullNode, lastNonNullNode = None, None
-            numOfConsecutiveNullNodesInNext = 0
-            currNumOfNodes = 0
-            for node in todo:
-                if type(node) == int:
-                    currNumOfNodes += node
-                    numOfConsecutiveNullNodesInNext += node * 2
-                else:
-                    if firstNonNullNode is None:
-                        firstNonNullNode = currNumOfNodes
-                    lastNonNullNode = currNumOfNodes
-                    currNumOfNodes += 1
-                    if node.left:
-                        if numOfConsecutiveNullNodesInNext:
-                            nextTodo.append(numOfConsecutiveNullNodesInNext)
-                        numOfConsecutiveNullNodesInNext = 0
-                        nextTodo.append(node.left)
-                    else:
-                        numOfConsecutiveNullNodesInNext += 1
-                    if node.right:
-                        if numOfConsecutiveNullNodesInNext:
-                            nextTodo.append(numOfConsecutiveNullNodesInNext)
-                        numOfConsecutiveNullNodesInNext = 0
-                        nextTodo.append(node.right)
-                    else:
-                        numOfConsecutiveNullNodesInNext += 1
-            if numOfConsecutiveNullNodesInNext:
-                nextTodo.append(numOfConsecutiveNullNodesInNext)
+        if not root:
+            return 0
 
-            # all null nodes, so no next level
-            if firstNonNullNode is None and lastNonNullNode is None:
-                break
-            if firstNonNullNode is not None and lastNonNullNode is not None and firstNonNullNode != lastNonNullNode:
-                maxWidth = max(maxWidth, lastNonNullNode - firstNonNullNode + 1)
-            todo = nextTodo
+        ans = 0
+        curr = [[0, root]]
+        while curr:
+            ans = max(ans, curr[-1][0] - curr[0][0] + 1)
+            next = []
+            for order, node in curr:
+                if node.left:
+                    next.append([order * 2, node.left])
+                if node.right:
+                    next.append([order * 2 + 1, node.right])
+            curr = next
 
-        return maxWidth
+        return ans
