@@ -1,9 +1,10 @@
 from collections import defaultdict
 from typing import List
 
+# Below is a solution without trimming the tree.
+# Trimming the tree will also work, but the implementation is a bit different
 class Solution:
     def validTree(self, n: int, edges: List[List[int]]) -> bool:
-        # not absolutely necessary but it can speed up the algorithm
         if len(edges) != n - 1:
             return False
 
@@ -20,15 +21,13 @@ class Solution:
                 if node in visited:
                     return False
                 visited.add(node)
-                for nextNode in graph[node]:
-                    graph[nextNode].discard(node)
-                    if not graph[nextNode]:
-                        del graph[nextNode]
-                    # edge case: a ring of 3 or 4 nodes
-                    if nextNode in nextTodo:
+                for connectedNode in graph[node]:
+                    if connectedNode in nextTodo:
                         return False
-                    nextTodo.add(nextNode)
-                del graph[node]
+                    if connectedNode in visited:
+                        continue
+                    nextTodo.add(connectedNode)
+
             todo = nextTodo
 
         return len(visited) == n
