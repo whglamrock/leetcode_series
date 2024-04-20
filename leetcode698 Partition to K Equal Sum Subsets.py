@@ -22,9 +22,11 @@ class Solution:
         if i == len(self.nums):
             return True
 
+        num = self.nums[i]
         for j in range(k):
-            if self.buckets[j] >= self.nums[i]:
-                self.buckets[j] -= self.nums[i]
+            # try this number in each bucket
+            if self.buckets[j] >= num:
+                self.buckets[j] -= num
                 if self.dfs(i + 1, k):
                     return True
                 self.buckets[j] += self.nums[i]

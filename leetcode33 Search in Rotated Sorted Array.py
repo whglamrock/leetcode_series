@@ -8,20 +8,21 @@ class Solution:
         l, r = 0, len(nums) - 1
         while l <= r:
             m = (l + r) // 2
+            if nums[m] == target:
+                return m
             if l == r:
-                if nums[m] == target:
-                    return m
                 return -1
 
             # instead of comparing nums[m] & target, we divide the condition by whether the left half is ascending
             # Note: the nums[l] == nums[m] is for case like nums = [3, 1], target = 1
-            if nums[l] <= nums[m]:  # ascending from l to m
+            if nums[l] <= nums[m]:
                 if nums[l] <= target <= nums[m]:
                     r = m
                 else:
                     l = m + 1
-            else:  # ascending from m to r
-                if nums[m] < target <= nums[r]:
+            # nums[m:r + 1] is ascending
+            else:
+                if nums[m] <= target <= nums[r]:
                     l = m + 1
                 else:
                     r = m
