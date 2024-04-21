@@ -18,9 +18,7 @@ class Solution:
                 currStr = deque()
                 while stack and type(stack[-1]) == str:
                     currStr.appendleft(stack.pop())
-                currStr = ''.join(currStr)
-                if stack and type(stack[-1]) == int:
-                    currStr *= stack.pop()
+                currStr = ''.join(currStr) * stack.pop()
                 stack.append(currStr)
             elif s[i] in letters:
                 stack.append(s[i])

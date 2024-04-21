@@ -26,22 +26,23 @@ class Solution:
         for i, char in stack:
             invalidIndexes.add(i)
 
-        ans = []
+        stack = []
         for i, char in enumerate(s):
             if char == '*':
-                if ans and ans[-1] == '(':
-                    ans.pop()
+                if stack and stack[-1] == '(':
+                    stack.pop()
                 else:
-                    ans.append(char)
+                    stack.append(char)
             elif i not in invalidIndexes:
                 continue
             # invalid '(' or ')'
             else:
-                if char == ')' and ans and ans[-1] == '*':
-                    ans.pop()
+                if char == ')' and stack and stack[-1] == '*':
+                    stack.pop()
                 else:
-                    ans.append(char)
+                    stack.append(char)
 
-        while ans and ans[-1] == '*':
-            ans.pop()
-        return len(ans) == 0
+        for char in stack:
+            if char != '*':
+                return False
+        return True
