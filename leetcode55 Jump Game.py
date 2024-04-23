@@ -7,7 +7,7 @@ class Solution:
 
         for i, num in enumerate(nums):
             if i > currFarthest:
-                continue
+                return False
             currFarthest = max(currFarthest, i + num)
             if currFarthest >= len(nums) - 1:
                 return True

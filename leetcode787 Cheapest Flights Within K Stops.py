@@ -24,7 +24,7 @@ class Solution:
 
             # means we have visited this node with fewer flights AND CHEAPER PRICE because
             # the pq always pops out the next stop with the currently cheapest cost
-            if node in nodeToMinFlights and nodeToMinFlights[node] < numOfFlights:
+            if node in nodeToMinFlights and nodeToMinFlights[node] <= numOfFlights:
                 continue
             nodeToMinFlights[node] = numOfFlights
 
