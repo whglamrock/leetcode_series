@@ -27,8 +27,6 @@ class Solution:
                 if node not in graph:
                     continue
                 for connectedNode in graph[node]:
-                    if connectedNode not in graph:
-                        continue
                     graph[connectedNode].discard(node)
                     if len(graph[connectedNode]) == 1:
                         nextTodo.add(connectedNode)

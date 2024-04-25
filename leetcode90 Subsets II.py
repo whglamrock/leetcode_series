@@ -13,4 +13,5 @@ class Solution:
         for i in range(len(nums)):
             if i > 0 and nums[i] == nums[i - 1]:
                 continue
+            # remember here we directly cut the nums array to dedupe instead of recording the index used in this dfs
             self.dfs(ans, path + [nums[i]], nums[i + 1:])
