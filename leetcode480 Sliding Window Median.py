@@ -2,7 +2,8 @@ from sortedcontainers import SortedList
 from typing import List
 
 # remember this sortedcontainers library. The SortedList uses a balanced BST to store the values so insert
-# and remove both takes O(log(k)).
+# and remove both takes O(log(k)). Also SortedList[index] is also O(log(k)) because each node knows how many
+# nodes are in its subtree, so getting certain index value can be done by going downwards in the BST.
 class Solution:
     def medianSlidingWindow(self, nums: List[int], k: int) -> List[float]:
         window = SortedList()

@@ -25,35 +25,33 @@ class Solution(object):
 
         sortedL1 = self.sortList(l1)
         sortedL2 = self.sortList(l2)
-        return self.merge(sortedL1, sortedL2)
+        return self.merge2SortedLists(sortedL1, sortedL2)
 
-    def merge(self, l1: Optional[ListNode], l2: Optional[ListNode]) -> Optional[ListNode]:
+    def merge2SortedLists(self, l1: Optional[ListNode], l2: Optional[ListNode]):
+        if not l1:
+            return l2
+        if not l2:
+            return l1
+
         dummy = ListNode()
-        tmp = dummy
-
+        curr = dummy
         while l1 and l2:
             if l1.val < l2.val:
-                tmp.next = l1
-                nextNode = l1.next
-                l1.next = None
-                l1 = nextNode
+                curr.next = l1
+                l1 = l1.next
             else:
-                tmp.next = l2
-                nextNode = l2.next
-                l2.next = None
-                l2 = nextNode
-            tmp = tmp.next
+                curr.next = l2
+                l2 = l2.next
+            curr = curr.next
+            curr.next = None
 
-        while l1:
-            tmp.next = l1
-            l1 = l1.next
-            tmp = tmp.next
-        while l2:
-            tmp.next = l2
-            l2 = l2.next
-            tmp = tmp.next
-
-        return dummy.next
+        ans = dummy.next
+        dummy.next = None
+        if l1:
+            curr.next = l1
+        if l2:
+            curr.next = l2
+        return ans
 
 
 dummy = ListNode()

@@ -4,37 +4,27 @@ from typing import List
 # see explanation: https://discuss.leetcode.com/topic/28738/java-python-binary-search-o-nlogn-time-with-explanation
 class Solution:
     def lengthOfLIS(self, nums: List[int]) -> int:
-        n = len(nums)
-        # tails stores the smallest tail of any IS with certain length
         tails = []
-        # records the length of current LIS
-        size = 0
+        for num in nums:
+            if not tails or num > tails[-1]:
+                tails.append(num)
+                continue
+            indexEqualOrBigger = self.findLeftMostIndexEqualOrBiggerThan(tails, num)
+            # for case like [4, 10, 4, 3, 8, 9], we need to avoid tails become [4, 4]
+            if indexEqualOrBigger == -1 or tails[indexEqualOrBigger] == num:
+                continue
+            tails[indexEqualOrBigger] = num
 
-        for i in range(n):
-            # can increase the LIS
-            if not tails or nums[i] > tails[-1]:
-                tails.append(nums[i])
-                size += 1
-            else:
-                # there is no place for nums[i]
-                if nums[i] == tails[-1]:
-                    continue
-                indexOfBiggerNumber = self.findIndexBiggerThan(tails, nums[i])
-                if indexOfBiggerNumber != -1:
-                    tails[indexOfBiggerNumber] = nums[i]
+        return len(tails)
 
-        return size
-
-    # find the smallest index bigger than target
-    def findIndexBiggerThan(self, nums: List[int], target: int) -> int:
+    def findLeftMostIndexEqualOrBiggerThan(self, nums: List[int], target: int):
         l, r = 0, len(nums) - 1
         while l <= r:
-            if l == r:
-                if nums[l] > target:
-                    return l
-                else:
-                    return -1
             m = (l + r) // 2
+            if l == r:
+                if nums[m] >= target:
+                    return m
+                return -1
             if nums[m] < target:
                 l = m + 1
             else:
