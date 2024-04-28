@@ -10,7 +10,7 @@ class Solution:
             if start + query - 1 > end:
                 ans.append(-1)
                 continue
-            leftHalf = str(int(start + query - 1))
+            leftHalf = str(start + query - 1)
             rightHalf = leftHalf[::-1]
             if intLength % 2 != 0:
                 rightHalf = rightHalf[1:]
