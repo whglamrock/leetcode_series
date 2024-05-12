@@ -3,10 +3,13 @@ from typing import List
 
 # the strategy is init the pq with all row[0]'s and keep popping out the smallest, and calculate the range
 # the tricky part is to figure out that the strategy can guarantee the optimal range is reached:
-# 1) we only need one element from each of the list, so starting from left we can make sure all possible
-# left bounds are considered from the smallest to the biggest
-# 2) for each k element group that formed a left bound, we don't have the option to "choose" right, the right
-# is literally the max of the heapq
+# 1) assuming len(nums) == k, we keep a min heap of k numbers (each from nums[i]);
+# 2) within each row, we try to make the current nums[i][j] the left bound of the range
+# 3) the min of such nums[i][j] is smaller than all other elements in the minHeap, so for all other nums[ii][j]
+# where ii != i, all nums[ii][j + 1:] cannot form any smaller range with nums[i][j] being the left bound,
+# so we have to move nums[i][j] to nums[i][j + 1]
+# 4) we keep doing this, until we exhaust all nums[i][j] for certain row i, which means we exhausted all left bound
+# <= nums[i][-1]
 class Solution:
     def smallestRange(self, nums: List[List[int]]) -> List[int]:
         pq = []

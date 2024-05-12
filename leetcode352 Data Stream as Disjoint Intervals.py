@@ -1,115 +1,56 @@
+from collections import defaultdict
+from typing import List
 
-from heapq import *
-
-class Interval(object):
-    def __init__(self, s=0, e=0):
-
-        self.start = s
-        self.end = e
-
-
-class SummaryRanges(object):
-
+class SummaryRanges:
     def __init__(self):
+        self.numToGroup = {}
+        self.groupToNums = defaultdict(set)
+        self.currGroup = 0
 
-        self.intervals = []
-
-    # heap is the min heap
-    def addNum(self, val):
-
-        heappush(self.intervals, (val, Interval(val, val)))
-
-    def getIntervals(self):
-
-        stack = []
-
-        while self.intervals:
-            curr, currinterval = heappop(self.intervals)
-            if stack and curr <= stack[-1][1].end + 1:
-                last, lastinterval = stack.pop()
-                lastinterval.end = max(lastinterval.end, currinterval.end)
-                stack.append((last, lastinterval))
-            else:
-                stack.append((curr, currinterval))
-
-        self.intervals = stack
-        return [x[1] for x in stack]
-
-
-
-'''
-# naive BST solution will get TLE because of extreme case like [1, 2, 3, ... 1999, 2000]
-
-class Interval(object):
-    def __init__(self, s=0, e=0):
-        self.start = s
-        self.end = e
-
-
-class TreeNode(object):
-    def __init__(self, val):
-
-        self.val = val
-        self.left = None
-        self.right = None
-
-
-class SummaryRanges(object):
-
-    def __init__(self):
-
-        self.root = None
-
-    def addNum(self, val):
-
-        if not self.root:
-            self.root = TreeNode(val)
+    def addNum(self, value: int) -> None:
+        if value in self.numToGroup:
             return
-        cur = self.root
-        prev = cur
-        while cur:
-            prev = cur
-            if cur.val > val:
-                cur = cur.left
-            elif cur.val < val:
-                cur = cur.right
-            else:
-                return
-        newnode = TreeNode(val)
-        if prev.val > val:
-            prev.left = newnode
+
+        if value - 1 not in self.numToGroup and value + 1 not in self.numToGroup:
+            self.numToGroup[value] = self.currGroup
+            self.groupToNums[self.currGroup].add(value)
+            self.currGroup += 1
+        elif value - 1 in self.numToGroup and value + 1 in self.numToGroup:
+            groupNumber1, groupNumber2 = self.numToGroup[value - 1], self.numToGroup[value + 1]
+            self.numToGroup[value] = groupNumber1
+            self.groupToNums[groupNumber1].add(value)
+            self.mergeGroups(groupNumber1, groupNumber2)
+        elif value - 1 in self.numToGroup:
+            group = self.numToGroup[value - 1]
+            self.numToGroup[value] = group
+            self.groupToNums[group].add(value)
         else:
-            prev.right = newnode
-        #print val
+            group = self.numToGroup[value + 1]
+            self.numToGroup[value] = group
+            self.groupToNums[group].add(value)
 
-    # do the inorder traverse
-    def getIntervals(self):
+    def mergeGroups(self, groupNumber1: int, groupNumber2: int):
+        if groupNumber1 == groupNumber2:
+            return
 
-        cur = self.root
-        stack = []
-        ans = []
+        # make sure group1 is always the bigger one
+        if len(self.groupToNums[groupNumber1]) < len(self.groupToNums[groupNumber2]):
+            groupNumber1, groupNumber2 = groupNumber2, groupNumber1
 
-        while cur or stack:
-            while cur:
-                stack.append(cur)
-                cur = cur.left
-            cur = stack.pop()
-            ans.append(cur.val)
-            cur = cur.right
+        for num in self.groupToNums[groupNumber2]:
+            self.groupToNums[groupNumber1].add(num)
+            self.numToGroup[num] = groupNumber1
+        del self.groupToNums[groupNumber2]
 
-        res = []
-        if not ans:
-            return []
-        s, e = ans[0], None
-        for i in xrange(len(ans)):
-            if i == 0:
-                e = ans[0]
-            else:
-                if ans[i] > e + 1:
-                    res.append(Interval(s, e))
-                    s, e = ans[i], ans[i]
-                else:
-                    e += 1
-        res.append([s, e])
-        return res
-'''
+    def getIntervals(self) -> List[List[int]]:
+        intervals = []
+        for groupedNums in self.groupToNums.values():
+            intervals.append([min(groupedNums), max(groupedNums)])
+
+        return sorted(intervals)
+
+
+# Your SummaryRanges object will be instantiated and called as such:
+# obj = SummaryRanges()
+# obj.addNum(value)
+# param_2 = obj.getIntervals()
