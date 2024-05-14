@@ -37,3 +37,21 @@ print(Solution().searchRange([2, 2], 2))
 print(Solution().searchRange([], 0))
 print(Solution().searchRange([5, 7, 7, 8, 8, 10], 8))
 print(Solution().searchRange([5, 7, 7, 8, 8, 10], 6))
+
+
+'''
+from bisect import bisect
+
+# shorted bisect library solution
+class Solution:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        if not nums:
+            return [-1, -1]
+
+        firstPosition = bisect_left(nums, target)
+        if firstPosition >= len(nums) or nums[firstPosition] != target:
+            return [-1, -1]
+        
+        lastPosition = bisect_right(nums, target)
+        return [firstPosition, lastPosition - 1]
+'''
