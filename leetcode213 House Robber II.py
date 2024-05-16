@@ -1,31 +1,24 @@
+from typing import List
 
-# idea came from lc 198: House Robber
+# idea came from: https://leetcode.com/problems/house-robber-ii/solutions/893957/python-just-use-house-robber-twice/
+class Solution:
+    def rob(self, nums: List[int]) -> int:
+        return max(nums[0] + self.robHouse(nums[2:len(nums) - 1]), self.robHouse(nums[1:]))
 
-class Solution(object):
-    def rob(self, nums):
-
-        if (not nums):
+    def robHouse(self, nums: List[int]) -> int:
+        if not nums:
             return 0
-        if len(nums) == 1:
-            return nums[0]
+        n = len(nums)
+        # dp1 stores the max money you can rob if you rob i
+        dp1 = [0] * n
+        # dp2 stores the max money you can rob if you don't rob i
+        dp2 = [0] * n
+        for i, num in enumerate(nums):
+            if i == 0:
+                dp1[i] = num
+                continue
+            # if you rob i, you must not rob i - 1
+            dp1[i] = dp2[i - 1] + num
+            dp2[i] = max(dp2[i - 1], dp1[i - 1])
 
-        def helper(list):
-            last, now, flag = 0, 0, True
-            for i in xrange(len(list)):
-                if i == len(list)-1 and last+list[i] > now:
-                    flag = False    # when the last one is chosen
-                last, now = now, max(last+list[i], now)
-            return [now, flag]
-
-        re1 = helper(nums[2:])
-        big1 = nums[0]+re1[0]   # choose the first one for sure
-        flag1 = re1[1]
-
-        re2 = helper(nums[3:])
-        big2 = nums[1]+re2[0]   # choose the second one for sure (no limit for choosing the last one in this case)
-        withoutlast = helper(nums[2:len(nums)-1])[0]+nums[0]   # when don't choose the last one but choose the first
-        # notice that withoutlast isn't necessarily equal to big-nums[-1].
-
-        if flag1 == False:  # the last one and the first one are chosen, so conflict must be resolved by:
-            big1 = max(big1-nums[0], withoutlast)
-        return max(big1, big2)
+        return max(dp1[-1], dp2[-1])
