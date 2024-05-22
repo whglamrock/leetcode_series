@@ -15,19 +15,25 @@ class HtmlParser(object):
 
 class Solution:
     def crawl(self, startUrl: str, htmlParser: 'HtmlParser') -> List[str]:
-        hostname = lambda url: url.split('/')[2]
-        visited = {startUrl}
+        def getHostName(url):
+            start = len('http://')
+            i = start
+            while i < len(url):
+                if url[i] == '/':
+                    break
+                i += 1
+            return url[start:i]
 
+        seen = {startUrl}
         with futures.ThreadPoolExecutor(max_workers=16) as executor:
-            # once the task is submitted, it started executing
-            tasks = deque([executor.submit(htmlParser.getUrls, startUrl)])
-            while tasks:
-                for url in tasks.popleft().result():
-                    if url not in visited and hostname(startUrl) == hostname(url):
-                        visited.add(url)
-                        tasks.append(executor.submit(htmlParser.getUrls, url))
+            q = deque([executor.submit(htmlParser.getUrls, startUrl)])
+            while q:
+                for url in q.popleft().result():
+                    if url not in seen and getHostName(url) == getHostName(startUrl):
+                        q.append(executor.submit(htmlParser.getUrls, url))
+                        seen.add(url)
 
-        return list(visited)
+        return list(seen)
 
 
 '''
