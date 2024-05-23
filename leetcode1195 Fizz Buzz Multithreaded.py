@@ -1,5 +1,7 @@
 from threading import Lock
 
+# Idea came from: https://leetcode.com/problems/fizz-buzz-multithreaded/solutions/542960/python-99-28-a-standard-lock-based-solution-with-detailed-explanation/
+# There's another solution uses for loop instead of while loop, which is also interesting
 class FizzBuzz:
     def __init__(self, n: int):
         self.n = n
