@@ -3,19 +3,18 @@ from threading import Semaphore
 
 class BoundedBlockingQueue(object):
     def __init__(self, capacity: int):
-        self.push = Semaphore(capacity)
-        self.pull = Semaphore(0)
+        self.enqSem, self.deqSem = Semaphore(capacity), Semaphore(0)
         self.q = deque()
 
     def enqueue(self, element: int) -> None:
-        self.push.acquire()
+        self.enqSem.acquire()
         self.q.append(element)
-        self.pull.release()
+        self.deqSem.release()
 
     def dequeue(self) -> int:
-        self.pull.acquire()
+        self.deqSem.acquire()
         rearElement = self.q.popleft()
-        self.push.release()
+        self.enqSem.release()
         return rearElement
 
     def size(self) -> int:
