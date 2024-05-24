@@ -37,8 +37,8 @@ class Solution:
 
 
 '''
+from threading import Lock, Thread
 from queue import Queue
-import threading
 
 # solution using lock
 class Solution:
@@ -52,39 +52,39 @@ class Solution:
                 i += 1
             return url[start:i]
         
-        queue = Queue()
-        lock = threading.Lock()
         seen = {startUrl}
+        q = Queue()
+        lock = Lock()
 
-        def workThread():
+        def work():
             while True:
-                url = queue.get()
+                url = q.get()
                 if url is None:
                     return
                 
                 for nextUrl in htmlParser.getUrls(url):
-                    lock.acquire()
-                    if nextUrl not in seen and getHostName(nextUrl) == getHostName(startUrl):
-                        seen.add(nextUrl)
-                        queue.put(nextUrl)
-                    lock.release()
+                    with lock:
+                        if nextUrl not in seen and getHostName(nextUrl) == getHostName(startUrl):
+                            seen.add(nextUrl)
+                            q.put(nextUrl)
                 
-                queue.task_done()
-
-        numOfWorkers = 16
+                q.task_done()
+        
         workers = []
-        for i in range(numOfWorkers):
-            t = threading.Thread(target=workThread)
+        for i in range(16):
+            t = Thread(target=work)
             t.start()
             workers.append(t)
-        
-        queue.put(startUrl)
-        queue.join()
 
-        for i in range(numOfWorkers):
-            queue.put(None)
+        # make sure all tasks are finished before we proceed
+        q.put(startUrl)
+        q.join()
+
+        # to exit each thread
+        for i in range(16):
+            q.put(None)
         for t in workers:
             t.join()
-        
+
         return list(seen)
 '''
