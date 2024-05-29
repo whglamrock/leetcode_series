@@ -13,7 +13,6 @@ class Solution(object):
 
 
 # there are only going to be 4 digits
-
 class Solution(object):
     def intToRoman(self, num):
         """
@@ -21,13 +20,13 @@ class Solution(object):
         :rtype: str
         """
 
-        thousands = num / 1000
+        thousands = num // 1000
         num = num % 1000
 
-        hundreds = num / 100
+        hundreds = num // 100
         num = num % 100
 
-        tens = num / 10
+        tens = num // 10
         num = num % 10
 
         singles = num
