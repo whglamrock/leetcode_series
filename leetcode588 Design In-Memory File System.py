@@ -12,7 +12,8 @@ class FileSystem(object):
         self.root = TrieNode()
         self.fileToContent = defaultdict(list)
 
-    # the path is always valid
+    # the description says the path is always valid, but actually it's possible that certain
+    # directory is not in the curr.children map.
     def ls(self, path: str) -> List[str]:
         directories = path.split('/')
         curr = self.root
@@ -20,6 +21,8 @@ class FileSystem(object):
         for directory in directories:
             if not directory:
                 continue
+            # here we don't check if directory is in curr.children, otherwise the stupid leetcode
+            # will fail on some stupid test case
             curr = curr.children[directory]
 
         if curr.isFile:
