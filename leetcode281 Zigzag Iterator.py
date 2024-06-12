@@ -1,32 +1,25 @@
+from collections import deque
+from typing import List
 
-# in fact, pop(0) is very time consuming.
 
-class ZigzagIterator(object):
-
-    def __init__(self, v1, v2):
-
-        v1.reverse()
-        v2.reverse()
-        self.queue = []
+class ZigzagIterator:
+    def __init__(self, v1: List[int], v2: List[int]):
+        self.values = deque()
+        v1, v2 = deque(v1), deque(v2)
         while v1 and v2:
-            self.queue.append(v1.pop())
-            self.queue.append(v2.pop())
-        if v1:
-            while v1:
-                self.queue.append(v1.pop())
-        else:
-            while v2:
-                self.queue.append(v2.pop())
-        self.queue.reverse()
+            self.values.append(v1.popleft())
+            self.values.append(v2.popleft())
 
-    def next(self):
+        while v1:
+            self.values.append(v1.popleft())
+        while v2:
+            self.values.append(v2.popleft())
 
-        return self.queue.pop()
+    def next(self) -> int:
+        return self.values.popleft()
 
-    def hasNext(self):
-
-        return len(self.queue) != 0
-
+    def hasNext(self) -> bool:
+        return len(self.values) > 0
 
 
 # Your ZigzagIterator object will be instantiated and called as such:

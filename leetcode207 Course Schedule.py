@@ -1,6 +1,7 @@
 from collections import defaultdict
 from typing import List
 
+
 class Solution:
     def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         courseToDependents = defaultdict(set)
@@ -36,6 +37,3 @@ class Solution:
 
 print(Solution().canFinish(2, [[1,0],[0,1]]))
 print(Solution().canFinish(4, [[1,0],[2,1],[3,1],[3,0],[3,2]]))
-
-
-
