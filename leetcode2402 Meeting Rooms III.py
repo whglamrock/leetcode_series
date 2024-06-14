@@ -2,6 +2,15 @@ from collections import defaultdict
 from heapq import *
 from typing import List
 
+
+# we cannot add all start & end times from meetings and use a sorted timeline list to loop it through:
+# 1) it's very possible we skipped some expired meeting end times (those end times are delayed by some delta). e.g.,
+# the timeline could be 17 and we have some meeting that originally ends at 13 but actual end time is 14 (13 + delay of 1),
+# but the timeline set doesn't included a point of time == 14 (only 13, 17). In this case there could be some meeting
+# already waiting that should have been added to the room released by the meeting ends at 14, but wrongfully added to
+# the room that's released by the meeting ends at 17
+# 2) to bypass this limitation, you might think of looping through all 10 ** 9 + 7 time values but it will get TLE in
+# the stupid leetcode. The easiest way to solve it is just going through the sorted meetings list, not using a timeline set.
 class Solution:
     def mostBooked(self, n: int, meetings: List[List[int]]) -> int:
         meetings.sort()
@@ -31,16 +40,12 @@ class Solution:
             finishedEndTime, finishedRoom = heappop(ongoingMeetings)
             roomToCount[finishedRoom] += 1
 
-        maxRoomCount = 0
-        roomWithMostMeeting = 0
+        maxRoomCount = max(roomToCount.values())
         for room in range(n):
-            if room not in roomToCount:
-                continue
-            if roomToCount[room] > maxRoomCount:
-                roomWithMostMeeting = room
-                maxRoomCount = roomToCount[room]
+            if roomToCount[room] == maxRoomCount:
+                return room
 
-        return roomWithMostMeeting
+        return 0
 
 
 print(Solution().mostBooked(3, [[1, 20], [2, 10], [3, 5], [4, 9], [6, 8]]))

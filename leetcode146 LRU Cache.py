@@ -1,54 +1,56 @@
-class Node:
-    def __init__(self, key=None, val=None, nextNode=None, prevNode=None):
+
+class ListNode:
+    def __init__(self, key=None, val=None, prev=None, next=None):
         self.key = key
         self.val = val
-        self.next = nextNode
-        self.prev = prevNode
+        self.prev, self.next = prev, next
+
 
 class LRUCache:
-
     def __init__(self, capacity: int):
-        self.head, self.tail = Node(), Node()
-        self.head.next = self.tail
-        self.tail.prev = self.head
+        self.head, self.tail = ListNode(), ListNode()
+        self.head.next, self.tail.prev = self.tail, self.head
         self.keyToNode = {}
         self.capacity = capacity
 
     def get(self, key: int) -> int:
         if key not in self.keyToNode:
             return -1
-        # remove the node
-        node = self.keyToNode[key]
-        prevNode, nextNode = node.prev, node.next
-        prevNode.next, nextNode.prev = nextNode, prevNode
-        # move the node to right after the head
-        headNext = self.head.next
-        self.head.next, headNext.prev = node, node
-        node.prev, node.next = self.head, headNext
-        return node.val
+
+        val = self.keyToNode[key].val
+        self.deleteKey(key)
+        self.put(key, val)
+        return val
 
     def put(self, key: int, value: int) -> None:
         if key in self.keyToNode:
-            node = self.keyToNode[key]
-            node.val = value
-            prevNode, nextNode = node.prev, node.next
-            prevNode.next, nextNode.prev = nextNode, prevNode
-            node.prev, node.next = None, None
+            self.deleteKey(key)
         else:
-            # pop out the least recent node
-            while self.capacity <= len(self.keyToNode):
-                leastRecentNode = self.tail.prev
-                leastRecentNodePrev = leastRecentNode.prev
-                leastRecentNodePrev.next, self.tail.prev = self.tail, leastRecentNodePrev
-                leastRecentNode.prev, leastRecentNode.next = None, None
-                del self.keyToNode[leastRecentNode.key]
-            # build the newNode
-            node = Node(key, value)
-            self.keyToNode[key] = node
+            if len(self.keyToNode) == self.capacity:
+                lastKey = self.tail.prev.key
+                # in this case, capacity is 0
+                if lastKey is None:
+                    return
+                self.deleteKey(lastKey)
 
-        headNext = self.head.next
-        self.head.next, headNext.prev = node, node
-        node.prev, node.next = self.head, headNext
+        self.addNewNode(key, value)
+
+    def addNewNode(self, key: int, val: int) -> None:
+        newNode = ListNode(key, val)
+        firstNode = self.head.next
+        self.head.next, firstNode.prev = newNode, newNode
+        newNode.prev, newNode.next = self.head, firstNode
+        self.keyToNode[key] = newNode
+
+    def deleteKey(self, key: int) -> None:
+        if key not in self.keyToNode:
+            return
+
+        node = self.keyToNode[key]
+        prevNode, nextNode = node.prev, node.next
+        prevNode.next, nextNode.prev = nextNode, prevNode
+        node.prev, node.next = None, None
+        del self.keyToNode[key]
 
     def printLinkedList(self):
         curr = self.head.next
