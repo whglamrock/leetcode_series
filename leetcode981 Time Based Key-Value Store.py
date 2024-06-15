@@ -1,59 +1,40 @@
-
 from collections import defaultdict
+from typing import List
 
-class TimeMap(object):
+
+class TimeMap:
     def __init__(self):
-        """
-        Initialize your data structure here.
-        """
-        # map of map(string to list of int)
-        self.keyToTimeToValue = defaultdict(dict)
         self.keyToTimes = defaultdict(list)
+        self.keyToTimeToValue = defaultdict(dict)
 
-    def set(self, key, value, timestamp):
-        """
-        :type key: str
-        :type value: str
-        :type timestamp: int
-        :rtype: None
-        """
-        self.keyToTimeToValue[key][timestamp] = value
+    def set(self, key: str, value: str, timestamp: int) -> None:
         self.keyToTimes[key].append(timestamp)
+        self.keyToTimeToValue[key][timestamp] = value
 
-    # find the biggest previous timestamp <= timestamp
-    def get(self, key, timestamp):
-        """
-        :type key: str
-        :type timestamp: int
-        :rtype: str
-        """
-        # binary search
-        times = self.keyToTimes[key]
-        l, r = 0, len(times)
-
-        while l < r:
-            m = l + (r - l) / 2
-            # m is not candidate
-            if times[m] > timestamp:
-                r = m
-            # m is candidate
-            else:
-                if l == m:
-                    break
-                l = m
-
-        if times[l] <= timestamp:
-            return self.keyToTimeToValue[key][times[l]]
-        else:
+    def get(self, key: str, timestamp: int) -> str:
+        if key not in self.keyToTimes:
             return ''
 
+        # find the previous timestamp that's <= timestamp
+        times = self.keyToTimes[key]
+        maxTimestampEarlier = self.findMaxElementLessOrEqualThan(times, timestamp)
+        if maxTimestampEarlier == -1:
+            return ''
 
+        return self.keyToTimeToValue[key][maxTimestampEarlier]
 
-tm = TimeMap()
-tm.set('love', 'high', 10)
-tm.set('love', 'low', 20)
-print tm.get('love', 5)
-print tm.get('love', 10)
-print tm.get('love', 15)
-print tm.get('love', 20)
-print tm.get('love', 25)
+    def findMaxElementLessOrEqualThan(self, nums: List[int], target: int) -> int:
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            m = (l + r + 1) // 2
+            if l == r:
+                if nums[m] <= target:
+                    return nums[m]
+                return -1
+
+            if nums[m] <= target:
+                l = m
+            else:
+                r = m - 1
+
+        return -1
