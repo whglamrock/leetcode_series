@@ -2,6 +2,7 @@ from collections import Counter
 from functools import lru_cache
 from typing import List
 
+
 class Solution:
     def __init__(self):
         self.arr = []
@@ -32,7 +33,8 @@ class Solution:
                     isOverlapping = True
                 newCharSet.add(char)
 
-            # can continue from current subsequence
+            # can continue from current subsequence, otherwise use arr[j]
+            # as the start of a new subsequence
             if not isOverlapping:
                 newCharSet = newCharSet.union(currCharSet)
 

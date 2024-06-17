@@ -1,11 +1,14 @@
 from typing import Optional
 
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
 
+
+# Intuition: count the total num of coins moved to each node from its children (starting from root, so use dfs)
 class Solution:
     def __init__(self):
         self.ans = 0

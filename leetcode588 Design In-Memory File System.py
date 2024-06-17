@@ -1,11 +1,13 @@
 from collections import defaultdict
 from typing import List
 
+
 # P.S., another solution is using heapq in a folder to sub-folder heapq list, which saves some time in ls function
 class TrieNode:
     def __init__(self):
         self.isFile = False
         self.children = defaultdict(TrieNode)
+
 
 class FileSystem(object):
     def __init__(self):
@@ -15,39 +17,39 @@ class FileSystem(object):
     # the description says the path is always valid, but actually it's possible that certain
     # directory is not in the curr.children map.
     def ls(self, path: str) -> List[str]:
-        directories = path.split('/')
+        folders = path.split('/')
         curr = self.root
 
-        for directory in directories:
-            if not directory:
+        for folder in folders:
+            if not folder:
                 continue
-            # here we don't check if directory is in curr.children, otherwise the stupid leetcode
+            # here we don't check if folder is in curr.children, otherwise the stupid leetcode
             # will fail on some stupid test case
-            curr = curr.children[directory]
+            curr = curr.children[folder]
 
         if curr.isFile:
-            return [directories[-1]]
+            return [folders[-1]]
         else:
             return sorted(curr.children.keys())
 
     def mkdir(self, path: str) -> None:
-        directories = path.split('/')
+        folders = path.split('/')
         curr = self.root
 
-        for directory in directories:
-            if not directory:
+        for folder in folders:
+            if not folder:
                 continue
-            curr = curr.children[directory]
+            curr = curr.children[folder]
 
     def addContentToFile(self, filePath: str, content: str) -> None:
-        directories = filePath.split('/')
+        folders = filePath.split('/')
         self.fileToContent[filePath].append(content)
         curr = self.root
 
-        for directory in directories:
-            if not directory:
+        for folder in folders:
+            if not folder:
                 continue
-            curr = curr.children[directory]
+            curr = curr.children[folder]
         curr.isFile = True
 
     def readContentFromFile(self, filePath: str) -> str:
