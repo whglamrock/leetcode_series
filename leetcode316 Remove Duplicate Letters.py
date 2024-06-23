@@ -1,3 +1,4 @@
+
 # Record the last occurrence (index) of each char. see: https://leetcode.com/problems/remove-duplicate-letters/solutions/1859515/python-o-n-beats-98-stack-detailed-explanation-simple/
 class Solution:
     def removeDuplicateLetters(self, s: str) -> str:
