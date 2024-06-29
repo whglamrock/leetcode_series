@@ -1,23 +1,22 @@
+from typing import List
 
-# Basic idea: sort. P.S.: timepoints doesn't necessarily have to be in the same day
 
-class Solution(object):
-    def findMinDifference(self, timePoints):
-
-        def standardize(hour, minute):
-            return hour * 60 + minute
-
-        pq = []
+class Solution:
+    def findMinDifference(self, timePoints: List[str]) -> int:
+        times = []
         for time in timePoints:
             hour, minute = time.split(':')
             hour, minute = int(hour), int(minute)
-            standardtime = standardize(hour, minute)
-            pq.append(standardtime)
+            standardTime = self.standardizeTime(hour, minute)
+            times.append(standardTime)
 
-        pq.sort()
-        ans = pq[1] - pq[0]
-        for i in xrange(1, len(pq)):
-            ans = min(ans, pq[i] - pq[i - 1])
-        ans = min(ans, pq[0] + 1440 - pq[-1])
+        times.sort()
+        minDiff = times[1] - times[0]
+        for i in range(len(times) - 1):
+            currTime, nextTime = times[i], times[i + 1]
+            minDiff = min(minDiff, nextTime - currTime)
 
-        return ans
+        return min(minDiff, times[0] + 1440 - times[-1])
+
+    def standardizeTime(self, hour: int, minute: int) -> int:
+        return hour * 60 + minute
