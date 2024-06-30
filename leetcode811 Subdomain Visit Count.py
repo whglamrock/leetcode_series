@@ -1,29 +1,19 @@
+from collections import defaultdict
+from typing import List
 
-from collections import defaultdict, deque
 
-class Solution(object):
-    def subdomainVisits(self, cpdomains):
-        """
-        :type cpdomains: List[str]
-        :rtype: List[str]
-        """
+class Solution:
+    def subdomainVisits(self, cpdomains: List[str]) -> List[str]:
         domainCount = defaultdict(int)
-        for cpdomain in cpdomains:
-            splitted = cpdomain.split(' ')
-            count, domain = int(splitted[0]), splitted[1]
-
-            subdomains = domain.split('.')
-            currDomain = deque()
-            for subdomain in subdomains[::-1]:
-                currDomain.appendleft(subdomain)
-                domainCount['.'.join(currDomain)] += count
+        for cpDomain in cpdomains:
+            count, domain = cpDomain.split(' ')
+            count = int(count)
+            tokens = domain.split('.')
+            for i in range(len(tokens)):
+                subDomain = '.'.join(tokens[i:])
+                domainCount[subDomain] += count
 
         ans = []
-        for domain in domainCount:
-            ans.append(str(domainCount[domain]) + ' ' + domain)
-
+        for domain, count in domainCount.items():
+            ans.append(str(count) + ' ' + domain)
         return ans
-
-
-
-print Solution().subdomainVisits(cpdomains = ["900 google.mail.com", "50 yahoo.com", "1 intel.mail.com", "5 wiki.org"])
