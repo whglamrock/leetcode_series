@@ -1,19 +1,23 @@
 from collections import defaultdict
 from typing import List
 
+
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
-        winnerToLosers, loserToWinners = defaultdict(set), defaultdict(set)
+        playerToWins = defaultdict(int)
+        playerToLosses = defaultdict(int)
         for winner, loser in matches:
-            winnerToLosers[winner].add(loser)
-            loserToWinners[loser].add(winner)
+            playerToWins[winner] += 1
+            playerToLosses[loser] += 1
 
-        playersNeverLost, playersLostOnce = [], []
-        for player in sorted(winnerToLosers.keys()):
-            if player not in loserToWinners:
-                playersNeverLost.append(player)
-        for player in sorted(loserToWinners.keys()):
-            if len(loserToWinners[player]) == 1:
-                playersLostOnce.append(player)
+        winners = []
+        for player in playerToWins:
+            if player not in playerToLosses:
+                winners.append(player)
 
-        return [playersNeverLost, playersLostOnce]
+        losersWithOnlyOneLoss = []
+        for player in playerToLosses:
+            if playerToLosses[player] == 1:
+                losersWithOnlyOneLoss.append(player)
+
+        return [sorted(winners), sorted(losersWithOnlyOneLoss)]

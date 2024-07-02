@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def containsNearbyAlmostDuplicate(self, nums: List[int], indexDiff: int, valueDiff: int) -> bool:
         bucket = {}
@@ -20,11 +21,11 @@ class Solution:
             # 1) there are at most indexDiff buckets and each bucket stores only 1 number
             # 2) we only care about the i - 1, i - 2, ...i - indexDiff 's corresponding buckets, no matter
             # whether these buckets fall into the [leftIndex, rightIndex + 1] range
-            bucket[bucketIndex] = num
-            if len(bucket) > indexDiff:
+            if len(bucket) >= indexDiff:
                 if valueDiff != 0:
                     del bucket[nums[i - indexDiff] // valueDiff]
                 else:
                     del bucket[nums[i - indexDiff]]
+            bucket[bucketIndex] = num
 
         return False
