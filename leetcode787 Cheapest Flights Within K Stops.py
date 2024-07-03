@@ -2,6 +2,7 @@ from collections import defaultdict
 from heapq import *
 from typing import List
 
+
 class Solution:
     def findCheapestPrice(self, n: int, flights: List[List[int]], src: int, dst: int, k: int) -> int:
         # make k the number of flights you can take at most

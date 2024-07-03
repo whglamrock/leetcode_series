@@ -2,6 +2,7 @@ from collections import defaultdict
 from heapq import *
 from typing import List
 
+
 class Solution:
     def networkDelayTime(self, times: List[List[int]], n: int, k: int) -> int:
         srcToDstToTime = defaultdict(dict)

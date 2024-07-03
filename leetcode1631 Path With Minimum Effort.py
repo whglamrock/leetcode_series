@@ -24,7 +24,7 @@ class Solution:
 
                 newEffort = max(abs(heights[ii][jj] - heights[i][j]), effort)
                 if (ii, jj) not in indexToMinEffort or indexToMinEffort[(ii, jj)] > newEffort:
-                    heappush(pq, [max(abs(heights[ii][jj] - heights[i][j]), effort), ii, jj])
+                    heappush(pq, [newEffort, ii, jj])
                     # update effort in (ii, jj) to speed up
                     indexToMinEffort[(ii, jj)] = newEffort
 

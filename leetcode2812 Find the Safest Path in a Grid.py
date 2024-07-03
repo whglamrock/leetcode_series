@@ -1,6 +1,7 @@
 from heapq import *
 from typing import List
 
+
 # BFS + Dijkstra. O(N^2 * log(N^2)) time complexity
 class Solution:
     def maximumSafenessFactor(self, grid: List[List[int]]) -> int:
@@ -31,14 +32,13 @@ class Solution:
         cellToCurrHighestSafeness = {}
         # pq saves the highest safeness seen so far in all the paths that pass through (i, j)
         pq = []
-        ans = 0
         heappush(pq, [-cellToSafeness[(0, 0)], 0, 0])
         while pq:
             safeness, i, j = heappop(pq)
             safeness = -safeness
 
             if i == n - 1 and j == n - 1:
-                ans = max(ans, safeness)
+                return safeness
 
             if (i, j) not in cellToCurrHighestSafeness or cellToCurrHighestSafeness[(i, j)] < safeness:
                 cellToCurrHighestSafeness[(i, j)] = safeness
@@ -54,7 +54,7 @@ class Solution:
                     heappush(pq, [-newSafeness, ii, jj])
                     cellToCurrHighestSafeness[(ii, jj)] = newSafeness
 
-        return ans
+        return -1
 
 
 print(Solution().maximumSafenessFactor(grid=[

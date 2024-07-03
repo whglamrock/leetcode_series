@@ -1,11 +1,13 @@
 from collections import deque
 from typing import Optional, List
 
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 class Solution:
     def __init__(self):
@@ -15,7 +17,7 @@ class Solution:
         self.ans = deque()
         self.findSmallerValues(root, target, k)
         self.findBiggerValues(root, target, k)
-        return self.ans
+        return list(self.ans)
 
     def findSmallerValues(self, root: Optional[TreeNode], target: float, k: int):
         if not root:

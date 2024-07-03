@@ -3,6 +3,7 @@ from copy import deepcopy
 from heapq import *
 from typing import List
 
+
 # 1) Optimal solution is using Euler Path algorithm (see code at the bottom) but it's not a must in real interview.
 # Euler Path search algorithm: http://stackoverflow.com/questions/17467228/looking-for-algorithm-finding-euler-path
 # 2) A naive priorityQueue + bfs solution should suffice in real interview.

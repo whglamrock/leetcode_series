@@ -1,7 +1,7 @@
 from collections import deque
 from typing import List
 
-# sliding window idea
+
 # keep a decreasing queue and an increasing queue to store the min & max of the subarray
 class Solution:
     def longestSubarray(self, nums: List[int], limit: int) -> int:
@@ -16,7 +16,7 @@ class Solution:
             increasingStack.append([r, num])
             decreasingStack.append([r, num])
             while decreasingStack[0][1] - increasingStack[0][1] > limit:
-                l += 1
+                l = min(decreasingStack[0][0], increasingStack[0][0]) + 1
                 while increasingStack and increasingStack[0][0] < l:
                     increasingStack.popleft()
                 while decreasingStack and decreasingStack[0][0] < l:

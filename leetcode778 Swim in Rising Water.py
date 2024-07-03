@@ -1,6 +1,7 @@
 from heapq import *
 from typing import List
 
+
 # dijkstra's algorithm make sure when (i, j) is first reached, it's always the shortest path.
 # O(n ^ 2 * log(n ^ 2)) time solution.
 class Solution:
@@ -14,6 +15,7 @@ class Solution:
             currHeight, i, j = heappop(pq)
             if i == j == n - 1:
                 return indexToMaxElevation[(i, j)]
+
             for deltaI, deltaJ in directions:
                 ii, jj = i + deltaI, j + deltaJ
                 if 0 <= ii < n and 0 <= jj < n:
