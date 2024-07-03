@@ -13,6 +13,9 @@ class Solution:
         nodeToMinTime = {}
         while pq:
             currTime, node = heappop(pq)
+            # Below if condition is important: think of case like [[1, 2, 1], [2, 3, 2], [1, 3, 4]].
+            # if you print the pq, pq at some point will be [[3, 3], [4, 3]] so we can't just blindly
+            # reset the nodeToMinTime here.
             if node in nodeToMinTime and nodeToMinTime[node] < currTime:
                 continue
             nodeToMinTime[node] = currTime

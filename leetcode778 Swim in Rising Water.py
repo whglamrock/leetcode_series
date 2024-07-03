@@ -25,4 +25,4 @@ class Solution:
                         heappush(pq, [newHeight, ii, jj])
 
         # useless, just to avoid syntax warning
-        return 0
+        return -1
