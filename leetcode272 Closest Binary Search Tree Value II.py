@@ -26,6 +26,8 @@ class Solution:
             # only in right subtree there could be smaller than target but closer than root values
             self.findSmallerValues(root.right, target, k)
             if len(self.ans) == k:
+                # we directly return here because findSmallerValues gets called first and we know the
+                # ans deque only contains values <= target
                 return
             self.ans.appendleft(root.val)
         self.findSmallerValues(root.left, target, k)
