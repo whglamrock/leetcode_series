@@ -1,36 +1,34 @@
-from collections import deque
 from typing import List
 
+
+# the trick for O(NK) solution is maintaining the min & second min cost of the previous house, and their corresponding colors
 class Solution:
     def minCostII(self, costs: List[List[int]]) -> int:
         n, k = len(costs), len(costs[0])
-        # dp[i][j] means the min cost of painting i houses and the ith house is painted with color j
-        dp = [[2147483647 for j in range(k)] for i in range(n + 1)]
+        # dp[i][j] means the min cost of painting i houses where the ith house is in color j
+        dp = [[2147483647 for j in range(k)] for i in range(n)]
         for j in range(k):
-            dp[0][j] = 0
+            dp[0][j] = costs[0][j]
 
-        minCostFromLeft, minCostFromRight = [], deque()
-        for i in range(1, n + 1):
-            currMin = 2147483647
-            nextMinCostFromLeft, nextMinCostFromRight = [], deque()
+        for i in range(1, n):
+            minPrevCost, secondMinPrevCost = 2147483647, 2147483647
+            minPrevCostColor, secondMinPrevCostColor = -1, -1
+            # find the min and second min cost for (i - 1)'th house
             for j in range(k):
-                if not minCostFromLeft:
-                    dp[i][j] = dp[i - 1][j] + costs[i - 1][j]
+                if dp[i - 1][j] < minPrevCost:
+                    secondMinPrevCost = minPrevCost
+                    secondMinPrevCostColor = minPrevCostColor
+                    minPrevCost = dp[i - 1][j]
+                    minPrevCostColor = j
+                elif dp[i - 1][j] < secondMinPrevCost:
+                    secondMinPrevCost = dp[i - 1][j]
+                    secondMinPrevCostColor = j
+
+            for j in range(k):
+                if j == minPrevCostColor:
+                    dp[i][j] = dp[i - 1][secondMinPrevCostColor] + costs[i][j]
                 else:
-                    if j - 1 >= 0:
-                        dp[i][j] = min(dp[i][j], minCostFromLeft[j - 1] + costs[i - 1][j])
-                    if j + 1 < k:
-                        dp[i][j] = min(dp[i][j], minCostFromRight[j + 1] + costs[i - 1][j])
-                currMin = min(currMin, dp[i][j])
-                nextMinCostFromLeft.append(currMin)
-
-            # scanning from right to left
-            currMin = 2147483647
-            for j in range(k - 1, -1, -1):
-                currMin = min(currMin, dp[i][j])
-                nextMinCostFromRight.appendleft(currMin)
-
-            minCostFromLeft, minCostFromRight = nextMinCostFromLeft, nextMinCostFromRight
+                    dp[i][j] = dp[i - 1][minPrevCostColor] + costs[i][j]
 
         return min(dp[-1])
 
