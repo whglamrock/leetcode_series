@@ -2,6 +2,7 @@ from collections import defaultdict
 from math import inf
 from typing import List, Tuple
 
+
 class Solution:
     def maxPoints(self, points: List[List[int]]) -> int:
         if len(points) == 1:
@@ -15,6 +16,7 @@ class Solution:
                 k, b = self.calculateParameters(point1, point2)
                 parameterToPoints[(k, b)].add((point1[0], point1[1]))
                 parameterToPoints[(k, b)].add((point2[0], point2[1]))
+
         return max(len(numOfPoints) for numOfPoints in parameterToPoints.values())
 
     def calculateParameters(self, point1: List[int], point2: List[int]) -> Tuple[int, int]:
