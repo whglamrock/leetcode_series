@@ -1,28 +1,62 @@
+from collections import defaultdict
+from typing import List
 
-# super easy
 
-class WordDistance(object):
-    def __init__(self, words):
+class WordDistance:
+    def __init__(self, wordsDict: List[str]):
+        self.wordToIndexes = defaultdict(list)
+        for i, word in enumerate(wordsDict):
+            self.wordToIndexes[word].append(i)
 
-        self.dick = {}
-        self.res = 0
-        for i in xrange(len(words)):
-            if words[i] in self.dick:
-                self.dick[words[i]].append(i)
+    def shortest(self, word1: str, word2: str) -> int:
+        indexes1, indexes2 = self.wordToIndexes[word1], self.wordToIndexes[word2]
+        if len(indexes1) > len(indexes2):
+            indexes1, indexes2 = indexes2, indexes1
+
+        shortestDist = 2147483647
+        for target in indexes1:
+            closestIndex = self.findClosest(indexes2, target)
+            shortestDist = min(shortestDist, abs(closestIndex - target))
+
+        return shortestDist
+
+    def findClosest(self, nums: List[int], target: int) -> int:
+        closestSmaller, closestBigger = -1, -1
+
+        # go smaller
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            m = (l + r + 1) // 2
+            if l == r:
+                if nums[m] <= target:
+                    closestSmaller = nums[m]
+                break
+            if nums[m] <= target:
+                l = m
             else:
-                self.dick[words[i]] = [i]
+                r = m - 1
 
+        # go bigger
+        l, r = 0, len(nums) - 1
+        while l <= r:
+            m = (l + r) // 2
+            if l == r:
+                if nums[m] >= target:
+                    closestBigger = nums[m]
+                break
+            if nums[m] >= target:
+                r = m
+            else:
+                l = m + 1
 
-    def shortest(self, word1, word2):
-
-        dist = 2147483647
-        for i in self.dick[word1]:
-            for j in self.dick[word2]:
-                if abs(i-j)<dist:
-                    dist = abs(i-j)
-
-        return dist
-
+        if closestSmaller == -1:
+            return closestBigger
+        if closestBigger == -1:
+            return closestSmaller
+        if target - closestSmaller <= closestBigger - target:
+            return closestSmaller
+        else:
+            return closestBigger
 
 
 # Your WordDistance object will be instantiated and called as such:

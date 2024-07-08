@@ -34,6 +34,8 @@ class MaxStack:
         self.cleanUp()
         return maxVal
 
+    # if we don't delete the expiredId from softDeleted set it's also ok but in reality
+    # the size of this set can get out of control
     def cleanUp(self):
         while self.stack and self.stack[-1][1] in self.softDeleted:
             self.softDeleted.discard(self.stack.pop()[1])

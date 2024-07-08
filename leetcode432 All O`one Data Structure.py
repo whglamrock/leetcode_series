@@ -1,84 +1,86 @@
-
-class Node:
+class ListNode:
     def __init__(self, count=None, keys=None, prev=None, next=None):
-        self.count = count
+        self.count = count if count is not None else 0
         self.keys = keys if keys else set()
-        self.next = next
-        self.prev = prev
+        self.prev, self.next = prev, next
 
+
+# keep in mind that in python: in scenario like in line 62 you need to always do "prevNext = prevNode.next" instead of
+# doing "newNode.prev, newNode.next = prevNode, prevNode.next; prevNode.next, prevNode.next.prev = newNode, newNode".
+# otherwise the python's copy mechanism will give you some bullshit result
 class AllOne:
     def __init__(self):
-        self.keyToNode = {}
-        self.head, self.tail = Node(), Node()
+        self.head, self.tail = ListNode(), ListNode()
         self.head.next, self.tail.prev = self.tail, self.head
-
-    def removeNode(self, node: Node):
-        prevNode, nextNode = node.prev, node.next
-        prevNode.next, nextNode.prev = nextNode, prevNode
-        node.prev, node.next = None, None
+        self.keyToNode = {}
 
     def inc(self, key: str) -> None:
         if key in self.keyToNode:
             node = self.keyToNode[key]
-            node.keys.discard(key)
-            del self.keyToNode[key]
             nextNode = node.next
+            node.keys.discard(key)
             currCount = node.count
-            # need to create a newNode
-            if currCount + 1 != nextNode.count:
-                newNode = Node(currCount + 1, {key}, node, nextNode)
+            del self.keyToNode[key]
+
+            if nextNode.count == currCount + 1:
+                nextNode.keys.add(key)
+                self.keyToNode[key] = nextNode
+            else:
+                newNode = ListNode(currCount + 1, {key})
+                newNode.prev, newNode.next = node, nextNode
                 node.next, nextNode.prev = newNode, newNode
                 self.keyToNode[key] = newNode
-            else:
-                self.keyToNode[key] = nextNode
-                nextNode.keys.add(key)
 
             if not node.keys:
                 self.removeNode(node)
         else:
-            nextNode = self.head.next
-            if nextNode.count != 1:
-                newNode = Node(1, {key}, self.head, nextNode)
-                self.head.next, nextNode.prev = newNode, newNode
+            firstNode = self.head.next
+            if firstNode.count != 1:
+                newNode = ListNode(1, {key})
                 self.keyToNode[key] = newNode
+                newNode.prev, newNode.next = self.head, firstNode
+                self.head.next, firstNode.prev = newNode, newNode
             else:
-                nextNode.keys.add(key)
-                self.keyToNode[key] = nextNode
+                firstNode.keys.add(key)
+                self.keyToNode[key] = firstNode
 
     def dec(self, key: str) -> None:
         node = self.keyToNode[key]
+        currCount = node.count
         node.keys.discard(key)
         del self.keyToNode[key]
         prevNode = node.prev
-
-        currCount = node.count
-        # after decrease the count will be 0
-        if currCount == 1:
-            if not node.keys:
-                self.removeNode(node)
-            return
-
-        # need to create a new node
-        if currCount - 1 != prevNode.count:
-            newNode = Node(currCount - 1, {key}, prevNode, node)
-            prevNode.next, node.prev = newNode, newNode
-            self.keyToNode[key] = newNode
-        else:
-            prevNode.keys.add(key)
-            self.keyToNode[key] = prevNode
-
         if not node.keys:
             self.removeNode(node)
 
+        if currCount == 1:
+            return
+
+        if prevNode.count == currCount - 1:
+            prevNode.keys.add(key)
+            self.keyToNode[key] = prevNode
+        else:
+            newNode = ListNode(currCount - 1, {key})
+            prevNext = prevNode.next
+            newNode.prev, newNode.next = prevNode, prevNext
+            prevNode.next, prevNext.prev = newNode, newNode
+            self.keyToNode[key] = newNode
+
     def getMaxKey(self) -> str:
-        for value in self.tail.prev.keys:
-            return value
+        for key in self.tail.prev.keys:
+            return key
         return ''
 
     def getMinKey(self) -> str:
-        for value in self.head.next.keys:
-            return value
+        for key in self.head.next.keys:
+            return key
         return ''
+
+    # it's assumed that this node is not head or tail
+    def removeNode(self, node: ListNode):
+        prevNode, nextNode = node.prev, node.next
+        prevNode.next, nextNode.prev = nextNode, prevNode
+        node.prev, node.next = None, None
 
 
 # Your AllOne object will be instantiated and called as such:
