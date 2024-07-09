@@ -1,10 +1,12 @@
 from collections import deque
 
+
 class TreeNode(object):
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
+
 
 # serialize it the same way in leetcode. e.g., [1,2,3,null,null,4,5,null,6,null,7]
 class Codec:

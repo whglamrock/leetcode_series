@@ -1,5 +1,8 @@
 from typing import List
 
+
+# Remember the below solution. Since nums[i] is an integer we just need to maintain a max & min product that ends at
+# each num[i]. Suppose we have a subarray without 0, the max abs value of a product must be the product of the entire subarray.
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
         maximum, minimum = nums[0], nums[0]
