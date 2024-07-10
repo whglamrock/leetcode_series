@@ -1,11 +1,11 @@
 from typing import List
 
+
 # O(n) dp solution. for dp[i], if some tap on the right side of i (can include i) opens and the
 # left most (> 0) watered point is i, dp[i] stores the corresponding right most watered point
 # check: https://leetcode.com/problems/minimum-number-of-taps-to-open-to-water-a-garden/solutions/3983936/3-minutes-to-realise-greedy-approach-beats-99/
 # P.S. The idea can originally come from the O(nlogn) sort ranges and find the most rightward overlapping
 # range approach (code commented at the bottom).
-
 class Solution:
     def minTaps(self, n: int, ranges: List[int]) -> int:
         dp = [0] * (n + 1)
@@ -41,6 +41,7 @@ print(Solution().minTaps(5, [4, 1, 1, 1, 1, 1]))
 
 
 '''
+# O(N * log(N)) sorting solution, way easier to remember/implement
 class Solution:
     def minTaps(self, n: int, ranges: List[int]) -> int:
         tapRanges = []
@@ -74,10 +75,6 @@ class Solution:
             # no overlap
             if taps and taps[-1][1] < distinctRanges[i][0]:
                 return -1
-            # redundant range
-            if taps and taps[-1][1] >= distinctRanges[i][1]:
-                i += 1
-                continue
 
             # find the range with the farthest right bound that overlaps with taps[-1]
             while taps and i + 1 < len(distinctRanges) and distinctRanges[i + 1][0] <= taps[-1][1] and distinctRanges[i + 1][1] >= distinctRanges[i][1]:

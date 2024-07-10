@@ -1,5 +1,6 @@
 from typing import List
 
+
 class Solution:
     def orangesRotting(self, grid: List[List[int]]) -> int:
         m, n = len(grid), len(grid[0])
@@ -23,11 +24,8 @@ class Solution:
             if todo:
                 minutes += 1
 
-        existsAnyFreshOrange = False
         for row in grid:
             for cell in row:
                 if cell == 1:
-                    existsAnyFreshOrange = True
-                    break
-
-        return minutes if not existsAnyFreshOrange else -1
+                    return -1
+        return minutes
