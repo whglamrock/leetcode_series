@@ -1,6 +1,7 @@
 from collections import defaultdict
 from random import randint
 
+
 # 1) The reason we need to use set instead of list to store the indexes is because when we do the swapping, we won't be able to
 # keep the indexes of the number to be swapped "in" sorted with O(1) time if we insert "indexOfRemoved" into a list
 # 2) Remember using Python set.pop() operation, which is amortized O(1) time
@@ -28,7 +29,6 @@ class RandomizedCollection:
             if not self.numToIndexes[val]:
                 del self.numToIndexes[val]
             self.nums.pop()
-            return True
         else:
             indexOfRemoved = self.numToIndexes[val].pop()
             if not self.numToIndexes[val]:
@@ -40,7 +40,8 @@ class RandomizedCollection:
             self.numToIndexes[numToSwap].add(indexOfRemoved)
             self.nums[indexOfRemoved] = numToSwap
             self.nums.pop()
-            return True
+
+        return True
 
     def getRandom(self) -> int:
         randomIndex = randint(0, len(self.nums) - 1)

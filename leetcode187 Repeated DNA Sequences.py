@@ -1,20 +1,20 @@
+from collections import defaultdict
+from typing import List
 
-# O(n) time/space solution
 
-class Solution(object):
-    def findRepeatedDnaSequences(self, s):
-        dick = {}
+class Solution:
+    def findRepeatedDnaSequences(self, s: str) -> List[str]:
+        if len(s) < 10:
+            return []
+
+        sequenceToCount = defaultdict(int)
+        for i in range(len(s) - 9):
+            sequence = s[i:i + 10]
+            sequenceToCount[sequence] += 1
+
         ans = []
-        i = 0
-        while i + 10 <= len(s):
-            if s[i: i+10] not in dick:
-                dick[s[i: i+10]] = 1
-            else:
-                dick[s[i: i+10]] += 1
-            i += 1
-
-        for item in dick:
-            if dick[item] > 1:
-                ans.append(item)
+        for sequence, count in sequenceToCount.items():
+            if count >= 2:
+                ans.append(sequence)
 
         return ans
