@@ -1,69 +1,54 @@
 class ListNode:
-    def __init__(self, key, value):
+    def __init__(self, key: int, value: int, next=None):
         self.key = key
         self.value = value
-        self.next = None
-        self.prev = None
+        self.next = next
 
-# the double linked list solution should satisfy the need in real interview
-class MyHashMap(object):
+
+class MyHashMap:
     def __init__(self):
-        self.map = [None] * 10000
+        self.keyToListNode = [ListNode(-1, -1) for i in range(10000)]
 
     def put(self, key: int, value: int) -> None:
-        hashValue = self.hashCode(key)
-
-        # not even a single value exists
-        if not self.map[hashValue]:
-            self.map[hashValue] = ListNode(key, value)
-            return
-
-        # update the value
-        node = self.findNode(key)
-        if node:
-            node.value = value
-            return
-
-        # node doesn't exist but there is collision
-        curr = self.map[hashValue]
-        while curr.next is not None:
+        head = self.keyToListNode[key % 10000]
+        curr = head.next
+        while curr:
+            if curr.key == key:
+                curr.value = value
+                return
             curr = curr.next
+
+        firstNode = head.next
         newNode = ListNode(key, value)
-        curr.next = newNode
-        newNode.prev = curr
+        head.next = newNode
+        newNode.next = firstNode
 
     def get(self, key: int) -> int:
-        node = self.findNode(key)
-        return node.value if node else -1
+        head = self.keyToListNode[key % 10000]
+        curr = head.next
+        while curr:
+            if curr.key == key:
+                return curr.value
+            curr = curr.next
+
+        return -1
 
     def remove(self, key: int) -> None:
-        node = self.findNode(key)
-        if not node:
+        head = self.keyToListNode[key % 10000]
+
+        # iterate the linkedList to find the node
+        curr = head.next
+        prev = head
+        while curr:
+            if curr.key == key:
+                break
+            prev = curr
+            curr = curr.next
+
+        if not curr:
             return
 
-        hashValue = self.hashCode(key)
-        # update the self.map[hashValue] when node is the head of the linked list
-        if node == self.map[hashValue]:
-            self.map[hashValue] = node.next
-
-        # disconnect the prev and next
-        prevNode, nextNode = node.prev, node.next
-        if prevNode:
-            prevNode.next = nextNode
-        if nextNode:
-            nextNode.prev = prevNode
-
-    def hashCode(self, key):
-        hashValue = key / 100
-        return hashValue if hashValue < 10000 else 9999
-
-    def findNode(self, key):
-        hashValue = self.hashCode(key)
-
-        if not self.map[hashValue]:
-            return None
-
-        curr = self.map[hashValue]
-        while curr and curr.key != key:
-            curr = curr.next
-        return curr
+        # cut out the node
+        nextNode = curr.next
+        prev.next = nextNode
+        curr.next = None
