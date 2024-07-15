@@ -1,24 +1,17 @@
-
-# super easy OOD question.
-
-class Logger(object):
-
+class Logger:
     def __init__(self):
+        self.messageToLastTime = {}
 
-        self.dick = {}
-
-    def shouldPrintMessage(self, timestamp, message):
-
-        if message not in self.dick:
-            self.dick[message] = timestamp
+    def shouldPrintMessage(self, timestamp: int, message: str) -> bool:
+        if message not in self.messageToLastTime:
+            self.messageToLastTime[message] = timestamp
             return True
-        else:
-            if timestamp - self.dick[message] >= 10:
-                self.dick[message] = timestamp
-                return True
-            else:
-                return False
 
+        lastTime = self.messageToLastTime[message]
+        if timestamp < lastTime + 10:
+            return False
+        self.messageToLastTime[message] = timestamp
+        return True
 
 
 # Your Logger object will be instantiated and called as such:

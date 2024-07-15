@@ -19,7 +19,7 @@ class LRUCache:
 
         val = self.keyToNode[key].val
         self.deleteKey(key)
-        self.put(key, val)
+        self.addNewNode(key, val)
         return val
 
     def put(self, key: int, value: int) -> None:

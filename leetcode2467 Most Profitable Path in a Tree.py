@@ -47,8 +47,6 @@ class Solution:
         return incomeForCurrNode + extraIncomeInChildren
 
     def dfsForBob(self, currNode: int, lastNode: int, distance: int, graph: Dict[int, set], distanceToBob: Dict[int, int]) -> bool:
-        if currNode not in graph:
-            return False
         if currNode == 0:
             distanceToBob[0] = distance
             return True
