@@ -1,92 +1,56 @@
+from typing import List
 
-class Solution(object):
-    def pacificAtlantic(self, matrix):
 
-        if (not matrix) or len(matrix) == 0 or len(matrix[0]) == 0:
-            return []
+class Solution:
+    def pacificAtlantic(self, heights: List[List[int]]) -> List[List[int]]:
+        m, n = len(heights), len(heights[0])
+        pacificTodo = set()
+        atlanticTodo = set()
+        for i in range(m):
+            pacificTodo.add((i, 0))
+            atlanticTodo.add((i, n - 1))
+        for j in range(n):
+            pacificTodo.add((0, j))
+            atlanticTodo.add((m - 1, j))
 
-        m = len(matrix)
-        n = len(matrix[0])
-        pacific = [[0 for j in xrange(n)] for i in xrange(m)]
-        atlantic = [[0 for j in xrange(n)] for i in xrange(m)]
+        directions = [[-1, 0], [1, 0], [0, -1], [0, 1]]
+        # bfs for pacific
+        visitedForPacific = set()
+        while pacificTodo:
+            nextPacificTodo = set()
+            for i, j in pacificTodo:
+                visitedForPacific.add((i, j))
+                for deltaI, deltaJ in directions:
+                    ii, jj = i + deltaI, j + deltaJ
+                    if ii < 0 or ii >= m or jj < 0 or jj >= n or (ii, jj) in visitedForPacific or (
+                    ii, jj) in pacificTodo:
+                        continue
+                    if heights[i][j] <= heights[ii][jj]:
+                        nextPacificTodo.add((ii, jj))
 
-        for i in xrange(m):
-            if i == 0:
-                for j in xrange(n):
-                    pacific[0][j] = 1
-                atlantic[0][-1] = 1
-            if i == m - 1:
-                for j in xrange(n):
-                    atlantic[m - 1][j] = 1
-                pacific[m - 1][0] = 1
-            else:
-                pacific[i][0] = 1
-                atlantic[i][-1] = 1
+            pacificTodo = nextPacificTodo
 
-        for i in xrange(1, m):
-            for j in xrange(1, n):
-                if pacific[i][j] == 1:
-                    continue
-                if pacific[i - 1][j] == 1 and matrix[i - 1][j] <= matrix[i][j]:
-                    pacific[i][j] = 1
-                elif pacific[i][j - 1] == 1 and matrix[i][j - 1] <= matrix[i][j]:
-                    pacific[i][j] = 1
-                elif i + 1 < m and pacific[i + 1][j] == 1 and matrix[i + 1][j] <= matrix[i][j]:
-                    pacific[i][j] = 1
-                elif j + 1 < n and pacific[i][j + 1] == 1 and matrix[i][j + 1] <= matrix[i][j]:
-                    pacific[i][j] = 1
-                if pacific[i][j] == 1:
-                    todo = {(i, j)}
-                    while todo:
-                        next = set()
-                        #if i == 1 and j == 1: print todo
-                        for y, x in todo:
-                            pacific[y][x] = 1
-                            if y - 1 > 0 and pacific[y - 1][x] == 0 and matrix[y - 1][x] >= matrix[y][x]:
-                                next.add((y - 1, x))
-                            if x - 1 > 0 and pacific[y][x - 1] == 0 and matrix[y][x - 1] >= matrix[y][x]:
-                                next.add((y, x - 1))
-                            if y + 1 < m and pacific[y + 1][x] == 0 and matrix[y + 1][x] >= matrix[y][x]:
-                                next.add((y + 1, x))
-                            if x + 1 < n and pacific[y][x + 1] == 0 and matrix[y][x + 1] >= matrix[y][x]:
-                                next.add((y, x + 1))
-                        todo = next
-                        #print pacific
+        # bfs for atlantic
+        visitedForAtlantic = set()
+        while atlanticTodo:
+            nextAtlanticTodo = set()
+            for i, j in atlanticTodo:
+                visitedForAtlantic.add((i, j))
+                for deltaI, deltaJ in directions:
+                    ii, jj = i + deltaI, j + deltaJ
+                    if ii < 0 or ii >= m or jj < 0 or jj >= n or (ii, jj) in visitedForAtlantic or (
+                    ii, jj) in atlanticTodo:
+                        continue
+                    if heights[i][j] <= heights[ii][jj]:
+                        nextAtlanticTodo.add((ii, jj))
 
-        for i in xrange(m - 2, -1, -1):
-            for j in xrange(n - 2, -1, -1):
-                if atlantic[i][j] == 1:
-                    continue
-                if atlantic[i + 1][j] == 1 and matrix[i + 1][j] <= matrix[i][j]:
-                    atlantic[i][j] = 1
-                elif atlantic[i][j + 1] == 1 and matrix[i][j + 1] <= matrix[i][j]:
-                    atlantic[i][j] = 1
-                elif i - 1 > 0 and atlantic[i - 1][j] == 1 and matrix[i - 1][j] <= matrix[i][j]:
-                    atlantic[i][j] = 1
-                elif j - 1 > 0 and atlantic[i][j - 1] == 1 and matrix[i][j - 1] <= matrix[i][j]:
-                    atlantic[i][j] = 1
+            atlanticTodo = nextAtlanticTodo
 
-                if atlantic[i][j] == 1:
-                    todo = {(i, j)}
-                    while todo:
-                        next = set()
-                        for y, x in todo:
-                            atlantic[y][x] = 1
-                            if y - 1 > 0 and atlantic[y - 1][x] == 0 and matrix[y - 1][x] >= matrix[y][x]:
-                                next.add((y - 1, x))
-                            if x - 1 > 0 and atlantic[y][x - 1] == 0 and matrix[y][x - 1] >= matrix[y][x]:
-                                next.add((y, x - 1))
-                            if y + 1 < m and atlantic[y + 1][x] == 0 and matrix[y + 1][x] >= matrix[y][x]:
-                                next.add((y + 1, x))
-                            if x + 1 < n and atlantic[y][x + 1] == 0 and matrix[y][x + 1] >= matrix[y][x]:
-                                next.add((y, x + 1))
-                        todo = next
+        commonIndexes = visitedForPacific.intersection(visitedForAtlantic)
         ans = []
-        for i in xrange(m):
-            for j in xrange(n):
-                if pacific[i][j] == 1 and atlantic[i][j] == 1:
-                    ans.append([i, j])
-
+        for item in commonIndexes:
+            ans.append(list(item))
         return ans
 
 
+print(Solution().pacificAtlantic(heights=[[1, 2, 2, 3, 5], [3, 2, 3, 4, 4], [2, 4, 5, 3, 1], [6, 7, 1, 4, 5], [5, 1, 1, 2, 4]]))
