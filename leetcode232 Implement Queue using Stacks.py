@@ -1,28 +1,24 @@
 
-# this fking stupid question doesn't make any sense at all.
-
-class Queue(object):
+# The description asks for using 2 stacks, although there are plenty of other ways to solve it (e.g., doubly linked list).
+class MyQueue:
     def __init__(self):
+        self.inStack, self.outStack = [], []
 
-        self.queue = []
+    def push(self, x: int) -> None:
+        self.inStack.append(x)
 
-    def push(self, x):
+    def pop(self) -> int:
+        self.move()
+        return self.outStack.pop()
 
-        self.queue.append(x)
+    def peek(self) -> int:
+        self.move()
+        return self.outStack[-1]
 
-    def pop(self):
+    def empty(self) -> bool:
+        return len(self.outStack) == 0 and len(self.inStack) == 0
 
-        self.queue.reverse()
-        self.queue.pop()
-        self.queue.reverse()
-
-    def peek(self):
-
-        self.queue.reverse()
-        ans = self.queue[-1]
-        self.queue.reverse()
-        return ans
-
-    def empty(self):
-
-        return len(self.queue) == 0
+    def move(self):
+        if not self.outStack:
+            while self.inStack:
+                self.outStack.append(self.inStack.pop())

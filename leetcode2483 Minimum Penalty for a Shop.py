@@ -1,5 +1,6 @@
 from collections import defaultdict
 
+
 class Solution:
     def bestClosingTime(self, customers: str) -> int:
         n = len(customers)
