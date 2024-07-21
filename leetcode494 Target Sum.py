@@ -1,6 +1,7 @@
 from collections import defaultdict
 from typing import List
 
+
 # A naive "DP" solution actually runs very fast.
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
