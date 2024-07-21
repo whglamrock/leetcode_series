@@ -1,44 +1,44 @@
 from functools import lru_cache
 from typing import List
 
-# the time complexity for knapsack problem is O(n * k), so the overall complexity here is O(n * log(n) + n * k)
+
+# An untypical knapsack problem, time complexity is O(N * K * log(N)).
 class Solution:
     def __init__(self):
         self.events = []
 
     def maxValue(self, events: List[List[int]], k: int) -> int:
-        self.events = events
-        self.events.sort(key=lambda x: x[1])
-        return self.dfs(k, len(self.events) - 1, 0)
+        # sort by end date
+        self.events = sorted(events, key=lambda x: x[1])
+        n = len(events)
+        # dp[i][j] stores the max value after attending at most i events by considering the events[:j + 1]
+        dp = [[0 for j in range(n)] for i in range(k + 1)]
+        for i in range(1, k + 1):
+            dp[i][0] = self.events[0][2]
+
+        for i in range(1, k + 1):
+            for j in range(1, n):
+                dp[i][j] = max(dp[i - 1][j], dp[i][j - 1], self.events[j][2])
+                indexOfLastEarlierEvent = self.findLastEventEndsEarlierThan(self.events[j][0])
+                if indexOfLastEarlierEvent == -1:
+                    continue
+                dp[i][j] = max(dp[i][j], dp[i - 1][indexOfLastEarlierEvent] + self.events[j][2])
+
+        return dp[-1][-1]
 
     @lru_cache(None)
-    def dfs(self, k: int, i: int, profit: int) -> int:
-        if k == 0 or i < 0:
-            return profit
-
-        # initialize if with case where we don't use events[i]
-        maxProfit = self.dfs(k, i - 1, profit)
-        maxIndexEarlier = self.findMaxIndexSmallerOrEqualThan(self.events[i][0], 0, i - 1)
-        if maxIndexEarlier != -1:
-            profitOfUsingI = self.dfs(k - 1, maxIndexEarlier, profit + self.events[i][2])
-            maxProfit = max(maxProfit, profitOfUsingI)
-
-        else:
-            maxProfit = max(maxProfit, profit + self.events[i][2])
-        return maxProfit
-
-    def findMaxIndexSmallerOrEqualThan(self, target: int, l: int, r: int) -> int:
+    def findLastEventEndsEarlierThan(self, target: int) -> int:
+        l, r = 0, len(self.events) - 1
         while l <= r:
-            if l == r:
-                if self.events[l][1] >= target:
-                    return -1
-                else:
-                    return l
             m = (l + r + 1) // 2
-            if self.events[m][1] >= target:
-                r = m - 1
-            else:
+            if l == r:
+                if self.events[m][1] < target:
+                    return m
+                return -1
+            if self.events[m][1] < target:
                 l = m
+            else:
+                r = m - 1
 
         return -1
 

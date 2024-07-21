@@ -21,17 +21,20 @@ class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         self.nums = nums
         return self.dfs(0, 0, target)
-
+    
     @lru_cache(None)
-    def dfs(self, i: int, currSum: int, target: int):
-        if i == len(self.nums) - 1:
-            if currSum == target and self.nums[-1] == 0:
-                return 2
-            if currSum + self.nums[-1] == target:
-                return 1
-            if currSum - self.nums[-1] == target:
+    def dfs(self, curr: int, i: int, target: int) -> int:
+        if i == len(self.nums):
+            if curr == target:
                 return 1
             return 0
         
-        return self.dfs(i + 1, currSum + self.nums[i], target) + self.dfs(i + 1, currSum - self.nums[i], target)
+        count = 0
+        positiveNext = curr + self.nums[i]
+        count += self.dfs(positiveNext, i + 1, target)
+
+        negativeNext = curr - self.nums[i]
+        count += self.dfs(negativeNext, i + 1, target)
+
+        return count
 '''
