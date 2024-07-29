@@ -17,8 +17,6 @@ class Solution:
 
         dp = [i + 1 for i in range(n)]
         for i in range(1, n):
-            # reset dp[i] to the possible maximum
-            dp[i] = dp[i - 1] + 1
             if endIndexToNonRepeatStart[i] == 0:
                 dp[i] = 1
                 continue

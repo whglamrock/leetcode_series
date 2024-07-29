@@ -1,5 +1,6 @@
 from typing import List
 
+
 # Note: the output doesn't count as extra space. If the question asks for not using division, it's close to hard level
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
