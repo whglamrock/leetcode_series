@@ -1,6 +1,7 @@
 from collections import Counter, defaultdict
 from typing import List
 
+
 # O(N) solution because the maxCount <= len(nums)
 class Solution:
     def topKFrequent(self, nums: List[int], k: int) -> List[int]:

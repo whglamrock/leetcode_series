@@ -1,7 +1,9 @@
 from heapq import *
 from typing import List
 
-# if we have capital w, among all projects cost < w we wanna pick the one with max profit
+
+# P.S.: when we complete a project we don't have to deduct the capital from the total amount. The "capital" here in
+# in the question is not the cost!
 class Solution:
     def findMaximizedCapital(self, k: int, w: int, profits: List[int], capital: List[int]) -> int:
         n = len(profits)
