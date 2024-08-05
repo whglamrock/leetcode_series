@@ -30,6 +30,7 @@ class Solution:
                 # ans deque only contains values <= target
                 return
             self.ans.appendleft(root.val)
+            
         self.findSmallerValues(root.left, target, k)
 
     def findBiggerValues(self, root: Optional[TreeNode], target: float, k: int):
@@ -43,4 +44,5 @@ class Solution:
                 else:
                     return
             self.ans.append(root.val)
+
         self.findBiggerValues(root.right, target, k)

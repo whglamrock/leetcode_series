@@ -1,27 +1,25 @@
+from heapq import *
+
 
 # basic idea is: the amount of trapped water is decided by the shortest wall around it
 #   so put the heights in a min priorityqueue and the newly popped height will be taller than
-#   all previously popped ones. Then the height difference cna be directly added the amount of trapped
+#   all previously popped ones. Then the height difference can be directly added the amount of trapped
 #   water.
-
-from heapq import *
-
 class Solution(object):
     def trapRainWater(self, heightMap):
-
         if not heightMap or len(heightMap[0]) == 0:
             return 0
 
         pq = []
         m, n = len(heightMap), len(heightMap[0])
-        visited = [[False for j in xrange(n)] for i in xrange(m)]
+        visited = [[False for j in range(n)] for i in range(m)]
 
-        for i in xrange(m):
+        for i in range(m):
             visited[i][0], visited[i][-1] = True, True
             heappush(pq, [heightMap[i][0], (i, 0)])
             heappush(pq, [heightMap[i][-1], (i, n - 1)])
 
-        for j in xrange(1, n - 1):
+        for j in range(1, n - 1):
             visited[0][j], visited[-1][j] = True, True
             heappush(pq, [heightMap[0][j], (0, j)])
             heappush(pq, [heightMap[-1][j], (m - 1, j)])
@@ -42,11 +40,9 @@ class Solution(object):
         return res
 
 
-
 Sol = Solution()
 heightMap = [[1,4,3,1,3,2],[3,2,1,3,2,4],[2,3,3,2,3,1]]
-print Sol.trapRainWater(heightMap)
-
+print(Sol.trapRainWater(heightMap))
 
 
 '''
