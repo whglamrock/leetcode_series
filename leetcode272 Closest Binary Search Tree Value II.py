@@ -30,7 +30,7 @@ class Solution:
                 # ans deque only contains values <= target
                 return
             self.ans.appendleft(root.val)
-            
+
         self.findSmallerValues(root.left, target, k)
 
     def findBiggerValues(self, root: Optional[TreeNode], target: float, k: int):

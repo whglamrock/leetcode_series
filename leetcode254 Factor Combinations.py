@@ -1,32 +1,21 @@
-
-# Backtracking
-
-class Solution(object):
-    def getFactors(self, n):
-
-        todo, combis = [(n, 2, [])], []   # the smallest factor starts from 2.
-        while todo:
-            n, i, combi = todo.pop()
-
-            while i * i <= n:   # when checking a number's factor, alwasy need to only check from 2 to sqrt(number)
-                if n % i == 0:
-                    combis += combi + [i, n/i],   # adds one feasible factor combination to the answer list.
-                    todo += (n/i, i, combi+[i]),    # n/i marks the remaining 'n' that hasn't been divided yet;
-                    # i marks the previous factor from which the new 'i' will start in the next loop;
-                    # new combi = combi+[i] marks the factors that already 'stripped' from the original n
-                i += 1
-
-        return combis
+from typing import List
 
 
+class Solution:
+    def __init__(self):
+        self.ans = []
 
-Sol = Solution()
-print Sol.getFactors(180)
+    def getFactors(self, n: int) -> List[List[int]]:
+        self.ans = []
+        self.dfs([n], 2)
+        return self.ans
 
+    def dfs(self, curr: List[int], i: int):
+        num = curr.pop()
+        while i * i <= num:
+            div = num // i
+            if num % i == 0:
+                self.ans.append(curr + [i, div])
+                self.dfs(curr + [i, div], i)
 
-
-
-
-
-
-
+            i += 1

@@ -1,11 +1,13 @@
 from typing import Optional
 
+
 # The answer for the followup question is at the bottom.
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
         self.left = left
         self.right = right
+
 
 class BSTIterator:
     def __init__(self, root: Optional[TreeNode]):
