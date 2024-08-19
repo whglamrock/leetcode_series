@@ -103,14 +103,14 @@ downRequest1 = Request(elevator.currFloor, 1, Direction.DOWN, Location.INSIDE_EL
 downRequest2 = Request(elevator.currFloor, 2, Direction.DOWN, Location.INSIDE_ELEVATOR)
 downRequest3 = Request(4, 0, Direction.DOWN, Location.OUTSIDE_ELEVATOR)
 
-# Two people inside of the elevator pressed button to go up to floor 5 and 3.
+# Two people inside the elevator pressed button to go up to floor 5 and 3.
 elevator.sendUpRequest(upRequest1)
 elevator.sendUpRequest(upRequest2)
 
-# One people outside of the elevator at floor 4 pressed button to go down to floor 0
+# One people outside the elevator at floor 4 pressed button to go down to floor 0
 elevator.sendDownRequest(downRequest3)
 
-# Two people inside of the elevator pressed button to go down to floor 1 and 2.
+# Two people inside the elevator pressed button to go down to floor 1 and 2.
 elevator.sendDownRequest(downRequest1)
 elevator.sendDownRequest(downRequest2)
 
