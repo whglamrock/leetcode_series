@@ -3,35 +3,37 @@ from typing import List
 
 class Solution:
     def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
-        wordList = set(wordList)
         if endWord not in wordList:
             return 0
 
+        wordList = set(wordList)
+        lenOfSqns = 1
         todo = {beginWord}
-        lenOfSequence = 1
         while todo:
             nextTodo = set()
             for word in todo:
                 if word == endWord:
-                    return lenOfSequence
+                    return lenOfSqns
                 for i in range(len(word)):
-                    for adjacentWord in self.generateAdjacentWords(word, i, wordList):
-                        nextTodo.add(adjacentWord)
+                    neighbors = self.generateNeighborWords(word, i, wordList)
+                    nextTodo = nextTodo.union(neighbors)
 
             todo = nextTodo
-            lenOfSequence += 1
+            lenOfSqns += 1
 
         return 0
 
-    def generateAdjacentWords(self, word: str, i: int, wordList: set) -> set:
-        adjacentWords = set()
-        for char in 'abcdefghijklmnopqrstuvwxyz':
-            adjacentWord = word[:i] + char + word[i + 1:]
-            if adjacentWord in wordList:
-                adjacentWords.add(adjacentWord)
-                wordList.discard(adjacentWord)
+    def generateNeighborWords(self, word: str, i: int, wordList: set) -> set:
+        neighbors = set()
+        for letter in 'abcdefghijklmnopqrstuvwxyz':
+            if letter == word[i]:
+                continue
+            neighborWord = word[:i] + letter + word[i + 1:]
+            if neighborWord in wordList:
+                wordList.discard(neighborWord)
+                neighbors.add(neighborWord)
 
-        return adjacentWords
+        return neighbors
 
 
 print(Solution().ladderLength("hit", "cog", ["hot", "dot", "dog", "lot", "log", "cog"]))
