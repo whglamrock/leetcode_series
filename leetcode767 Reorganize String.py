@@ -22,6 +22,7 @@ class Solution:
             ans[i] = mostFrequentChar
             charCount[mostFrequentChar] -= 1
             i += 2
+        del charCount[mostFrequentChar]
 
         for char in charCount:
             while charCount[char] > 0:
