@@ -1,50 +1,44 @@
-
 from collections import defaultdict
+from typing import List, Dict
 
-class Solution(object):
-    def longestWord(self, words):
-        """
-        :type words: List[str]
-        :rtype: str
-        """
-        if not words:
-            return
 
-        lengthToWord = defaultdict(set)
+class TrieNode:
+    def __init__(self):
+        self.children = defaultdict(TrieNode)
+        self.word = ''
+
+
+# O(N * m) DFS + Trie solution, where m is the average length of each word
+class Solution:
+    def longestWord(self, words: List[str]) -> str:
+        root = TrieNode()
+        words = set(words)
         for word in words:
-            lengthToWord[len(word)].add(word)
+            curr = root
+            # no need to build prefix here
+            for char in word:
+                curr = curr.children[char]
+            curr.word = word
 
-        length = 1
-        curr = {''}
-        ans = ''
+        lenToMinWord = {}
+        self.dfs(root, words, lenToMinWord)
+        if not lenToMinWord:
+            return ''
 
-        while length in lengthToWord:
-            next = set()
-            # use a lexicographically smallest string to avoid sorting
-            currAns = ''
+        return lenToMinWord[max(lenToMinWord.keys())]
 
-            for word in curr:
-                for char in 'abcdefghijklmnopqrstuvwxyz':
-                    newWord = word + char
-                    if newWord in lengthToWord[length]:
-                        next.add(newWord)
-                        if not currAns or newWord < currAns:
-                            currAns = newWord
+    def dfs(self, node: TrieNode, words: set, lenToMinWord: Dict[int, str]):
+        if node.word:
+            word = node.word
+            if len(word) not in lenToMinWord or word < lenToMinWord[len(word)]:
+                lenToMinWord[len(word)] = word
 
-            if next:
-                curr = next
-                ans = currAns
-            # it's very important to remember to break here
-            else:
-                break
-
-            length += 1
-
-        return ans
+        for char in node.children:
+            child = node.children[char]
+            if not child.word:
+                continue
+            self.dfs(child, words, lenToMinWord)
 
 
-
-print Solution().longestWord(["w","wo","wor","worl", "world"])
-print Solution().longestWord(["a", "banana", "app", "appl", "ap", "apply", "apple"])
-
-
+print(Solution().longestWord(["w", "wo", "wor", "worl", "world"]))
+print(Solution().longestWord(["a", "banana", "app", "appl", "ap", "apply", "apple"]))

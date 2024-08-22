@@ -1,5 +1,6 @@
 from typing import List
 
+
 # It's natural to think of binary search, but it's most important to realize you can use sliding window
 # to achieve O(n) time when counting pair diffs smaller than certain threshold.
 class Solution:
@@ -31,6 +32,6 @@ class Solution:
         for r, num in enumerate(nums):
             while l < r and num - nums[l] > diff:
                 l += 1
-            if l < r:
-                count += r - l
+            count += r - l
+
         return count
