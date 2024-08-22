@@ -1,6 +1,7 @@
 from functools import lru_cache
 from typing import List
 
+
 # O(n) solution with visited set and lru cache. Note that we still need the visited with cache to avoid infinite jump
 class Solution:
     def __init__(self):
@@ -22,9 +23,9 @@ class Solution:
         self.visited.add(i)
 
         canReach0 = False
-        if self.arr[i] + i < len(self.arr) and self.arr[i] + i not in self.visited:
-            canReach0 |= self.dfs(self.arr[i] + i)
-        if i - self.arr[i] >= 0 and i - self.arr[i] not in self.visited:
+        if i + self.arr[i] < len(self.arr):
+            canReach0 |= self.dfs(i + self.arr[i])
+        if i - self.arr[i] >= 0:
             canReach0 |= self.dfs(i - self.arr[i])
 
         return canReach0
