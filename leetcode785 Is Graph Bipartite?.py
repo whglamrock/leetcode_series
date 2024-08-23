@@ -1,25 +1,29 @@
+from typing import List
 
-class Solution(object):
 
-    def isBipartite(self, graph):
+class Solution:
+    def isBipartite(self, graph: List[List[int]]) -> bool:
+        n = len(graph)
+        colors = [0] * n
 
-        color = {}
+        for i in range(n):
+            # has been painted
+            if colors[i]:
+                continue
 
-        def dfs(pos):
-            for i in graph[pos]:
-                if i in color:
-                    if color[i] == color[pos]:
-                        return False
-                else:
-                    color[i] = 1 - color[pos]
-                    if not dfs(i):
-                        return False
-            return True
+            colors[i] = 1
+            # one BFS will paint all connected nodes
+            todo = {i}
+            while todo:
+                nextTodo = set()
+                for node in todo:
+                    for connectedNode in graph[node]:
+                        if not colors[connectedNode]:
+                            colors[connectedNode] = -colors[node]
+                            nextTodo.add(connectedNode)
+                        elif colors[connectedNode] != -colors[node]:
+                            return False
 
-        for i in xrange(len(graph)):
-            if i not in color:
-                color[i] = 0
-                if not dfs(i):
-                    return False
+                todo = nextTodo
 
         return True

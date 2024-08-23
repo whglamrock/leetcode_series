@@ -1,8 +1,9 @@
 from heapq import *
 from typing import List
 
-# the strategy is init the pq with all row[0]'s and keep popping out the smallest, and calculate the range
-# the tricky part is to figure out that the strategy can guarantee the optimal range is reached:
+
+# The strategy is init the pq with all row[0]'s and keep popping out the smallest, and calculate the range.
+# The tricky part is to figure out that the strategy can guarantee the optimal range is reached:
 # 1) assuming len(nums) == k, we keep a min heap of k numbers (each from nums[i]);
 # 2) within each row, we try to make the current nums[i][j] the left bound of the range
 # 3) the min of such nums[i][j] is smaller than all other elements in the minHeap, so for all other nums[ii][j]
@@ -18,7 +19,7 @@ class Solution:
         right = max(row[0] for row in nums)
 
         ans = [-2147483648, 2147483647]
-        while len(pq) >= len(nums):
+        while len(pq) == len(nums):
             left, i, j = heappop(pq)
             if right - left < ans[1] - ans[0]:
                 ans = [left, right]

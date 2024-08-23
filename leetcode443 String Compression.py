@@ -1,11 +1,12 @@
 from typing import List
 
+
 # Note that the stupid LC asks for constant space and modifying the original list
 class Solution:
     def compress(self, chars: List[str]) -> int:
         # i is the slow index, j is the fast index
         i, j, n = 0, 0, len(chars)
-        while i < n and j < n:
+        while j < n:
             # always reset the currChar
             currChar = chars[j]
             startingIndex = j

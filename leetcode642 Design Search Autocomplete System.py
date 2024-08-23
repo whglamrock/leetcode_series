@@ -1,55 +1,49 @@
-
 from collections import defaultdict
+from typing import List
 
-# counts need to be added to retrieve the sentence and count, even though there are many repeated sentences
 
 class TrieNode:
-
     def __init__(self):
         self.children = defaultdict(TrieNode)
         self.counts = defaultdict(int)
 
 
-class AutocompleteSystem(object):
-
-    def __init__(self, sentences, times):
+class AutocompleteSystem:
+    def __init__(self, sentences: List[str], times: List[int]):
         self.root = TrieNode()
+        self.curr = self.root
+        for sentence, count in zip(sentences, times):
+            self.addSentence(sentence, count)
         self.prefix = []
-        for s, count in zip(sentences, times):
-            self.add(s, count)
+        self.foundMatchForPrefix = True
 
-    def add(self, s, count):
+    def addSentence(self, sentence: str, count: int):
         curr = self.root
-        for c in s:
-            curr = curr.children[c]
-            curr.counts[s] += count
+        for char in sentence:
+            curr = curr.children[char]
+            curr.counts[sentence] += count
 
-    def input(self, c):
-
-        # even when the prefix exists in trie, we need to return []
-        if c == "#":
-            self.add(''.join(self.prefix), 1)
-            # reset but don't clear the root, because we can have multiple rounds of inputs (multiple "#"s)
+    def input(self, c: str) -> List[str]:
+        if c == '#':
+            self.addSentence(''.join(self.prefix), 1)
             self.prefix = []
+            self.curr = self.root
+            self.foundMatchForPrefix = True
             return []
 
-        # locate the right place in trie
         self.prefix.append(c)
-        curr = self.root
-        for char in self.prefix:
-            # as long as the char != "#", we don't need to call add()
-            if char not in curr.children:
-                return []
-            curr = curr.children[char]
+        if c not in self.curr.children or not self.foundMatchForPrefix:
+            self.foundMatchForPrefix = False
+            return []
 
-        # add the corresponding sentences and counts to answer
-        pq = []
-        for s in curr.counts:
-            pq.append([-curr.counts[s], s])
-        pq.sort()
+        self.curr = self.curr.children[c]
+        candidates = []
+        for sentence, count in self.curr.counts.items():
+            candidates.append([-count, sentence])
+        candidates.sort()
 
-        res = []
-        for i in xrange(min(3, len(pq))):
-            res.append(pq[i][1])
+        ans = []
+        for i in range(min(3, len(candidates))):
+            ans.append(candidates[i][1])
 
-        return res
+        return ans
