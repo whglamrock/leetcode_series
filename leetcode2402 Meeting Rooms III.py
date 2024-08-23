@@ -14,36 +14,29 @@ from typing import List
 class Solution:
     def mostBooked(self, n: int, meetings: List[List[int]]) -> int:
         meetings.sort()
-        rooms = [i for i in range(n)]
         ongoingMeetings = []
+        availableRooms = [i for i in range(n)]
         roomToCount = defaultdict(int)
 
         for start, end in meetings:
-            # pop out all completed meetings
             while ongoingMeetings and ongoingMeetings[0][0] <= start:
-                finishedEndTime, finishedRoom = heappop(ongoingMeetings)
-                heappush(rooms, finishedRoom)
-                roomToCount[finishedRoom] += 1
+                finishedEnd, finishedRoom = heappop(ongoingMeetings)
+                heappush(availableRooms, finishedRoom)
 
-            # see if there's any available room
-            if rooms:
-                availableRoom = heappop(rooms)
-                heappush(ongoingMeetings, [end, availableRoom])
-            # delay the meeting until the soonest finished meeting
+            if availableRooms:
+                room = heappop(availableRooms)
+                heappush(ongoingMeetings, [end, room])
             else:
-                finishedEndTime, finishedRoom = heappop(ongoingMeetings)
-                roomToCount[finishedRoom] += 1
-                delay = finishedEndTime - start
-                heappush(ongoingMeetings, [end + delay, finishedRoom])
+                earliestEnd, room = heappop(ongoingMeetings)
+                newEnd = max(earliestEnd, start) + (end - start)
+                heappush(ongoingMeetings, [newEnd, room])
 
-        while ongoingMeetings:
-            finishedEndTime, finishedRoom = heappop(ongoingMeetings)
-            roomToCount[finishedRoom] += 1
+            roomToCount[room] += 1
 
-        maxRoomCount = max(roomToCount.values())
-        for room in range(n):
-            if roomToCount[room] == maxRoomCount:
-                return room
+        maxCount = max(roomToCount.values())
+        for i in range(n):
+            if i in roomToCount and roomToCount[i] == maxCount:
+                return i
 
         return 0
 
