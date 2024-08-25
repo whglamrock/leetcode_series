@@ -1,28 +1,28 @@
 from random import randint
 from typing import List
 
+
 class Solution:
     def __init__(self, w: List[int]):
-        self.curr = 0
         self.prefixSum = []
-        for i, num in enumerate(w):
-            self.curr += num
-            self.prefixSum.append(self.curr)
+        for weight in w:
+            if not self.prefixSum:
+                self.prefixSum.append(weight)
+            else:
+                self.prefixSum.append(weight + self.prefixSum[-1])
 
     def pickIndex(self) -> int:
-        randomInt = randint(1, self.curr)
-        return self.findIndexBiggerOrEqualThan(self.prefixSum, randomInt)
+        target = randint(1, self.prefixSum[-1])
+        return self.findMinIndexBiggerOrEqualThan(self.prefixSum, target)
 
-    def findIndexBiggerOrEqualThan(self, nums: List[int], target: int):
+    def findMinIndexBiggerOrEqualThan(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums) - 1
-        while l <= r:
-            if l == r:
-                return l
+        while l < r:
             m = (l + r) // 2
-            if nums[m] < target:
-                l = m + 1
-            else:
+            if nums[m] >= target:
                 r = m
+            else:
+                l = m + 1
 
         return l
 

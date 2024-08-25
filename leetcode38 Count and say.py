@@ -1,3 +1,7 @@
+
+# Be careful about a very possible follow-up (seen in pinterest interview): https://leetcode.com/discuss/interview-question/algorithms/124839/pinterest-reverse-count-and-say
+# to reverse countAndSay method. We need to ask about whether the interviewer wants a single digit reverse.
+# e.g., 1211 could be 121 one's, or 1 two and 1 one.
 class Solution:
     def countAndSay(self, n: int) -> str:
         if n == 1:
@@ -20,11 +24,3 @@ class Solution:
 
 
 print(Solution().countAndSay(9))
-
-
-
-
-
-
-
-

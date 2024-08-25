@@ -1,6 +1,7 @@
 from collections import deque
 from typing import List
 
+
 # It's more realistic to remember this solution (especially the dedupe handling)
 # as there is way too many annoying edge test cases.
 class Solution:

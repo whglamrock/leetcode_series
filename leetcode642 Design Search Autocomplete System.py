@@ -40,6 +40,7 @@ class AutocompleteSystem:
         candidates = []
         for sentence, count in self.curr.counts.items():
             candidates.append([-count, sentence])
+        # can be optimized by using 3 variables to track max, second max and 3rd max count & corresponding sentences
         candidates.sort()
 
         ans = []
