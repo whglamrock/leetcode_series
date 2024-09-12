@@ -1,22 +1,23 @@
-
 from collections import Counter
 from heapq import *
+from typing import List
 
+
+# for customized sort in heapq, we will have to write an class and overrides the __lt__ method
 class Node:
-    def __init__(self, count, word):
+    def __init__(self, count: int, word: str):
         self.count = count
         self.word = word
 
-    def __cmp__(self, o):
-        if self.count != o.count:
-            return self.count > o.count
+    def __lt__(self, other: 'Node'):
+        if self.count != other.count:
+            return self.count < other.count
         else:
-            return self.word < o.word
+            return self.word > other.word
 
 
-class Solution(object):
-    def topKFrequent(self, words, k):
-
+class Solution:
+    def topKFrequent(self, words: List[str], k: int) -> List[str]:
         wordCount = Counter(words)
         q = []
         for word in wordCount:
@@ -48,4 +49,3 @@ class Solution(object):
 
         return ret[:k]
 '''
-

@@ -24,7 +24,7 @@ class Solution:
         while queue:
             i, j, steps, walkableChars, collectedKeys = queue.popleft()
 
-            # we have found a new key we didn't collected before
+            # we have found a new key we didn't collect before
             if grid[i][j] in "abcdef" and grid[i][j].upper() not in walkableChars:
                 # adding the upper case letters for easier check for neighbor cells.
                 walkableChars += grid[i][j].upper()
