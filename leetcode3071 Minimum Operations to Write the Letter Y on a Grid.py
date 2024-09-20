@@ -2,7 +2,8 @@ from collections import Counter
 from typing import List
 
 
-# A really stupid question which basically asks you to enumerate all scenarios
+# A really stupid question which basically asks you to enumerate all scenarios. P.S.: the question asks for a solution
+# that satisfies all 3 conditions not just any one of them.
 class Solution:
     def minimumOperationsToWriteY(self, grid: List[List[int]]) -> int:
         n = len(grid)
