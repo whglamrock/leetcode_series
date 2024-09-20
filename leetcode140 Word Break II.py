@@ -1,6 +1,7 @@
 from functools import lru_cache
 from typing import List
 
+
 class Solution:
     def __init__(self):
         self.wordDict = set()
@@ -20,6 +21,7 @@ class Solution:
                 wordBreaksOfSuffix = self.dfs(s[i:])
                 for wordBreakOfSuffix in wordBreaksOfSuffix:
                     ans.append((s[:i] + ' ' + wordBreakOfSuffix).strip())
+
         return ans
 
 

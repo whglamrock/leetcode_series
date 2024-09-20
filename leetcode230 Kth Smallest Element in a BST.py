@@ -1,4 +1,5 @@
-from typing import Optional, List
+from typing import Optional
+
 
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
@@ -6,8 +7,32 @@ class TreeNode:
         self.left = left
         self.right = right
 
-# if there is a lot of insertion to the BST, the optimization is to keep a
-# node to number of children map. So we can directly use BST structure to do binary search
+
+class Solution:
+    def __init__(self):
+        self.ans = -1
+        self.count = 0
+
+    def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
+        self.count = 0
+        self.ans = -1
+        self.dfs(root, k)
+        return self.ans
+
+    def dfs(self, node: Optional[TreeNode], k: int):
+        if not node:
+            return
+
+        self.dfs(node.left, k)
+        self.count += 1
+        if self.count == k:
+            self.ans = node.val
+
+        self.dfs(node.right, k)
+
+
+'''
+# Non optimal O(n) space solution.
 class Solution:
     def kthSmallest(self, root: Optional[TreeNode], k: int) -> int:
         return self.inOrderTraversal(root)[k - 1]
@@ -22,3 +47,4 @@ class Solution:
         if root.right:
             ans += self.inOrderTraversal(root.right)
         return ans
+'''

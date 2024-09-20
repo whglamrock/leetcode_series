@@ -17,12 +17,12 @@ class Solution:
         n = len(grid)
         gridSum = self.sumOfGrid(grid)
         if gridSum == n * n:
-            return Node(1, 1)
+            return Node(1, True)
         elif gridSum == 0:
-            return Node(0, 1)
+            return Node(0, True)
         # need to divide the grid
         else:
-            root = Node(1, 0)
+            root = Node(1, False)
             topLeft = self.construct(self.generateSubGrid(grid, 0, n // 2 - 1, 0, n // 2 - 1))
             topRight = self.construct(self.generateSubGrid(grid, 0, n // 2 - 1, n // 2, n - 1))
             bottomLeft = self.construct(self.generateSubGrid(grid, n // 2, n - 1, 0, n // 2 - 1))
@@ -47,6 +47,3 @@ class Solution:
         for row in grid:
             totalSum += sum(row)
         return totalSum
-
-
-

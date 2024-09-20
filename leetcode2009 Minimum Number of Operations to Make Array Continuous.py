@@ -1,7 +1,8 @@
 from typing import List
 
+
 # To deal with duplicates:
-# 1) each duplicate will need exactly one operation (e.g., 4,5,8,8,9,9 will need 2 operations for duplicates)
+# 1) each duplicate will need exactly one operation (e.g., [4, 5, 8, 8, 9, 9] will need 2 operations for duplicates)
 # 2) without removing duplicates, the only thing we are worrying about is the number of duplicates within the window
 # 3) based on 2), we remove all duplicates, which takes out the number of operations within the window (duplicates) and
 # outside the window ==> which doesn't affect the total number of operations.
