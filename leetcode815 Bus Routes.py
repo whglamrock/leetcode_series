@@ -1,8 +1,10 @@
 from collections import defaultdict
 from typing import List
 
+
 class Solution:
     def numBusesToDestination(self, routes: List[List[int]], source: int, target: int) -> int:
+        # leetcode does give stupid test cases where source & target are not in the routes
         if source == target:
             return 0
 
