@@ -1,5 +1,6 @@
 import math
 
+
 # instead of thinking about changing the middle digit, change the whole left half
 class Solution:
     def nearestPalindromic(self, n: str) -> str:
@@ -15,9 +16,9 @@ class Solution:
         candidates.append(self.buildPalindromeFromLeftHalf(leftHalf + 1, numOfDigits % 2 == 0))
         # # left half - 1
         candidates.append(self.buildPalindromeFromLeftHalf(leftHalf - 1, numOfDigits % 2 == 0))
-        # add one digit
-        candidates.append(10 ** (numOfDigits - 1) - 1)
         # minus one digit
+        candidates.append(10 ** (numOfDigits - 1) - 1)
+        # add one digit
         candidates.append(10 ** numOfDigits + 1)
 
         diff = math.inf

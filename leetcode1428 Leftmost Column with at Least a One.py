@@ -1,5 +1,6 @@
 from typing import List
 
+
 # """
 # This is BinaryMatrix's API interface.
 # You should not implement it, or speculate about its implementation
@@ -11,6 +12,8 @@ class BinaryMatrix(object):
     def dimensions(self) -> List[int]:
         pass
 
+
+# P.S.: in real interview you may asked to do O(M + N): https://leetcode.com/problems/leftmost-column-with-at-least-a-one/solutions/590135/easy-python-solution-o-m-n/
 class Solution:
     def leftMostColumnWithOne(self, binaryMatrix: 'BinaryMatrix') -> int:
         dimensions = binaryMatrix.dimensions()
